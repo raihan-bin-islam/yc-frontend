@@ -1,7 +1,27 @@
-.title{
-    color: #666;
+.nav{
+    height: 80px;
+    background-color: #366ba1;
+    .navContainer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        ul{
+          li{
+              list-style-type: none;
+              display: inline;
+              margin: 0 10px;
+              a{
+                  color: white;
+                  font-weight: bold;
+                  font-size: 1.8rem;
+                  text-decoration: none;
+              }
+          }  
+        }
+        img{
+            height: 50px;
+        }
+    }
 }
 
-.text{
-    color: red;
-}
