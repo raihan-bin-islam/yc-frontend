@@ -1,4 +1,6 @@
+@import '../../../styles/utils/base';
+
 .headerHero{
-    margin-top: 80px;
     height: 900px;
+    background-color: $primary;
 }
