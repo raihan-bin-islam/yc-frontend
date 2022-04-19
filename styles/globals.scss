@@ -7,7 +7,33 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 0.625em;
+  @include response(big-desktop) {
+    font-size: 0.625em;
+  }
+  @include response(m-desktop) {
+    font-size: 0.45em;
+  }
+  @include response(desktop) {
+    font-size: 0.4em;
+  }
+  @include response(tab-port) {
+    font-size: 0.3em;
+  }
+  @include response(vp-800) {
+    font-size: 0.25em;
+    .body-global,
+    .highlight-global {
+      font-size: 4rem !important;
+    }
+  }
+  @include response(phone) {
+    font-size: 0.2em;
+    .body-global,
+    .highlight-global {
+      font-size: 5rem !important;
+    }
+  }
 }
 
 body {
