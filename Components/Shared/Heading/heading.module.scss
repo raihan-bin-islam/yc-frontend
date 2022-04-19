@@ -1,8 +1,9 @@
 @import "../../../styles/utils/base";
 .heading {
+  margin: 20rem auto;
   font-size: 4.5rem;
   width: fit-content;
-  color: blue;
-  border: solid blue;
+  color: $primary;
+  border: solid $primary;
   border-width: 0.2rem 0rem 0.2rem 0rem;
 }
