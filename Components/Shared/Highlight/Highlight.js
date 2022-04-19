@@ -4,11 +4,13 @@ import { highlights } from "./data";
 import styles from "./highlight.module.scss";
 
 const Highlight = () => {
-  const { desc } = styles;
+  const { highlightContainer, imgContainer, desc } = styles;
   const { image, description } = highlights;
   return (
-    <div>
-      <Image src={image} alt="highlight image" width={113} height={113} objectFit="contain" />
+    <div className={highlightContainer}>
+      <div className={imgContainer}>
+        <Image src={image} alt="highlight image" width={113} height={113} objectFit="contain" />
+      </div>
       <p className={desc}>{description}</p>
     </div>
   );
