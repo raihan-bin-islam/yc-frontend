@@ -1,6 +1,6 @@
-@import './utils/base';
+@import "./utils/base";
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,8 +10,8 @@ html {
   font-size: 62.5%;
 }
 
-body{
-  font-family: "GT Walsheim Pro";
+body {
   overflow-x: hidden;
   line-height: 1;
+  font-family: "GT Walsheim Pro";
 }
