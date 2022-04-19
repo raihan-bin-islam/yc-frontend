@@ -4,7 +4,6 @@
 
   width: 52rem;
   height: 58.9rem;
-  margin: 20rem auto; //remove later
 
   cursor: pointer;
 
@@ -41,7 +40,7 @@
     background: white;
     color: $textDark;
 
-    font-size: 3.5rem;
+    font-size: $wwdCardHeading;
     text-align: center;
 
     svg {

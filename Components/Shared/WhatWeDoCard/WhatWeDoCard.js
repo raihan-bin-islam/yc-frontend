@@ -3,9 +3,10 @@ import styles from "./what_we_do_card.module.scss";
 import Image from "next/dist/client/image";
 import { data } from "./data";
 import RightArrow from "./RightArrow";
+
 const WhatWeDoCard = () => {
   const { container, imageDiv, image, overlay, heading, paragraph } = styles;
-  console.log(data);
+
   return (
     <div className={container}>
       <div className={imageDiv}>
