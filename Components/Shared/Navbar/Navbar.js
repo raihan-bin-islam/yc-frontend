@@ -1,13 +1,34 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Navbar.module.scss';
 import logo from '../../../public/yunus_center.png'
 
+
 const Navbar = () => {
-    const { nav, navContainer } = styles
+    const { nav, navContainer, navScroll } = styles
+    const [scrolled, setScrolled] = useState(false)
+
+    const handleScroll = () => {
+
+        const offset = window.scrollY;
+
+        if (offset > 80) {
+            setScrolled(true);
+        }
+        else {
+            setScrolled(false);
+        }
+    }
+    useEffect(()=> {
+        if(window.innerWidth > 800){
+            window.addEventListener('scroll', handleScroll)
+        }
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     return (
-        <nav className={nav}>
+        <nav className={scrolled ? navScroll : nav}>
             <div className={`container ${navContainer}`}>
                 <div>
                     <img src={logo.src} alt='brand-yc'/>
