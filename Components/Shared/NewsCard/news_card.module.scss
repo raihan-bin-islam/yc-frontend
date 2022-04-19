@@ -1,1 +1,66 @@
 @import "../../../styles/utils/base";
+.container {
+  margin: 20rem auto;
+  width: 54.6rem;
+  height: max-content;
+
+  .imageAlt {
+    padding: 0.5rem 0rem;
+
+    color: $textDark;
+
+    font-size: 1.2rem;
+    font-weight: $semiBold;
+  }
+
+  .newsHeading {
+    padding: 4rem 0rem 2.5rem 0rem;
+
+    color: $textDark;
+
+    font-size: $newsHeading;
+    font-weight: $bold;
+  }
+
+  .newsPublisher {
+    padding-right: 2.5rem;
+
+    color: $textLight;
+
+    font-size: $subHeading;
+    font-weight: $regular;
+    font-style: italic;
+  }
+
+  .newsParagraph {
+    padding: 2rem 0rem;
+
+    color: $textDark;
+
+    line-height: 1.3;
+    font-size: $paragraph;
+    font-weight: $regular;
+  }
+  .button {
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .readMore {
+    margin: 0rem auto;
+    padding: 1rem;
+
+    color: $primary;
+    background-color: white;
+    border: 0.1rem solid $secondaryCyan;
+
+    font-size: $paragraph;
+    font-weight: $regular;
+
+    transition: all $duration ease-in-out;
+
+    &:hover {
+      color: white;
+      background-color: $secondaryCyan;
+    }
+  }
+}
