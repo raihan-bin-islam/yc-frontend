@@ -8,9 +8,7 @@ const Highlight = () => {
   const { image, description } = highlights;
   return (
     <div className={highlightContainer}>
-      <div className={imgContainer}>
-        <Image src={image} alt="highlight image" width={113} height={113} objectFit="contain" />
-      </div>
+      <div className={imgContainer}>{/* <Image src={image} alt="highlight image" width={113} height={113} /> */}</div>
       <p className={desc}>{description}</p>
     </div>
   );

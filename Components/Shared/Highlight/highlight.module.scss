@@ -1,6 +1,15 @@
 @import "../../../styles/utils/base";
 .highlightContainer {
+  position: relative;
+  width: fit-content;
+  margin: 20rem auto;
   .imgContainer {
-    width: 13.1;
+    position: relative;
+    width: 13.1rem;
+    overflow: hidden;
+    .image {
+      position: relative;
+      bottom: 0;
+    }
   }
 }
