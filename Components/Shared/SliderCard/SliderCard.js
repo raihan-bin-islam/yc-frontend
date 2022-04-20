@@ -9,7 +9,7 @@ const SliderCard = () => {
 
   return (
     <div className={sliderContainer}>
-      <Image className={cardImg} src={image} alt={title} width={394} height={394} />
+      <img className={cardImg} src={image} alt={title} />
       <h4 className={cardTitle}>{title}</h4>
     </div>
   );

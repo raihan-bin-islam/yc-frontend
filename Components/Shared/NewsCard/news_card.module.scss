@@ -1,15 +1,17 @@
 @import "../../../styles/utils/base";
 .container {
   margin: 20rem auto;
-  width: 54.6rem;
+  // width: 54.6rem;
   height: max-content;
-
+  .newsCardImg {
+    height: 40rem;
+  }
   .imageAlt {
     padding: 0.5rem 0rem;
 
     color: $textDark;
 
-    font-size: 1.2rem;
+    font-size: clamp(12px, $altText, $altText);
     font-weight: $semiBold;
   }
 
@@ -18,7 +20,7 @@
 
     color: $textDark;
 
-    font-size: $newsHeading;
+    font-size: clamp(20px, $newsHeading, $newsHeading);
     font-weight: $bold;
   }
 
@@ -27,7 +29,7 @@
 
     color: $textLight;
 
-    font-size: $subHeading;
+    font-size: clamp(18px, $subHeading, $subHeading);
     font-weight: $regular;
     font-style: italic;
   }
@@ -38,7 +40,7 @@
     color: $textDark;
 
     line-height: 1.3;
-    font-size: $paragraph;
+    font-size: clamp(16px, $paragraph, $paragraph);
     font-weight: $regular;
   }
   .button {
@@ -53,7 +55,7 @@
     background-color: white;
     border: 0.1rem solid $secondaryCyan;
 
-    font-size: $paragraph;
+    font-size: clamp(14px, $paragraph, $paragraph);
     font-weight: $regular;
 
     transition: all $duration ease-in-out;

@@ -1,18 +1,16 @@
 @import "../../../styles/utils/base";
 
 .sliderContainer {
-  width: 39.4rem;
   padding: 0 2rem 0 0;
-
   .cardTitle {
-    width: 28rem;
-
-    margin: 0 auto;
     padding: 1rem 0rem;
 
     color: $primary;
 
     font-size: 2rem;
     text-align: center;
+  }
+  .cardImg {
+    height: 39.4rem;
   }
 }

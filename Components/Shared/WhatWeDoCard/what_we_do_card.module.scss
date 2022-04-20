@@ -2,7 +2,7 @@
 .container {
   position: relative;
 
-  width: 52rem;
+  // width: auto;
   height: 58.9rem;
 
   cursor: pointer;
@@ -12,7 +12,7 @@
     display: flex;
     position: relative;
     z-index: 1;
-
+    height: 80%;
     // Black Overlay initial state
     &:after {
       position: absolute;

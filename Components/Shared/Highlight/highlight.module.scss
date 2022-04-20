@@ -1,6 +1,30 @@
 @import "../../../styles/utils/base";
+
+// highlight container
 .highlightContainer {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 5rem;
+
+  width: fit-content;
+  margin: 20rem auto;
+  // highlight image container
   .imgContainer {
-    width: 13.1;
+    position: relative;
+    overflow: hidden;
+
+    width: 13.1rem;
+    border-radius: 50%;
+  }
+  // highlight description
+  .desc {
+    width: clamp(375px, 28.4rem, 90vw);
+
+    color: $textLight;
+
+    font-size: clamp($paragraphMin, $paragraph, $paragraph);
   }
 }
