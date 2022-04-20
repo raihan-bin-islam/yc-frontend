@@ -5,11 +5,11 @@ import { newsComponentData } from "./data";
 import Link from "next/link";
 
 const NewsCard = () => {
-  const { container, imageAlt, newsHeading, newsPublisher, newsParagraph, button, readMore } = styles;
+  const { container, newsCardImg, imageAlt, newsHeading, newsPublisher, newsParagraph, button, readMore } = styles;
   const { image, altText, heading, publisher, pressRelease, news } = newsComponentData;
   return (
     <div className={container}>
-      <Image src={image} alt={altText} width={546} height={399} />
+      <img className={newsCardImg} src={image} alt={altText} />
       <p className={imageAlt}>{altText}</p>
       <h3 className={newsHeading}>{heading}</h3>
       <span className={newsPublisher}>{publisher}</span> <span className={newsPublisher}>{pressRelease}</span>

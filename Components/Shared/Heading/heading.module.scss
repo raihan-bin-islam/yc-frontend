@@ -3,7 +3,7 @@
   width: fit-content;
   color: $primary;
   border: solid $primary;
-  border-width: 0.2rem 0rem 0.2rem 0rem;
+  border-width: 0.5rem 0rem 0.5rem 0rem;
 }
 .regular {
   font-size: $heading;
@@ -13,4 +13,8 @@
 }
 .large {
   font-size: $headingLarge;
+}
+.textWhite {
+  color: $white;
+  border: solid $white;
 }
