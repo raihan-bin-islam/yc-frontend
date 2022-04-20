@@ -1,0 +1,37 @@
+@import '../../../styles/utils/base';
+
+.heroWhatWeDoContainer{
+    height: 205.8rem;
+    padding: 7.8rem 0;
+    position: relative;
+    @include response(vp-800){
+        height: auto;
+    }
+    .backgroundPath{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        img{
+            width: 100%;
+        }
+    }
+    .whatWeDoMain{
+        z-index: 2;
+        .whatWeDoHeader{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .whatWeDoBody{
+            margin-top: 12.5rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12.5rem 3.5rem;
+            @include response(vp-800){
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1.5rem 0;
+            }
+        }
+    }
+}

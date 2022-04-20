@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './Navbar.module.scss';
 import logo from '../../../public/yunus_center.png'
 import magnifyIcon from '../../../public/icon_magnify.svg'
@@ -12,6 +12,23 @@ const Navbar = () => {
     const { nav, navContainer, navScroll, navActive, dropdown, mainList, burger, cross } = styles
     const [scrolled, setScrolled] = useState(false)
     const router = useRouter();
+
+    // menu open and close state
+    const [menuOpen, setMenuOpen] = useState(true)
+    const [menuClose, setMenuClose] = useState(false)
+    const navRef = useRef()
+
+    const HandleMenuOpen = () => {
+        navRef.current.style.left = '0' 
+        setMenuOpen(false)
+        setMenuClose(true)
+    }
+
+    const HandleMenuClose = () => {
+        navRef.current.style.left = '-100%'
+        setMenuOpen(true)
+        setMenuClose(false)
+    }
 
     const handleScroll = () => {
 
@@ -33,12 +50,12 @@ const Navbar = () => {
 
     return (
         <nav className={scrolled ? navScroll : nav}>
-            <div className={`container ${navContainer}`}>
+            <div className={`container-layout ${navContainer}`}>
                 <div>
                     <img src={logo.src} alt='brand-yc'/>
                 </div>
                 <div>
-                    <ul className={mainList}>
+                    <ul className={mainList} ref={navRef}>
                         <li>
                             <Link href='/'>
                                 <a className={router.pathname == "/" ? navActive : ""}>
@@ -65,8 +82,8 @@ const Navbar = () => {
                 </div>
             </div>
             <div>
-                <img src={burgerIcon.src} alt='brand-yc' className={burger}/>
-                <img src={crossIcon.src} alt='brand-yc' className={cross}/>
+                {menuOpen && <img src={burgerIcon.src} alt='brand-yc' className={burger} onClick={HandleMenuOpen}/>}
+                {menuClose && <img src={crossIcon.src} alt='brand-yc' className={cross} onClick={HandleMenuClose}/>}
             </div>
         </nav>
     );

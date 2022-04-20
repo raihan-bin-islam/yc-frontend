@@ -9,6 +9,9 @@
     background-color: rgba($color: $white, $alpha: 0.4);
     transition: 0.3s;
     z-index: 100;
+    @media screen and (max-width: 900px) {
+        height: 60px;
+    }
     .navContainer{
         display: flex;
         align-items: center;
@@ -16,6 +19,18 @@
         height: 100%;
         position: relative;
         ul{
+            @media screen and (max-width: 900px) {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                background-color: $primary;
+                min-height: 100vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: 0.3s;
+            }
           li{
               list-style-type: none;
               display: inline;
@@ -28,6 +43,9 @@
               position: relative;
               @media screen and (max-width: 900px) {
                   display: block;
+                  font-size: 16px;
+                  text-align: center;
+                  transition: 0.3s;
               }
               a{
                   color: $white;
@@ -38,11 +56,18 @@
                   &:hover{
                       color: $secondary;
                   }
+                  @media screen and (max-width: 900px) {
+                    font-size: 16px;
+                }
               }
               img{
                   width: 1.643rem;
                   height: 1.64rem;
                   cursor: pointer;
+                  @media screen and (max-width: 900px) {
+                    width: 16.4px;
+                    height: 16.4px;
+                }
               }
               .navActive{
                 color: $secondary;
@@ -62,6 +87,11 @@
             left: 50%;
             transform: translateX(-50%);
             display: none;
+            @media screen and (max-width: 900px) {
+                position: relative;
+                min-height: fit-content;
+                margin-top: 15px;
+            }
             li{
                 text-align: center;
                 min-width: 15rem;
@@ -76,6 +106,9 @@
         }
         img{
             height: 5.4rem;
+            @media screen and (max-width: 900px){
+                height: 30px;
+            }
         }
     }
     .burger{
@@ -87,6 +120,9 @@
         right: 5%;
         top: 50%;
         transform: translateY(-50%);
+        @media screen and (max-width: 900px){
+            display: block;
+        }
     }
     .cross{
         height: 24px;
@@ -97,6 +133,9 @@
         right: 5%;
         top: 50%;
         transform: translateY(-50%);
+        @media screen and (max-width: 900px){
+            display: block;
+        }
     }
 }
 
@@ -115,15 +154,34 @@
         justify-content: space-between;
         height: 100%;
         ul{
+            @media screen and (max-width: 900px) {
+                position: absolute;
+                top: 0;
+                left: -100%;
+                background-color: $primary;
+                min-height: 100vh;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: 0.3s;
+            }
           li{
             list-style-type: none;
             display: inline;
             margin: 0 1.7rem;
+            padding: 3.5rem 0;
             font-weight: 600;
             font-size: 2rem;
             color: $white;
             cursor: pointer;
             position: relative;
+            @media screen and (max-width: 900px) {
+                display: block;
+                font-size: 16px;
+                text-align: center;
+                transition: 0.3s;
+            }
             a{
                 color: white;
                 font-weight: 600;
@@ -133,24 +191,42 @@
                 &:hover{
                 color: $secondary;
                 }
+                @media screen and (max-width: 900px) {
+                    font-size: 16px;
+                }
             }
             img{
                 width: 1.643rem;
                 height: 1.64rem;
                 cursor: pointer;
+                @media screen and (max-width: 900px) {
+                  width: 16.4px;
+                  height: 16.4px;
+              }
             }
             .navActive{
                 color: $secondary;
+            }
+            &:hover{
+                .dropdown{
+                    display: block;
+                    animation: opacity 0.2s;
+                }
             }
           } 
           .dropdown{
             position: absolute;
             background-color: $white;
             border: 1px solid $primary;
-            top: 5.7rem;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%);
             display: none;
+            @media screen and (max-width: 900px) {
+                position: relative;
+                min-height: fit-content;
+                margin-top: 15px;
+            }
             li{
                 text-align: center;
                 min-width: 15rem;
@@ -176,6 +252,9 @@
         right: 5%;
         top: 50%;
         transform: translateY(-50%);
+        @media screen and (max-width: 900px){
+            display: block;
+        }
     }
     .cross{
         height: 24px;
@@ -186,6 +265,9 @@
         right: 5%;
         top: 50%;
         transform: translateY(-50%);
+        @media screen and (max-width: 900px){
+            display: block;
+        }
     }
 }
 

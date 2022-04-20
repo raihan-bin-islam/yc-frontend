@@ -1,0 +1,29 @@
+@import '../../../styles/utils/base';
+
+.homeEventsContainer{
+    height: 105.8rem;
+    background-color: $secondaryLightBlue;
+    .homeEventsHeader{
+        height: 54.4rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('../../../public/assets/images/landing_page/events_banner.webp');
+        background-position: cover;
+        background-repeat: no-repeat;
+    }
+    .homeEventsBody{
+        margin-top: 1rem;
+        .card_prev_arrow{
+            position: absolute;
+            top: 0;
+            left: -5%;
+        }
+        .card_next_arrow{
+            position: absolute;
+            top: 0;
+            right: -5%;
+        }
+    }
+}
