@@ -8,9 +8,9 @@
 
 html {
   font-size: 62.5%;
-  // @include response(m-desktop) {
-  //   font-size: 45%;
-  // }
+  @include response(m-desktop) {
+    font-size: 44.8%;
+  }
   @include response(desktop) {
     font-size: 40%;
   }
