@@ -1,8 +1,16 @@
 @import "../../../styles/utils/base";
 .heading {
-  font-size: 4.5rem;
   width: fit-content;
   color: $primary;
   border: solid $primary;
   border-width: 0.2rem 0rem 0.2rem 0rem;
+}
+.regular {
+  font-size: $heading;
+}
+.small {
+  font-size: $headingSecondary;
+}
+.large {
+  font-size: $headingLarge;
 }

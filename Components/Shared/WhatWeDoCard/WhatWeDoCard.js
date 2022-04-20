@@ -10,7 +10,14 @@ const WhatWeDoCard = () => {
   return (
     <div className={container}>
       <div className={imageDiv}>
-        <Image className={image} src={data.image} alt="what we do card image" width={520} height={427} />
+        <Image
+          className={image}
+          src={data.image}
+          alt="what we do card image"
+          width={19200}
+          height="100%"
+          objectFit="contain"
+        />
         <p className={paragraph}>{data.paragraph}</p>
       </div>
       <h3 className={heading}>
