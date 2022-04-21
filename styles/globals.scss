@@ -8,10 +8,17 @@
 
 html {
   font-size: 62.5%;
+<<<<<<< HEAD
   // @include response(m-desktop) {
   //   font-size: 45%;
   // }
   @include response(m-desktop) {
+=======
+  @include response(m-desktop) {
+    font-size: 44.8%;
+  }
+  @include response(desktop) {
+>>>>>>> 4d8f85a2732ccf6cf1e54c9369d67c7f4608c2c6
     font-size: 40%;
   }
   // @include response(tab-port) {
