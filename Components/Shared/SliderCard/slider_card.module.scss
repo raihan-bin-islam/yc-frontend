@@ -1,7 +1,8 @@
 @import "../../../styles/utils/base";
 
 .sliderContainer {
-  padding: 0 2rem 0 0;
+  //padding: 0 2rem 0 0;
+  margin: 0 1rem;
   .cardTitle {
     padding: 1rem 0rem;
 
@@ -12,5 +13,7 @@
   }
   .cardImg {
     height: 39.4rem;
+    width: 100%;
+    object-fit: cover;
   }
 }

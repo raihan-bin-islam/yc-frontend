@@ -24,12 +24,12 @@ const HomeLatestEvents = () => {
             breakpoint: 600,
             settings: {
               arrows: false,
-              centerMode: true,
+              centerMode: false,
               slidesToShow: 1,
             },
           },
         ],
-      };
+    };
     return (
         <section className={homeEventsContainer}>
             <div className='container-layout'>

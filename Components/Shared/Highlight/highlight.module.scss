@@ -3,15 +3,14 @@
 // highlight container
 .highlightContainer {
   position: relative;
-
   display: flex;
   align-items: center;
-
-  padding: 5rem;
-
   width: fit-content;
-  margin: 20rem auto;
+  margin-top: 2rem;
   // highlight image container
+  &:first-child{
+    margin-top: 0;
+  }
   .imgContainer {
     position: relative;
     overflow: hidden;

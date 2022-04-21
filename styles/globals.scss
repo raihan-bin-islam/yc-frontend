@@ -11,7 +11,7 @@ html {
   // @include response(m-desktop) {
   //   font-size: 45%;
   // }
-  @include response(desktop) {
+  @include response(m-desktop) {
     font-size: 40%;
   }
   // @include response(tab-port) {

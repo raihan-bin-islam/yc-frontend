@@ -17,7 +17,7 @@
         }
     }
     .whatWeDoMain{
-        z-index: 2;
+        z-index: 3;
         .whatWeDoHeader{
             display: flex;
             align-items: center;
@@ -29,8 +29,15 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 12.5rem 3.5rem;
             @include response(vp-800){
-                grid-template-columns: repeat(1, 1fr);
-                gap: 1.5rem 0;
+                display: none;
+            }
+        }
+        .whatWeDoBodyMobile{
+            display: none;
+            z-index: 3;
+            position: relative;
+            @include response(vp-800){
+                display: block;
             }
         }
     }

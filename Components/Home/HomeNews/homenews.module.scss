@@ -1,0 +1,15 @@
+@import '../../../styles/utils/base';
+
+.homeNewsContainer{
+    padding: 23rem 0;
+    .homeNewsContainerBody{
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        main{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+    }
+}

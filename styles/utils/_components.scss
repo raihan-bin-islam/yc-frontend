@@ -1,3 +1,8 @@
+@import './mixing';
+
 .container-layout {
   padding: 0 14.5rem;
+  @include response(vp-800){
+    padding: 0 5.5rem;
+  }
 }
