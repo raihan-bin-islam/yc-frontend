@@ -1,8 +1,14 @@
 import React from "react";
 
-const RightArrow = () => {
+const RightArrowLink = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="27.908" height="21.512" viewBox="0 0 27.908 21.512">
+    <svg
+      className="right-arrow-links"
+      xmlns="http://www.w3.org/2000/svg"
+      width="27.908"
+      height="21.512"
+      viewBox="0 0 27.908 21.512"
+    >
       <g id="Group_98" data-name="Group 98" transform="translate(-963.5 -6300.244)">
         <path
           id="Path_220"
@@ -29,4 +35,4 @@ const RightArrow = () => {
   );
 };
 
-export default RightArrow;
+export default RightArrowLink;

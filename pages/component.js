@@ -9,11 +9,12 @@ const Component = () => {
   return (
     <>
       <Highlight />
-      <WhatWeDoCard />
-      <SliderCard />
+      {/* <WhatWeDoCard /> */}
+      <NewsCard />
       <div className="grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 50 }}>
-        <NewsCard />
-        <NewsCard />
+        <SliderCard type="articles" />
+        <SliderCard type="articles" size={2} />
+        <SliderCard type="articles" />
       </div>
       <Heading text="What We Do" size="large" />
     </>
