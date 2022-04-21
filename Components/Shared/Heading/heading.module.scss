@@ -8,6 +8,9 @@
 }
 .regular {
   font-size: $heading;
+  @include response(vp-800) {
+    font-size: $heading - 2rem;
+  }
 }
 .small {
   font-size: $headingSecondary;

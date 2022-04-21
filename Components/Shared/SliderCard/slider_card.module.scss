@@ -1,19 +1,38 @@
 @import "../../../styles/utils/base";
 
-.sliderContainer {
-  //padding: 0 2rem 0 0;
-  margin: 0 1rem;
+.eventsContainer,
+.articlesContainer {
+  padding: 0 2rem 0 0;
   .cardTitle {
     padding: 1rem 0rem;
 
     color: $primary;
 
-    font-size: 2rem;
+    font-size: clamp(16px, $paragraph, $paragraph);
     text-align: center;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
   }
   .cardImg {
     height: 39.4rem;
     width: 100%;
     object-fit: cover;
   }
+
+  // Styles for articles slider card component
+  .articleImg {
+    height: 46.9rem;
+  }
+  .portraitImg {
+    width: 80%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.articlesContainer {
 }
