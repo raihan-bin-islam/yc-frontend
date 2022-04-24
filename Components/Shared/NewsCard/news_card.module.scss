@@ -28,7 +28,8 @@
 
     color: $textLight;
 
-    font-size: clamp(18px, $subHeading, $subHeading);
+    //font-size: clamp(15px, $subHeading, $subHeading);
+    font-size: $subHeading;
     font-weight: $regular;
     font-style: italic;
   }
@@ -37,7 +38,6 @@
     padding: 2rem 0rem;
 
     color: $textDark;
-
     line-height: 1.3;
     font-size: clamp(16px, $paragraph, $paragraph);
     font-weight: $regular;

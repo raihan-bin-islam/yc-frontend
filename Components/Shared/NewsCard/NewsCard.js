@@ -4,9 +4,13 @@ import Image from "next/dist/client/image";
 import { newsComponentData } from "./data";
 import Link from "next/link";
 
-const NewsCard = () => {
+const NewsCard = ({heading, publisher, pressRelease, news, altText, image}) => {
+  //classnames
   const { container, newsCardImg, imageAlt, newsHeading, newsPublisher, newsParagraph, button, readMore } = styles;
-  const { image, altText, heading, publisher, pressRelease, news } = newsComponentData;
+  
+  // data
+  //const { image, altText, heading, publisher, pressRelease, news } = newsComponentData;
+
   return (
     <div className={container}>
       <img className={newsCardImg} src={image} alt={altText} />

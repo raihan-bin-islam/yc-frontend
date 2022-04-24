@@ -9,7 +9,7 @@
 .regular {
   font-size: $heading;
   @include response(vp-800) {
-    font-size: $heading - 2rem;
+    font-size: $heading - 4rem;
   }
 }
 .small {

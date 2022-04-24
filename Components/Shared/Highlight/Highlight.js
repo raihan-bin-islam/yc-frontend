@@ -1,11 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { highlights } from "./data";
 import styles from "./highlight.module.scss";
 
-const Highlight = () => {
+const Highlight = ({image, description}) => {
   const { highlightContainer, imgContainer, desc } = styles;
-  const { image, description } = highlights;
   return (
     <div className={highlightContainer}>
       <div className={imgContainer}>

@@ -4,12 +4,30 @@
     padding: 23rem 0;
     .homeNewsContainerBody{
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 117rem 46rem;
         gap: 3rem;
+        @include response(vp-800){
+            grid-template-columns: 1fr;
+        }
         main{
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            @include response(vp-800){
+                grid-template-columns: 1fr;
+            }
+        }
+        aside{
+            display: block;
+            overflow-y: scroll;
+            scrollbar-width: thin;
+            scrollbar-color: $textLight $white;
+            padding: 0 1rem;
+            .asideHeader{
+                padding: 0 2rem 2rem 2rem;
+               display: flex;
+               justify-content: center;
+            }
         }
     }
 }

@@ -1,0 +1,138 @@
+@import '../../../styles/utils/base';
+
+.initiativesSection{
+    padding: 7.8rem 0;
+    .initiativeHeader{
+        display: flex;
+        justify-content: center;
+    }
+    .initiativeBody{
+        margin-top: 7.8rem;
+        .bodyRow1{
+            height: 62.3rem;
+            display: grid;
+            gap: 4.5rem;
+            grid-template-columns: 64.8rem 93.5rem;
+            @include response (vp-800){
+                height: auto;
+                grid-template-columns: 1fr;
+            }
+            .bodyRow1Left{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                text-align: center;
+                img{
+                    height: 13.88rem;
+                }
+                p{
+                    font-size: 3.2rem;
+                    color: $textDark;
+                    font-weight: $bold;
+                    margin-top: 14rem;
+                }
+                button{
+                    outline: 0;
+                    border: 1px solid $secondaryCyan;
+                    background-color: inherit;
+                    color: $primary;
+                    padding: 1rem 3.4rem;
+                    font-size: 16px;
+                    text-transform: capitalize;
+                    margin-top: 7rem;
+                    transition: 0.3s;
+                    &:hover{
+                        background-color: $secondaryCyan;
+                    }
+                }
+            }
+            .bodyRow1Right{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .bodyRow2{
+            height: 73rem;
+            display: grid;
+            gap: 4.5rem;
+            margin-top: 4.5rem;
+            grid-template-columns: 64.8rem 93.5rem;
+            @include response (vp-800){
+                height: auto;
+                grid-template-columns: 1fr;
+            }
+            .bodyRow2Left{
+                text-align: end;
+                display: flex;
+                align-items: flex-end;
+                flex-direction: column;
+                justify-content: space-between;
+                img{
+                    width: 100%;
+                }
+                h2{
+                    font-size: 6.3rem;
+                    color: $textDark;
+                }
+                h3{
+                    font-size: 4.3rem;
+                    color: $textDark;
+                }
+                button{
+                    outline: 0;
+                    border: 1px solid $secondaryCyan;
+                    background-color: inherit;
+                    color: $primary;
+                    padding: 1rem 3.4rem;
+                    font-size: 16px;
+                    text-transform: capitalize;
+                    margin-top: 7rem;
+                    transition: 0.3s;
+                    &:hover{
+                        background-color: $secondaryCyan;
+                    }
+                }
+            }
+            .bodyRow2Right{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                @include response (vp-800){
+                    grid-template-columns: 1fr;
+                }
+                img{
+                    width: 100%;
+                }
+                .rightContent{
+                    display: flex;
+                    align-items: center;
+                    h4{
+                        font-size: 4.3rem;
+                        color: $textDark;
+                    }
+                    h2{
+                        font-size: 6.3rem;
+                        color: $textDark;
+                        margin-left: 2rem;
+                    }
+                    button{
+                        outline: 0;
+                        border: 1px solid $secondaryCyan;
+                        background-color: inherit;
+                        color: $primary;
+                        padding: 1rem 3.4rem;
+                        font-size: 16px;
+                        text-transform: capitalize;
+                        margin-top: 7rem;
+                        margin-left: 4rem;
+                        transition: 0.3s;
+                        &:hover{
+                            background-color: $secondaryCyan;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

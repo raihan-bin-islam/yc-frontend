@@ -1,6 +1,8 @@
 import HomeArticles from "../Components/Home/HomeArticles/HomeArticles";
 import HomeHeader from "../Components/Home/HomeHeader/HomeHeader";
+import HomeInitiatives from "../Components/Home/HomeInitiatives/HomeInitiatives";
 import HomeLatestEvents from "../Components/Home/HomeLatestEvents/HomeLatestEvents";
+import HomeNews from "../Components/Home/HomeNews/HomeNews";
 import HomeWhatWeDo from "../Components/Home/HomeWhatWeDo/HomeWhatWeDo";
 
 export default function Home() {
@@ -9,7 +11,9 @@ export default function Home() {
       <HomeHeader />
       <HomeWhatWeDo />
       <HomeLatestEvents />
+      <HomeNews/>
       <HomeArticles />
+      <HomeInitiatives/>
     </div>
   );
 }

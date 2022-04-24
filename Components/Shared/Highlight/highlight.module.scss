@@ -5,8 +5,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: fit-content;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  gap: 2rem;
   // highlight image container
   &:first-child{
     margin-top: 0;
@@ -14,8 +14,6 @@
   .imgContainer {
     position: relative;
     overflow: hidden;
-
-    width: 13.1rem;
     border-radius: 50%;
   }
   // highlight description
@@ -23,7 +21,7 @@
     width: clamp(375px, 28.4rem, 90vw);
 
     color: $textLight;
-
+    font-weight: $bold;
     font-size: clamp($paragraphMin, $paragraph, $paragraph);
   }
 }
