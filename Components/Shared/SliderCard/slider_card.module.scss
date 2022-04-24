@@ -3,6 +3,7 @@
 .eventsContainer,
 .articlesContainer {
   padding: 0 2rem 0 0;
+
   .cardTitle {
     padding: 1rem 0rem;
 
@@ -11,12 +12,22 @@
     font-size: clamp(16px, $paragraph, $paragraph);
     text-align: center;
   }
+
+  .buttons {
+    padding: 1rem 0rem;
+    .right-arrow-links {
+      // position: relative;
+      // right: 50%;
+      background: red;
+    }
+  }
+
   img {
     width: 100%;
     object-fit: cover;
   }
   .cardImg {
-    height: 39.4rem;
+    // height: 39.4rem;
     width: 100%;
     object-fit: cover;
   }
@@ -33,6 +44,4 @@
     display: flex;
     justify-content: space-between;
   }
-}
-.articlesContainer {
 }
