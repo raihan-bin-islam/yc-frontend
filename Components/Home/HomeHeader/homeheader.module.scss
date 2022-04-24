@@ -1,88 +1,95 @@
-@import '../../../styles/utils/base';
+@import "../../../styles/utils/base";
 
-.headerHero{
-    height: 123.6rem;
-    width: 100%;
-    position: relative;
+.headerHero {
+  height: 123.6rem;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include response(vp-800) {
+    height: 83.6rem;
+  }
+  .heroBanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    img {
+      width: 100%;
+      //height: 97.236rem;
+    }
+  }
+  .heroBody {
+    z-index: 2;
+    width: calc(100vw - 29rem);
+    @include response(vp-800) {
+      width: calc(100vw - 5.5rem);
+    }
+    // height: 78.6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    .heroBanner{
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        img{
-            width: 100%;
-            //height: 97.236rem;
-        }
+    position: relative;
+    img {
+      //   height: 78.6rem;
+      width: 84.1rem;
+
+      @include response(vp-800) {
+        width: 100%;
+      }
     }
-    .heroBody{
-        z-index: 2;
-        width: calc(100vw - 29rem);
-        @include response(vp-800){
-            width: calc(100vw - 5.5rem);
+    .heroContentLeft {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      @include response(vp-800) {
+        left: 5%;
+        bottom: -20%;
+      }
+
+      h5 {
+        font-size: 2rem;
+        font-weight: $bold;
+        text-transform: uppercase;
+        color: $primary;
+        @include response(vp-800) {
+          font-size: 14px;
         }
-        height: 78.6rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        img{
-            height: 78.6rem;
-            width: 84.1rem;
-            @media screen and (max-width: 600px) {
-                width: 100%;
-            }
+      }
+      h6 {
+        font-size: 1.6rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $primary;
+        margin-top: 2rem;
+        @include response(vp-800) {
+          font-size: 12px;
         }
-        .heroContentLeft{
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            @media screen and (max-width: 600px) {
-                left: 5%;
-                bottom: -20%;
-            }
-            h5{
-                font-size: 2rem;
-                font-weight: $bold;
-                text-transform: uppercase;
-                color: $primary;
-                @media screen and (max-width:600px) {
-                    font-size: 14px;
-                }
-            }
-            h6{
-                font-size: 1.6rem;
-                font-weight: 400;
-                text-transform: uppercase;
-                color: $primary;
-                margin-top: 2rem;
-                @media screen and (max-width:600px) {
-                    font-size: 12px;
-                }
-            }
-        }
-        .heroContentRight{
-            position: absolute;
-            top: 17.5rem;
-            right: 0;
-            width: 61.6rem;
-            @media screen and (max-width:600px) {
-                top: 60%;
-                left: 10%;
-            }
-            .h2{
-                display: block;
-                text-align: end;
-                font-size: 5.3rem;
-                color: $white;
-                font-weight: $bold;
-                line-height: 6.8rem;
-                @media screen and (max-width:600px) {
-                    text-align: left;
-                }
-            }
-        }
+      }
     }
+    .heroContentRight {
+      position: absolute;
+      top: 17.5rem;
+      right: 0;
+      width: 61.6rem;
+      @include response(vp-800) {
+        top: 60%;
+        left: 5%;
+      }
+      .h2 {
+        display: block;
+        text-align: end;
+        font-size: 5.3rem;
+        color: $white;
+        font-weight: $bold;
+        line-height: 6.8rem;
+        @include response(vp-800) {
+          font-size: 4.3rem;
+          line-height: 1;
+          text-align: left;
+        }
+      }
+    }
+  }
 }

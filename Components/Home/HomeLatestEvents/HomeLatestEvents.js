@@ -5,19 +5,22 @@ import SliderCard from "../../Shared/SliderCard/SliderCard";
 import NextArrow from "./Arrows/NextArrow";
 import PrevArrow from "./Arrows/PrevArrow";
 import styles from "./homelatestevents.module.scss";
+import { latestEvents } from "./latestEvents";
 
 const HomeLatestEvents = () => {
   const { homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
   const sliderSettings = {
     dots: false,
-    infinite: false,
+    infinite: latestEvents.length > 4,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     centerMode: false,
+    appendArrows: homeEventsBody,
+    cssEase: "ease-in-out",
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2000,
     responsive: [
       {
@@ -38,11 +41,9 @@ const HomeLatestEvents = () => {
         </div>
         <div className={homeEventsBody}>
           <Slider {...sliderSettings}>
-            <SliderCard />
-            <SliderCard />
-            <SliderCard />
-            <SliderCard />
-            <SliderCard />
+            {latestEvents.map(({ image, title }, index) => {
+              return <SliderCard key={index} image={image} title={title} />;
+            })}
           </Slider>
         </div>
       </div>
