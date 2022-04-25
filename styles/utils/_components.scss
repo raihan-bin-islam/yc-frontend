@@ -1,7 +1,7 @@
 @import "./mixing";
 .container-layout {
   padding: 0 14.5rem;
-  @include response(vp-800) {
+  @include response(tab-port) {
     padding: 0 5.5rem;
   }
 }

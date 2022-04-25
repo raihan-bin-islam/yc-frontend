@@ -25,7 +25,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12.5rem 3.5rem;
-      @include response(tab-port) {
+      @include response(vp-800) {
         display: none;
       }
     }
@@ -33,7 +33,7 @@
       display: none;
       z-index: 3;
       position: relative;
-      @include response(tab-port) {
+      @include response(vp-800) {
         display: block;
       }
     }

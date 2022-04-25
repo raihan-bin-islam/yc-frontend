@@ -2,10 +2,24 @@
 
 // Swiper slider settings is in the styles/utils directory and that's where the slider css are
 .articleSection {
-  height: 105rem;
-  padding: 5rem;
-}
+  // height: 108rem;
+  position: relative;
+  padding: 0rem 0rem 31.9rem 0rem;
 
-.container {
-  margin: auto;
+  .swiperWrapper {
+    position: relative;
+    height: 86.4rem;
+    .articleBg {
+      position: absolute;
+      left: -50rem;
+      height: 100%;
+    }
+  }
+
+  .author {
+    width: max-content;
+    font-size: $paragraph;
+    color: $textLight;
+    margin: 2rem auto;
+  }
 }

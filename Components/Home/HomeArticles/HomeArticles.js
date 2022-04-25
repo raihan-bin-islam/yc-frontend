@@ -10,10 +10,13 @@ import "swiper/css/pagination";
 // Import Section Styles
 import styles from "./home_articles.module.scss";
 
+// Import Other Required Components
 import SliderCard from "../../Shared/SliderCard/SliderCard";
+import Heading from "../../Shared/Heading/Heading";
+import Background from "./Background";
 
 const HomeArticles = () => {
-  const { articleSection, mySwiper, container, slider } = styles;
+  const { articleSection, articleBg, swiperWrapper, author } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
@@ -33,19 +36,24 @@ const HomeArticles = () => {
 
   return (
     <section className={articleSection}>
-      <Swiper // install Swiper modules
-        slidesPerView={3}
-        spaceBetween={0}
-        centeredSlides={true}
-      >
-        {articles.map(({ img, title }, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <SliderCard image={img} title={title} type="articles" />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <Heading text="articles" center />
+      <p className={author}>By Professor Muhammad Yunus</p>
+      <div className={swiperWrapper}>
+        <Background classname={articleBg} />
+        <Swiper // install Swiper modules
+          slidesPerView={numOfSlides}
+          spaceBetween={0}
+          centeredSlides={true}
+        >
+          {articles.map(({ img, title }, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <SliderCard image={img} title={title} type="articles" />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
     </section>
   );
 };

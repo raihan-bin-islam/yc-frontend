@@ -8,7 +8,6 @@
   // width: fit-content !important;
   text-align: center;
   font-size: 18px;
-  background: #fff;
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -39,5 +38,8 @@
 .swiper-slide:nth-child(2n) {
   .cardSelector {
     width: 70%;
+    @include response(tab-port) {
+      width: 40%;
+    }
   }
 }

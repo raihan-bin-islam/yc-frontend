@@ -1,33 +1,36 @@
-@import '../../../styles/utils/base';
+@import "../../../styles/utils/base";
 
-.homeNewsContainer{
-    padding: 23rem 0;
-    .homeNewsContainerBody{
-        display: grid;
-        grid-template-columns: 117rem 46rem;
-        gap: 3rem;
-        @include response(vp-800){
-            grid-template-columns: 1fr;
-        }
-        main{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            @include response(vp-800){
-                grid-template-columns: 1fr;
-            }
-        }
-        aside{
-            display: block;
-            overflow-y: scroll;
-            scrollbar-width: thin;
-            scrollbar-color: $textLight $white;
-            padding: 0 1rem;
-            .asideHeader{
-                padding: 0 2rem 2rem 2rem;
-               display: flex;
-               justify-content: center;
-            }
-        }
+.homeNewsContainer {
+  padding: 23rem 0;
+  .homeNewsContainerBody {
+    display: grid;
+    grid-template-columns: 117rem 46rem;
+    gap: 3rem;
+    @include response(tab-port) {
+      grid-template-columns: 1fr;
     }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      @include response(vp-800) {
+        grid-template-columns: 1fr;
+      }
+    }
+    aside {
+      display: block;
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: #eee $white;
+      padding: 0 1rem;
+      margin: 0 auto;
+      height: 115rem;
+
+      .asideHeader {
+        padding: 0 2rem 2rem 2rem;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
 }

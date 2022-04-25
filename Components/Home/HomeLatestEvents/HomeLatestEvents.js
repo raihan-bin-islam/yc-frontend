@@ -42,7 +42,7 @@ const HomeLatestEvents = () => {
         <div className={homeEventsBody}>
           <Slider {...sliderSettings}>
             {latestEvents.map(({ image, title }, index) => {
-              return <SliderCard key={index} image={image} title={title} />;
+              return <SliderCard key={index} image={image} title={title} type="video" />;
             })}
           </Slider>
         </div>

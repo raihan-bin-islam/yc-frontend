@@ -1,8 +1,11 @@
 @import "../../../styles/utils/base";
 
+// Common styles for all cards
 .eventsContainer,
-.articlesContainer {
-  padding: 0 2rem 0 0;
+.articlesContainer,
+.videoContainer {
+  background: transparent;
+  margin: 0 2rem 0 0;
 
   .cardTitle {
     padding: 1rem 0rem;
@@ -18,7 +21,7 @@
     .right-arrow-links {
       // position: relative;
       // right: 50%;
-      background: red;
+      // background: red;
     }
   }
 
@@ -43,5 +46,63 @@
   .buttons {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+// specific styles based on different type of the component
+//-----Article------//
+.articlesContainer {
+  .cardTitle {
+    font-size: $articleTitle;
+    text-align: left;
+    color: $textDark;
+  }
+}
+
+//-----Video------//
+.videoContainer {
+  position: relative;
+  cursor: pointer;
+
+  .cardTitle {
+    position: absolute;
+    bottom: 0;
+  }
+
+  // background overlay
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $textDark;
+    opacity: 0%;
+    transition: all $duration ease;
+  }
+
+  &:hover::before {
+    opacity: 20%;
+    transition: all $duration ease;
+  }
+
+  .playBtn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 9rem;
+    aspect-ratio: 1;
+
+    cursor: pointer;
+
+    transition: all $duration ease;
+  }
+
+  &:hover .playBtn {
+    background: white;
+    border-radius: 50%;
+
+    transition: background $duration ease;
   }
 }

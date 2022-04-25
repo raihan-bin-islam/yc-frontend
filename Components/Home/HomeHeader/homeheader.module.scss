@@ -7,8 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  @include response(vp-800) {
-    height: 83.6rem;
+  @include response(tab-port) {
+    height: 133vw;
   }
   .heroBanner {
     position: absolute;
@@ -23,7 +23,7 @@
   .heroBody {
     z-index: 2;
     width: calc(100vw - 29rem);
-    @include response(vp-800) {
+    @include response(tab-port) {
       width: calc(100vw - 5.5rem);
     }
     // height: 78.6rem;
@@ -35,7 +35,7 @@
       //   height: 78.6rem;
       width: 84.1rem;
 
-      @include response(vp-800) {
+      @include response(tab-port) {
         width: 100%;
       }
     }
@@ -43,9 +43,9 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      @include response(vp-800) {
+      @include response(tab-port) {
         left: 5%;
-        bottom: -20%;
+        bottom: -15vw;
       }
 
       h5 {
@@ -53,7 +53,7 @@
         font-weight: $bold;
         text-transform: uppercase;
         color: $primary;
-        @include response(vp-800) {
+        @include response(tab-port) {
           font-size: 14px;
         }
       }
@@ -63,7 +63,7 @@
         text-transform: uppercase;
         color: $primary;
         margin-top: 2rem;
-        @include response(vp-800) {
+        @include response(tab-port) {
           font-size: 12px;
         }
       }
@@ -73,7 +73,7 @@
       top: 17.5rem;
       right: 0;
       width: 61.6rem;
-      @include response(vp-800) {
+      @include response(tab-port) {
         top: 60%;
         left: 5%;
       }
@@ -84,7 +84,7 @@
         color: $white;
         font-weight: $bold;
         line-height: 6.8rem;
-        @include response(vp-800) {
+        @include response(tab-port) {
           font-size: 4.3rem;
           line-height: 1;
           text-align: left;
