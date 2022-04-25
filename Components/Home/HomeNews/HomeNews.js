@@ -8,7 +8,7 @@ import articleImg from "../../../public/assets/images/landing_page/highlight-img
 import Heading from "../../Shared/Heading/Heading";
 
 const HomeNews = () => {
-  const { homeNewsContainer, homeNewsContainerBody, asideHeader } = styles;
+  const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent } = styles;
 
   return (
     <section className={homeNewsContainer}>
@@ -35,47 +35,48 @@ const HomeNews = () => {
           <div className={asideHeader}>
             <Heading text="highlights" size="small" />
           </div>
-
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
-          <Highlight
-            image={articleImg.src}
-            description="Innovate together to achieve sdgs & climate actions through social business"
-          />
+          <div className={asideContent}>
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+            <Highlight
+              image={articleImg.src}
+              description="Innovate together to achieve sdgs & climate actions through social business"
+            />
+          </div>
         </aside>
       </div>
     </section>

@@ -12,13 +12,14 @@
     margin-top: 0;
   }
   .imgContainer {
+    width: fit-content;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
   }
   // highlight description
   .desc {
-    width: clamp(300px, 28.4rem, 90vw);
+    width: fit-content;
 
     color: $textLight;
     font-weight: $bold;

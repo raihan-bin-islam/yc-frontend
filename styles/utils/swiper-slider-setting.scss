@@ -38,8 +38,5 @@
 .swiper-slide:nth-child(2n) {
   .cardSelector {
     width: 70%;
-    @include response(tab-port) {
-      width: 40%;
-    }
   }
 }

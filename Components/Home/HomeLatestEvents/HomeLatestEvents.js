@@ -9,6 +9,7 @@ import { latestEvents } from "./latestEvents";
 
 const HomeLatestEvents = () => {
   const { homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
+
   const sliderSettings = {
     dots: false,
     infinite: latestEvents.length > 4,

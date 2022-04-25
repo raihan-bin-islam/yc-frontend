@@ -4,7 +4,7 @@
   padding: 23rem 0;
   .homeNewsContainerBody {
     display: grid;
-    grid-template-columns: 117rem 46rem;
+    grid-template-columns: 68% 30%;
     gap: 3rem;
     @include response(tab-port) {
       grid-template-columns: 1fr;
@@ -19,17 +19,19 @@
     }
     aside {
       display: block;
-      overflow-y: scroll;
-      scrollbar-width: thin;
-      scrollbar-color: #eee $white;
-      padding: 0 1rem;
       margin: 0 auto;
-      height: 115rem;
+      padding: 0 1rem;
 
       .asideHeader {
         padding: 0 2rem 2rem 2rem;
         display: flex;
         justify-content: center;
+      }
+      .asideContent {
+        height: 115rem;
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: #eee $white;
       }
     }
   }

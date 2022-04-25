@@ -35,10 +35,10 @@ const HomeArticles = () => {
   });
 
   return (
-    <section className={articleSection}>
+    <section className={`${articleSection}`}>
       <Heading text="articles" center />
       <p className={author}>By Professor Muhammad Yunus</p>
-      <div className={swiperWrapper}>
+      <div className={`${swiperWrapper} container-layout`}>
         <Background classname={articleBg} />
         <Swiper // install Swiper modules
           slidesPerView={numOfSlides}
