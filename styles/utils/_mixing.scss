@@ -57,9 +57,7 @@
 
   font-size: $fontSize;
   @include response(vp-800) {
-    @if ($fontSize == $heading) {
-      font-size: $fontSize - 4rem;
-    }
+    font-size: 5.5rem;
   }
   text-transform: uppercase;
   color: $color;

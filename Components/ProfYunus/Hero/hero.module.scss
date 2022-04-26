@@ -85,9 +85,11 @@
         align-items: flex-end;
 
         width: auto;
-        height: 70%;
       }
       li {
+        @include response(M-phone) {
+          padding: 1rem;
+        }
         a {
           position: relative;
 
