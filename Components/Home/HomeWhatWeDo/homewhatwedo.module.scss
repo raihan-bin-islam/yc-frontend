@@ -15,10 +15,8 @@
   }
   .whatWeDoMain {
     z-index: 3;
-    .whatWeDoHeader {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .heading {
+      @include heading();
     }
     .whatWeDoBody {
       margin-top: 12.5rem;

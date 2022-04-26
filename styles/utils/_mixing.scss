@@ -1,46 +1,69 @@
 @mixin response($breakpoint) {
-    @if $breakpoint == s-phone {
-      @media (max-width: 26.88em) {
-        @content;
-      }
-    }
-    @if $breakpoint == M-phone {
-      @media (max-width: 35.5em) {
-        @content;
-      }
-    }
-    @if $breakpoint == phone {
-      // media size 640px
-      @media (max-width: 40em) {
-        @content;
-      }
-    }
-    @if $breakpoint == vp-800 {
-      @media (max-width: 50em) {
-        @content;
-      }
-    }
-    @if $breakpoint == tab-port {
-      // media size 960px
-      @media (max-width: 60em) {
-        @content;
-      }
-    }
-    @if $breakpoint == desktop {
-      // media size 1280px
-      @media (max-width: 80em) {
-        @content;
-      }
-    }
-    @if $breakpoint == m-desktop {
-      // media size 1440px
-      @media (max-width: 90em) {
-        @content;
-      }
-    }
-    @if $breakpoint == big-desktop {
-      @media (min-width: 112.5em) {
-        @content;
-      }
+  @if $breakpoint == s-phone {
+    @media (max-width: 26.88em) {
+      @content;
     }
   }
+  @if $breakpoint == M-phone {
+    @media (max-width: 35.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    // media size 640px
+    @media (max-width: 40em) {
+      @content;
+    }
+  }
+  @if $breakpoint == vp-800 {
+    @media (max-width: 50em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    // media size 960px
+    @media (max-width: 60em) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    // media size 1280px
+    @media (max-width: 80em) {
+      @content;
+    }
+  }
+  @if $breakpoint == m-desktop {
+    // media size 1440px
+    @media (max-width: 90em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+@mixin heading($fontSize: $heading, $color: $primary, $align: center) {
+  position: relative;
+  z-index: 10;
+
+  width: fit-content;
+  margin-bottom: 2rem;
+  border: solid $color;
+  border-width: $borderWidth 0rem $borderWidth 0rem;
+
+  font-size: $fontSize;
+  @include response(vp-800) {
+    @if ($fontSize == $heading) {
+      font-size: $fontSize - 4rem;
+    }
+  }
+  text-transform: uppercase;
+  color: $color;
+
+  @if $align==center {
+    margin: 0rem auto 2rem auto;
+  }
+}

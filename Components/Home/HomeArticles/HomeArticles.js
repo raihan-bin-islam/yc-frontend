@@ -12,11 +12,10 @@ import styles from "./home_articles.module.scss";
 
 // Import Other Required Components
 import SliderCard from "../../Shared/SliderCard/SliderCard";
-import Heading from "../../Shared/Heading/Heading";
 import Background from "./Background";
 
 const HomeArticles = () => {
-  const { articleSection, articleBg, swiperWrapper, author } = styles;
+  const { heading, articleSection, articleBg, swiperWrapper, author } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
@@ -36,7 +35,7 @@ const HomeArticles = () => {
 
   return (
     <section className={`${articleSection}`}>
-      <Heading text="articles" center />
+      <h2 className={heading}>articles</h2>
       <p className={author}>By Professor Muhammad Yunus</p>
       <div className={`${swiperWrapper} container-layout`}>
         <Background classname={articleBg} />

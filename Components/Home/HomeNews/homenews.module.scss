@@ -23,9 +23,7 @@
       padding: 0 1rem;
 
       .asideHeader {
-        padding: 0 2rem 2rem 2rem;
-        display: flex;
-        justify-content: center;
+        @include heading($headingSecondary);
       }
       .asideContent {
         height: 115rem;

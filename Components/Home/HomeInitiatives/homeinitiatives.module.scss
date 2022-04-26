@@ -1,12 +1,27 @@
 @import "../../../styles/utils/base";
 
 .initiativesSection {
+  position: relative;
   padding: 7.8rem 0;
+
+  .bgSvg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    @include response(tab-port) {
+      width: 200%;
+      left: -50%;
+    }
+  }
+
   .initiativeHeader {
-    display: flex;
-    justify-content: center;
+    @include heading();
   }
   .initiativeBody {
+    position: relative;
+    z-index: 2;
+
     margin-top: 7.8rem;
     .bodyRow1 {
       // height: 62.3rem;

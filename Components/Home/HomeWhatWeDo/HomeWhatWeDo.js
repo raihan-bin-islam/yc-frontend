@@ -1,5 +1,4 @@
 import React from "react";
-import Heading from "../../Shared/Heading/Heading";
 import WhatWeDoCard from "../../Shared/WhatWeDoCard/WhatWeDoCard";
 import styles from "./homewhatwedo.module.scss";
 import whatWeDoData from "../../../static/whatWeDo.json";
@@ -7,8 +6,7 @@ import weDoBackSvg from "../../../public/assets/images/landing_page/we_do_back.s
 import Slider from "react-slick/lib/slider";
 
 const HomeWhatWeDo = () => {
-  const { heroWhatWeDoContainer, whatWeDoMain, whatWeDoHeader, whatWeDoBody, backgroundPath, whatWeDoBodyMobile } =
-    styles;
+  const { heading, heroWhatWeDoContainer, whatWeDoMain, whatWeDoBody, backgroundPath, whatWeDoBodyMobile } = styles;
 
   const sliderSettings = {
     dots: true,
@@ -28,7 +26,7 @@ const HomeWhatWeDo = () => {
         <img src={weDoBackSvg.src} alt="what-we-do" />
       </div>
       <div className={`container-layout ${whatWeDoMain}`}>
-        <Heading text="what we do" center />
+        <h2 className={heading}>what we do</h2>
 
         <div className={whatWeDoBody}>
           {whatWeDoData.map((data, index) => (

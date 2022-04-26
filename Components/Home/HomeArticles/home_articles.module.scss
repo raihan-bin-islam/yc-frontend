@@ -8,6 +8,10 @@
 
   overflow: hidden;
 
+  .heading {
+    @include heading();
+  }
+
   .swiperWrapper {
     position: relative;
     height: 86.4rem;

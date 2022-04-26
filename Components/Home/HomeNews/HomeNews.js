@@ -5,7 +5,6 @@ import styles from "./homenews.module.scss";
 import post1 from "../../../public/assets/images/landing_page/post-1.png";
 import post2 from "../../../public/assets/images/landing_page/post-2.jpg";
 import articleImg from "../../../public/assets/images/landing_page/highlight-img.png";
-import Heading from "../../Shared/Heading/Heading";
 
 const HomeNews = () => {
   const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent } = styles;
@@ -32,9 +31,7 @@ const HomeNews = () => {
           />
         </main>
         <aside>
-          <div className={asideHeader}>
-            <Heading text="highlights" size="small" />
-          </div>
+          <h2 className={asideHeader}>highlights</h2>
           <div className={asideContent}>
             <Highlight
               image={articleImg.src}

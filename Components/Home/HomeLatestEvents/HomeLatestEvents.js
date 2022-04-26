@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick/lib/slider";
-import Heading from "../../Shared/Heading/Heading";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import NextArrow from "./Arrows/NextArrow";
 import PrevArrow from "./Arrows/PrevArrow";
@@ -8,7 +7,7 @@ import styles from "./homelatestevents.module.scss";
 import { latestEvents } from "./latestEvents";
 
 const HomeLatestEvents = () => {
-  const { homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
+  const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
 
   const sliderSettings = {
     dots: false,
@@ -38,7 +37,7 @@ const HomeLatestEvents = () => {
     <section className={homeEventsContainer}>
       <div className="container-layout">
         <div className={homeEventsHeader}>
-          <Heading text="latest events" white />
+          <h2 className={homeHeading}>Latest Events</h2>
         </div>
         <div className={homeEventsBody}>
           <Slider {...sliderSettings}>
