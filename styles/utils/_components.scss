@@ -1,3 +1,4 @@
+
 @import "./mixing";
 .container-layout {
   padding: 0 14.5rem;
@@ -6,6 +7,18 @@
   }
 }
 
+.mt4{
+  margin-top: 4rem;
+}
+
 .mt3 {
   margin-top: 3rem;
+}
+
+.mt2 {
+  margin-top: 2rem;
+}
+
+.bold{
+  font-weight: 700;
 }
