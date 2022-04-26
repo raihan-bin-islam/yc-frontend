@@ -1,0 +1,54 @@
+@import "../../../styles/utils/base";
+
+.pioneerSection{
+    background-color: #F0F0F0;
+    .pioneerContainer{
+        height: 79.3rem;
+        display: grid;
+        grid-template-columns: 73.5rem 89.5rem;
+        @include response(vp-800){
+            height: auto;
+            grid-template-columns: 1fr;
+            padding-bottom: 5rem;
+        }
+    }
+    .pioneerLeft{
+        width: 100%;
+        height: 79.3rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        h3{
+            font-size: 7.2rem;
+            font-weight: 300;
+            color: #2D2D2D;
+        }
+        h2{
+            @include heading(6.6rem, $textDark);
+            margin-top: 4rem;
+        }
+        p{
+            font-size: 2.6rem;
+            margin-top: 8.2rem;
+            padding: 0 4rem;
+            color: $textDark;
+        }
+        @include response(vp-800){
+            padding: 5rem 0;
+            height: auto;
+        }
+    }
+    .pioneerRight{
+        width: 100%;
+        height: 79.3rem;
+        @include response(vp-800){
+            height: auto;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
