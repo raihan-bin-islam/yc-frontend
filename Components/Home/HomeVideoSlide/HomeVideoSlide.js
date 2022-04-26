@@ -58,7 +58,13 @@ const HomeVideoSlide = () => {
         </Slider>
         <div className="mt3">
           <Slider asNavFor={nav1} ref={(slider2) => setNav2(slider2)} {...youTubeSlider}>
-            <SliderCard image="/assets/images/landing_page" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
+            <SliderCard image="/assets/images/landing_page/ProfYunus2.png" title="video 1" type="video" />
 
             {/* <div className={videoThumbContainer}>
                             <div className={videoThumb}>
