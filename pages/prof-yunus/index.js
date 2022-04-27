@@ -8,12 +8,8 @@ const ProfYunus = () => {
   return (
     <div>
       <Hero />
-<<<<<<< HEAD
       <ProfPioneer />
-=======
-      <ProfPioneer/>
-      <ProfBooks/>
->>>>>>> farhan
+      <ProfBooks />
     </div>
   );
 };
