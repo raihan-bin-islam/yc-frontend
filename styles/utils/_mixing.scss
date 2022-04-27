@@ -51,14 +51,13 @@
 
   width: fit-content;
   margin-bottom: 2rem;
+  padding: $borderWidth 0rem;
   border: solid $color;
   border-width: $borderWidth 0rem $borderWidth 0rem;
 
   font-size: $fontSize;
   @include response(vp-800) {
-    @if ($fontSize == $heading) {
-      font-size: $fontSize - 4rem;
-    }
+    font-size: 5.5rem;
   }
   text-transform: uppercase;
   color: $color;

@@ -9,18 +9,33 @@ import styles from "./slider_card.module.scss";
 
 const SliderCard = ({ image, title, type = "events", size = 1 }) => {
   // Destructuring Module Style Object
-  const { eventsContainer, articlesContainer, videoContainer, cardImg, articleImg, buttons, playBtn, cardTitle } =
-    styles;
+  const {
+    eventsContainer,
+    articlesContainer,
+    videoContainer,
+    awardCardContainer,
+    cardImg,
+    articleImg,
+    buttons,
+    playBtn,
+    cardTitle,
+  } = styles;
   // // Destructuring the Slider Data
   // const { image, title } = sliderData;
 
   return (
     <div
       className={`${
-        type === "events" ? eventsContainer : type === "articles" ? articlesContainer : videoContainer
+        type === "events"
+          ? eventsContainer // container name based on types, each of these applies type specific styles
+          : type === "articles"
+          ? articlesContainer
+          : type === "articles"
+          ? videoContainer
+          : awardCardContainer
       } cardSelector`}
     >
-      <img className={`${type === "events" ? cardImg : articleImg}`} src={image} alt={title} />
+      <img className={`${type === "articles" ? articleImg : cardImg}`} src={image} alt={title} />
       <h4 className={cardTitle}>{title}</h4>
 
       {/* We will use this same slider component for different section based on types */}
