@@ -9,7 +9,11 @@ import crossIcon from "../../../public/icon_cross.svg";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
-  const { nav, navContainer, navScroll, navActive, dropdown, mainList, burger, cross } = styles;
+  
+  // styles
+  const { nav, navContainer, navScroll, navActive, dropdown, mainList, burger, cross, searchInput, inputCross } = styles;
+
+  //state
   const [scrolled, setScrolled] = useState(false);
   const router = useRouter();
 
@@ -17,6 +21,9 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(true);
   const [menuClose, setMenuClose] = useState(false);
   const navRef = useRef();
+
+  // search input open close
+  const [searchOpen, setSearchOpen] = useState(false) 
 
   const HandleMenuOpen = () => {
     navRef.current.style.left = "0";
@@ -30,6 +37,14 @@ const Navbar = () => {
     setMenuClose(false);
   };
 
+  const HandleSearchInput = () => {
+    setSearchOpen(true)
+  }
+
+  const HandleSearchClose = () => {
+    setSearchOpen(false)
+  } 
+
   const handleScroll = () => {
     const offset = window.scrollY;
 
@@ -41,7 +56,6 @@ const Navbar = () => {
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -98,7 +112,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <img src={magnifyIcon.src} alt="brand-yc" />
+              <img src={magnifyIcon.src} alt="brand-yc" onClick={HandleSearchInput}/>
             </li>
           </ul>
         </div>
@@ -107,6 +121,13 @@ const Navbar = () => {
         {menuOpen && <img src={burgerIcon.src} alt="brand-yc" className={burger} onClick={HandleMenuOpen} />}
         {menuClose && <img src={crossIcon.src} alt="brand-yc" className={cross} onClick={HandleMenuClose} />}
       </div>
+      {/* search box */}
+      {searchOpen && <div className={searchInput} id='searchInput'>
+        <input type='text' placeholder="search your query.."/>
+        <span className={inputCross} onClick={HandleSearchClose}>
+          <img src={crossIcon.src} alt="brand-yc"/>
+        </span>
+      </div>}
     </nav>
   );
 };

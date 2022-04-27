@@ -1,0 +1,76 @@
+@import "../../../styles/utils/base";
+
+.profBookContainer{
+    height: 150rem;
+    position: relative;
+    @include response(vp-800){
+        height: auto;
+        padding-bottom: 6rem;
+    }
+    .profBookPath{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        img{
+            width: 100%;
+        }
+    }
+    .profBookHeader{
+        padding: 6.3rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h2{
+            @include heading(9.1rem, $primary);
+            margin-top: 4rem;
+        }
+        h5{
+            margin-top: 4.4rem;
+            font-size: 2.6rem;
+            color: $textLight;
+            font-weight: 400;
+        }
+    }
+    .profBookBody{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 2.3rem;
+        @include response(vp-800){
+            grid-template-columns: repeat(2, 1fr); 
+        }
+        .booksPlaceholder{
+            height: 38.1rem;
+            background-color: #eee;
+            transform: scale(1);
+            transition: 0.3s;
+            cursor: pointer;
+            &:hover{
+                transform: scale(1.1);
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .profFooter{
+        padding: 8.2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a{
+            outline: 0;
+            border: 1px solid $secondaryCyan;
+            padding: 1rem 4.4rem;
+            background-color: inherit;
+            color: $primary;
+            font-size: 1.8rem;
+            transition: 0.3s;
+            &:hover{
+                background-color: $secondaryCyan;
+            }
+        }
+    }
+}

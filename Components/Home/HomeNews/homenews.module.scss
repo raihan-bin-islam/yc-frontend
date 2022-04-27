@@ -26,7 +26,8 @@
         @include heading($headingSecondary);
       }
       .asideContent {
-        height: 115rem;
+        height: 90rem;
+        padding-right: 1rem;
         overflow-y: scroll;
         scrollbar-width: thin;
         scrollbar-color: #eee $white;
