@@ -1,5 +1,6 @@
 import React from "react";
 import Hero from "../../Components/ProfYunus/Hero/Hero";
+import ProfBooks from "../../Components/ProfYunus/ProfBooks/ProfBooks";
 import ProfPioneer from "../../Components/ProfYunus/ProfPioneer/ProfPioneer";
 
 const ProfYunus = () => {
@@ -7,6 +8,7 @@ const ProfYunus = () => {
     <div>
       <Hero />
       <ProfPioneer/>
+      <ProfBooks/>
     </div>
   );
 };
