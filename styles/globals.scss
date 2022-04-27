@@ -40,3 +40,17 @@ li {
 a {
   text-decoration: none;
 }
+
+// Header Animation global
+.animateBanner {
+  animation: bannerAnimation 1s cubic-bezier(1, -0.39, 0.56, 1.21) forwards;
+}
+
+@keyframes bannerAnimation {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(-10%);
+  }
+}

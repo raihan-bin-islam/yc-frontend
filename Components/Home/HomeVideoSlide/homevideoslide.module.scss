@@ -1,53 +1,57 @@
-@import '../../../styles/utils/base';
+@import "../../../styles/utils/base";
 
-.videoSlideContainer{
-    padding: 20.8rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    @include response (vp-800){
-        padding: 20.8rem 5rem;
+.videoSlideContainer {
+  padding: 20.8rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  @include response(vp-800) {
+    padding: 20.8rem 5rem;
+  }
+  .videoLeaf {
+    position: absolute;
+    top: 50%;
+    left: -25.2675rem;
+    transform: translateY(-50%);
+    img {
+      width: 50.535rem;
+      height: 68.62rem;
     }
-    .videoLeaf{
+  }
+  .videoSliderBody {
+    width: 129.8rem;
+    @include response(vp-800) {
+      width: 100%;
+    }
+    .videoHeroContainer {
+      position: relative;
+
+      height: 64rem;
+      width: 100%;
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        position: relative;
+      }
+      .videoThumbnail {
         position: absolute;
-        top: 50%;
-        left: -25.2675rem;
-        transform: translateY(-50%);
-        img{
-            width: 50.535rem;
-            height: 68.62rem;
-        }
+        width: 10rem;
+      }
     }
-    .videoSliderBody{
-        width: 129.8rem;
-        @include response (vp-800){
-            width: 100%;
+    .videoThumbContainer {
+      padding: 0 1.5rem;
+      .videoThumb {
+        height: 20.8rem;
+        width: 28.5rem;
+        background-color: #eee;
+        @include response(vp-800) {
+          height: 20.8rem;
+          width: 100%;
         }
-        .videoHeroContainer{
-            height: 64rem;
-            width: 100%;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            h3{
-                display: block;
-                font-size: 5rem;
-                font-weight: $bold;
-            }
-        }
-        .videoThumbContainer{
-            padding: 0 1.5rem;
-            .videoThumb{
-                height: 20.8rem;
-                width: 28.5rem;
-                background-color: #eee;
-                @include response (vp-800){
-                    height: 20.8rem;
-                    width: 100%;
-                }
-            }
-        }
+      }
     }
+  }
 }

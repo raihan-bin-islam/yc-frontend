@@ -3,11 +3,19 @@ import Slider from "react-slick/lib/slider";
 import styles from "./homevideoslide.module.scss";
 import leafImg from "../../../public/assets/images/landing_page/yunus_leaf.png";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
+import PlayButton from "../../Shared/CommonSvg/PlayButton";
 
 const HomeVideoSlide = () => {
   // styles
-  const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoThumbContainer, videoThumb, videoLeaf } =
-    styles;
+  const {
+    videoSlideContainer,
+    videoSliderBody,
+    videoHeroContainer,
+    videoThumbContainer,
+    videoThumb,
+    videoThumbnail,
+    videoLeaf,
+  } = styles;
 
   // states
   const [nav1, setNav1] = useState();
@@ -38,22 +46,32 @@ const HomeVideoSlide = () => {
       <div className={videoSliderBody}>
         <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
           <div className={videoHeroContainer}>
-            <h3>1</h3>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
           </div>
           <div className={videoHeroContainer}>
-            <h3>2</h3>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
           </div>
           <div className={videoHeroContainer}>
-            <h3>3</h3>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
           </div>
           <div className={videoHeroContainer}>
-            <h3>4</h3>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
           </div>
           <div className={videoHeroContainer}>
-            <h3>5</h3>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
           </div>
           <div className={videoHeroContainer}>
-            <h3>6</h3>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
+          </div>
+          <div className={videoHeroContainer}>
+            <PlayButton className={videoThumbnail} />
+            <img src="/assets/images/landing_page/video-thumbnaile.png" alt="" />
           </div>
         </Slider>
         <div className="mt3">

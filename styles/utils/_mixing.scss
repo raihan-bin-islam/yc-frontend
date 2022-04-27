@@ -45,12 +45,11 @@
   }
 }
 
-@mixin heading($fontSize: $heading, $color: $primary, $align: center) {
+@mixin heading($fontSize: $heading, $color: $primary, $align: center, $margin: "true") {
   position: relative;
   z-index: 10;
 
   width: fit-content;
-  margin-bottom: 2rem;
   padding: $borderWidth 0rem;
   border: solid $color;
   border-width: $borderWidth 0rem $borderWidth 0rem;
@@ -59,10 +58,12 @@
   @include response(vp-800) {
     font-size: 5.5rem;
   }
+
   text-transform: uppercase;
   color: $color;
 
   @if $align==center {
-    margin: 0rem auto 2rem auto;
+    margin: 0rem auto;
   }
+  margin-bottom: 1rem;
 }

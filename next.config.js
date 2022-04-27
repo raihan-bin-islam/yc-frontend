@@ -3,9 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   ignoreDuringBuilds: true,
   env: {
-    baseUrl: '',
-    baseUrlForImages: '',
+    baseUrl: "node.pickupexpressbd.com/",
+    baseUrlForImages: "",
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

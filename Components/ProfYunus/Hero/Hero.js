@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className={headerHero}>
       <div className={heroBanner}>
-        <img src={heroImage.src} alt="hero-banner" />
+        <img className="animateBanner" src={heroImage.src} alt="hero-banner" />
       </div>
       <div className={heroBody}>
         <div className={heroImageContainer}>
