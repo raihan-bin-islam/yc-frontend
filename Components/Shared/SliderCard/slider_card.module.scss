@@ -71,6 +71,12 @@
   .cardTitle {
     position: absolute;
     bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+
+    color: $white;
+    font-size: $paragraph;
+    font-weight: $bold;
   }
 }
 

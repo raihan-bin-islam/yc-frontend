@@ -30,7 +30,7 @@ const SliderCard = ({ image, title, type = "events", size = 1 }) => {
           ? eventsContainer // container name based on types, each of these applies type specific styles
           : type === "articles"
           ? articlesContainer
-          : type === "articles"
+          : type === "video"
           ? videoContainer
           : awardCardContainer
       } cardSelector`}

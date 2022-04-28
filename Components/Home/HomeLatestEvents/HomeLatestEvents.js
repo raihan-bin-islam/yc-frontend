@@ -1,8 +1,11 @@
 import React from "react";
+
 import Slider from "react-slick/lib/slider";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
-import NextArrow from "./Arrows/NextArrow";
-import PrevArrow from "./Arrows/PrevArrow";
+
+import PrevArrow from "../../Shared/Arrows/PrevArrow";
+import NextArrow from "../../Shared/Arrows/NextArrow";
+
 import styles from "./homelatestevents.module.scss";
 import { latestEvents } from "./latestEvents";
 

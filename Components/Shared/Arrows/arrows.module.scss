@@ -1,0 +1,18 @@
+@import "../../../styles/utils/base";
+
+.card_prev_arrow,
+.card_next_arrow {
+  height: 100%;
+  padding: 0 1rem;
+  background-color: rgba($color: black, $alpha: 0.1);
+  position: absolute;
+  top: 0;
+  z-index: 3;
+}
+
+.card_prev_arrow {
+  left: 0;
+}
+.card_next_arrow {
+  right: 0;
+}

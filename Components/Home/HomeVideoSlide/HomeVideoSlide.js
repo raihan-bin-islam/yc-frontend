@@ -4,6 +4,10 @@ import styles from "./homevideoslide.module.scss";
 import leafImg from "../../../public/assets/images/landing_page/yunus_leaf.png";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import PlayButton from "../../Shared/CommonSvg/PlayButton";
+// import NextArrow from "./Arrows/NextArrow";
+// import PrevArrow from "./Arrows/PrevArrow";
+import PrevArrow from "../../Shared/Arrows/PrevArrow";
+import NextArrow from "../../Shared/Arrows/NextArrow";
 
 const HomeVideoSlide = () => {
   // styles
@@ -23,9 +27,18 @@ const HomeVideoSlide = () => {
 
   // slider
   const youTubeSlider = {
+    dots: false,
+    infinite: true,
+    speed: 500,
     slidesToShow: 4,
-    swipeToSlide: true,
-    focusOnSelect: true,
+    slidesToScroll: 1,
+    centerMode: false,
+    appendArrows: videoSliderBody,
+    cssEase: "ease-in-out",
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />,
+    autoplay: false,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 600,

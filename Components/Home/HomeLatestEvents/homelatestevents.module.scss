@@ -19,23 +19,6 @@
   }
   .homeEventsBody {
     margin-top: 1rem;
-    .card_prev_arrow {
-      height: 100%;
-      padding: 0 1rem;
-      background-color: rgba($color: black, $alpha: 0.1);
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 3;
-    }
-    .card_next_arrow {
-      height: 100%;
-      padding: 0 1rem;
-      background-color: rgba($color: black, $alpha: 0.1);
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 3;
-    }
+    contain: content;
   }
 }

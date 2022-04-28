@@ -24,6 +24,7 @@
     @include response(vp-800) {
       width: 100%;
     }
+
     .videoHeroContainer {
       position: relative;
 
@@ -35,6 +36,8 @@
       justify-content: center;
       img {
         position: relative;
+        height: 100%;
+        object-fit: cover;
       }
       .videoThumbnail {
         position: absolute;
