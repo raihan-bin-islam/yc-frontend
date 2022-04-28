@@ -13,10 +13,17 @@ import styles from "./home_articles.module.scss";
 // Import Other Required Components
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Background from "./Background";
+import useFetch from "../../Hooks/useFetch";
 
 const HomeArticles = () => {
   const { heading, articleSection, articleBg, swiperWrapper, author } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
+
+  const articlesData = useFetch("/articles");
+  useEffect(() => {
+    console.log(articlesData);
+  }, [articlesData]);
+
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
       setNumOfSlides(1);

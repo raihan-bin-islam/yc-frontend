@@ -2,16 +2,20 @@
 
 .card_prev_arrow,
 .card_next_arrow {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
   height: 100%;
   padding: 0 1rem;
+
   background-color: rgba($color: black, $alpha: 0.1);
-  position: absolute;
-  top: 0;
-  z-index: 3;
 }
 
 .card_prev_arrow {
   left: 0;
+  transform: translateY(-50%) scaleX(-1);
 }
 .card_next_arrow {
   right: 0;

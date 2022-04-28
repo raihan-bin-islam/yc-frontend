@@ -6,8 +6,9 @@ import SliderCard from "../../Shared/SliderCard/SliderCard";
 import PlayButton from "../../Shared/CommonSvg/PlayButton";
 // import NextArrow from "./Arrows/NextArrow";
 // import PrevArrow from "./Arrows/PrevArrow";
-import PrevArrow from "../../Shared/Arrows/PrevArrow";
-import NextArrow from "../../Shared/Arrows/NextArrow";
+import Arrow from "../../Shared/Arrows/Arrow";
+import useYoutubeApi from "../../Hooks/useYoutubeApi";
+// import NextArrow from "../../Shared/Arrows/NextArrow";
 
 const HomeVideoSlide = () => {
   // styles
@@ -35,8 +36,8 @@ const HomeVideoSlide = () => {
     centerMode: false,
     appendArrows: videoSliderBody,
     cssEase: "ease-in-out",
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
+    prevArrow: <Arrow type="prev" />,
+    nextArrow: <Arrow />,
     autoplay: false,
     autoplaySpeed: 2000,
     responsive: [
@@ -50,6 +51,9 @@ const HomeVideoSlide = () => {
       },
     ],
   };
+
+  const videoData = useYoutubeApi("9CAz_vvsK9M");
+  console.log(videoData);
 
   return (
     <section className={videoSlideContainer}>
