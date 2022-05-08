@@ -1,13 +1,13 @@
 @import "../../../styles/utils/base";
 
 .videoSlideContainer {
-  padding: 20.8rem 0;
+  padding: 0 0 20.8rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   @include response(vp-800) {
-    padding: 20.8rem 5rem;
+    padding: 0 5rem 20.8rem 5rem;
   }
   .videoLeaf {
     position: absolute;

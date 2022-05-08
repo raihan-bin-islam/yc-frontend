@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 const Navbar = () => {
   
   // styles
-  const { nav, navContainer, navScroll, navActive, dropdown, mainList, burger, cross, searchInput, inputCross } = styles;
+  const { nav, navContainer, navScroll, navActive, dropdown, mainList, burger, cross, searchInput, inputCross, menuContainer } = styles;
 
   //state
   const [scrolled, setScrolled] = useState(false);
@@ -65,7 +65,7 @@ const Navbar = () => {
         <div>
           <img src={logo.src} alt="brand-yc" />
         </div>
-        <div>
+        <div className={menuContainer}>
           <ul className={mainList} ref={navRef}>
             <li>
               <Link href="/">
@@ -107,8 +107,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/prof-yunus">
-                <a className={router.pathname == "/prof-yunus" ? navActive : ""}>Prof. Yunus</a>
+              <Link href="/professor-yunus">
+                <a className={router.pathname == "/professor-yunus" ? navActive : ""}>Professor Yunus</a>
               </Link>
             </li>
             <li>

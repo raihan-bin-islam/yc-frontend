@@ -2,7 +2,7 @@
 
 .initiativesSection {
   position: relative;
-  padding: 7.8rem 0;
+  padding: 7.8rem 0 20.8rem 0;
 
   .bgSvg {
     position: absolute;
@@ -126,6 +126,11 @@
         .rightContent {
           display: flex;
           align-items: center;
+          margin-left: 4rem;
+          @include response(tab-port) {
+            margin-left: 0;
+            margin-top: 2rem;
+          }
           h4 {
             font-size: 4.3rem;
             color: $textDark;
@@ -133,7 +138,6 @@
           h2 {
             font-size: 6.3rem;
             color: $textDark;
-            margin-left: 2rem;
           }
           button {
             outline: 0;
@@ -144,7 +148,6 @@
             font-size: 16px;
             text-transform: capitalize;
             margin-top: 7rem;
-            margin-left: 4rem;
             transition: 0.3s;
             &:hover {
               background-color: $secondaryCyan;
