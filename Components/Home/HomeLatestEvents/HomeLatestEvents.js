@@ -3,8 +3,8 @@ import React from "react";
 import Slider from "react-slick/lib/slider";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 
-import PrevArrow from "../../Shared/Arrows/PrevArrow";
-import NextArrow from "../../Shared/Arrows/NextArrow";
+import Arrow from "../../Shared/Arrows/Arrow";
+// import NextArrow from "../../Shared/Arrows/NextArrow";
 
 import styles from "./homelatestevents.module.scss";
 import { latestEvents } from "./latestEvents";
@@ -21,8 +21,8 @@ const HomeLatestEvents = () => {
     centerMode: false,
     appendArrows: homeEventsBody,
     cssEase: "ease-in-out",
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />,
+    prevArrow: <Arrow type="prev" size={70} />,
+    nextArrow: <Arrow size={70} />,
     autoplay: false,
     autoplaySpeed: 2000,
     responsive: [
