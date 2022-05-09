@@ -6,6 +6,7 @@ import { articles } from "./articles";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { Pagination, Navigation } from "swiper";
 
 // Import Section Styles
 import styles from "./home_articles.module.scss";
@@ -18,7 +19,7 @@ import useFetch from "../../Hooks/useFetch";
 const HomeArticles = () => {
   const { heading, articleSection, articleBg, swiperWrapper, author } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
-
+  const [isNavigation, setIsNavigation] = useState(true)
   const articlesData = useFetch("/articles");
   useEffect(() => {
     // console.log(articlesData);
@@ -27,6 +28,7 @@ const HomeArticles = () => {
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
       setNumOfSlides(1);
+      setIsNavigation(false)
       return;
     }
     setNumOfSlides(3);
@@ -46,10 +48,16 @@ const HomeArticles = () => {
       <p className={author}>By Professor Muhammad Yunus</p>
       <div className={`${swiperWrapper} container-layout`}>
         <Background classname={articleBg} />
-        <Swiper // install Swiper modules
+        {/* install Swiper modules */}
+        <Swiper
           slidesPerView={numOfSlides}
           spaceBetween={0}
           centeredSlides={true}
+          navigation={isNavigation}
+          pagination={{
+            clickable: true
+          }}
+          modules={[Pagination, Navigation]}
         >
           {articles.map(({ img, title }, index) => {
             return (

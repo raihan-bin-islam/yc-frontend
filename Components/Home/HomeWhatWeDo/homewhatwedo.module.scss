@@ -3,6 +3,9 @@
 .heroWhatWeDoContainer {
   padding: 7.8rem 0 30rem 0;
   position: relative;
+  @include response(vp-800) {
+    padding: 7.8rem 0 15rem 0;
+  }
 
   .backgroundPath {
     position: absolute;
@@ -31,6 +34,7 @@
       display: none;
       z-index: 3;
       position: relative;
+      margin-top: 4rem;
       @include response(vp-800) {
         display: block;
       }

@@ -97,6 +97,7 @@
 
           font-size: $newsHeading;
           color: $white;
+          font-weight: $bold;
 
           @include response(M-phone) {
             font-size: $newsHeading - 1rem;

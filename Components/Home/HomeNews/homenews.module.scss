@@ -26,6 +26,7 @@
         @include heading($headingSecondary);
       }
       .asideContent {
+        margin-top: 4rem;
         height: 100rem;
         padding-right: 1rem;
         overflow-y: scroll;

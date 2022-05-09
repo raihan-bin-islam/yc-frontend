@@ -71,25 +71,23 @@
       position: absolute;
       top: 17.5rem;
       right: 0;
-
+      text-align: end;
       display: inline-block;
       width: 61.6rem;
       @include response(tab-port) {
+        width: 94%;
         top: 60%;
         left: 5%;
       }
       .h2 {
-        display: block;
+        display: inline-block;
         overflow: hidden;
-        white-space: nowrap;
+        //white-space: nowrap;
         width: 0;
-
-        text-align: end;
         font-size: 5.3rem;
         color: $white;
         font-weight: $bold;
         line-height: 6.8rem;
-
         animation: typing 1s steps(20, end) forwards;
 
         &:nth-child(2) {
@@ -102,7 +100,7 @@
           animation-delay: 3s;
         }
         @include response(tab-port) {
-          font-size: 4.3rem;
+          font-size: 4rem;
           line-height: 1;
           text-align: left;
         }
@@ -113,7 +111,7 @@
 
 @keyframes typing {
   from {
-    width: 0;
+    width: 0%;
   }
   to {
     width: 100%;
