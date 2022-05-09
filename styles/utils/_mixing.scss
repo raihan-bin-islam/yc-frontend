@@ -82,3 +82,31 @@
     background-color: $secondaryCyan;
   }
 }
+@mixin PlayBtn($size: 5rem) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  width: $size;
+  aspect-ratio: 1;
+
+  cursor: pointer;
+
+  transition: all $duration ease;
+
+  // &:hover {
+  //   background: white;
+  //   border-radius: 50%;
+
+  //   transition: background $duration ease;
+  // }
+}
+
+@mixin PlayBtnHover {
+  background: white;
+  border-radius: 50%;
+
+  transition: background $duration ease;
+}

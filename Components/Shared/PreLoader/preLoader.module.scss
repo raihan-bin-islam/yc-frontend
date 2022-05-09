@@ -1,0 +1,42 @@
+@import "../../../styles/utils/base";
+
+.container {
+  position: relative;
+  margin: 20rem auto;
+  width: fit-content;
+
+  h2 {
+    z-index: 3;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 4rem;
+    font-weight: $bold;
+    color: $primary;
+  }
+
+  .preLoader {
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    background: transparent;
+    border-top: 4px solid $primary;
+    border-right: 4px solid transparent;
+    border-radius: 50%;
+    -webkit-animation: 1s spin linear infinite;
+    animation: 1s spin liner infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}

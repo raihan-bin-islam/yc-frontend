@@ -7,7 +7,7 @@ import { sliderData } from "./data";
 // Import Component Styles
 import styles from "./slider_card.module.scss";
 
-const SliderCard = ({ image, title, type = "events", size = 1 }) => {
+const SliderCard = ({ image, title, type = "events", size = 1, onClick }) => {
   // Destructuring Module Style Object
   const {
     eventsContainer,
@@ -34,6 +34,7 @@ const SliderCard = ({ image, title, type = "events", size = 1 }) => {
           ? videoContainer
           : awardCardContainer
       } cardSelector`}
+      onClick={() => onClick && onClick()}
     >
       <img className={`${type === "articles" ? articleImg : cardImg}`} src={image} alt={title} />
       <h4 className={cardTitle}>{title}</h4>

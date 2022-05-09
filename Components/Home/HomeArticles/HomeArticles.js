@@ -21,7 +21,7 @@ const HomeArticles = () => {
 
   const articlesData = useFetch("/articles");
   useEffect(() => {
-    console.log(articlesData);
+    // console.log(articlesData);
   }, [articlesData]);
 
   const onMobileScreen = () => {
