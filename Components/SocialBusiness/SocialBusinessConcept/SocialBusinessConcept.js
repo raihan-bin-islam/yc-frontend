@@ -1,7 +1,7 @@
 import React from "react";
 
 // COMPONENT
-import ButtonLight from "../../Shared/ButtonLight/ButtonLight";
+import ButtonLight from "../../Shared/Button/Button";
 
 // IMAGE
 import conceptLayout from "../../../public/assets/images/social_business/concept_path.png";
@@ -64,7 +64,7 @@ const SocialBusinessConcept = () => {
             running as a business. The objective of the company is to achieve
             social goals.
           </p>
-          <ButtonLight text="Read More" />
+          <ButtonLight text="Read More" dark />
         </div>
       </div>
     </section>

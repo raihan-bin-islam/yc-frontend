@@ -1,0 +1,20 @@
+@import "../../../styles/utils/base";
+
+.btnLight {
+  border: 1px solid $secondaryCyan;
+  background-color: inherit;
+  color: $primary;
+  &:hover {
+    background-color: $secondaryCyan;
+  }
+}
+.btnDark {
+  border: 1px solid $primary;
+  background-color: $primary;
+  color: $secondaryCyan;
+  &:hover {
+    border: 1px solid $secondaryCyan;
+    background-color: $secondaryCyan;
+    color: $white;
+  }
+}
