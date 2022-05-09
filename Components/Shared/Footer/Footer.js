@@ -11,7 +11,7 @@ import mediaTwitter from '../../../public/media_twitter.svg'
 const Footer = () => {
 
     // styles
-    const { footerSection, footerBody, footerBodyLeft, footerBodyCenter, footerBodyRight, footerBottom, mailHeading, socialMedia } = styles
+    const { footerSection, footerBody, footerBodyLeft, footerBodyCenter, footerBodyRight, footerBottom, mailHeading, socialMedia, footerCrafted } = styles
 
     return (
         <footer className={footerSection}>
@@ -71,6 +71,9 @@ const Footer = () => {
                         <a href='/' target='_blank'><img src={mediaInsta.src} alt='media'/></a>
                         <a href='/' target='_blank'><img src={mediaTwitter.src} alt='media'/></a>
                     </div>
+                </div>
+                <div className={footerCrafted}>
+                    <p>Crafted with JoYY by YY Studio</p>
                 </div>
             </div>
         </footer>

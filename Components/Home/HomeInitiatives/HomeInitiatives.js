@@ -32,7 +32,7 @@ const HomeInitiatives = () => {
               The 3ZERO Club is an initiative towards achieving the Nobel Peace Laureate Professor Muhammad Yunus’s
               vision of creating a world of three zeros{" "}
             </p>
-            <button>learn more</button>
+            <button><a href="https://3zero.club/" target="_blank" rel="noreferrer">learn more</a></button>
           </div>
           <div className={bodyRow1Right}>
             <img src={initiative1.src} alt="initiative-1" />

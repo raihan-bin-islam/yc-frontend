@@ -21,8 +21,8 @@ const HomeLatestEvents = () => {
     centerMode: false,
     appendArrows: homeEventsBody,
     cssEase: "ease-in-out",
-    prevArrow: <Arrow type="prev" size={70} />,
-    nextArrow: <Arrow size={70} />,
+    prevArrow: <Arrow type="prev" size={100} />,
+    nextArrow: <Arrow size={100} />,
     autoplay: false,
     autoplaySpeed: 2000,
     responsive: [

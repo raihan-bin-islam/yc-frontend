@@ -1,0 +1,29 @@
+@import "../../../styles/utils/base";
+
+.aboutWhatWeDoContainer{
+    padding: 10rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include response(vp-800){
+        padding: 7.2rem 2rem;
+    }
+    .aboutHeader{
+        h2{
+            @include heading(); 
+        }
+    }
+    .aboutBody{
+        margin-top: 7.2rem;
+        text-align: center;
+        p{
+            font-size: 2.2rem;
+            color: $textDark;
+            width: 123rem;
+            line-height: 2.6rem;
+            @include response(vp-800){
+                width: 100%;
+            }
+        }
+    }
+}

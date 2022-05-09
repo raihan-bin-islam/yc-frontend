@@ -1,7 +1,7 @@
 @import "../../../styles/utils/base";
 
 .footerSection{
-    height: 61rem;
+    height: 65rem;
     background-color: $primary;
     padding-top: 10.8rem;
     position: relative;
@@ -138,6 +138,18 @@
                     height: 3.471rem;
                 }
             }
+        }
+    }
+    .footerCrafted{
+        padding: 1rem 0;
+        text-align: center;
+        @include response(vp-800){
+            text-align: left;
+        }
+        p{
+            color: $secondary;
+            font-size: 1.8rem;
+            font-weight: $bold;
         }
     }
 }

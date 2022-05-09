@@ -73,18 +73,18 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              About
+              <Link href="/about">
+                <a className={router.pathname == "/about" ? navActive : ""}>About</a>
+              </Link>
+            </li>
+            <li>
+              Social Business 
               <ul className={dropdown}>
                 <li>About Us</li>
                 <li>About Us</li>
                 <li>About Us</li>
                 <li>About Us</li>
               </ul>
-            </li>
-            <li>
-              <Link href="/social-business">
-                <a className={router.pathname == "/social-business" ? navActive : ""}>Social Business</a>
-              </Link>
             </li>
             <li>
               <Link href="/visit-programs">
