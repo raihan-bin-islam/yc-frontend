@@ -7,8 +7,8 @@ import ButtonLight from "../../Shared/Button/Button";
 import conceptLayout from "../../../public/assets/images/social_business/concept_path.png";
 import conceptImage from "../../../public/assets/images/social_business/concept_image.png";
 import conceptLayout1 from "../../../public/assets/images/social_business/layout_1.png";
-import conceptLayout2 from "../../../public/assets/images/social_business/concept_image.png";
-import conceptLayout3 from "../../../public/assets/images/social_business/concept_image.png";
+import conceptLayout2 from "../../../public/assets/images/social_business/layout_2.png";
+import conceptLayout3 from "../../../public/assets/images/social_business/layout_3.png";
 // CSS
 import styles from "./socialBusinessConcept.module.scss";
 
@@ -25,6 +25,7 @@ const SocialBusinessConcept = () => {
     largePara,
     smallPara,
     btnContainer,
+    layoutContainer1,
   } = styles;
 
   return (
@@ -70,6 +71,17 @@ const SocialBusinessConcept = () => {
           <div className={btnContainer}>
             <ButtonLight text="Read More" dark />
           </div>
+        </div>
+      </div>
+      <div className={layoutContainer1}>
+        <div className={imageContainer}>
+          <img src={conceptLayout1.src} alt="layout 1" />
+        </div>
+        <div className={imageContainer}>
+          <img src={conceptLayout2.src} alt="layout 2" />
+        </div>
+        <div className={imageContainer}>
+          <img src={conceptLayout3.src} alt="layout 3" />
         </div>
       </div>
     </section>

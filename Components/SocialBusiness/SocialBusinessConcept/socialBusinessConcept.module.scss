@@ -78,4 +78,19 @@
       }
     }
   }
+  .layoutContainer1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: end;
+
+    @include response(phone) {
+      display: none;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
 }
