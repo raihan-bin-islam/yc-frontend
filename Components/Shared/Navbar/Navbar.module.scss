@@ -18,7 +18,7 @@
     justify-content: space-between;
     height: 100%;
     position: relative;
-    .menuContainer{
+    .menuContainer {
       ul {
         @media screen and (max-width: 900px) {
           position: absolute;
@@ -141,7 +141,7 @@
       display: block;
     }
   }
-  .searchInput{
+  .searchInput {
     width: fit-content;
     position: absolute;
     top: 135%;
@@ -149,17 +149,17 @@
     transform: translateX(-50%);
     transition: 0.3s;
     animation: searchInput 0.3s;
-    input{
+    input {
       outline: 0;
       border: 0;
       padding: 2rem;
       background-color: $white;
       width: 300px;
       font-size: 16px;
-      box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+      box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
       color: $textDark;
     }
-    .inputCross{
+    .inputCross {
       width: 20px;
       height: 20px;
       border-radius: 50%;
@@ -171,7 +171,7 @@
       top: 50%;
       cursor: pointer;
       transform: translateY(-50%);
-      img{
+      img {
         height: 15px;
         width: 15px;
       }
@@ -194,10 +194,10 @@
 }
 
 @keyframes searchInput {
-  0%{
+  0% {
     transform: translate(-50%, -100%);
   }
-  100%{
+  100% {
     transform: translate(-50%, 0);
   }
 }
