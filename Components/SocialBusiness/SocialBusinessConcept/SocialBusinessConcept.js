@@ -22,6 +22,9 @@ const SocialBusinessConcept = () => {
     conceptBoxRight,
     conceptImg,
     imageContainer,
+    largePara,
+    smallPara,
+    btnContainer,
   } = styles;
 
   return (
@@ -45,7 +48,7 @@ const SocialBusinessConcept = () => {
         </div>
         <div className={conceptBoxRight}>
           <h1>concept of social business</h1>
-          <p>
+          <p className={largePara}>
             Social business is a cause-driven business. In a social business,
             the investors/owners can gradually recoup the money invested, but
             cannot take any dividend beyond that point. Purpose of the
@@ -57,14 +60,16 @@ const SocialBusinessConcept = () => {
             nutrition for malnourished children, providing safe drinking water,
             introducing renewable energy, etc. in a business way.
           </p>
-          <p>
+          <p className={smallPara}>
             The impact of the business on people or environment, rather the
             amount of profit made in a given period measures the success of
             social business. Sustainability of the company indicates that it is
             running as a business. The objective of the company is to achieve
             social goals.
           </p>
-          <ButtonLight text="Read More" dark />
+          <div className={btnContainer}>
+            <ButtonLight text="Read More" dark />
+          </div>
         </div>
       </div>
     </section>

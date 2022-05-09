@@ -15,11 +15,18 @@
     }
   }
   .conceptBox {
+    padding-block: 6.8rem;
     position: relative;
     z-index: 1;
 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem;
+
+    @include response(phone) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, max-content);
+    }
 
     .conceptBoxLeft {
       background-color: aqua;
@@ -30,14 +37,44 @@
         .conceptImg {
           height: 100%;
           width: 100%;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
     }
     .conceptBoxRight {
-      background-color: palevioletred;
+      display: flex;
+      flex-direction: column;
       h1 {
         font-size: 4.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $primary;
+        text-align: center;
+        line-height: 1.4;
+        margin-bottom: 5rem;
+
+        &::after,
+        &::before {
+          content: "";
+          display: block;
+          height: 2px;
+          width: 100%;
+          background-color: $primary;
+        }
+      }
+      p {
+        font-size: 2.2rem;
+        color: $textDark;
+        line-height: 1.4;
+      }
+      .largePara {
+        margin-bottom: 2rem;
+      }
+      .smallPara {
+        margin-bottom: 5rem;
+      }
+      .btnContainer {
+        margin-top: auto;
       }
     }
   }
