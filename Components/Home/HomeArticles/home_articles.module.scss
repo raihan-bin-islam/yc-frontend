@@ -5,9 +5,10 @@
   // height: 108rem;
   position: relative;
   padding: 0rem 0rem 31.9rem 0rem;
-
   overflow: hidden;
-
+  @include response(vp-800){
+    padding: 0rem 0rem 15rem 0rem;
+  }
   .heading {
     @include heading();
   }
@@ -15,6 +16,9 @@
   .swiperWrapper {
     position: relative;
     height: 86.4rem;
+    @include response(vp-800){
+      padding: 0 5rem;
+    }
     .articleBg {
       position: absolute;
       left: -50rem;
@@ -27,5 +31,20 @@
     font-size: 2.6rem;
     color: $textLight;
     margin: 2rem auto;
+  }
+  .articleFooter{
+    padding: 2rem;
+    text-align: center;
+    a{
+      padding: 1rem 2rem;
+      font-size: 1.8rem;
+      border: 1px solid $secondaryCyan;
+      color: $primary;
+      font-weight: 500;
+      transition: 0.3s;
+      &:hover{
+        background-color: $secondaryCyan;
+      }
+    }
   }
 }

@@ -70,9 +70,14 @@ const HomeVideoSlide = () => {
     ],
   };
 
+<<<<<<< HEAD
   // const videoData = useYoutubeApi("9CAz_vvsK9M");
   // console.log(videoData);
 
+=======
+  const videoData = useYoutubeApi("9CAz_vvsK9M");
+  
+>>>>>>> farhan
   return (
     <section className={videoSlideContainer}>
       <div className={videoLeaf}>
