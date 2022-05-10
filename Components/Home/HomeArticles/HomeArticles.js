@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Link from 'next/link'
 
 // Import Article Data
 import { articles } from "./articles";
@@ -17,13 +18,13 @@ import Background from "./Background";
 import useFetch from "../../Hooks/useFetch";
 
 const HomeArticles = () => {
-  const { heading, articleSection, articleBg, swiperWrapper, author } = styles;
+  const { heading, articleSection, articleBg, swiperWrapper, author, articleFooter } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
   const [isNavigation, setIsNavigation] = useState(true)
   const articlesData = useFetch("/articles");
-  useEffect(() => {
-    console.log(articlesData);
-  }, [articlesData]);
+  // useEffect(() => {
+  //   return articlesData
+  // }, [articlesData]);
 
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
@@ -42,11 +43,26 @@ const HomeArticles = () => {
     return () => window.removeEventListener("resize", onMobileScreen);
   });
 
+  useEffect(()=> {
+    const prevBtn = document.querySelector('.swiper-button-prev')
+    prevBtn ? prevBtn.style.display = 'none' : ''
+  }, [])
+
+  const HandleSwipe = () => {
+    const prevBtn = document.querySelector('.swiper-button-prev')
+    prevBtn ? prevBtn.style.display = 'block' : ''
+  }
+
+  const HandleBeginning = () => {
+    const prevBtn = document.querySelector('.swiper-button-prev')
+    prevBtn ? prevBtn.style.display = 'none' : ''
+  }
+
   return (
     <section className={`${articleSection}`}>
       <h2 className={heading}>articles</h2>
       <p className={author}>By Professor Muhammad Yunus</p>
-      <div className={`${swiperWrapper} container-layout`}>
+      <div className={`${swiperWrapper}`}>
         <Background classname={articleBg} />
         {/* install Swiper modules */}
         <Swiper
@@ -58,6 +74,8 @@ const HomeArticles = () => {
             clickable: true
           }}
           modules={[Pagination, Navigation]}
+          onSlideNextTransitionStart={HandleSwipe}
+          onReachBeginning={HandleBeginning}
         >
           {articles.map(({ img, title }, index) => {
             return (
@@ -67,6 +85,10 @@ const HomeArticles = () => {
             );
           })}
         </Swiper>
+      </div>
+      {/* see all */}
+      <div className={articleFooter}>
+        <Link href='/'>See All</Link>
       </div>
     </section>
   );
