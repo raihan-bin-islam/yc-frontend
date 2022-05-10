@@ -1,7 +1,7 @@
 import React from "react";
 
 // COMPONENTS
-import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
+import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
 
 import styles from "./SocialBusinessConceptHeader.module.scss";
 
@@ -10,7 +10,7 @@ const SocialBusinessConceptHeader = () => {
 
   return (
     <div className={headerHero}>
-      <HeroBannerSmall />
+      <HeroBanner large />
     </div>
   );
 };
