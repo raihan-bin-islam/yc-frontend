@@ -1,19 +1,24 @@
 import React from "react";
-import styles from "./homeheader.module.scss";
+
+// IMAGES
 import heroImage from "../../../public/assets/images/landing_page/hero_path.png";
 import heroYunus from "../../../public/assets/images/landing_page/hero_banner.webp";
 
-// typewriter
-import Typewriter from 'typewriter-effect';
+// COMPONENTS
+import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
 
-//component
+// typewriter
+import Typewriter from "typewriter-effect";
+
+// CSS
+import styles from "./homeheader.module.scss";
+
 const HomeHeader = () => {
-  const { headerHero, heroBanner, heroBody, heroContentLeft, heroContentRight, h2 } = styles;
+  const { headerHero, heroBody, heroContentLeft, heroContentRight, h2 } =
+    styles;
   return (
     <section className={headerHero}>
-      <div className={heroBanner}>
-        <img className="animateBanner" src={heroImage.src} alt="hero-banner" />
-      </div>
+      <HeroBanner large />
       <div className={heroBody}>
         <div>
           <img src={heroYunus.src} alt="hero-banner" />
@@ -27,12 +32,15 @@ const HomeHeader = () => {
           <span className={h2}>
             <Typewriter
               onInit={(typewriter) => {
-                typewriter.typeString('“If you imagine, someday it will happen; if you don’t imagine, it will never happen.”')
-                  .start()
+                typewriter
+                  .typeString(
+                    "“If you imagine, someday it will happen; if you don’t imagine, it will never happen.”"
+                  )
+                  .start();
               }}
               options={{
                 autoStart: true,
-                delay: 75
+                delay: 75,
               }}
             />
           </span>

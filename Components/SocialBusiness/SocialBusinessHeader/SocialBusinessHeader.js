@@ -1,5 +1,8 @@
 import React from "react";
 
+// COMPONENTS
+import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
+
 // IMAGES
 import heroLayer from "../../../public/assets/images/social_business/hero_path.png";
 import heroImage from "../../../public/assets/images/social_business/hero_image.png";
@@ -11,9 +14,7 @@ const SocialBusinessHeader = () => {
   const { headerHero, heroBanner, heroBody, imageContainer, mask } = styles;
   return (
     <section className={headerHero}>
-      <div className={heroBanner}>
-        <img className="animateBanner" src={heroLayer.src} alt="hero-banner" />
-      </div>
+      <HeroBanner large />
       <div className={heroBody}>
         <div className={imageContainer}>
           <div className={mask}>
