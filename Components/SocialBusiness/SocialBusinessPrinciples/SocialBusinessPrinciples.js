@@ -4,14 +4,20 @@ import React from "react";
 import PrincipleCard from "./principleCard/PrincipleCard";
 
 // LAYOUT
-import layout from "../../../public/assets/images/social_business/principle_path.svg";
+import Layout from "./Layout";
 
 // CSS
 import styles from "./SocialBusinessPrinciples.module.scss";
 
 const SocialBusinessPrinciples = () => {
-  const { principleSection, headingContainer, principlesContainer, item } =
-    styles;
+  const {
+    principleSection,
+    headingContainer,
+    principlesContainer,
+    item,
+    principleLayout,
+    layoutContainer,
+  } = styles;
   return (
     <section className={`${principleSection} container-layout`}>
       <div className={headingContainer}>
@@ -56,11 +62,11 @@ const SocialBusinessPrinciples = () => {
           />
         </div>
         <div className={item}>
-          <PrincipleCard number="7" text="do it with joy." />
+          <PrincipleCard number="7" text="do it with joy." textBold />
         </div>
       </div>
-      <div>
-        <img src={layout.scr} alt="layout" />
+      <div className={principleLayout}>
+        <Layout />
       </div>
     </section>
   );

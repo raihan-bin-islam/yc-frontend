@@ -14,6 +14,10 @@
       flex-direction: column;
       align-items: center;
 
+      @include response(s-phone) {
+        font-size: 6rem;
+      }
+
       &::after,
       &::before {
         content: "";
@@ -29,6 +33,10 @@
       font-size: 6.9rem;
       color: $primary;
       margin-inline: auto;
+
+      @include response(s-phone) {
+        font-size: 5.5rem;
+      }
     }
   }
   .principlesContainer {
@@ -36,18 +44,45 @@
     grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
     grid-gap: 0 10rem;
     padding-top: 10rem;
+
+    @include response(phone) {
+      grid-template-columns: [col-start] 1fr [col-end];
+    }
     .item {
       grid-column: span 2;
       padding: 20px 0;
 
+      @include response(phone) {
+        grid-column: col-start / col-end;
+      }
+
       &:last-child {
         display: block;
         margin-inline: auto;
+
+        @include response(phone) {
+          width: 100%;
+        }
       }
     }
     .item:last-child:nth-child(n - 2) {
       grid-column: col-start 2 / col-end 3;
       justify-items: center;
+
+      @include response(phone) {
+        grid-column: col-start / col-end;
+        justify-items: start;
+      }
+    }
+  }
+  .principleLayout {
+    display: flex;
+    justify-content: center;
+
+    svg {
+      height: 68rem;
+      width: 50rem;
+      margin-bottom: -18rem;
     }
   }
 }
