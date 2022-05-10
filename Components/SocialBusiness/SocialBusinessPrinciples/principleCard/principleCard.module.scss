@@ -1,0 +1,27 @@
+@import "../../../../styles/utils/base";
+
+.principleCard {
+  display: flex;
+  align-items: center;
+
+  .numberContainer {
+    margin-right: 5rem;
+
+    border-right: 1px solid $textDark;
+
+    h1 {
+      font-size: 18.7rem;
+      font-weight: 700;
+      color: transparent;
+      line-height: 0.9;
+      -webkit-text-stroke: 1px $textDark;
+      display: block;
+      width: 18rem;
+    }
+  }
+
+  p {
+    font-size: 2.3rem;
+    color: $textDark;
+  }
+}
