@@ -12,15 +12,16 @@ import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Arrow from "../../Shared/Arrows/Arrow";
 
 // Custom Hooks
-import useYoutubeApi from "../../Hooks/useYoutubeApi";
 import useFetch from "../../Hooks/useFetch";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeVideoSlide = () => {
   // video slider data
-  const videoData = useFetch("/yunus-speech");
+  const { isPending, data: videoData } = useFetch("/yunus-speech");
 
+  console.log(isPending);
   // States
-  const [uniquId, setUniqueId] = useState("");
+  const [uniqueId, setUniqueId] = useState("");
 
   // set Initial video link to the first video after video data is fetched
   useEffect(() => {
@@ -81,12 +82,12 @@ const HomeVideoSlide = () => {
 
       <div className={videoSliderBody}>
         <div className={videoHeroContainer}>
-          {uniquId !== "" && <iframe src={`https://www.youtube.com/embed/${uniquId}`}></iframe>}
+          {uniqueId !== "" && <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>}
         </div>
         <div className="mt3">
-          <Slider {...youTubeSlider}>
-            {videoData &&
-              videoData.map(({ id, thumb_image, title, youtube_link }) => {
+          {!isPending ? (
+            <Slider {...youTubeSlider}>
+              {videoData.map(({ id, thumb_image, title, youtube_link }) => {
                 return (
                   <SliderCard
                     key={id}
@@ -97,7 +98,10 @@ const HomeVideoSlide = () => {
                   />
                 );
               })}
-          </Slider>
+            </Slider>
+          ) : (
+            <PreLoader />
+          )}
         </div>
       </div>
     </section>

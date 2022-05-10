@@ -16,13 +16,7 @@ const useFetch = (endPoint) => {
       .then((res) => res.json())
       .then((data) => {
         setIsPending(false);
-        const reverse = data.data
-          .slice(0)
-          .reverse()
-          .map((element) => {
-            return element;
-          });
-        setData(reverse);
+        setData(data.data);
       })
       .catch((err) => {
         setIsPending(false);
@@ -34,7 +28,7 @@ const useFetch = (endPoint) => {
     fetchData();
   }, [endPoint]);
 
-  return data;
+  return { isPending, data };
 };
 
 export default useFetch;

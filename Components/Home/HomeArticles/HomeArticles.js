@@ -19,8 +19,8 @@ import useFetch from "../../Hooks/useFetch";
 const HomeArticles = () => {
   const { heading, articleSection, articleBg, swiperWrapper, author } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
-  const [isNavigation, setIsNavigation] = useState(true)
-  const articlesData = useFetch("/articles");
+  const [isNavigation, setIsNavigation] = useState(true);
+  const { isPending, data: articlesData } = useFetch("/articles");
   useEffect(() => {
     // console.log(articlesData);
   }, [articlesData]);
@@ -28,7 +28,7 @@ const HomeArticles = () => {
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
       setNumOfSlides(1);
-      setIsNavigation(false)
+      setIsNavigation(false);
       return;
     }
     setNumOfSlides(3);
@@ -55,7 +55,7 @@ const HomeArticles = () => {
           centeredSlides={true}
           navigation={isNavigation}
           pagination={{
-            clickable: true
+            clickable: true,
           }}
           modules={[Pagination, Navigation]}
         >
