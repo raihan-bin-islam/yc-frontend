@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Link from 'next/link'
+import Link from "next/link";
 
 // Import Article Data
 import { articles } from "./articles";
@@ -20,7 +20,7 @@ import useFetch from "../../Hooks/useFetch";
 const HomeArticles = () => {
   const { heading, articleSection, articleBg, swiperWrapper, author, articleFooter } = styles;
   const [numOfSlides, setNumOfSlides] = useState(3);
-  const [isNavigation, setIsNavigation] = useState(true)
+  const [isNavigation, setIsNavigation] = useState(true);
   const articlesData = useFetch("/articles");
   // useEffect(() => {
   //   return articlesData
@@ -29,7 +29,7 @@ const HomeArticles = () => {
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
       setNumOfSlides(1);
-      setIsNavigation(false)
+      setIsNavigation(false);
       return;
     }
     setNumOfSlides(3);
@@ -43,20 +43,20 @@ const HomeArticles = () => {
     return () => window.removeEventListener("resize", onMobileScreen);
   });
 
-  useEffect(()=> {
-    const prevBtn = document.querySelector('.swiper-button-prev')
-    prevBtn ? prevBtn.style.display = 'none' : ''
-  }, [])
+  useEffect(() => {
+    const prevBtn = document.querySelector(".swiper-button-prev");
+    prevBtn ? (prevBtn.style.display = "none") : "";
+  }, []);
 
   const HandleSwipe = () => {
-    const prevBtn = document.querySelector('.swiper-button-prev')
-    prevBtn ? prevBtn.style.display = 'block' : ''
-  }
+    const prevBtn = document.querySelector(".swiper-button-prev");
+    prevBtn ? (prevBtn.style.display = "block") : "";
+  };
 
   const HandleBeginning = () => {
-    const prevBtn = document.querySelector('.swiper-button-prev')
-    prevBtn ? prevBtn.style.display = 'none' : ''
-  }
+    const prevBtn = document.querySelector(".swiper-button-prev");
+    prevBtn ? (prevBtn.style.display = "none") : "";
+  };
 
   return (
     <section className={`${articleSection}`}>
@@ -71,7 +71,7 @@ const HomeArticles = () => {
           centeredSlides={true}
           navigation={isNavigation}
           pagination={{
-            clickable: true
+            clickable: true,
           }}
           modules={[Pagination, Navigation]}
           onSlideNextTransitionStart={HandleSwipe}
@@ -88,7 +88,7 @@ const HomeArticles = () => {
       </div>
       {/* see all */}
       <div className={articleFooter}>
-        <Link href='/'>See All</Link>
+        <Link href="/">See All</Link>
       </div>
     </section>
   );

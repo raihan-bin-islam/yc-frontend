@@ -4,10 +4,11 @@ import NewsCard from "../../Shared/NewsCard/NewsCard";
 import styles from "./homenews.module.scss";
 import articleImg from "../../../public/assets/images/landing_page/highlight-img.png";
 import useFetch from "../../Hooks/useFetch";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeNews = () => {
   const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent } = styles;
-  const newsData = useFetch("/news");
+  const { isPending, data: newsData } = useFetch("/news");
   // set highlights from all the news data
   const highlights =
     newsData &&
@@ -15,13 +16,11 @@ const HomeNews = () => {
       return is_highlight;
     });
 
-  console.log(highlights);
-
   return (
     <section className={homeNewsContainer}>
       <div className={`container-layout ${homeNewsContainerBody}`}>
         <main>
-          {newsData &&
+          {!isPending ? (
             newsData.map(({ id, title, desc, image_caption, thumb_image, published_at }) => {
               return (
                 <NewsCard
@@ -34,7 +33,10 @@ const HomeNews = () => {
                   altText={image_caption}
                 />
               );
-            })}
+            })
+          ) : (
+            <PreLoader />
+          )}
         </main>
         <aside>
           <h2 className={asideHeader}>highlights</h2>

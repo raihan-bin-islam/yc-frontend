@@ -5,7 +5,6 @@ const PreLoader = () => {
   return (
     <div className={container}>
       <div className={preLoader}></div>
-      <h2>Y</h2>
     </div>
   );
 };

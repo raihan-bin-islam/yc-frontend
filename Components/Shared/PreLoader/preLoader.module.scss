@@ -5,20 +5,8 @@
   margin: 20rem auto;
   width: fit-content;
 
-  h2 {
-    z-index: 3;
-
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    font-size: 4rem;
-    font-weight: $bold;
-    color: $primary;
-  }
-
   .preLoader {
+    font-size: 5rem;
     width: 75px;
     height: 75px;
     margin: 0;
