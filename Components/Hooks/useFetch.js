@@ -28,7 +28,7 @@ const useFetch = (endPoint) => {
     fetchData();
   }, [endPoint]);
 
-  return { isPending, data };
+  return [isPending, data];
 };
 
 export default useFetch;

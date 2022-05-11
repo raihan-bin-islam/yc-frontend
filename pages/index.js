@@ -12,10 +12,10 @@ export default function Home() {
       <HomeHeader />
       <HomeWhatWeDo />
       <HomeLatestEvents />
-      <HomeNews/>
+      <HomeNews />
       <HomeArticles />
-      <HomeInitiatives/>
-      <HomeVideoSlide/>
+      <HomeInitiatives />
+      <HomeVideoSlide />
     </div>
   );
 }
