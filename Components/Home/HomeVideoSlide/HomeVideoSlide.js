@@ -17,9 +17,8 @@ import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeVideoSlide = () => {
   // video slider data
-  const { isPending, data: videoData } = useFetch("/yunus-speech");
+  const [isPending, videoData] = useFetch("/yunus-speech");
 
-  console.log(isPending);
   // States
   const [uniqueId, setUniqueId] = useState("");
 

@@ -8,7 +8,7 @@ import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeNews = () => {
   const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent } = styles;
-  const { isPending, data: newsData } = useFetch("/news");
+  const [isPending, newsData] = useFetch("/news");
   // set highlights from all the news data
   const highlights =
     newsData &&

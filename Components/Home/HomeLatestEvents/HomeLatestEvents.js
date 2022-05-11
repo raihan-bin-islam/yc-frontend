@@ -7,9 +7,14 @@ import Arrow from "../../Shared/Arrows/Arrow";
 // import NextArrow from "../../Shared/Arrows/NextArrow";
 
 import styles from "./homelatestevents.module.scss";
-import { latestEvents } from "./latestEvents";
+// import { latestEvents } from "./latestEvents";
+import useFetch from "../../Hooks/useFetch";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeLatestEvents = () => {
+  // Fetch Data
+  const [isPending, latestEvents] = useFetch("/events");
+
   const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
 
   const sliderSettings = {
@@ -44,9 +49,13 @@ const HomeLatestEvents = () => {
         </div>
         <div className={homeEventsBody}>
           <Slider {...sliderSettings}>
-            {latestEvents.map(({ image, title }, index) => {
-              return <SliderCard key={index} image={image} title={title} type="events" />;
-            })}
+            {!isPending ? (
+              latestEvents.map(({ thumb_image, title }, index) => {
+                return <SliderCard key={index} image={thumb_image} title={title} type="events" />;
+              })
+            ) : (
+              <PreLoader />
+            )}
           </Slider>
         </div>
       </div>
