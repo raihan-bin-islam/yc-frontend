@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./award_card.module.scss";
 import { animated, useSpring } from "@react-spring/web";
 
-const AwardsCard = ({ className, image, title, year, i }) => {
+const AwardsCard = ({ className, image, title, year, i, animate = false }) => {
   const { awardCardContainer, titleContainer, cardTitle, cardImg, yearStyles } = styles;
   const baseImagePath = "assets/images/prof_yunus/awards/";
 
@@ -13,10 +13,10 @@ const AwardsCard = ({ className, image, title, year, i }) => {
     delay: i * 1000,
     config: { duration: 1000 },
   });
-  console.log(i);
+
   return (
     <>
-      <animated.div style={animationStyle} className={`${awardCardContainer} ${className}`}>
+      <animated.div style={animate ? animationStyle : null} className={`${awardCardContainer} ${className}`}>
         <img className={cardImg} src={baseImagePath + image} alt="" />
         <div className={titleContainer}>
           <h4 className={cardTitle}>{title}</h4>

@@ -40,8 +40,8 @@ const Awards = () => {
           .filter((data, index) => {
             return index >= startIndex && index < endIndex;
           })
-          .map(({ image, title, year }, index) => {
-            return <AwardsCard image={image} title={title} year={year} key={index} i={index} />;
+          .map(({ id, image, title, year }, index) => {
+            return <AwardsCard image={image} title={title} year={year} key={id} i={index} />;
           })}
         <NextButton onClick={next} className={nextButton} />
       </div>

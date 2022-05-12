@@ -118,7 +118,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/professor-yunus">
                 <a className={router.pathname == "/professor-yunus" ? navActive : ""}>Professor Yunus</a>
               </Link>
             </li>
