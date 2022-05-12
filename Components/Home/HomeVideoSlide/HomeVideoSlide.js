@@ -35,15 +35,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
   };
 
   // styles
-  const {
-    videoSlideContainer,
-    videoSliderBody,
-    videoHeroContainer,
-    videoThumbContainer,
-    videoThumb,
-    playBtn,
-    videoLeaf,
-  } = styles;
+  const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoLeaf } = styles;
 
   // slider settings
   const youTubeSlider = {
@@ -70,9 +62,6 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
       },
     ],
   };
-
-  // const videoData = useYoutubeApi("9CAz_vvsK9M");
-  // console.log(videoData);
 
   return (
     <section className={videoSlideContainer}>

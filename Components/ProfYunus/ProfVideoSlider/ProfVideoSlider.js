@@ -1,17 +1,19 @@
-import React from 'react';
-import HomeVideoSlide from '../../Home/HomeVideoSlide/HomeVideoSlide';
-import styles from './profvideoslider.module.scss';
+import React from "react";
+import HomeVideoSlide from "../../Home/HomeVideoSlide/HomeVideoSlide";
+import useFetch from "../../Hooks/useFetch";
+import styles from "./profvideoslider.module.scss";
 
 const ProfVideoSlider = () => {
-    const { profVideoContainer, profVideoHeader } = styles
-    return (
-        <section className={profVideoContainer}>
-            <div className={profVideoHeader}>
-                <h2>Speeches</h2>
-            </div>
-            <HomeVideoSlide />
-        </section>
-    );
+  const [isLoading, videoData] = useFetch("/yunus-speech");
+  const { profVideoContainer, profVideoHeader } = styles;
+  return (
+    <section className={profVideoContainer}>
+      <div className={profVideoHeader}>
+        <h2>Speeches</h2>
+      </div>
+      {videoData.length > 0 && <HomeVideoSlide isLoading={isLoading} videoData={videoData} />}
+    </section>
+  );
 };
 
 export default ProfVideoSlider;
