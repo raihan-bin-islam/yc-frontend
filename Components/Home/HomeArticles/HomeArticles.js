@@ -16,15 +16,16 @@ import styles from "./home_articles.module.scss";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Background from "./Background";
 import useFetch from "../../Hooks/useFetch";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeArticles = () => {
-  const { heading, articleSection, articleBg, swiperWrapper, author, articleFooter } = styles;
+  // API Data
+  const [isPending, articlesData] = useFetch("/articles");
+  // UI States
   const [numOfSlides, setNumOfSlides] = useState(3);
   const [isNavigation, setIsNavigation] = useState(true);
-  const articlesData = useFetch("/articles");
-  // useEffect(() => {
-  //   return articlesData
-  // }, [articlesData]);
+  // Styles
+  const { heading, articleSection, articleBg, swiperWrapper, author, articleFooter } = styles;
 
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
@@ -77,13 +78,17 @@ const HomeArticles = () => {
           onSlideNextTransitionStart={HandleSwipe}
           onReachBeginning={HandleBeginning}
         >
-          {articles.map(({ img, title }, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <SliderCard image={img} title={title} type="articles" />
-              </SwiperSlide>
-            );
-          })}
+          {isPending ? (
+            articles.map(({ thumb_image, title }, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <SliderCard image={thumb_image} title={title} type="articles" />
+                </SwiperSlide>
+              );
+            })
+          ) : (
+            <PreLoader />
+          )}
         </Swiper>
       </div>
       {/* see all */}
