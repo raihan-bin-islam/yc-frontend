@@ -3,9 +3,12 @@ import React from "react";
 import styles from "./award_card.module.scss";
 
 const AwardsCard = ({ className, image, title, year, motion }) => {
+
   const { awardCardContainer, titleContainer, cardTitle, cardImg, yearStyles } = styles;
   const baseImagePath = "assets/images/prof_yunus/awards/";
+  
   console.log(motion);
+
   const container = {
     hidden: { opacity: 0 },
     show: {
