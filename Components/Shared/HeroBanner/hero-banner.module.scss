@@ -15,6 +15,9 @@
   top: -20rem;
   left: 0;
 
+  @include response(tab-port) {
+    top: -50rem;
+  }
   .svgLarge {
     width: 100%;
     animation: bannerAnimation 1s cubic-bezier(1, -0.39, 0.56, 1.21) forwards;

@@ -8,7 +8,6 @@ import NextButton from "./NextButton/NextButton";
 
 const Awards = () => {
   const { awardsContainer, grid, title, subtitle, nextButton, prevButton } = styles;
-  const [animateAwards, setAnimateAwards] = useState("");
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(8);
 
@@ -23,12 +22,12 @@ const Awards = () => {
   };
   const prev = () => {
     if (startIndex === 0) {
-      setStartIndex(endIndex);
-      setEndIndex((prev) => prev + 8);
+      setStartIndex(awardsData.length - 8);
+      setEndIndex(awardsData.length);
       return;
     }
-    setStartIndex(0);
-    setEndIndex(8);
+    setStartIndex((prev) => prev - 8);
+    setEndIndex(startIndex);
   };
 
   return (
@@ -36,12 +35,7 @@ const Awards = () => {
       <h2 className={title}>Awards</h2>
       <p className={subtitle}>Received by Professor Muhammad Yunus</p>
       <div className={grid}>
-        <NextButton
-          onClick={() => {
-            setAnimateAwards("animateAwards");
-          }}
-          className={prevButton}
-        />
+        <NextButton onClick={prev} className={prevButton} />
         {awardsData
           .filter((data, index) => {
             return index >= startIndex && index < endIndex;
