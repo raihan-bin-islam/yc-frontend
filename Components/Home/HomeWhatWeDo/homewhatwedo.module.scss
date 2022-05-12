@@ -29,6 +29,9 @@
       @include response(vp-800) {
         display: none;
       }
+      @include response(tab-port) {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
     .whatWeDoBodyMobile {
       display: none;

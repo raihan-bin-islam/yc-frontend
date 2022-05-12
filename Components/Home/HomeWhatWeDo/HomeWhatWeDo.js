@@ -6,8 +6,10 @@ import weDoBackSvg from "../../../public/assets/images/landing_page/we_do_back.s
 import Slider from "react-slick/lib/slider";
 
 const HomeWhatWeDo = () => {
+  // Module Style Object Destructuring
   const { heading, heroWhatWeDoContainer, whatWeDoMain, whatWeDoBody, backgroundPath, whatWeDoBodyMobile } = styles;
 
+  // Slick Slider Config
   const sliderSettings = {
     dots: true,
     infinite: false,

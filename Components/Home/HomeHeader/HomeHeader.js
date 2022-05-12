@@ -14,8 +14,7 @@ import Typewriter from "typewriter-effect";
 import styles from "./homeheader.module.scss";
 
 const HomeHeader = () => {
-  const { headerHero, heroBody, heroContentLeft, heroContentRight, h2 } =
-    styles;
+  const { headerHero, heroBody, heroContentLeft, heroContentRight, h2 } = styles;
   return (
     <section className={headerHero}>
       <HeroBanner large />
@@ -28,14 +27,11 @@ const HomeHeader = () => {
           <h6>2006 Nobel Peace Laureate</h6>
         </div>
         <div className={heroContentRight}>
-          {/* <span className={h2}>“If you imagine, someday it will happen; if you don’t imagine, it will never happen.”</span> */}
           <span className={h2}>
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .typeString(
-                    "“If you imagine, someday it will happen; if you don’t imagine, it will never happen.”"
-                  )
+                  .typeString("“If you imagine, someday it will happen; if you don’t imagine, it will never happen.”")
                   .start();
               }}
               options={{
