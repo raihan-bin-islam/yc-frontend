@@ -71,12 +71,13 @@
   .cardTitle {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-
+    padding: 1rem;
+    // left: 50%;
+    // transform: translate(-50%);
     color: $white;
     font-size: $paragraph;
     font-weight: $bold;
+    text-align: left;
   }
 }
 
@@ -101,6 +102,14 @@
   &:hover::before {
     opacity: 20%;
     transition: all $duration ease;
+  }
+
+  @include response(phone) {
+    height: 15rem;
+    width: 25rem;
+    .cardTitle {
+      font-size: 1.2rem;
+    }
   }
 
   .playBtn {

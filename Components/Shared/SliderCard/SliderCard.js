@@ -8,7 +8,7 @@ import { sliderData } from "./data";
 // Import Component Styles
 import styles from "./slider_card.module.scss";
 
-const SliderCard = ({ image, title, type = "events", size = 1, onClick }) => {
+const SliderCard = ({ image, title, type = "events", size = 1, onClick, link }) => {
   // Destructuring Module Style Object
   const {
     eventsContainer,
@@ -45,7 +45,7 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick }) => {
       {type === "articles" && (
         <span className={buttons}>
           <LikeButton />
-          <RightArrowLink />
+          <RightArrowLink link={link} />
         </span>
       )}
 
