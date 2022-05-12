@@ -6,10 +6,11 @@ import articleImg from "../../../public/assets/images/landing_page/highlight-img
 import useFetch from "../../Hooks/useFetch";
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
-const HomeNews = () => {
+const HomeNews = ({ isLoading, newsData }) => {
+  // Module Style Object Destructuring
   const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent } = styles;
-  const [isPending, newsData] = useFetch("/news");
-  // set highlights from all the news data
+
+  // Set highlights from all the news data
   const highlights =
     newsData &&
     newsData.filter(({ is_highlight }) => {
@@ -20,7 +21,8 @@ const HomeNews = () => {
     <section className={homeNewsContainer}>
       <div className={`container-layout ${homeNewsContainerBody}`}>
         <main>
-          {!isPending ? (
+          {!isLoading ? (
+            newsData &&
             newsData.map(({ id, title, desc, image_caption, thumb_image, published_at }) => {
               return (
                 <NewsCard

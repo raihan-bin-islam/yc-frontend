@@ -15,9 +15,9 @@ import Arrow from "../../Shared/Arrows/Arrow";
 import useFetch from "../../Hooks/useFetch";
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
-const HomeVideoSlide = () => {
+const HomeVideoSlide = ({ isLoading, videoData }) => {
   // video slider data
-  const [isPending, videoData] = useFetch("/yunus-speech");
+  // const [isPending, videoData] = useFetch("/yunus-speech");
 
   // States
   const [uniqueId, setUniqueId] = useState("");
@@ -84,20 +84,22 @@ const HomeVideoSlide = () => {
           {uniqueId !== "" && <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>}
         </div>
         <div className="mt3">
-          {!isPending ? (
-            <Slider {...youTubeSlider}>
-              {videoData.map(({ id, thumb_image, title, youtube_link }) => {
-                return (
-                  <SliderCard
-                    key={id}
-                    image={thumb_image}
-                    title={title}
-                    type="video"
-                    onClick={() => setVideoUrl(youtube_link)}
-                  />
-                );
-              })}
-            </Slider>
+          {!isLoading ? (
+            videoData && (
+              <Slider {...youTubeSlider}>
+                {videoData.map(({ id, thumb_image, title, youtube_link }) => {
+                  return (
+                    <SliderCard
+                      key={id}
+                      image={thumb_image}
+                      title={title}
+                      type="video"
+                      onClick={() => setVideoUrl(youtube_link)}
+                    />
+                  );
+                })}
+              </Slider>
+            )
           ) : (
             <PreLoader />
           )}

@@ -4,19 +4,16 @@ import Slider from "react-slick/lib/slider";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 
 import Arrow from "../../Shared/Arrows/Arrow";
-// import NextArrow from "../../Shared/Arrows/NextArrow";
 
 import styles from "./homelatestevents.module.scss";
-// import { latestEvents } from "./latestEvents";
-import useFetch from "../../Hooks/useFetch";
+
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
-const HomeLatestEvents = () => {
-  // Fetch Data
-  const [isPending, latestEvents] = useFetch("/events");
-
+const HomeLatestEvents = ({ isLoading, latestEvents }) => {
+  // Module style object destructuring
   const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
 
+  // Slick Slider Settingss
   const sliderSettings = {
     dots: false,
     infinite: latestEvents.length > 4,
@@ -41,6 +38,7 @@ const HomeLatestEvents = () => {
       },
     ],
   };
+
   return (
     <section className={homeEventsContainer}>
       <div className="container-layout">
@@ -49,7 +47,8 @@ const HomeLatestEvents = () => {
         </div>
         <div className={homeEventsBody}>
           <Slider {...sliderSettings}>
-            {!isPending ? (
+            {!isLoading ? (
+              latestEvents &&
               latestEvents.map(({ thumb_image, title }, index) => {
                 return <SliderCard key={index} image={thumb_image} title={title} type="events" />;
               })

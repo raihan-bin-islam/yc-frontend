@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 
-// Import Article Data
-import { articles } from "./articles";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,19 +13,16 @@ import styles from "./home_articles.module.scss";
 // Import Other Required Components
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Background from "./Background";
-import useFetch from "../../Hooks/useFetch";
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
-const HomeArticles = () => {
-  // API Data
-  const [isPending, articlesData] = useFetch("/articles");
-  console.log(articlesData);
+const HomeArticles = ({ isLoading, articlesData }) => {
   // UI States
   const [numOfSlides, setNumOfSlides] = useState(3);
   const [isNavigation, setIsNavigation] = useState(true);
-  // Styles
+  // Module Style Object Destructuring
   const { heading, articleSection, articleBg, swiperWrapper, author, articleFooter } = styles;
 
+  // On Mobile Screen Set the number of slides to 1
   const onMobileScreen = () => {
     if (window.innerWidth < 960) {
       setNumOfSlides(1);
@@ -37,14 +32,13 @@ const HomeArticles = () => {
     setNumOfSlides(3);
   };
 
+  //
   useEffect(() => {
-    // if (window.innerWidth < 960) {
-    //   setNumOfSlides(1);
-    // }
     window.addEventListener("resize", onMobileScreen);
     return () => window.removeEventListener("resize", onMobileScreen);
   });
 
+  // Swiper Settings
   useEffect(() => {
     const prevBtn = document.querySelector(".swiper-button-prev");
     prevBtn ? (prevBtn.style.display = "none") : "";
@@ -79,7 +73,8 @@ const HomeArticles = () => {
           onSlideNextTransitionStart={HandleSwipe}
           onReachBeginning={HandleBeginning}
         >
-          {!isPending ? (
+          {!isLoading ? (
+            articlesData &&
             articlesData.map(({ title, thumb_image, fb_post_link }, index) => {
               return (
                 <SwiperSlide key={index}>
