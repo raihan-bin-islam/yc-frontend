@@ -13,7 +13,6 @@ import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Arrow from "../../Shared/Arrows/Arrow";
 
 // Custom Hooks
-import useFetch from "../../Hooks/useFetch";
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeVideoSlide = ({ isLoading, videoData }) => {
@@ -62,7 +61,6 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
       },
     ],
   };
-
   return (
     <section className={videoSlideContainer}>
       <div className={videoLeaf}>

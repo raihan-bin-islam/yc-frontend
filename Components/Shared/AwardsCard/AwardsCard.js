@@ -13,7 +13,6 @@ const AwardsCard = ({ className, image, title, year, i, animate = false }) => {
     delay: i * 1000,
     config: { duration: 1000 },
   });
-
   return (
     <>
       <animated.div style={animate ? animationStyle : null} className={`${awardCardContainer} ${className}`}>
