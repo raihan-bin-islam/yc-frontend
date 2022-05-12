@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styles from "./profpioneer.module.scss";
 import pioneerImg from "../../../public/assets/images/prof_yunus/pioneer.jpg";
