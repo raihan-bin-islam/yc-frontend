@@ -5,7 +5,6 @@ import { awardsData } from "./awardsData";
 
 import styles from "./awards.module.scss";
 import NextButton from "./NextButton/NextButton";
-import { motion } from "framer-motion";
 
 const Awards = () => {
   const { awardsContainer, grid, title, subtitle, nextButton, prevButton, awardAnimation } = styles;
