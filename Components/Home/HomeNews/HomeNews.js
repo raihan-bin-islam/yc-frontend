@@ -3,7 +3,7 @@ import Highlight from "../../Shared/Highlight/Highlight";
 import NewsCard from "../../Shared/NewsCard/NewsCard";
 import styles from "./homenews.module.scss";
 import articleImg from "../../../public/assets/images/landing_page/highlight-img.png";
-import useFetch from "../../Hooks/useFetch";
+
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeNews = ({ isLoading, newsData }) => {
@@ -23,19 +23,23 @@ const HomeNews = ({ isLoading, newsData }) => {
         <main>
           {!isLoading ? (
             newsData &&
-            newsData.map(({ id, title, desc, image_caption, thumb_image, published_at }) => {
-              return (
-                <NewsCard
-                  key={id}
-                  heading={title}
-                  publisher="Published by Yunus Centre"
-                  pressRelease={published_at}
-                  news={desc}
-                  image={thumb_image}
-                  altText={image_caption}
-                />
-              );
-            })
+            newsData
+              .filter((data, index) => {
+                return index < 2;
+              })
+              .map(({ id, title, desc, image_caption, thumb_image, published_at }) => {
+                return (
+                  <NewsCard
+                    key={id}
+                    heading={title}
+                    publisher="Published by Yunus Centre"
+                    pressRelease={published_at}
+                    news={desc}
+                    image={thumb_image}
+                    altText={image_caption}
+                  />
+                );
+              })
           ) : (
             <PreLoader />
           )}
