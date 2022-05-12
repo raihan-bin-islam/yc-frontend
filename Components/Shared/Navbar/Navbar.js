@@ -9,9 +9,20 @@ import crossIcon from "../../../public/icon_cross.svg";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
-  
   // styles
-  const { nav, navContainer, navScroll, navActive, dropdown, mainList, burger, cross, searchInput, inputCross, menuContainer } = styles;
+  const {
+    nav,
+    navContainer,
+    navScroll,
+    navActive,
+    dropdown,
+    mainList,
+    burger,
+    cross,
+    searchInput,
+    inputCross,
+    menuContainer,
+  } = styles;
 
   //state
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +34,7 @@ const Navbar = () => {
   const navRef = useRef();
 
   // search input open close
-  const [searchOpen, setSearchOpen] = useState(false) 
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const HandleMenuOpen = () => {
     navRef.current.style.left = "0";
@@ -38,12 +49,12 @@ const Navbar = () => {
   };
 
   const HandleSearchInput = () => {
-    setSearchOpen(true)
-  }
+    setSearchOpen(true);
+  };
 
   const HandleSearchClose = () => {
-    setSearchOpen(false)
-  } 
+    setSearchOpen(false);
+  };
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -78,41 +89,40 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              Social Business 
-              <ul className={dropdown}>
+              <Link href="/social-business">
+                <a className={router.pathname == "/social-business" ? navActive : ""}>Social Business</a>
+              </Link>
+              {/* <ul className={dropdown}>
                 <li>About Us</li>
-                <li>About Us</li>
-                <li>About Us</li>
-                <li>About Us</li>
-              </ul>
+              </ul> */}
             </li>
             <li>
-              <Link href="/visit-programs">
+              <Link href="#">
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
             </li>
             <li>
-              <Link href="/publications">
+              <Link href="#">
                 <a className={router.pathname == "/publications" ? navActive : ""}>Publications</a>
               </Link>
             </li>
             <li>
-              <Link href="/media">
+              <Link href="#">
                 <a className={router.pathname == "/media" ? navActive : ""}>Media</a>
               </Link>
             </li>
             <li>
-              <Link href="/ysbc">
+              <Link href="#">
                 <a className={router.pathname == "/ysbc" ? navActive : ""}>YSBC</a>
               </Link>
             </li>
             <li>
-              <Link href="/professor-yunus">
+              <Link href="#">
                 <a className={router.pathname == "/professor-yunus" ? navActive : ""}>Professor Yunus</a>
               </Link>
             </li>
             <li>
-              <img src={magnifyIcon.src} alt="brand-yc" onClick={HandleSearchInput}/>
+              <img src={magnifyIcon.src} alt="brand-yc" onClick={HandleSearchInput} />
             </li>
           </ul>
         </div>
@@ -122,12 +132,14 @@ const Navbar = () => {
         {menuClose && <img src={crossIcon.src} alt="brand-yc" className={cross} onClick={HandleMenuClose} />}
       </div>
       {/* search box */}
-      {searchOpen && <div className={searchInput} id='searchInput'>
-        <input type='text' placeholder="search your query.."/>
-        <span className={inputCross} onClick={HandleSearchClose}>
-          <img src={crossIcon.src} alt="brand-yc"/>
-        </span>
-      </div>}
+      {searchOpen && (
+        <div className={searchInput} id="searchInput">
+          <input type="text" placeholder="search your query.." />
+          <span className={inputCross} onClick={HandleSearchClose}>
+            <img src={crossIcon.src} alt="brand-yc" />
+          </span>
+        </div>
+      )}
     </nav>
   );
 };
