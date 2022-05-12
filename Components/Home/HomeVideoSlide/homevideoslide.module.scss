@@ -41,6 +41,9 @@
         object-fit: cover;
         z-index: 1;
       }
+      @include response(phone) {
+        height: 34rem;
+      }
       .playBtn {
         @include PlayBtn(10rem);
       }

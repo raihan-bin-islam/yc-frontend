@@ -21,6 +21,7 @@ import PreLoader from "../../Shared/PreLoader/PreLoader";
 const HomeArticles = () => {
   // API Data
   const [isPending, articlesData] = useFetch("/articles");
+  console.log(articlesData);
   // UI States
   const [numOfSlides, setNumOfSlides] = useState(3);
   const [isNavigation, setIsNavigation] = useState(true);
@@ -78,11 +79,11 @@ const HomeArticles = () => {
           onSlideNextTransitionStart={HandleSwipe}
           onReachBeginning={HandleBeginning}
         >
-          {isPending ? (
-            articles.map(({ thumb_image, title }, index) => {
+          {!isPending ? (
+            articlesData.map(({ title, thumb_image, fb_post_link }, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <SliderCard image={thumb_image} title={title} type="articles" />
+                  <SliderCard image={thumb_image} title={title} link={fb_post_link} type="articles" />
                 </SwiperSlide>
               );
             })

@@ -29,7 +29,7 @@ const HomeVideoSlide = () => {
 
   // set the video url according to the click on the thumbnail
   const setVideoUrl = (url) => {
-    const id = url.substring(url.lastIndexOf("=") + 1, url.length);
+    const id = url.substring(url.lastIndexOf("/") + 1, url.length);
     setUniqueId(id);
   };
 
@@ -63,8 +63,8 @@ const HomeVideoSlide = () => {
         breakpoint: 600,
         settings: {
           arrows: false,
-          centerMode: true,
-          slidesToShow: 1,
+          // centerMode: true,
+          slidesToShow: 2,
         },
       },
     ],
