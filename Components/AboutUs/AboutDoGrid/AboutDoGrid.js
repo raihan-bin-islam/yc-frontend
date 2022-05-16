@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './AboutDoGrid.module.scss'
 import weDoData from '../../../static/whatWeDo.json'
 import weDoPath from '../../../public/assets/images/about_us/wedopath.png'
+import yunusPart from '../../../public/assets/images/about_us/yc_part.png'
 
 const AboutDoGrid = () => {
     // style
-    const { aboutDoContainer, aboutDoGrid, aboutDoGridFooter, aboutDoBody, aboutDoImgPath } = styles
-
-
+    const { aboutDoContainer, aboutDoGrid, aboutDoGridFooter, aboutDoBody, aboutDoImgPath, aboutDoFooter } = styles
+    
     return (
         <section className={aboutDoContainer}>
             <div className={aboutDoImgPath}>
@@ -23,6 +23,9 @@ const AboutDoGrid = () => {
                         </div>
                     </div>)}
                 </div>
+            </div>
+            <div className={aboutDoFooter}>
+                <img src={yunusPart.src} alt='yunus-part'/>
             </div>
         </section>
     );

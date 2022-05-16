@@ -65,4 +65,15 @@
             }
         }
     }
+    .aboutDoFooter{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include response(vp-800){
+            display: none;
+        }
+        img{
+            height: 48.5rem;
+        }
+    }
 }

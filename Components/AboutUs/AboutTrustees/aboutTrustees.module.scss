@@ -1,0 +1,11 @@
+@import "../../../styles/utils/base";
+
+.aboutTrusteesContainer{
+    height: 207rem;
+    .aboutTrusteesHeader{
+        padding: 12rem 0;
+        h2{
+            @include heading(); 
+        }
+    }
+}
