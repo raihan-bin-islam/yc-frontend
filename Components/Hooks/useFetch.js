@@ -16,7 +16,8 @@ const useFetch = (endPoint) => {
       .then((res) => res.json())
       .then((data) => {
         setIsPending(false);
-        setData(data.data);
+        // console.log(data);
+        setData(data);
       })
       .catch((err) => {
         setIsPending(false);
