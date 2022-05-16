@@ -1,0 +1,220 @@
+@import "../../../styles/utils/base";
+
+.conceptBody {
+  .sectionOne {
+    padding-block: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10rem;
+
+    @include response(vp-800) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, min-content);
+      grid-gap: 5rem;
+    }
+    @include response(M-phone) {
+      margin-top: -15rem;
+    }
+    .sectionOneLeft {
+      h1 {
+        font-size: 5.3rem;
+        color: $textDark;
+        font-size: 700;
+        margin-bottom: 10rem;
+
+        @include response(phone) {
+          margin-bottom: 5rem;
+          font-size: 4.5rem;
+        }
+      }
+      p {
+        font-size: 2rem;
+        color: $textDark;
+        line-height: 1.3;
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+    .sectionOneRight {
+      .imgContainer {
+        height: 100%;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  .sectionTwo {
+    background-color: $grey;
+    padding-block: 4rem;
+    h2 {
+      font-size: 4.4rem;
+      color: $textDark;
+      font-weight: 700;
+      display: inline-block;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $textDark;
+        width: 105%;
+      }
+    }
+    .gridBox {
+      padding-block: 5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include response(phone) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+      }
+
+      p {
+        font-size: 2.2rem;
+        color: $textDark;
+        line-height: 1.3;
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+
+      .sectionTwoLeft {
+        padding-right: 8rem;
+        border-right: 2px solid $textLight;
+
+        @include response(phone) {
+          padding-right: 0;
+          border-right: none;
+        }
+      }
+      .sectionTwoRight {
+        padding-left: 8rem;
+
+        @include response(phone) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  .sectionThree {
+    padding-block: 5rem;
+    h2 {
+      font-size: 4.4rem;
+      color: $textDark;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 4rem;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $textDark;
+        width: 105%;
+      }
+    }
+    p {
+      font-size: 2rem;
+      color: $textDark;
+      line-height: 1.3;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .gridBox {
+      padding-block: 5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10rem;
+
+      @include response(phone) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+        grid-gap: 5rem;
+      }
+
+      .imgContainer {
+        height: 100%;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .contentContainer {
+      }
+    }
+    .gridBox1 {
+      padding-block: 5rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include response(phone) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+        grid-gap: 2rem;
+      }
+      .boxLeft {
+        padding-right: 5rem;
+        border-right: 2px solid $textLight;
+
+        @include response(phone) {
+          padding-right: 0;
+          border-right: none;
+        }
+      }
+      .boxRight {
+        padding-left: 5rem;
+
+        @include response(phone) {
+          padding-left: 0;
+        }
+      }
+    }
+    .box {
+      padding-block: 5rem;
+      background-color: $grey;
+    }
+  }
+  .sectionFour {
+    padding-block: 5rem;
+    h1 {
+      font-size: 4.4rem;
+      font-weight: 700;
+      color: $textDark;
+      display: inline-block;
+      margin-bottom: 10rem;
+    }
+    span {
+      display: block;
+    }
+    .name {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $textDark;
+    }
+    .title {
+      font-size: 2.2rem;
+      color: $textDark;
+      margin-bottom: 3rem;
+    }
+    .date {
+      font-size: 2rem;
+      color: $textLight;
+      margin-bottom: 5rem;
+    }
+  }
+}

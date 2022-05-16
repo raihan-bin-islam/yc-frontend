@@ -2,12 +2,30 @@
 
 .heroBannerSmall {
   position: absolute;
-  top: -60rem;
+  top: -40rem;
   left: 0;
+  height: 100.2968rem;
+
+  @include response(phone) {
+    top: -50rem;
+  }
 
   .svgSmall {
     width: 100%;
     animation: bannerAnimation 1s cubic-bezier(1, -0.39, 0.56, 1.21) forwards;
+
+    @include response(tab-port) {
+      height: 130rem;
+    }
+    @include response(vp-800) {
+      height: 140rem;
+    }
+    @include response(phone) {
+      height: 180rem;
+    }
+    @include response(M-phone) {
+      height: 160rem;
+    }
   }
 }
 .heroBannerLarge {

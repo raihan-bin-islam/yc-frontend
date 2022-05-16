@@ -45,7 +45,12 @@
   }
 }
 
-@mixin heading($fontSize: $heading, $color: $primary, $align: center, $margin: "true") {
+@mixin heading(
+  $fontSize: $heading,
+  $color: $primary,
+  $align: center,
+  $margin: "true"
+) {
   position: relative;
   z-index: 10;
 
@@ -57,6 +62,9 @@
   font-size: $fontSize;
   @include response(vp-800) {
     font-size: 5.5rem;
+  }
+  @include response(phone) {
+    font-size: 3.2rem;
   }
 
   text-transform: uppercase;
