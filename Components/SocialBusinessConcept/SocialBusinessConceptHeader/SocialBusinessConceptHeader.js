@@ -11,6 +11,7 @@ const SocialBusinessConceptHeader = () => {
   return (
     <div className={headerHero}>
       <HeroBanner />
+      <h1>concept of social business</h1>
     </div>
   );
 };
