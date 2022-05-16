@@ -31,14 +31,16 @@
       right: 0;
     }
 
-    // .awardAnimation {
-    //   transition: all 1s ease;
-    //   @for $i from 2 to 10 {
-    //     &:nth-child(#{$i}) {
-    //       animation: animateAwardCard 1s ease-in-out #{$i/2}s reverse;
-    //     }
-    //   }
-    // }
+    .awardAnimation {
+      transition: all 1s ease;
+      @for $i from 1 to 8 {
+        &:nth-child(#{$i}) {
+          background: red;
+          border: 2px solid red;
+          // animation: animateAwardCard 1s ease-in-out #{$i/2}s reverse;
+        }
+      }
+    }
   }
 
   .title {
