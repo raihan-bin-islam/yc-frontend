@@ -1,0 +1,88 @@
+@import "../../../styles/utils/base";
+
+.aboutTeamContainer{
+    height: 164.8rem;
+    @include response(vp-800){
+        height: auto;
+        padding: 4rem 0;
+    }
+    .aboutTeamHeader{
+        padding: 6rem 0;
+        h2{
+            @include heading();
+        }
+    }
+    .aboutTeamBody{
+        padding: 7rem 0 0 47.6rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.1rem;
+        @include response(vp-800){
+            padding: 0 4rem; 
+            grid-template-columns: 1fr;
+        }
+        .aboutTeamBodyCard{
+            height: 49.5rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            &:hover{
+                .aboutTeamBodyCardImg{
+                    img{
+                        filter: grayscale(0); 
+                    }
+                }
+                .aboutTeamBodyCardContent{
+                    h5{
+                        width: 100%;
+                        transition: 0.3s;
+                    }
+                }
+                .aboutTeamBodyCardLinkedIn{
+                    right: 2rem;
+                }
+            }
+            .aboutTeamBodyCardImg{
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: grayscale(100%);
+                    transition: 0.3s;
+                }
+            }
+            .aboutTeamBodyCardContent{
+                position: absolute;
+                bottom: 0;
+                left: 2.8rem;
+                bottom: 3.2rem;
+                width: 80%;
+                h2{
+                    color: $white;
+                    font-weight: $bold;
+                    width: min-content;
+                    font-size: 3.5rem;
+                    line-height: 4.4rem;
+                    padding-bottom: 1.5rem;
+                    text-transform: uppercase;
+                }
+                h5{
+                    color: $white;
+                    font-weight: $bold;
+                    font-size: 1.5rem;
+                    padding-top: 1.5rem;
+                    border-top: 2px solid $white; 
+                    text-transform: uppercase;
+                    width: fit-content;
+                }
+            }
+            .aboutTeamBodyCardLinkedIn{
+                position: absolute;
+                bottom: 3.2rem;
+                right: -5rem;
+                transition: 0.3s;
+            }
+        }
+    }
+}
