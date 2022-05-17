@@ -2,10 +2,10 @@ import React from "react";
 
 import styles from "./hero-banner.module.scss";
 
-const HeroBanner = ({ large }) => {
-  const { heroBannerSmall, heroBannerLarge, svgSmall, svgLarge } = styles;
+const HeroBanner = ({ large, flipped }) => {
+  const { heroBannerSmall, heroBannerLarge, svgSmall, svgLarge, bannerFlipped } = styles;
   return (
-    <div className={large ? `${heroBannerLarge}` : `${heroBannerSmall}`}>
+    <div className={large ? `${heroBannerLarge}` : `${heroBannerSmall} ${flipped && bannerFlipped}`}>
       {large ? (
         <svg
           className={svgLarge}
@@ -23,12 +23,7 @@ const HeroBanner = ({ large }) => {
           />
         </svg>
       ) : (
-        <svg
-          className={svgSmall}
-          xmlns="http://www.w3.org/2000/svg"
-          width="1921.578"
-          viewBox="0 0 1921.578 1002.968"
-        >
+        <svg className={svgSmall} xmlns="http://www.w3.org/2000/svg" width="1921.578" viewBox="0 0 1921.578 1002.968">
           <path
             id="Path_1"
             data-name="Path 1"

@@ -45,12 +45,7 @@
   }
 }
 
-@mixin heading(
-  $fontSize: $heading,
-  $color: $primary,
-  $align: center,
-  $margin: "true"
-) {
+@mixin heading($fontSize: $heading, $color: $primary, $align: center, $margin: "true") {
   position: relative;
   z-index: 10;
 

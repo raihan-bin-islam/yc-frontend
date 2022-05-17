@@ -1,155 +1,156 @@
 @import "../../../styles/utils/base";
 
-.footerSection{
-    height: 65rem;
-    background-color: $primary;
-    padding-top: 10.8rem;
-    position: relative;
-    @include response(vp-800){
-        height: auto;
-        //padding-bottom: 10.8rem;
+.footerSection {
+  height: 65rem;
+  background-color: $primary;
+  padding-top: 10.8rem;
+  position: relative;
+  z-index: 100;
+  @include response(vp-800) {
+    height: auto;
+    //padding-bottom: 10.8rem;
+  }
+  .footerBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include response(vp-800) {
+      gap: 5rem 0;
+      grid-template-columns: 1fr;
     }
-    .footerBody{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        @include response(vp-800){
-            gap: 5rem 0;
-            grid-template-columns: 1fr;
-        }
-        .footerBodyLeft{
-            img{
-                height: 6.18rem;
-            }
-            p{
-                font-size: 1.8rem;
-                color: $white;
-                line-height: 2.4rem;
-                margin-top: 4rem;
-                width: 35.9rem;
-            }
-        }
-        .footerBodyCenter{
-            display: flex;
-            justify-content: center;
-            @include response(vp-800){
-                justify-content: flex-start;
-            }
-            h5{
-                font-size: 2.3rem;
-                font-weight: $semiBold;
-                color: $white;
-                img{
-                    height: 3.084rem;
-                    margin-right: 3rem;
-                }
-            }
-            .mailHeading{
-                img{
-                    height: 2.078rem;
-                    margin-right: 2rem;
-                }
-            }
-            p{
-                color: $white;
-                font-size: 2rem;
-                line-height: 2.4rem;
-            }
-        }
-        .footerBodyRight{
-            display: flex;
-            justify-content: flex-end;
-            text-align: center;
-            @include response(vp-800){
-                text-align: left;
-                justify-content: flex-start;
-            }
-            h3{
-                font-size: 3.5rem;
-                font-weight: $semiBold;
-                color: $white;
-                text-transform: uppercase;
-            }
-            p{
-                font-size: 2rem;
-                color: $white;
-                line-height: 2.8rem;
-            }
-            button{
-                outline: 0;
-                border: 1px solid $secondaryCyan;
-                padding: 1rem 3.5rem;
-                font-size: 1.8rem;
-                background-color: inherit;
-                color: $white;
-                transition: 0.3s;
-                &:hover{
-                    background-color: $secondaryCyan;
-                }
-            }
-        }
+    .footerBodyLeft {
+      img {
+        height: 6.18rem;
+      }
+      p {
+        font-size: 1.8rem;
+        color: $white;
+        line-height: 2.4rem;
+        margin-top: 4rem;
+        width: 35.9rem;
+      }
     }
-    .footerBottom{
-        height: 12.6rem;
-        width: 100%;
-        margin-top: 10.8rem;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        border-top: 1px solid $secondaryCyan;
-        @include response(vp-800){
-            height: 200px;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 2rem 0;
+    .footerBodyCenter {
+      display: flex;
+      justify-content: center;
+      @include response(vp-800) {
+        justify-content: flex-start;
+      }
+      h5 {
+        font-size: 2.3rem;
+        font-weight: $semiBold;
+        color: $white;
+        img {
+          height: 3.084rem;
+          margin-right: 3rem;
         }
-        @include response(vp-800){
-            //flex-direction: column;
+      }
+      .mailHeading {
+        img {
+          height: 2.078rem;
+          margin-right: 2rem;
         }
-        p{
+      }
+      p {
+        color: $white;
+        font-size: 2rem;
+        line-height: 2.4rem;
+      }
+    }
+    .footerBodyRight {
+      display: flex;
+      justify-content: flex-end;
+      text-align: center;
+      @include response(vp-800) {
+        text-align: left;
+        justify-content: flex-start;
+      }
+      h3 {
+        font-size: 3.5rem;
+        font-weight: $semiBold;
+        color: $white;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 2rem;
+        color: $white;
+        line-height: 2.8rem;
+      }
+      button {
+        outline: 0;
+        border: 1px solid $secondaryCyan;
+        padding: 1rem 3.5rem;
+        font-size: 1.8rem;
+        background-color: inherit;
+        color: $white;
+        transition: 0.3s;
+        &:hover {
+          background-color: $secondaryCyan;
+        }
+      }
+    }
+  }
+  .footerBottom {
+    height: 12.6rem;
+    width: 100%;
+    margin-top: 10.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid $secondaryCyan;
+    @include response(vp-800) {
+      height: 200px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem 0;
+    }
+    @include response(vp-800) {
+      //flex-direction: column;
+    }
+    p {
+      color: $white;
+      font-size: 2rem;
+    }
+    ul {
+      li {
+        list-style-type: none;
+        display: inline;
+        margin: 0 1rem;
+        @include response(vp-800) {
+          display: block;
+          margin: 1rem 0;
+        }
+        a {
+          text-decoration: none;
+          color: $secondaryCyan;
+          font-size: 2rem;
+          transition: 0.3s;
+          &:hover {
             color: $white;
-            font-size: 2rem;
+          }
         }
-        ul{
-            li{
-                list-style-type: none;
-                display: inline;
-                margin: 0 1rem;
-                @include response(vp-800){
-                    display: block;
-                    margin: 1rem 0;
-                }
-                a{
-                    text-decoration: none;
-                    color: $secondaryCyan;
-                    font-size: 2rem;
-                    transition: 0.3s;
-                    &:hover{
-                        color: $white;
-                    }
-                }
-            }
-        }
-        .socialMedia{
-            a{
-                text-decoration: none;
-                margin: 0 1.5rem;
-                img{
-                    height: 3.471rem;
-                }
-            }
-        }
+      }
     }
-    .footerCrafted{
-        padding: 1rem 0;
-        text-align: center;
-        @include response(vp-800){
-            text-align: left;
+    .socialMedia {
+      a {
+        text-decoration: none;
+        margin: 0 1.5rem;
+        img {
+          height: 3.471rem;
         }
-        p{
-            color: $secondary;
-            font-size: 1.8rem;
-            font-weight: $bold;
-        }
+      }
     }
+  }
+  .footerCrafted {
+    padding: 1rem 0;
+    text-align: center;
+    @include response(vp-800) {
+      text-align: left;
+    }
+    p {
+      color: $secondary;
+      font-size: 1.8rem;
+      font-weight: $bold;
+    }
+  }
 }

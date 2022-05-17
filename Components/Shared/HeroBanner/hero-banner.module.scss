@@ -50,3 +50,8 @@
     transform: translateY(-10%);
   }
 }
+
+.bannerFlipped {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
