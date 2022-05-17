@@ -1,0 +1,15 @@
+@import "../../../styles/utils/base";
+
+.heroHeader {
+  position: relative;
+  height: 60vh;
+
+  h1 {
+    @include heading(4.2rem, white, center, "true");
+    top: 45%;
+
+    @include response(phone) {
+      top: 35%;
+    }
+  }
+}
