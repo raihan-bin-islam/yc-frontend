@@ -1,0 +1,310 @@
+@import "../../../styles/utils/base";
+
+.issuesBody {
+  // ------------------- Section 2 --------------------
+  .sectionOne {
+    margin-bottom: 10rem;
+    padding-block: 5rem;
+
+    display: grid;
+    grid-template-columns: 30% 65%;
+    justify-content: space-between;
+
+    @include response(phone) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, min-content);
+      grid-gap: 2rem;
+
+      margin-top: -20rem;
+    }
+
+    .sectionOneLeft {
+      h1 {
+        font-size: 7rem;
+        font-weight: 700;
+        color: $textDark;
+        margin-top: 2rem;
+
+        @include response(tab-port) {
+          font-size: 6rem;
+        }
+
+        @include response(phone) {
+          font-size: 4.5rem;
+          line-height: 1.3;
+        }
+      }
+    }
+    .sectionOneRight {
+      .imgContainer {
+        height: 100%;
+        width: 100%;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  // ------------------- Section 2 --------------------
+  .sectionTwo {
+    background-color: $grey;
+    padding-block: 5rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10rem;
+
+    @include response(phone) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, min-content);
+      grid-gap: 5rem;
+    }
+
+    h3 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: $textDark;
+      border-bottom: 1px solid $textDark;
+
+      position: absolute;
+      top: -10rem;
+    }
+    .sectionTwoLeft {
+      position: relative;
+
+      .box {
+        h4 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: $textDark;
+          margin-bottom: 2rem;
+        }
+        p {
+          font-size: 2rem;
+          color: $textDark;
+          line-height: 1.3;
+
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+        &:not(:last-child) {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+    .sectionTwoRight {
+      p {
+        font-size: 2rem;
+        color: $textDark;
+        line-height: 1.3;
+
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+      span {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+      }
+      .box {
+        h4 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: $textDark;
+          margin-bottom: 2rem;
+        }
+        &:not(:last-child) {
+          margin-bottom: 4rem;
+        }
+      }
+    }
+  }
+  // ------------------- Section 3 --------------------
+  .sectionThree {
+    padding-block: 6rem;
+    h3 {
+      display: inline-block;
+      font-size: 4.4rem;
+      line-height: 1.6;
+      border-bottom: 2px solid $textLight;
+      margin-bottom: 5rem;
+    }
+    p {
+      font-size: 2rem;
+      color: $textDark;
+      line-height: 1.3;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+    .box {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 5rem;
+
+      @include response(phone) {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+      }
+
+      h4 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 4rem;
+      }
+
+      .boxLeft {
+        h4 {
+          @include response(phone) {
+            margin-top: 2rem;
+          }
+        }
+      }
+      .boxRight {
+        h4 {
+          @include response(phone) {
+            margin-top: 5rem;
+          }
+        }
+      }
+
+      .subBoxLeft {
+        display: flex;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 5px;
+          background-color: $grey;
+          margin-left: 2rem;
+
+          @include response(phone) {
+            display: none;
+          }
+        }
+        span {
+          display: block;
+
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+        .option {
+          font-size: 2.2rem;
+          font-weight: 700;
+          margin-left: 3rem;
+        }
+        .subOption {
+          font-size: 2.2rem;
+          margin-left: 6rem;
+        }
+      }
+      .subBoxRight {
+        p {
+          &:not(:last-child) {
+            margin-top: 7rem;
+
+            @include response(phone) {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+    .questionBox {
+      h4 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-block: 8rem;
+
+        @include response(phone) {
+          margin-block: 5rem;
+        }
+      }
+      .box {
+        @include response(phone) {
+          grid-gap: 2rem;
+        }
+        .boxLeft {
+          p {
+            margin-bottom: 0;
+          }
+        }
+        .boxRight {
+          .imgContainer {
+            height: 100%;
+            width: 100%;
+
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+    .questionBox2 {
+      h4 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-block: 8rem;
+
+        @include response(phone) {
+          margin-block: 5rem;
+        }
+      }
+      .box {
+        .subBox {
+          display: grid;
+          grid-template-columns: max-content 1fr;
+          grid-gap: 4rem;
+
+          @include response(phone) {
+            align-items: center;
+          }
+
+          margin-bottom: 5rem;
+          .number {
+            font-size: 13rem;
+            font-weight: 700;
+            color: transparent;
+            line-height: 0.8;
+            -webkit-text-stroke: 1px $textDark;
+
+            @include response(phone) {
+              font-size: 15rem;
+            }
+          }
+        }
+        .boxLeft {
+          .imgContainer {
+            width: 100%;
+
+            @include response(phone) {
+              margin-bottom: 2rem;
+            }
+
+            img {
+              width: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+        .boxRight {
+        }
+      }
+      .btnBox {
+        padding-block: 10rem;
+      }
+    }
+  }
+}
