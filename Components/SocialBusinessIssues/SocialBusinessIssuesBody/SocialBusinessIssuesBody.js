@@ -3,6 +3,9 @@ import React from "react";
 // COMPONENTS
 import Button from "../../Shared/Button/Button";
 
+// LAYOUT
+import Layout from "../../Shared/CommonSvg/Layout";
+
 // IMAGES
 import image1 from "../../../public/assets/images/social_business/issues_image-1.png";
 import image2 from "../../../public/assets/images/social_business/issues_image-2.png";
@@ -35,6 +38,7 @@ const SocialBusinessIssuesBody = () => {
     number,
     text,
     btnBox,
+    issuesLayout,
   } = styles;
 
   return (
@@ -361,6 +365,9 @@ const SocialBusinessIssuesBody = () => {
           <div className={btnBox}>
             <Button text="Back" />
           </div>
+        </div>
+        <div className={issuesLayout}>
+          <Layout />
         </div>
       </div>
     </div>
