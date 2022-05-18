@@ -1,6 +1,7 @@
 import React from "react";
 // Import styles from scss
 import {
+  pageSection,
   pageLayout,
   pageContent,
   titleContainer,
@@ -19,37 +20,38 @@ import QuotationSvg from "./QuotationSvg";
 
 const ProfYunusSubPages = ({ heading, name, title, description, quotes }) => {
   return (
-    <section className={pageLayout}>
+    <section className={pageSection}>
       <HeroBanner flipped />
-      <div className={pageContent}>
-        <div className={titleContainer}>
-          {!heading && <p className={profYunusName}>{name}</p>}
-          <h2 className={`${pageTitle} ${heading && titleHeading}`}>{title}</h2>
-        </div>
-
-        <div className={desc}>
-          {description &&
-            description.map((data, index) => {
-              return (
-                <div key={index}>
-                  <p className={quotes && quotation}>
-                    {/* if it is a quotation then wrap the text in a q tag or else don't */}
-                    {quotes ? <q>{data}</q> : data}
-                    <br />
-                    <br />
-                  </p>
-                  {quotes && <QuotationSvg />}
-                  <br />
-                </div>
-              );
-            })}
-        </div>
-
-        <Button text="Back" />
+      <div className={titleContainer}>
+        {!heading && <p className={profYunusName}>{name}</p>}
+        <h2 className={`${pageTitle} ${heading && titleHeading}`}>{title}</h2>
       </div>
+      <div className={pageLayout}>
+        <div className={pageContent}>
+          <div className={desc}>
+            {description &&
+              description.map((data, index) => {
+                return (
+                  <div key={index}>
+                    <p className={quotes && quotation}>
+                      {/* if it is a quotation then wrap the text in a q tag or else don't */}
+                      {quotes ? <q>{data}</q> : data}
+                      <br />
+                      <br />
+                    </p>
+                    {quotes && (index % 2 == 0 ? <QuotationSvg /> : <QuotationSvg right />)}
+                    <br />
+                  </div>
+                );
+              })}
+          </div>
 
-      <div className={yunusImage}>
-        <img src="/assets/images/prof_yunus/subPage/profYunusTemplate.png" alt="" />
+          <Button text="Back" />
+        </div>
+
+        <div className={yunusImage}>
+          <img src="/assets/images/prof_yunus/subPage/profYunusTemplate.png" alt="" />
+        </div>
       </div>
     </section>
   );
