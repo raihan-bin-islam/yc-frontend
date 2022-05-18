@@ -21,6 +21,8 @@ html {
 
 body {
   overflow-x: hidden;
+  max-width: 192rem;
+  margin-inline: auto;
   line-height: 1;
   font-family: "Graphik", sans-serif;
 }
@@ -55,13 +57,12 @@ a {
   }
 }
 
-
 // typewriter
 
-.Typewriter__cursor{
+.Typewriter__cursor {
   display: none;
 }
 
-.swiper-pagination-bullets{
+.swiper-pagination-bullets {
   display: none;
 }
