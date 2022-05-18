@@ -4,7 +4,7 @@ import React from "react";
 import PrincipleCard from "./principleCard/PrincipleCard";
 
 // LAYOUT
-import Layout from "./Layout";
+import Layout from "../../Shared/CommonSvg/Layout";
 
 // CSS
 import styles from "./SocialBusinessPrinciples.module.scss";

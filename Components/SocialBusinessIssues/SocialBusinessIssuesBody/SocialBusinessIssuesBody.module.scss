@@ -1,7 +1,7 @@
 @import "../../../styles/utils/base";
 
 .issuesBody {
-  // ------------------- Section 2 --------------------
+  // ------------------- Section 1 --------------------
   .sectionOne {
     margin-bottom: 10rem;
     padding-block: 5rem;
@@ -14,8 +14,6 @@
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, min-content);
       grid-gap: 2rem;
-
-      margin-top: -20rem;
     }
 
     .sectionOneLeft {
@@ -111,6 +109,7 @@
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: 2rem;
+        color: $textDark;
       }
       .box {
         h4 {
@@ -128,12 +127,16 @@
   // ------------------- Section 3 --------------------
   .sectionThree {
     padding-block: 6rem;
+    position: relative;
+
+    overflow: hidden;
     h3 {
       display: inline-block;
       font-size: 4.4rem;
       line-height: 1.6;
       border-bottom: 2px solid $textLight;
       margin-bottom: 5rem;
+      color: $textDark;
     }
     p {
       font-size: 2rem;
@@ -159,6 +162,7 @@
         font-weight: 700;
         line-height: 1.3;
         margin-bottom: 4rem;
+        color: $textDark;
       }
 
       .boxLeft {
@@ -192,6 +196,7 @@
         }
         span {
           display: block;
+          color: $textDark;
 
           &:not(:last-child) {
             margin-bottom: 2rem;
@@ -224,6 +229,7 @@
         font-size: 2.5rem;
         font-weight: 700;
         margin-block: 8rem;
+        color: $textDark;
 
         @include response(phone) {
           margin-block: 5rem;
@@ -257,6 +263,7 @@
         font-size: 2.5rem;
         font-weight: 700;
         margin-block: 8rem;
+        color: $textDark;
 
         @include response(phone) {
           margin-block: 5rem;
@@ -304,6 +311,18 @@
       }
       .btnBox {
         padding-block: 10rem;
+      }
+    }
+    .issuesLayout {
+      width: min-content;
+
+      position: absolute;
+      bottom: -16rem;
+      right: -20rem;
+
+      svg {
+        height: 68rem;
+        width: 50rem;
       }
     }
   }
