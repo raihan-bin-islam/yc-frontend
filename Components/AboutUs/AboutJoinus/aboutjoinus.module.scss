@@ -1,0 +1,76 @@
+@import "../../../styles/utils/base";
+
+.aboutJoinUsContainer{
+    height: 120rem;
+    padding: 19.7rem 0;
+    position: relative;
+    @include response(vp-800){
+        height: auto;
+    }
+    .aboutJoinBg{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        img{
+            height: 98.8rem;
+        }
+    }
+    .aboutJoinBody{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include response(vp-800){
+            grid-template-columns: 1fr;
+        }
+        .aboutJoinLeft{
+            img{
+                height: 79.1rem;
+                @include response(vp-800){
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .aboutJoinRight{
+            .aboutJoinRightHeader{
+                h2{
+                    @include heading();
+                }
+                @include response(vp-800){
+                    margin-top: 4rem;
+                }
+            }
+            .aboutJoinRightBody{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10.8rem;
+                p{
+                    text-align: center;
+                    font-size: 2.7rem;
+                    color: $primary;
+                    font-weight: $bold;
+                    width: 58.4rem;
+                }
+                button{
+                    outline: 0;
+                    border: 1px solid $secondaryCyan;
+                    padding: 1rem 2.5rem;
+                    font-size: 1.8rem;
+                    color: $primary;
+                    background-color: inherit;
+                    transition: 0.3s;
+                    text-transform: capitalize;
+                    margin-top: 8.4rem;
+                    &:hover{
+                        background-color: $secondaryCyan;
+                    }
+                }
+            }
+            .aboutJoinRightBodyForm{
+                margin-top: 10.8rem;
+            }
+        }
+    }
+}

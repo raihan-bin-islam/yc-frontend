@@ -1,0 +1,47 @@
+@import '../../../../styles/utils/base';
+
+.aboutForm{
+    padding-left: 9.9rem;
+    .inputContainer{
+        margin-top: 4rem;
+        &:first-child{
+            margin-top: 0;
+        }
+        input, select{
+            width: 100%;
+            padding: 1.5rem 2.5rem;
+            background-color: $white;
+            border: 0;
+            outline: 0;
+            font-size: 1.8rem;
+            color: $textDark;
+        }
+        textarea{
+            width: 100%;
+            height: 16.3rem;
+            padding: 1.5rem 2.5rem;
+            background-color: $white;
+            border: 1px solid #eee;
+            outline: 0;
+            font-size: 1.8rem;
+            color: $textDark;
+        }
+    }
+    .inputSubmit{
+        margin-top: 4rem;
+        text-align: center;
+        button{
+            outline: 0;
+            border: 1px solid $secondaryCyan;
+            padding: 1rem 2.5rem;
+            font-size: 1.8rem;
+            color: $primary;
+            background-color: inherit;
+            transition: 0.3s;
+            text-transform: capitalize;
+            &:hover{
+                background-color: $secondaryCyan;
+            }
+        }
+    }
+}

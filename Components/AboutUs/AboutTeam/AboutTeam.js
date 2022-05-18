@@ -2,10 +2,11 @@ import React from 'react';
 import styles from './aboutTeam.module.scss'
 import teamData from './about_team.json'
 import IconLinkedIn from '../../../public/linked_in.svg'
+import halfwayPathBg from '../../../public/halfway_path.png'
 
 const AboutTeam = () => {
 
-    const {aboutTeamContainer, aboutTeamHeader, aboutTeamBody, aboutTeamBodyCard, aboutTeamBodyCardImg, aboutTeamBodyCardContent, aboutTeamBodyCardContentContainer, aboutTeamBodyCardLinkedIn} = styles
+    const {aboutTeamContainer, aboutTeamHeader, aboutTeamBody, aboutTeamBodyCard, aboutTeamBodyCardImg, aboutTeamBodyCardContent, aboutTeamBodyCardContentContainer, aboutTeamBodyCardLinkedIn, halfwayPath} = styles
 
     return (
         <section className={aboutTeamContainer}>
@@ -13,6 +14,9 @@ const AboutTeam = () => {
                 <h2>team</h2>
             </div>
             <div className={aboutTeamBody}>
+                <div className={halfwayPath}>
+                    <img src={halfwayPathBg.src} alt='half-way-path'/>
+                </div>
                 {teamData.map(((member, index) =>
                     <div className={aboutTeamBodyCard} key={`member_${index}`}>
                         <div className={aboutTeamBodyCardImg}>

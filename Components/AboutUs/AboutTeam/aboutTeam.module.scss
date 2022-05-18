@@ -17,9 +17,19 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1.1rem;
+        position: relative;
         @include response(vp-800){
             padding: 0 4rem; 
             grid-template-columns: 1fr;
+        }
+        .halfwayPath{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            img{
+                height: 90.8rem;
+            }
         }
         .aboutTeamBodyCard{
             height: 49.5rem;
