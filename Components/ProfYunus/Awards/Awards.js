@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import AwardsCard from "../../Shared/AwardsCard/AwardsCard";
 
-import { awardsData } from "./awardsData";
+// import { awardsData } from "./awardsData";
 
 import styles from "./awards.module.scss";
 import NextButton from "./NextButton/NextButton";
 import { animated, useTransition } from "@react-spring/web";
 
-const Awards = () => {
+const Awards = ({ awardsData }) => {
   const { awardsContainer, grid, title, subtitle, nextButton, prevButton } = styles;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(8);
@@ -68,8 +68,8 @@ const Awards = () => {
           .filter((data, index) => {
             return index >= startIndex && index < endIndex;
           })
-          .map(({ id, image, title, year }, index) => {
-            return <AwardsCard image={image} title={title} year={year} key={id} i={index} />;
+          .map(({ id, thumb_image, title, year }, index) => {
+            return <AwardsCard image={thumb_image} title={title} year={year} key={id} i={index} />;
           })}
         <NextButton onClick={next} className={nextButton} />
       </div>

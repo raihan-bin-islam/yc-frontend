@@ -5,7 +5,6 @@ import { animated, useSpring } from "@react-spring/web";
 
 const AwardsCard = ({ className, image, title, year, i, animate = false, style }) => {
   const { awardCardContainer, titleContainer, cardTitle, cardImg, yearStyles } = styles;
-  const baseImagePath = "assets/images/prof_yunus/awards/";
   const [animation, setAnimation] = useState(animate);
   useEffect(() => {
     setAnimation(true);
@@ -20,7 +19,7 @@ const AwardsCard = ({ className, image, title, year, i, animate = false, style }
   return (
     <>
       <animated.div style={style} className={`${awardCardContainer} ${className}`}>
-        <img className={cardImg} src={baseImagePath + image} alt="" />
+        <img className={cardImg} src={image} alt="" />
         <div className={titleContainer}>
           <h4 className={cardTitle}>{title}</h4>
           <h4 className={yearStyles}>{year}</h4>

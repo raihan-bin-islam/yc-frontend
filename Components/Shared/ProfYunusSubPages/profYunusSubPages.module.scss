@@ -89,16 +89,18 @@
       // padding: 10rem 5rem 10rem 0rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
 
       height: fit-content;
       // max-height: 48ch;
+      min-height: 65rem;
       max-height: 85rem;
       overflow-y: auto;
       padding-right: 2.5rem;
       color: $textDark;
 
       @include response(vp-800) {
+        min-height: max-content;
         max-height: max-content;
         padding: 0;
       }
