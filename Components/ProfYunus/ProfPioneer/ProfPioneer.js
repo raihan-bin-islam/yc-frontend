@@ -5,7 +5,7 @@ import pioneerImg from "../../../public/assets/images/prof_yunus/pioneer.jpg";
 import Awards from "../Awards/Awards";
 import BgSvg from "./BgSvg/BgSvg";
 
-const ProfPioneer = () => {
+const ProfPioneer = ({ awardsData }) => {
   //styles
   const { pioneerSection, pioneerContainer, pioneerLeft, pioneerRight, bgSvg } = styles;
 
@@ -35,7 +35,7 @@ const ProfPioneer = () => {
           </div>
         </div>
       </div>
-      <Awards />
+      {awardsData.length > 0 && <Awards awardsData={awardsData} />}
     </section>
   );
 };
