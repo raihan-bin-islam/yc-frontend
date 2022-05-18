@@ -1,0 +1,43 @@
+@import "../../../styles/utils/base";
+
+.faq {
+  background-color: rgba(255, 255, 255, 0.781);
+  border: 2px solid #c7c6c6;
+  padding: 3rem 5rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 1rem;
+    background-color: #5dbbd1;
+
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 3px;
+  }
+
+  .question {
+    display: flex;
+    justify-content: space-between;
+  }
+  .answer {
+    // padding-top: 5rem;
+    height: 0;
+    background-color: gold;
+    // display: none;
+  }
+  .show {
+    padding-top: 5rem;
+    height: min-content;
+  }
+
+  p {
+    font-size: 2.2rem;
+    line-height: 1.3;
+  }
+}

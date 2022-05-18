@@ -1,0 +1,41 @@
+@import "../../../styles/utils/base";
+
+.faqBody {
+  position: relative;
+  height: 100vh;
+
+  .imgContainer {
+    height: 80rem;
+    width: 123rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include response(vp-800) {
+      width: 100%;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .quesContainer {
+    position: relative;
+    z-index: 11;
+    padding: 10rem 25rem;
+
+    @include response(vp-800) {
+      padding: 5rem 10rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 5rem;
+      color: $textDark;
+    }
+  }
+}

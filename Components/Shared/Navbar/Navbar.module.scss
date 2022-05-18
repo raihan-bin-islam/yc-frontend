@@ -3,9 +3,11 @@
 .nav {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 9rem;
   width: 100%;
+  max-width: 192rem;
   background-color: rgba($color: $white, $alpha: 0.4);
   transition: 0.3s;
   z-index: 100;
