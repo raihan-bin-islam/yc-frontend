@@ -80,7 +80,7 @@
           &:hover {
             .dropdown {
               display: block;
-              animation: opacity 0.2s;
+              animation: opacityNew 0.2s;
             }
           }
         }
@@ -186,7 +186,7 @@
   transition: 0.3s;
 }
 
-@keyframes opacity {
+@keyframes opacityNew {
   0% {
     transform: translate(-50%, -10%);
   }

@@ -14,8 +14,8 @@
     border-top: 4px solid $primary;
     border-right: 4px solid transparent;
     border-radius: 50%;
-    -webkit-animation: 1s spin linear infinite;
-    animation: 1s spin liner infinite;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s liner infinite;
   }
 }
 
