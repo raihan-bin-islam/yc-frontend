@@ -121,6 +121,20 @@ const Navbar = () => {
               <Link href="/professor-yunus">
                 <a className={router.pathname == "/professor-yunus" ? navActive : ""}>Professor Yunus</a>
               </Link>
+              <ul className={dropdown}>
+                <Link href="/professor-yunus/about-professor-yunus">
+                  <li>About</li>
+                </Link>
+                <Link href="/professor-yunus/vision">
+                  <li>Vision</li>
+                </Link>
+                <Link href="/professor-yunus/wishlist">
+                  <li>Wishlist</li>
+                </Link>
+                <Link href="/professor-yunus/quotes">
+                  <li>Quotes</li>
+                </Link>
+              </ul>
             </li>
             <li>
               <img src={magnifyIcon.src} alt="brand-yc" onClick={HandleSearchInput} />

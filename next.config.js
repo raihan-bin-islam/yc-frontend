@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  // reactStrictMode: true,
   ignoreDuringBuilds: true,
   env: {
     baseUrl: "https://node.pickupexpressbd.com/api",
