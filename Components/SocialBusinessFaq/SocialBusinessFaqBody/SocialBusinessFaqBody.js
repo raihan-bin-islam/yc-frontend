@@ -6,11 +6,15 @@ import Faq from "../../Shared/Faq/Faq";
 // LAYOUT
 import layout from "../../../public/assets/images/social_business/faq_path.png";
 
+// data
+import faqData from "./data";
+
 // CSS
 import styles from "./SocialBusinessFaqBody.module.scss";
 
 const SocialBusinessFaqBody = () => {
-  const { faqBody, imgContainer, quesContainer, faq, icon } = styles;
+  const { faqBody, imgContainer, quesContainer, faqContainer, faq, icon } =
+    styles;
 
   return (
     <div className={faqBody}>
@@ -22,7 +26,11 @@ const SocialBusinessFaqBody = () => {
           Here are some of the most frequently asked questions about the Social
           Business world.
         </h2>
-        <Faq />
+        <div className={faqContainer}>
+          {faqData.map((data) => {
+            return <Faq key={data.id} ques={data.question} ans={data.answer} />;
+          })}
+        </div>
       </div>
     </div>
   );
