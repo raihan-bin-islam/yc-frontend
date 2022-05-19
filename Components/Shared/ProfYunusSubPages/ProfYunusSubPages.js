@@ -18,6 +18,8 @@ import Button from "../Button/Button";
 import HeroBanner from "../HeroBanner/HeroBanner";
 import QuotationSvg from "./QuotationSvg";
 
+import Link from "next/link";
+
 const ProfYunusSubPages = ({ heading, name, title, description, quotes }) => {
   return (
     <section className={pageSection}>
@@ -46,7 +48,9 @@ const ProfYunusSubPages = ({ heading, name, title, description, quotes }) => {
               })}
           </div>
 
-          <Button text="Back" />
+          <a href="/professor-yunus">
+            <Button text="Back" />
+          </a>
         </div>
 
         <div className={yunusImage}>
