@@ -1,7 +1,6 @@
 @import "../../../styles/utils/base";
 
 .aboutJoinUsContainer{
-    height: 120rem;
     padding: 19.7rem 0;
     position: relative;
     @include response(vp-800){
@@ -70,6 +69,16 @@
             }
             .aboutJoinRightBodyForm{
                 margin-top: 10.8rem;
+            }
+            .aboutJoinRightFooter{
+                text-align: center;
+                margin-top: 4rem;
+                padding-left: 9.9rem;
+                p{
+                    font-size: 1.8rem;
+                    color: $primary;
+                    cursor: pointer;
+                }
             }
         }
     }

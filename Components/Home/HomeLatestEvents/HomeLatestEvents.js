@@ -10,6 +10,8 @@ import styles from "./homelatestevents.module.scss";
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeLatestEvents = ({ isLoading, latestEvents }) => {
+
+  console.log(latestEvents)
   // Module style object destructuring
   const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
 
