@@ -13,7 +13,7 @@ import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Arrow from "../../Shared/Arrows/Arrow";
 
 // Custom Hooks
-import PreLoader from "../../Shared/PreLoader/PreLoader";
+// import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeVideoSlide = ({ isLoading, videoData }) => {
   // video slider data
@@ -72,25 +72,23 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
           {uniqueId !== "" && <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>}
         </div>
         <div className="mt3">
-          {!isLoading ? (
-            videoData && (
-              <Slider {...youTubeSlider}>
-                {videoData.map(({ id, thumb_image, title, youtube_link }) => {
-                  return (
-                    <SliderCard
-                      key={id}
-                      image={thumb_image}
-                      title={title}
-                      type="video"
-                      onClick={() => setVideoUrl(youtube_link)}
-                    />
-                  );
-                })}
-              </Slider>
-            )
-          ) : (
-            <PreLoader />
-          )}
+          {!isLoading
+            ? videoData && (
+                <Slider {...youTubeSlider}>
+                  {videoData.map(({ id, thumb_image, title, youtube_link }) => {
+                    return (
+                      <SliderCard
+                        key={id}
+                        image={thumb_image}
+                        title={title}
+                        type="video"
+                        onClick={() => setVideoUrl(youtube_link)}
+                      />
+                    );
+                  })}
+                </Slider>
+              )
+            : null}
         </div>
       </div>
     </section>

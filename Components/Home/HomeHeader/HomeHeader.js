@@ -9,7 +9,7 @@ import heroYunus from "../../../public/assets/images/landing_page/hero_banner.we
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
 
 // typewriter
-//import Typewriter from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 
 // CSS
 import styles from "./homeheader.module.scss";
@@ -29,7 +29,7 @@ const HomeHeader = () => {
         </div>
         <div className={heroContentRight}>
           <span className={h2}>
-            {/* <Typewriter
+            <Typewriter
               onInit={(typewriter) => {
                 typewriter
                   .typeString("“If you imagine, someday it will happen; if you don’t imagine, it will never happen.”")
@@ -39,7 +39,7 @@ const HomeHeader = () => {
                 autoStart: true,
                 delay: 75,
               }}
-            /> */}
+            />
           </span>
         </div>
       </div>
