@@ -3,8 +3,20 @@ import React, { useState } from "react";
 // CSS
 import styles from "./Faq.module.scss";
 
-const Faq = () => {
-  const { faq, icon, answer, question, show } = styles;
+const Faq = ({ ques, ans }) => {
+  const {
+    faq,
+    icon,
+    answer,
+    questionContainer,
+    question,
+    show,
+    line,
+    lineNone,
+    one,
+    two,
+    rotate,
+  } = styles;
 
   const [visible, setVisible] = useState(false);
 
@@ -16,29 +28,21 @@ const Faq = () => {
 
   return (
     <div className={faq} onClick={() => handleVisible()}>
+      <div className={visible ? `${lineNone}` : `${line}`}></div>
       {/* Question */}
-      <div className={question}>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry.
-        </p>
+      <div className={questionContainer}>
+        <p className={visible ? `${question}` : ""}>{ques}</p>
         <div className={icon}>
-          <h1>+</h1>
+          <div className={one}></div>
+          <div className={visible ? `${two} ${rotate}` : `${two}`}></div>
         </div>
       </div>
       {/* Answer */}
       <div className={visible ? `${answer} ${show}` : `${answer}`}>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
+        <br />
+        <br />
+        <br />
+        <p>{ans}</p>
       </div>
     </div>
   );
