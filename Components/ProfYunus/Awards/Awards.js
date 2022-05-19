@@ -3,7 +3,6 @@ import AwardsCard from "../../Shared/AwardsCard/AwardsCard";
 
 import styles from "./awards.module.scss";
 import NextButton from "./NextButton/NextButton";
-import { animated, useTransition } from "@react-spring/web";
 
 const Awards = ({ awardsData }) => {
   const { awardsContainer, grid, title, subtitle, nextButton, prevButton } = styles;
@@ -40,15 +39,17 @@ const Awards = ({ awardsData }) => {
 
   // keep the cards open on mobile screens
   const reduceNumberOfCardsOnMobile = (screenWidth) => {
-    console.log(screenWidth);
     // for mobile screens less than 700px width
     if (screenWidth <= 800 && screenWidth !== null) {
       setNumberOfData(4);
-    } else {
-      setNumberOfData(8);
+      return;
     }
+    setNumberOfData(8);
   };
 
+  useEffect(() => {
+    reduceNumberOfCardsOnMobile(screenWidth);
+  }, []);
   // Get screen size
   useEffect(() => {
     // Set the screen size to screen width state on change

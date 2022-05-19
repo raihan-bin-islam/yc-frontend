@@ -103,6 +103,9 @@
             padding: 2rem;
             display: block;
             color: $primary;
+            &:not(:last-child) {
+              border-bottom: 1px solid $primary;
+            }
             a {
               color: $primary;
             }

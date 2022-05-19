@@ -9,7 +9,6 @@ import ProfVideoSlider from "../../Components/ProfYunus/ProfVideoSlider/ProfVide
 const ProfYunus = () => {
   const [bookIsPending, books] = useFetch("/books");
   const [awardIsPending, awardsData] = useFetch("/awards");
-  console.log(awardsData);
   return (
     <div>
       <Hero />

@@ -2,7 +2,6 @@
 
 .faqBody {
   position: relative;
-  height: 100vh;
 
   .imgContainer {
     height: 80rem;
@@ -14,6 +13,9 @@
 
     @include response(vp-800) {
       width: 100%;
+    }
+    @include response(phone) {
+      top: -20rem;
     }
 
     img {
@@ -27,8 +29,14 @@
     z-index: 11;
     padding: 10rem 25rem;
 
+    // background-color: aquamarine;
+
     @include response(vp-800) {
       padding: 5rem 10rem;
+    }
+    @include response(phone) {
+      padding: 5rem;
+      margin-top: -8rem;
     }
 
     h2 {
@@ -36,6 +44,11 @@
       font-weight: 700;
       margin-bottom: 5rem;
       color: $textDark;
+    }
+    .faqContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 1rem;
     }
   }
 }
