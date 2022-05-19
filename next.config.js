@@ -9,7 +9,7 @@ const nextConfig = {
   },
   images: {
     loader: "imgix",
-    path: "https://example.com/myaccount/",
+    path: "https://yunus-centre.netlify.app/",
   },
 };
 

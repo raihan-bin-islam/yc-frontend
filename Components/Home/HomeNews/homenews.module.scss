@@ -2,6 +2,9 @@
 
 .homeNewsContainer {
   padding: 23rem 0;
+  @include response(vp-800) {
+    padding: 15rem 0;
+  }
   .homeNewsContainerBody {
     display: grid;
     grid-template-columns: 68% 30%;
