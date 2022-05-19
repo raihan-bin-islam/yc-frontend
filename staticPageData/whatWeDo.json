@@ -1,38 +1,38 @@
 [
-    {
-        "title": "Social Business",
-        "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
-        "image":"/assets/images/landing_page/we_do/1.png"
-
-    },
-    {
-        "title": "Academic Programs",
-        "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
-        "image":"/assets/images/landing_page/we_do/2.png"
-
-    },
-    {
-        "title": "Research & Publications",
-        "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
-        "image":"/assets/images/landing_page/we_do/3.png"
-
-    },
-    {
-        "title": "Global Events & Gatherings",
-        "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
-        "image":"/assets/images/landing_page/we_do/4.png"
-
-    },
-    {
-        "title": "Three Zero World Campaign",
-        "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
-        "image":"/assets/images/landing_page/we_do/5.png"
-
-    },
-    {
-        "title": "International Communication & Networking",
-        "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
-        "image":"/assets/images/landing_page/we_do/6.png"
-
-    }
+  {
+    "title": "Social Business",
+    "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
+    "image": "/assets/images/landing_page/we_do/1.png",
+    "link": "/social-business"
+  },
+  {
+    "title": "Academic Programs",
+    "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
+    "image": "/assets/images/landing_page/we_do/2.png",
+    "link": "#"
+  },
+  {
+    "title": "Research & Publications",
+    "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
+    "image": "/assets/images/landing_page/we_do/3.png",
+    "link": "#"
+  },
+  {
+    "title": "Global Events & Gatherings",
+    "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
+    "image": "/assets/images/landing_page/we_do/4.png",
+    "link": "#"
+  },
+  {
+    "title": "Three Zero World Campaign",
+    "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
+    "image": "/assets/images/landing_page/we_do/5.png",
+    "link": "#"
+  },
+  {
+    "title": "International Communication & Networking",
+    "paragraph": "The Yunus Centre acts as a resource centre for existing and potential social businesses by assisting each venture in adhering to social business principles and, by extension, achieving the targeted social goal.",
+    "image": "/assets/images/landing_page/we_do/6.png",
+    "link": "#"
+  }
 ]
