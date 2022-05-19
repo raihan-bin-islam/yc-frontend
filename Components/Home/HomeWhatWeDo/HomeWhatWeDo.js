@@ -2,7 +2,7 @@
 import React from "react";
 import WhatWeDoCard from "../../Shared/WhatWeDoCard/WhatWeDoCard";
 import styles from "./homewhatwedo.module.scss";
-import whatWeDoData from "../../../static/whatWeDo.json";
+import whatWeDoData from "../../../staticPageData/whatWeDo.json";
 import weDoBackSvg from "../../../public/assets/images/landing_page/we_do_back.svg";
 import Slider from "react-slick/lib/slider";
 
