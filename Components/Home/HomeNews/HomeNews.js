@@ -47,7 +47,20 @@ const HomeNews = ({ isLoading, newsData }) => {
         <aside>
           <h2 className={asideHeader}>highlights</h2>
           <div className={asideContent}>
-            <Highlight
+            {!isLoading ? (
+              newsData &&
+              newsData
+                .filter(({ is_highlight }, index) => {
+                  return is_highlight;
+                })
+                .map(({ id, title, thumb_image }) => {
+                  return <Highlight key={id} image={thumb_image} description={title} />;
+                })
+            ) : (
+              <PreLoader />
+            )}
+
+            {/* <Highlight
               image={articleImg.src}
               description="Innovate together to achieve sdgs & climate actions through social business"
             />
@@ -86,7 +99,7 @@ const HomeNews = ({ isLoading, newsData }) => {
             <Highlight
               image={articleImg.src}
               description="Innovate together to achieve sdgs & climate actions through social business"
-            />
+            /> */}
           </div>
         </aside>
       </div>

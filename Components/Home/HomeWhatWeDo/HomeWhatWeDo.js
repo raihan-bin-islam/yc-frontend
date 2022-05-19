@@ -33,13 +33,13 @@ const HomeWhatWeDo = () => {
 
         <div className={whatWeDoBody}>
           {whatWeDoData.map((data, index) => (
-            <WhatWeDoCard key={index} title={data.title} desc={data.paragraph} photo={data.image} />
+            <WhatWeDoCard key={index} title={data.title} desc={data.paragraph} photo={data.image} link={data.link} />
           ))}
         </div>
         <div className={whatWeDoBodyMobile}>
           <Slider {...sliderSettings}>
             {whatWeDoData.map((data, index) => (
-              <WhatWeDoCard key={index} title={data.title} desc={data.paragraph} photo={data.image} />
+              <WhatWeDoCard key={index} title={data.title} desc={data.paragraph} photo={data.image} link={data.link} />
             ))}
           </Slider>
         </div>
