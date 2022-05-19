@@ -13,6 +13,9 @@
     z-index: 2;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @include response(vp-800) {
+      grid-template-columns: repeat(2, 1fr);
+    }
 
     .nextButton,
     .prevButton {

@@ -31,7 +31,7 @@ const HomeLatestEvents = ({ isLoading, latestEvents }) => {
       {
         breakpoint: 600,
         settings: {
-          arrows: false,
+          arrows: true,
           centerMode: true,
           slidesToShow: 1,
         },

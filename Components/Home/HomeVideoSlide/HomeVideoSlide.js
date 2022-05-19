@@ -54,7 +54,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
       {
         breakpoint: 600,
         settings: {
-          arrows: false,
+          arrows: true,
           // centerMode: true,
           slidesToShow: 2,
         },
