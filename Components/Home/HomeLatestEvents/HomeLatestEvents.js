@@ -55,9 +55,11 @@ const HomeLatestEvents = ({ isLoading, latestEvents }) => {
               latestEvents.map(({ id, thumb_image, title, link }, index) => {
                 return (
                   <Link href={link} key={index}>
-                    <div className={linkableCard}>
-                      <SliderCard key={index} image={thumb_image} title={title} type="events" />
-                    </div>
+                    <a target="_blank">
+                      <div className={linkableCard}>
+                        <SliderCard key={index} image={thumb_image} title={title} type="events" />
+                      </div>
+                    </a>
                   </Link>
                 );
               })
