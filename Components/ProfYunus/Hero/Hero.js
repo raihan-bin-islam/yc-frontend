@@ -34,7 +34,7 @@ const Hero = () => {
             {/* Link 1 */}
             <li>
               <Link href="/professor-yunus/about-professor-yunus">
-                <a>About Professor yunus</a>
+                <a>About Professor Yunus</a>
               </Link>
             </li>
             {/* Link 2 */}
