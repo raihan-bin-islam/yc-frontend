@@ -9,12 +9,15 @@ import NewsCard from "../Components/Shared/NewsCard/NewsCard";
 import PreLoader from "../Components/Shared/PreLoader/PreLoader";
 import SliderCard from "../Components/Shared/SliderCard/SliderCard";
 import WhatWeDoCard from "../Components/Shared/WhatWeDoCard/WhatWeDoCard";
+import Pagination from "../Components/Shared/Pagination/Pagination";
 
 const Component = () => {
   return (
     <>
       {/* <TestAnimation /> */}
-      {/* <HomeNews /> */}
+      <div style={{ margin: 400 }}>
+        <Pagination />
+      </div>
     </>
   );
 };

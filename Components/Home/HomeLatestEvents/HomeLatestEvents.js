@@ -8,12 +8,13 @@ import Arrow from "../../Shared/Arrows/Arrow";
 import styles from "./homelatestevents.module.scss";
 
 import PreLoader from "../../Shared/PreLoader/PreLoader";
+import ButtonLight from "../../Shared/Button/Button";
+
+import Link from "next/link";
 
 const HomeLatestEvents = ({ isLoading, latestEvents }) => {
-
-  console.log(latestEvents)
   // Module style object destructuring
-  const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody } = styles;
+  const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody, buttonComponent, linkableCard } = styles;
 
   // Slick Slider Settingss
   const sliderSettings = {
@@ -51,14 +52,25 @@ const HomeLatestEvents = ({ isLoading, latestEvents }) => {
           <Slider {...sliderSettings}>
             {!isLoading ? (
               latestEvents &&
-              latestEvents.map(({ thumb_image, title }, index) => {
-                return <SliderCard key={index} image={thumb_image} title={title} type="events" />;
+              latestEvents.map(({ id, thumb_image, title, link }, index) => {
+                return (
+                  <Link href={link} key={index}>
+                    <div className={linkableCard}>
+                      <SliderCard key={index} image={thumb_image} title={title} type="events" />
+                    </div>
+                  </Link>
+                );
               })
             ) : (
               <PreLoader />
             )}
           </Slider>
         </div>
+      </div>
+      <div className={buttonComponent}>
+        <Link href="#">
+          <ButtonLight text="See All" />
+        </Link>
       </div>
     </section>
   );

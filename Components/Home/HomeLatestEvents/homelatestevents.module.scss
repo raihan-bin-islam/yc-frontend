@@ -1,7 +1,7 @@
 @import "../../../styles/utils/base";
 
 .homeEventsContainer {
-  height: 105.8rem;
+  width: 100%;
   background-color: #eff9ff;
 
   .homeEventsHeader {
@@ -21,5 +21,14 @@
   .homeEventsBody {
     margin-top: 1rem;
     contain: content;
+  }
+  .buttonComponent {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 8rem 0rem;
+  }
+
+  .linkableCard {
+    cursor: pointer;
   }
 }

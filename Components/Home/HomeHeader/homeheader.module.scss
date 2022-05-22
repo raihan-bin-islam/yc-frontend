@@ -40,7 +40,8 @@
     }
     .heroContentLeft {
       position: absolute;
-      left: 0;
+      // left: 0;
+      left: 5rem;
       bottom: 0;
       @include response(tab-port) {
         left: 5%;
@@ -70,7 +71,8 @@
     .heroContentRight {
       position: absolute;
       top: 17.5rem;
-      right: 0;
+      // right: 0;
+      right: 5rem;
       text-align: end;
       display: inline-block;
       width: 61.6rem;

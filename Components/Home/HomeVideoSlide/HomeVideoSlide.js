@@ -21,6 +21,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
 
   // States
   const [uniqueId, setUniqueId] = useState("");
+  const [activeClass, setActiveClass] = useState(false);
 
   // set Initial video link to the first video after video data is fetched
   useEffect(() => {
@@ -35,7 +36,10 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
 
   // styles
   const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoLeaf } = styles;
-
+  const handleOnClick = (link) => {
+    setVideoUrl(link);
+    setActiveClass(true);
+  };
   // slider settings
   const youTubeSlider = {
     dots: false,
@@ -82,7 +86,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
                         image={thumb_image}
                         title={title}
                         type="video"
-                        onClick={() => setVideoUrl(youtube_link)}
+                        onClick={() => handleOnClick(youtube_link)}
                       />
                     );
                   })}
