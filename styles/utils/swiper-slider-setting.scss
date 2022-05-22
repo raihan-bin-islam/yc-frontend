@@ -34,18 +34,22 @@
 
 .swiper-slide {
   width: 100%;
+  @media screen and (min-width: 600px) {
+    justify-content: initial;
+    padding: 0 1rem;
+  }
 }
 
 .swiper-slide:nth-child(2n) {
   .cardSelector {
     width: 70%;
-    @include response(vp-800){
+    @include response(vp-800) {
       width: 100%;
     }
   }
 }
 
-.swiper-button-next{
+.swiper-button-next {
   background-color: rgba($color: #000000, $alpha: 0.1);
   height: 70% !important;
   right: 0 !important;
@@ -54,14 +58,14 @@
   z-index: 100 !important;
 }
 
-.swiper-button-prev{
+.swiper-button-prev {
   background-color: rgba($color: #000000, $alpha: 0.1);
   height: 70% !important;
   left: 0 !important;
   transform: translateY(-50%);
   color: $white !important;
   z-index: 100 !important;
-  &::after{
+  &::after {
     position: absolute !important;
     transform: translateY(-50%);
     top: 50% !important;

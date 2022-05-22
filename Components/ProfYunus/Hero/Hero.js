@@ -51,7 +51,7 @@ const Hero = () => {
             </li>
             {/* Link 4 */}
             <li>
-              <Link href="#">
+              <Link href="#speeches">
                 <a>Speeches</a>
               </Link>
             </li>

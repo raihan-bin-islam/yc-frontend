@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import AwardsCard from "../../Shared/AwardsCard/AwardsCard";
+import ButtonLight from "../../Shared/Button/Button";
 
 import styles from "./awards.module.scss";
 import NextButton from "./NextButton/NextButton";
 
+import Link from "next/link";
+
 const Awards = ({ awardsData }) => {
-  const { awardsContainer, grid, title, subtitle, nextButton, prevButton } = styles;
+  const { awardsContainer, grid, title, subtitle, nextButton, prevButton, buttonComponent } = styles;
   const [numberOfData, setNumberOfData] = useState(8);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(numberOfData);
@@ -67,7 +70,7 @@ const Awards = ({ awardsData }) => {
       <h2 className={title}>Awards</h2>
       <p className={subtitle}>Received by Professor Muhammad Yunus</p>
       <div className={grid}>
-        <NextButton onClick={prev} className={prevButton} />
+        {/* <NextButton onClick={prev} className={prevButton} /> */}
         {awardsData
           .filter((data, index) => {
             return index >= startIndex && index < endIndex;
@@ -75,8 +78,13 @@ const Awards = ({ awardsData }) => {
           .map(({ id, thumb_image, title, year }, index) => {
             return <AwardsCard image={thumb_image} title={title} year={year} key={id} i={index} />;
           })}
-        <NextButton onClick={next} className={nextButton} />
+        {/* <NextButton onClick={next} className={nextButton} /> */}
       </div>
+      <Link href="#">
+        <div className={buttonComponent}>
+          <ButtonLight text="See All" />
+        </div>
+      </Link>
     </div>
   );
 };

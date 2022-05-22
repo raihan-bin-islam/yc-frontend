@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState } from "react";
 import LikeButton from "../CommonSvg/LikeButton";
 import PlayButton from "../CommonSvg/PlayButton";
 import RightArrowLink from "../CommonSvg/RightArrowLink";
@@ -8,7 +8,8 @@ import { sliderData } from "./data";
 // Import Component Styles
 import styles from "./slider_card.module.scss";
 
-const SliderCard = ({ image, title, type = "events", size = 1, onClick, link }) => {
+const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, activeClass }) => {
+  const [cardActivation, setCardActivation] = useState(false);
   // Destructuring Module Style Object
   const {
     eventsContainer,
@@ -20,7 +21,16 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link }) 
     buttons,
     playBtn,
     cardTitle,
+    active,
+    inactive,
   } = styles;
+
+  const activate = () => {
+    const classId = document.getElementsByClassName(active);
+    // console.log();
+    // classId[0].classList.remove(active);
+    setCardActivation(true);
+  };
   // // Destructuring the Slider Data
   // const { image, title } = sliderData;
 
@@ -34,8 +44,11 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link }) 
           : type === "video"
           ? videoContainer
           : awardCardContainer
-      } cardSelector`}
-      onClick={() => onClick && onClick()}
+      } cardSelector ${cardActivation ? active : inactive}`}
+      onClick={() => {
+        onClick && onClick();
+        activate();
+      }}
     >
       <img className={`${type === "articles" ? articleImg : cardImg}`} src={image} alt={title} />
       <h4 className={cardTitle}>{title}</h4>

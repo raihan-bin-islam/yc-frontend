@@ -7,7 +7,7 @@ const ProfVideoSlider = () => {
   const [isLoading, videoData] = useFetch("/yunus-speech");
   const { profVideoContainer, profVideoHeader } = styles;
   return (
-    <section className={profVideoContainer}>
+    <section className={profVideoContainer} id="speeches">
       <div className={profVideoHeader}>
         <h2>Speeches</h2>
       </div>

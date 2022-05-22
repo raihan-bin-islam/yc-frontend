@@ -10,6 +10,7 @@ import {
   titleHeading,
   desc,
   quotation,
+  scrollableDesc,
   yunusImage,
 } from "./profYunusSubPages.module.scss";
 
@@ -20,7 +21,7 @@ import QuotationSvg from "./QuotationSvg";
 
 import Link from "next/link";
 
-const ProfYunusSubPages = ({ heading, name, title, description, quotes }) => {
+const ProfYunusSubPages = ({ heading, name, title, description, quotes, wishlist }) => {
   return (
     <section className={pageSection}>
       <HeroBanner flipped />
@@ -30,7 +31,7 @@ const ProfYunusSubPages = ({ heading, name, title, description, quotes }) => {
       </div>
       <div className={pageLayout}>
         <div className={pageContent}>
-          <div className={desc}>
+          <div className={`${desc} ${wishlist && scrollableDesc}`}>
             {description &&
               description.map((data, index) => {
                 return (

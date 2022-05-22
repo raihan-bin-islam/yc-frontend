@@ -1,14 +1,15 @@
 @import "../../../styles/utils/base";
 
-.profVideoContainer{
-    position: relative;
-    .profVideoHeader{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 6.5rem;
-        h2{
-            @include heading(9.1rem, $primary);
-        }
+.profVideoContainer {
+  position: relative;
+  scroll-margin-top: 10rem;
+  .profVideoHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 6.5rem;
+    h2 {
+      @include heading(9.1rem, $primary);
     }
+  }
 }

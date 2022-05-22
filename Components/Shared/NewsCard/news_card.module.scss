@@ -15,6 +15,10 @@
 
     font-size: clamp(12px, $altText, $altText);
     font-weight: $semiBold;
+
+    height: 3.5ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .newsHeading {
