@@ -43,6 +43,11 @@
       @content;
     }
   }
+  @if $breakpoint == big-desktop-max {
+    @media (max-width: 112.5em) {
+      @content;
+    }
+  }
 }
 
 @mixin heading($fontSize: $heading, $color: $primary, $align: center, $margin: "true") {
