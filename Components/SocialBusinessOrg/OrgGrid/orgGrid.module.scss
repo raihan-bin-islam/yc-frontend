@@ -1,0 +1,50 @@
+@import '../../../styles/utils/base';
+
+.orgGridContainer{
+    padding-bottom: 10rem;
+    .orgGridHeader{
+        text-align: center;
+        h3{
+            font-size: 6.7rem;
+            color: #919090;
+            text-transform: uppercase;
+        }
+        h2{
+            @include heading()
+        }
+    }
+    .orgGridBody{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.1rem;
+        margin-top: 10.6rem;
+        @include response(vp-800){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .orgGridBodyCard{
+            height: 39.9rem;
+            background-color: $white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 2rem;
+            @include response(vp-800){
+                width: 100%;
+            }
+            &:hover{
+                img{
+                    transform: scale(1.1);
+                    filter: grayscale(0);
+                }
+            }
+            img{
+                height: 12.4rem;
+                width: 100%;
+                object-fit: contain;
+                filter: grayscale(100%);
+                transition: 0.3s;
+            }
+        }
+    }
+}
