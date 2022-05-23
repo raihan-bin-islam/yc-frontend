@@ -14,16 +14,6 @@ const Hero = () => {
         <div>
           <img src={heroYunus.src} alt="hero-banner" />
         </div>
-        <div className={heroContentLeft}>
-          <h5>PROFESSOR MUHAMMAD YUNUS</h5>
-          <h6>2006 Nobel Peace Laureate</h6>
-        </div>
-        <div className={heroContentRight}>
-          <span className={h2}>“If you imagine,</span>
-          <span className={h2}>someday it will happen;</span>
-          <span className={h2}>if you don’t imagine,</span>
-          <span className={h2}>it will never happen.”</span>
-        </div>
       </div>
     </section>
   );
