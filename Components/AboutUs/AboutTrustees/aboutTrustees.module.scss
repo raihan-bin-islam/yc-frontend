@@ -1,124 +1,37 @@
 @import "../../../styles/utils/base";
 
-.aboutTrusteesContainer{
-    height: 207rem;
-    position: relative;
-    .aboutTrusteesPath{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: -1;
-        img{
-            width: 100%;
-        }
+.aboutTrusteesContainer {
+  height: 207rem;
+  position: relative;
+  .aboutTrusteesPath {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    img {
+      width: 100%;
     }
-    @include response(vp-800){
-        height: auto;
-        padding: 4rem 0;
+  }
+  @include response(vp-800) {
+    height: auto;
+    padding: 4rem 0;
+  }
+  .aboutTrusteesHeader {
+    padding: 12rem 0;
+    h2 {
+      @include heading();
     }
-    .aboutTrusteesHeader{
-        padding: 12rem 0;
-        h2{
-            @include heading(); 
-        }
+  }
+  .aboutTrusteesBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.1rem;
+    @include response(vp-800) {
+      grid-template-columns: 1fr;
     }
-    .aboutTrusteesBody{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1.1rem;
-        @include response(vp-800){
-            grid-template-columns: 1fr;
-        }
-        p{
-            color: #333;
-        }
-        .aboutTrusteesCard{
-            height: 66rem;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            &:hover{
-                .aboutTrusteesCardFront{
-                    background-color: rgba($color: #EFF9FF, $alpha: 0.85);
-                    .aboutTrusteesCardFrontTop{
-                        top: 0;
-                    }
-                    .aboutTrusteesCardFrontBottom{
-                        .aboutTrusteesCardFrontBottomContainer{
-                            h3{
-                                color: $textDark;
-                            }
-                            h5{
-                                color: $textDark;
-                                border-bottom: 2px solid $textDark;
-                            }
-                        }
-                    }
-                }
-            }
-            .aboutTrusteesCardBack{
-                height: 66rem;
-                width: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                img{
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-            .aboutTrusteesCardFront{
-                z-index: 2;
-                height: 66rem;
-                width: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                .aboutTrusteesCardFrontTop{
-                    height: 41.2rem;
-                    width: 100%;
-                    position: absolute;
-                    top: 100%;
-                    padding: 6rem 3rem 0 3rem;
-                    transition: 0.6s;
-                    p{
-                        font-size: 1.8rem;
-                        color: $textDark;
-                        line-height: 2.4rem;
-                        &:last-child{
-                            margin-top: 2rem;
-                        }
-                    }
-                }
-                .aboutTrusteesCardFrontBottom{
-                    height: 24.8rem;
-                    width: 100%;
-                    position: absolute;
-                    bottom: 0;
-                    padding: 3rem;
-                    .aboutTrusteesCardFrontBottomContainer{
-                        width: 33rem;
-                        h3{
-                            color: $white;
-                            font-size: 4.5rem;
-                            font-weight: $bold;
-                            padding: 1rem 0;
-                            text-transform: uppercase;
-                        }
-                        h5{
-                            font-size: 2.5rem;
-                            font-weight: $bold;
-                            color: $white;
-                            padding: 1rem 0;
-                            border-bottom: 2px solid $white;
-                            text-transform: uppercase;
-                        }
-                    }
-                }
-            }
-        }
+    p {
+      color: #333;
     }
+  }
 }

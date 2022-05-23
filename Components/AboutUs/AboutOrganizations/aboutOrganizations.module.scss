@@ -1,65 +1,82 @@
 @import "../../../styles/utils/base";
 
-.aboutOrgContainer{
-    height: 146.5rem;
-    position: relative;
-    @include response(vp-800){
-        height: auto;
+.aboutOrgContainer {
+  height: 146.5rem;
+  position: relative;
+  @include response(vp-800) {
+    height: auto;
+  }
+  @include response(tab-port) {
+    background-color: $grey;
+  }
+  .aboutOrgBg {
+    position: absolute;
+    z-index: -1;
+
+    @include response(tab-port) {
+      display: none;
     }
-    .aboutOrgBg{
-        position: absolute;
-        z-index: -1;
-        img{
-            width: 100%;
-        }
+
+    img {
+      width: 100%;
     }
-    .aboutOrgHeader{
-        padding: 9rem 0;
-        text-align: center;
-        h2{
-            @include heading()
-        }
-        h3{
-            font-size: 6.7rem;
-            font-weight: $bold;
-            color: #919090;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
+  }
+  .aboutOrgHeader {
+    padding: 9rem 0;
+    text-align: center;
+    h2 {
+      @include heading();
     }
-    .aboutOrgBody{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.1rem;
-        @include response(vp-800){
-            margin-top: 8rem;
-        }
-        .aboutOrgCard{
-            height: 39.9rem;
-            width: calc(25% - 1.1rem);
-            background-color: $white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            padding: 2rem;
-            @include response(vp-800){
-                width: 100%;
-            }
-            &:hover{
-                img{
-                    transform: scale(1.1);
-                    filter: grayscale(0);
-                }
-            }
-            img{
-                height: 12.4rem;
-                width: 100%;
-                object-fit: contain;
-                filter: grayscale(100%);
-                transition: 0.3s;
-            }
-        }
+    h3 {
+      font-size: 6.7rem;
+      font-weight: $bold;
+      color: #919090;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
     }
+  }
+  .aboutOrgBody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.1rem;
+    @include response(vp-800) {
+      padding-bottom: 8rem;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .aboutOrgCard {
+      height: 39.9rem;
+      width: calc(25% - 1.1rem);
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      padding: 2rem;
+
+      //   background-color: aqua;
+      @include response(vp-800) {
+        width: 100%;
+        height: 30rem;
+      }
+      @include response(s-phone) {
+        height: 20rem;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+          filter: grayscale(0);
+        }
+      }
+      img {
+        height: 12.4rem;
+        width: 100%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: 0.3s;
+      }
+    }
+  }
 }
