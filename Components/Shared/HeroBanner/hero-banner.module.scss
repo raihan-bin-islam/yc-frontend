@@ -65,12 +65,16 @@
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   // width: 100%;
+
+  @include response(big-desktop) {
+    top: -35rem;
+  }
+  @include response(s-desktop) {
+    top: -20rem;
+  }
   @include response(tab-port) {
     .svgSmall {
       width: 160rem;
     }
-  }
-  @include response(big-desktop) {
-    top: -35rem;
   }
 }

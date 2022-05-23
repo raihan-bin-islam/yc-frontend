@@ -1,1 +1,41 @@
 @import "../../../styles/utils/base";
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.paginationLabels,
+.nextLabel,
+.prevLabel {
+  margin: 0.2rem;
+  padding: 1rem 1.5rem;
+  background: #e9e9e9;
+  color: $textDark;
+
+  font-size: 1.8rem;
+  font-weight: $medium;
+  cursor: pointer;
+}
+.pageActive,
+.nextLabel,
+.prevLabel {
+  background: $secondaryLightBlue;
+  color: $primary;
+  font-weight: $medium;
+}
+.disabledLink {
+  background: #e9e9e9;
+  color: $textLight;
+  opacity: 0.5;
+}
+.nextLabel,
+.prevLabel {
+  svg {
+    width: 0.8rem;
+  }
+}
+.prevLabel {
+  svg {
+    transform: scaleX(-1);
+  }
+}
