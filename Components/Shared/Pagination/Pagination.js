@@ -1,53 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
+import ReactPaginate from "react-paginate";
+import PaginationButton from "./PaginationButton";
+import {
+  paginationContainer,
+  paginationLabels,
+  pageActive,
+  disabledLink,
+  nextLabel,
+  prevLabel,
+} from "./pagination.module.scss";
 
-const Pagination = ({ totalNumberOfData = 66 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const dataPerPage = 3;
-  const pageLimit = 5;
-  const totalNumberOfPages = totalNumberOfData / dataPerPage;
-
-  const [startIndex, setStartIndex] = useState(1);
-  const [endIndex, setEndIndex] = useState(pageLimit);
-
-  const pageNumbers = () => {
-    let pageArray = [];
-
-    for (let index = 1; index <= totalNumberOfPages; index++) {
-      pageArray.push(index);
-    }
-
-    return pageArray;
-  };
-
-  const handlePageTransition = (pageIndex) => {
-    const endIndex = pageIndex - 1 + pageLimit;
-
-    if (endIndex > totalNumberOfPages) {
-      setStartIndex(totalNumberOfPages + 1 - pageLimit);
-      setEndIndex(totalNumberOfPages);
-      return;
-    }
-    setStartIndex(pageIndex);
-    setEndIndex(pageIndex - 1 + pageLimit);
-  };
-
-  const pageArray = pageNumbers(totalNumberOfData);
-
+const Pagination = ({ length, contentsPerPage, onPageChange }) => {
+  const pageCount = Math.ceil(length / contentsPerPage);
   return (
-    <>
-      <div>
-        {pageArray
-          .filter((pageIndex, index) => index + 1 >= startIndex && index < endIndex)
-          .map((pageIndex, index) => {
-            return (
-              <div key={index} onClick={() => handlePageTransition(pageIndex)}>
-                {pageIndex}
-              </div>
-            );
-          })}
-      </div>
-    </>
+    <ReactPaginate
+      className={paginationContainer}
+      pageLinkClassName={paginationLabels}
+      activeLinkClassName={pageActive}
+      previousLinkClassName={prevLabel}
+      nextLinkClassName={nextLabel}
+      disabledLinkClassName={disabledLink}
+      breakLabel="....."
+      nextLabel={<PaginationButton />}
+      onPageChange={onPageChange}
+      pageRangeDisplayed={2}
+      pageCount={pageCount}
+      previousLabel={<PaginationButton />}
+      renderOnZeroPageCount={null}
+    />
   );
 };
 
