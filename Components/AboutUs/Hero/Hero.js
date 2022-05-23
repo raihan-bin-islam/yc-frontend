@@ -1,21 +1,29 @@
 import React from "react";
-import styles from "./hero.module.scss";
-import heroImage from "../../../public/assets/images/landing_page/hero_path.png";
+
+// import heroImage from "../../../public/assets/images/landing_page/hero_path.png";
 import heroYunus from "../../../public/assets/images/about_us/banner.png";
 
+// COMPONENTS
+import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
+
+// CSS
+import styles from "./hero.module.scss";
+
 const Hero = () => {
-  const { headerHero, heroBanner, heroBody, heroContentLeft, heroContentRight, h2 } = styles;
+  const { headerHero, heroBody, imageContainer, mask } = styles;
   return (
-    <section className={headerHero}>
-      <div className={heroBanner}>
-        <img src={heroImage.src} alt="hero-banner" />
-      </div>
+    <div className={headerHero}>
+      <HeroBanner large />
       <div className={heroBody}>
-        <div>
+        <div className={imageContainer}>
+          <div className={mask}>
+            <h1>GLOBAL HUB</h1>
+            <span>For Social Business</span>
+          </div>
           <img src={heroYunus.src} alt="hero-banner" />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

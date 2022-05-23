@@ -1,79 +1,45 @@
 @import "../../../styles/utils/base";
 
-.aboutDoContainer{
-    height: 284.4rem;
-    position: relative;
-    @include response(vp-800){
-        height: auto;
-        padding-bottom: 15rem;
+.aboutDoContainer {
+  height: 284.4rem;
+  position: relative;
+  @include response(vp-800) {
+    height: auto;
+    padding-bottom: 15rem;
+    background-color: $grey;
+  }
+  .aboutDoImgPath {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+
+    @include response(vp-800) {
+      display: none;
     }
-    .aboutDoImgPath{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: -1;
-        img{
-            width: 100%;
-        }
+
+    img {
+      width: 100%;
     }
-    .aboutDoBody{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 11.5rem 5.7rem;
-        @include response(vp-800){
-            grid-template-columns: 1fr;
-        }
-        .aboutDoGrid{
-            background-color: #f2f2f2;
-            height: 64.55rem;
-            position: relative;
-            @include response(vp-800){
-                height: 300px;
-            }
-            img{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-            .aboutDoGridFooter{
-                width: 70rem;
-                min-height: 31.56rem;
-                padding: 1rem 4rem;
-                text-align: center;
-                background-color: rgba($color: $white, $alpha: 0.9);
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: -7.5rem;
-                @include response(vp-800){
-                    width: 100%;
-                    height: auto;
-                    background-color: rgba($color: $primary, $alpha: 0.9);
-                }
-                h3{
-                    color: $textDark;
-                    font-size: 4.5rem;
-                    font-weight: $bold;
-                    padding: 3rem 0;
-                }
-                p{
-                    color: $textDark;
-                    font-size: 1.8rem; 
-                    line-height: 2.2rem;
-                }
-            }
-        }
+  }
+  .aboutDoBody {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11.5rem 5.7rem;
+    @include response(vp-800) {
+      grid-template-columns: 1fr;
     }
-    .aboutDoFooter{
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        @include response(vp-800){
-            display: none;
-        }
-        img{
-            height: 48.5rem;
-        }
+  }
+  .aboutDoFooter {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    @include response(vp-800) {
+      display: none;
     }
+    img {
+      height: 48.5rem;
+    }
+  }
 }

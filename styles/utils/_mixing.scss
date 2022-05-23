@@ -1,10 +1,12 @@
 @mixin response($breakpoint) {
   @if $breakpoint == s-phone {
+    // media size 430px
     @media (max-width: 26.88em) {
       @content;
     }
   }
   @if $breakpoint == M-phone {
+    // media size 568px
     @media (max-width: 35.5em) {
       @content;
     }
@@ -50,7 +52,12 @@
   }
 }
 
-@mixin heading($fontSize: $heading, $color: $primary, $align: center, $margin: "true") {
+@mixin heading(
+  $fontSize: $heading,
+  $color: $primary,
+  $align: center,
+  $margin: "true"
+) {
   position: relative;
   z-index: 10;
 
