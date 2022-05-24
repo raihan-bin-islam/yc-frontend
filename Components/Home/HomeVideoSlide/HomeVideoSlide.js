@@ -56,11 +56,19 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
     autoplaySpeed: 2000,
     responsive: [
       {
+        breakpoint: 400,
+        settings: {
+          arrows: true,
+          centerMode: true,
+          slidesToShow: 1,
+        },
+      },
+      {
         breakpoint: 600,
         settings: {
           arrows: true,
           // centerMode: true,
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
     ],

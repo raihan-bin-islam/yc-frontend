@@ -12,9 +12,12 @@ html {
     font-size: 52.5%;
   }
   @include response(m-desktop) {
-    font-size: 44.8%;
+    font-size: 48%;
   }
   @include response(desktop) {
+    font-size: 42%;
+  }
+  @include response(tab-port) {
     font-size: 40%;
   }
 

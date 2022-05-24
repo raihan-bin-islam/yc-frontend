@@ -1,0 +1,68 @@
+@import "../../../styles/utils/base";
+
+.container {
+  margin-top: -37rem;
+
+  position: relative;
+  z-index: 1111;
+
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  @include response(tab-port) {
+    margin-top: -10rem;
+  }
+  @include response(tab-port) {
+    margin-top: -5rem;
+  }
+  @include response(phone) {
+    margin-top: -10rem;
+
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Graphik", sans-serif;
+    color: white;
+    margin-bottom: 5rem;
+    margin-inline: auto;
+    width: min-content;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    // @include response(s-phone) {
+    //   font-size: 5rem;
+    // }
+
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      height: 3px;
+      background-color: white;
+    }
+  }
+  p {
+    font-size: 1.8rem;
+    color: $textDark;
+    line-height: 1.3;
+  }
+  .mission,
+  .vission {
+    background-color: #cdebfdc2;
+    width: 54rem;
+    text-align: center;
+    padding: 5rem;
+  }
+  .mission {
+  }
+  .vission {
+  }
+}

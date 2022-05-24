@@ -34,10 +34,10 @@
 
 .swiper-slide {
   width: 100%;
-  @media screen and (min-width: 600px) {
-    justify-content: initial;
-    padding: 0 1rem;
-  }
+  // @media screen and (min-width: 600px) {
+  //   justify-content: initial;
+  //   padding: 0 1rem;
+  // }
 }
 
 .swiper-slide:nth-child(2n) {

@@ -9,7 +9,6 @@ import {
   pageTitle,
   titleHeading,
   desc,
-  quotation,
   scrollableDesc,
   yunusImage,
 } from "./profYunusSubPages.module.scss";
@@ -17,11 +16,10 @@ import {
 // Import Component
 import Button from "../Button/Button";
 import HeroBanner from "../HeroBanner/HeroBanner";
-import QuotationSvg from "./QuotationSvg";
 
 import Link from "next/link";
 
-const ProfYunusSubPages = ({ heading, name, title, description, quotes, wishlist }) => {
+const ProfYunusSubPages = ({ heading, name, title, description, wishlist }) => {
   return (
     <section className={pageSection}>
       <HeroBanner flipped />
@@ -36,13 +34,11 @@ const ProfYunusSubPages = ({ heading, name, title, description, quotes, wishlist
               description.map((data, index) => {
                 return (
                   <div key={index}>
-                    <p className={quotes && quotation}>
-                      {/* if it is a quotation then wrap the text in a q tag or else don't */}
-                      {quotes ? <q>{data}</q> : data}
+                    <p>
+                      {data}
                       <br />
                       <br />
                     </p>
-                    {quotes && (index % 2 == 0 ? <QuotationSvg /> : <QuotationSvg right />)}
                     <br />
                   </div>
                 );

@@ -1,31 +1,29 @@
 import React from "react";
-import styles from "./hero.module.scss";
-import heroImage from "../../../public/assets/images/landing_page/hero_path.png";
+
+// import heroImage from "../../../public/assets/images/landing_page/hero_path.png";
 import heroYunus from "../../../public/assets/images/about_us/banner.png";
 
+// COMPONENTS
+import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
+
+// CSS
+import styles from "./hero.module.scss";
+
 const Hero = () => {
-  const { headerHero, heroBanner, heroBody, heroContentLeft, heroContentRight, h2 } = styles;
+  const { headerHero, heroBody, imageContainer, mask } = styles;
   return (
-    <section className={headerHero}>
-      <div className={heroBanner}>
-        <img src={heroImage.src} alt="hero-banner" />
-      </div>
+    <div className={headerHero}>
+      <HeroBanner large />
       <div className={heroBody}>
-        <div>
+        <div className={imageContainer}>
+          <div className={mask}>
+            <h1>GLOBAL HUB</h1>
+            <span>For Social Business</span>
+          </div>
           <img src={heroYunus.src} alt="hero-banner" />
         </div>
-        <div className={heroContentLeft}>
-          <h5>PROFESSOR MUHAMMAD YUNUS</h5>
-          <h6>2006 Nobel Peace Laureate</h6>
-        </div>
-        <div className={heroContentRight}>
-          <span className={h2}>“If you imagine,</span>
-          <span className={h2}>someday it will happen;</span>
-          <span className={h2}>if you don’t imagine,</span>
-          <span className={h2}>it will never happen.”</span>
-        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

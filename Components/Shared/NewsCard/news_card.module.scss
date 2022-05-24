@@ -15,8 +15,9 @@
 
     font-size: clamp(12px, $altText, $altText);
     font-weight: $semiBold;
+    line-height: 1.2;
 
-    height: 3.5ch;
+    height: 4ch;
     overflow: hidden;
     text-overflow: ellipsis;
   }
