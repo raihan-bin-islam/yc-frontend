@@ -16,7 +16,8 @@
 
     height: 79.3rem;
     display: grid;
-    grid-template-columns: 73.5rem 89.5rem;
+    // grid-template-columns: 73.5rem 89.5rem;
+    grid-template-columns: repeat(2, 1fr);
     @include response(vp-800) {
       height: auto;
       grid-template-columns: 1fr;
