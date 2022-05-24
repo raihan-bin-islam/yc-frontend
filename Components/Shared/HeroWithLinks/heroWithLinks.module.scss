@@ -14,16 +14,6 @@
     padding: 15rem 0rem;
   }
 
-  .heroBanner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-
-    img {
-      width: 100%;
-    }
-  }
   .heroBody {
     z-index: 2;
 
@@ -131,6 +121,9 @@
               width: 0%;
             }
           }
+        }
+        .capitalLinkText {
+          text-transform: uppercase;
         }
       }
     }

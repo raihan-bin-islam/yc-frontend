@@ -22,6 +22,11 @@
   .heroBody {
     z-index: 2;
     width: calc(100vw - 29rem);
+
+    @include response(s-desktop) {
+      width: calc(100vw - 15rem);
+    }
+
     @include response(vp-800) {
       width: calc(100vw - 5.5rem);
     }
@@ -86,6 +91,7 @@
       text-align: end;
       display: inline-block;
       width: 61.6rem;
+
       @include response(tab-port) {
         width: 94%;
         top: 60%;

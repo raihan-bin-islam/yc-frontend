@@ -14,7 +14,10 @@ const NewsCard = ({ heading, publisher, pressRelease, news, altText, image }) =>
   return (
     <div className={container}>
       <img className={newsCardImg} src={image} alt={altText} />
-      <p className={imageAlt}>{altText}</p>
+      <p className={imageAlt}>
+        {altText.slice(0, 160)}
+        {altText.length > 160 && <span>...</span>}
+      </p>
       <h3 className={newsHeading}>{heading}</h3>
       <span className={newsPublisher}>{publisher}</span> <span className={newsPublisher}>{pressRelease}</span>
       <p className={newsParagraph}>
