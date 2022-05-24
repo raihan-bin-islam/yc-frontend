@@ -3,7 +3,7 @@ import React from "react";
 // CSS
 import styles from "./TrusteeCard.module.scss";
 
-const TrusteeCard = ({ image, title, desc1, desc2, designation }) => {
+const TrusteeCard = ({ image, title, desc1, designation }) => {
   const {
     aboutTrusteesCard,
     aboutTrusteesCardBack,
@@ -21,7 +21,6 @@ const TrusteeCard = ({ image, title, desc1, desc2, designation }) => {
       <div className={aboutTrusteesCardFront}>
         <div className={aboutTrusteesCardFrontTop}>
           <p>{desc1}</p>
-          <p>{desc2}</p>
         </div>
         <div className={aboutTrusteesCardFrontBottom}>
           <div className={aboutTrusteesCardFrontBottomContainer}>

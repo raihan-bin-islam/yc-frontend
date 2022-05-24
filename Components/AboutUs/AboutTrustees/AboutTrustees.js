@@ -4,11 +4,13 @@ import trusteeBg from "../../../public/assets/images/about_us/trustee_path.png";
 
 // COMPONENT
 import TrusteeCard from "./TrusteeCard/TrusteeCard";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 // CSS
 import styles from "./aboutTrustees.module.scss";
 
-const AboutTrustees = () => {
+const AboutTrustees = ({ isLoading, data }) => {
+  // CSS
   const {
     aboutTrusteesContainer,
     aboutTrusteesHeader,
@@ -26,16 +28,19 @@ const AboutTrustees = () => {
           <h2>board of trustees</h2>
         </div>
         <div className={aboutTrusteesBody}>
-          {trusteeData.map((trustee, index) => (
-            <TrusteeCard
-              key={`card_${index}`}
-              image={trustee.profile_image}
-              title={trustee.title}
-              desc1={trustee.desc_1}
-              desc2={trustee.desc_2}
-              designation={trustee.designation}
-            />
-          ))}
+          {!isLoading ? (
+            data.map(({ id, title, designation, description, thumb_image }) => (
+              <TrusteeCard
+                key={id}
+                image={thumb_image}
+                title={title}
+                desc1={description}
+                designation={designation}
+              />
+            ))
+          ) : (
+            <PreLoader />
+          )}
         </div>
       </div>
     </section>

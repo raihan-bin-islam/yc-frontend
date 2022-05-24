@@ -10,15 +10,25 @@ import AboutTrustees from "../../Components/AboutUs/AboutTrustees/AboutTrustees"
 import AboutWhatWeDo from "../../Components/AboutUs/AboutWhatWeDo/AboutWhatWeDo";
 import Hero from "../../Components/AboutUs/Hero/Hero";
 
+import useFetch from "../../Components/Hooks/useFetch";
+
 const About = () => {
+  const [wwDoIsLoading, wwDoData] = useFetch("/what-we-do");
+  const [botIsLoading, botData] = useFetch("/board-of-trustees");
+  const [tmIsLoading, tmData] = useFetch("/team-member");
+
   return (
     <>
       <Hero />
       <AboutMissionVission />
       <AboutWhatWeDo />
-      <AboutDoGrid />
-      <AboutTrustees />
-      <AboutTeam />
+      {wwDoData.length > 0 && (
+        <AboutDoGrid isLoading={wwDoIsLoading} data={wwDoData} />
+      )}
+      {botData.length > 0 && (
+        <AboutTrustees isLoading={botIsLoading} data={botData} />
+      )}
+      {tmData.length > 0 && <AboutTeam isLoading={tmIsLoading} data={tmData} />}
       <AboutOrganizations />
       <AboutJoinUs />
     </>

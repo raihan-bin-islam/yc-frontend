@@ -5,21 +5,15 @@ import yunusPart from "../../../public/assets/images/about_us/yc_part.png";
 
 // COMPONENTS
 import AboutDoCard from "./AboutDoCard/AboutDoCard";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 // CSS
 import styles from "./AboutDoGrid.module.scss";
 
-const AboutDoGrid = () => {
+const AboutDoGrid = ({ isLoading, data }) => {
   // style
-  const {
-    aboutDoContainer,
-    aboutDoGrid,
-    aboutDoGridFooter,
-    aboutDoBody,
-    aboutDoImgPath,
-    aboutDoFooter,
-    box,
-  } = styles;
+  const { aboutDoContainer, aboutDoBody, aboutDoImgPath, aboutDoFooter, box } =
+    styles;
 
   return (
     <section className={aboutDoContainer}>
@@ -28,14 +22,18 @@ const AboutDoGrid = () => {
       </div>
       <div className="container-layout">
         <div className={aboutDoBody}>
-          {weDoData.map((weDo, index) => (
-            <AboutDoCard
-              key={index}
-              image={weDo.image}
-              title={weDo.title}
-              paragraph={weDo.paragraph}
-            />
-          ))}
+          {!isLoading ? (
+            data.map(({ id, title, thumb_image, short_desc }) => (
+              <AboutDoCard
+                key={id}
+                image={thumb_image}
+                title={title}
+                paragraph={short_desc}
+              />
+            ))
+          ) : (
+            <PreLoader />
+          )}
         </div>
       </div>
       <div className={aboutDoFooter}>

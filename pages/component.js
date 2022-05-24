@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HomeNews from "../Components/Home/HomeNews/HomeNews";
 import HomeVideoSlide from "../Components/Home/HomeVideoSlide/HomeVideoSlide";
-import TestAnimation from "../Components/ProfYunus/TestAnimation";
+// import TestAnimation from "../Components/ProfYunus/TestAnimation";
 import ProfYunusCommon from "../Components/Shared/ProfYunusSubPages/ProfYunusSubPages";
 import AwardsCard from "../Components/Shared/AwardsCard/AwardsCard";
 import Highlight from "../Components/Shared/Highlight/Highlight";
@@ -14,7 +14,7 @@ import Pagination from "../Components/Shared/Pagination/Pagination";
 const Component = () => {
   return (
     <>
-      {/* <TestAnimation /> */}
+      <PreLoader />
       <div style={{ margin: 400 }}>
         <Pagination />
       </div>
