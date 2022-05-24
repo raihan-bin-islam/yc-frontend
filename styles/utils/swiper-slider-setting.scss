@@ -43,7 +43,7 @@
 .swiper-slide:nth-child(2n) {
   .cardSelector {
     width: 70%;
-    @include response(vp-800) {
+    @include response(phone) {
       width: 100%;
     }
   }

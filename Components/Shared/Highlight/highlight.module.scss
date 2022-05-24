@@ -27,7 +27,10 @@
     font-size: $paragraph;
     transition: color 0.25s ease;
     @include response(tab-port) {
-      font-size: $paragraphMin;
+      font-size: 14px;
+    }
+    @include response(phone) {
+      font-size: 12px;
     }
   }
   img {
