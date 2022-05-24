@@ -44,11 +44,11 @@ const Quotes = ({ heading, title, quotes }) => {
             {quotes &&
               quotes
                 .filter((data, index) => index + 1 >= startOffset && index < endOffset)
-                .map((data, index) => {
+                .map(({ id, quote }, index) => {
                   return (
-                    <div key={index}>
+                    <div key={id}>
                       <p className={quotes && quotation}>
-                        <q>{data}</q>
+                        <q>{quote}</q>
                         <br />
                         <br />
                       </p>

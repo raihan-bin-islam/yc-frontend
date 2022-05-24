@@ -11,6 +11,9 @@ import leafImg from "../../../public/assets/images/landing_page/yunus_leaf.png";
 // Components
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Arrow from "../../Shared/Arrows/Arrow";
+import ButtonLight from "../../Shared/Button/Button";
+
+import Link from "next/link";
 
 // Custom Hooks
 // import PreLoader from "../../Shared/PreLoader/PreLoader";
@@ -35,7 +38,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
   };
 
   // styles
-  const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoLeaf } = styles;
+  const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoLeaf, buttonComponent } = styles;
   const handleOnClick = (link) => {
     setVideoUrl(link);
     setActiveClass(true);
@@ -102,6 +105,11 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
               )
             : null}
         </div>
+        <Link href="#">
+          <div className={buttonComponent}>
+            <ButtonLight text="View All" />
+          </div>
+        </Link>
       </div>
     </section>
   );
