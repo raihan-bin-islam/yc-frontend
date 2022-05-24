@@ -30,11 +30,16 @@
       }
       .asideContent {
         margin-top: 4rem;
-        height: 100rem;
+        margin-bottom: 4rem;
+        height: 80rem;
         padding-right: 1rem;
         overflow-y: scroll;
         scrollbar-width: thin;
         scrollbar-color: #eee $white;
+      }
+      .highlightButton {
+        width: fit-content;
+        margin: 0 auto;
       }
     }
   }

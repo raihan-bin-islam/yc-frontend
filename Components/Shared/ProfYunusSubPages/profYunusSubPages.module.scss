@@ -157,15 +157,12 @@
       height: 100%;
       object-fit: contain;
 
-      @include response(tab-port) {
-        width: 70rem;
+      @include response(s-desktop) {
+        width: 92rem;
       }
       @include response(vp-800) {
         width: 50rem;
         border-bottom: 1px solid $textDark;
-      }
-      @include response(s-desktop) {
-        width: 92rem;
       }
     }
   }

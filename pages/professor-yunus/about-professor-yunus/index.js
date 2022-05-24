@@ -3,7 +3,7 @@ import ProfYunusSubPages from "../../../Components/Shared/ProfYunusSubPages/Prof
 import pageData from "../../../staticPageData/pageData/profYunus/about/pageData.json";
 const ProfYunusAbout = () => {
   const { name, title, desc } = pageData;
-  return <ProfYunusSubPages name={name} title={title} description={desc} />;
+  return <ProfYunusSubPages name={name} title={title} description={desc} wishlist />;
 };
 
 export default ProfYunusAbout;

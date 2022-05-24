@@ -5,10 +5,11 @@ import styles from "./homenews.module.scss";
 import articleImg from "../../../public/assets/images/landing_page/highlight-img.png";
 
 import PreLoader from "../../Shared/PreLoader/PreLoader";
+import ButtonLight from "../../Shared/Button/Button";
 
 const HomeNews = ({ isLoading, newsData }) => {
   // Module Style Object Destructuring
-  const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent } = styles;
+  const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent, highlightButton } = styles;
 
   // Set highlights from all the news data
   const highlights =
@@ -100,6 +101,9 @@ const HomeNews = ({ isLoading, newsData }) => {
               image={articleImg.src}
               description="Innovate together to achieve sdgs & climate actions through social business"
             /> */}
+          </div>
+          <div className={highlightButton}>
+            <ButtonLight text="See All" />
           </div>
         </aside>
       </div>

@@ -14,7 +14,7 @@ import Pagination from "../Components/Shared/Pagination/Pagination";
 const Component = () => {
   return (
     <>
-      {/* <TestAnimation /> */}
+      <PreLoader />
       <div style={{ margin: 400 }}>
         <Pagination />
       </div>

@@ -66,15 +66,17 @@
       // padding: 10rem 5rem 10rem 0rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      // justify-content: space-around;
 
-      height: fit-content;
+      height: 80rem;
       // max-height: 48ch;
-      min-height: 65rem;
-      max-height: 80rem;
+      // min-height: 65rem;
+      // max-height: 80rem;
       //   overflow-y: auto;
       padding-right: 2.5rem;
       color: $textDark;
+
+      overflow: auto;
 
       @include response(vp-800) {
         min-height: max-content;
@@ -99,6 +101,23 @@
       svg {
         display: block;
         width: 100%;
+      }
+
+      scroll-behavior: smooth;
+      scrollbar-color: black;
+      scrollbar-width: thin;
+      /* Scroll 1 */
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: rgba($color: $textDark, $alpha: 0.1);
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba($color: $textDark, $alpha: 0.2);
+        border-radius: 10px;
       }
     }
     .scrollableDesc {
