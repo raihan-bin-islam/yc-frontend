@@ -12,17 +12,26 @@ const AboutForm = () => {
     const [resume, setResume] = useState('')
     const [cover, setCover] = useState('')
 
-    const resumeData = {
-        name, email, contact, department, resume, cover
-    }
+    // const resumeData = {
+    //     name, email, contact, department, resume, cover
+    // }
 
     const handleSubmit = e => {
         e.preventDefault()
-        console.log(resumeData)
+
+        const resumeData = new FormData()
+
+        resumeData.append('name', name);
+        resumeData.append('email', email);
+        resumeData.append('contact_number', contact);
+        resumeData.append('department', department);
+        resumeData.append('cover_letter', cover);
+        resumeData.append('cv', resume);
+        
         setName('')
         setEmail('')
         setContact('')
-        setContact('')
+        setCover('')
         setDepartment('')
         setResume('')
     }
