@@ -2,6 +2,8 @@
 
 .orgGridContainer{
     padding-bottom: 10rem;
+    z-index: 10;
+    position: relative;
     .orgGridHeader{
         text-align: center;
         h3{
@@ -10,7 +12,7 @@
             text-transform: uppercase;
         }
         h2{
-            @include heading()
+            @include heading();
         }
     }
     .orgGridBody{
@@ -46,5 +48,8 @@
                 transition: 0.3s;
             }
         }
+    }
+    .paginateContainer{
+        margin-top: 7.5rem;
     }
 }
