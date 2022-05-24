@@ -1,0 +1,15 @@
+@import '../../../styles/utils/base';
+
+.socialBusinessOrgBodyContainer{
+    background-color: #F0F0F0;
+    position: relative;
+    .sb_org_path{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        img{
+            width: 100%;
+        }
+    }
+}
