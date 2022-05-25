@@ -1,0 +1,54 @@
+@import '../../styles/utils/base';
+
+.booksContainer{
+    .booksContainerHeader{
+        position: relative;
+        min-height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        h2{
+            @include heading(6rem, $white);
+        }
+        h3{
+            color: $white;
+            font-size: 2.6rem;
+            margin-top: 1.5rem;
+            font-weight: 400;
+            position: relative;
+            z-index: 10;
+        }
+    }
+    .booksContainerBody{
+        .booksGrid{
+            padding: 6.6rem 0 3.8rem 0;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2.3rem;
+            @include response(vp-800){
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .bookGridCollection{
+                height: 38.1rem;
+                width: 100%;
+                cursor: pointer;
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+    .booksContainerFooter{
+        height: 43.4rem;
+        position: relative;
+        img{
+            height: 100%;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

@@ -10,7 +10,7 @@
   max-width: 192rem;
   background-color: rgba($color: $white, $alpha: 0.4);
   transition: 0.3s;
-  z-index: 100;
+  z-index: 1200;
   @media screen and (max-width: 900px) {
     height: 60px;
   }
@@ -150,10 +150,14 @@
     width: fit-content;
     position: absolute;
     top: 135%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 100%;
+    transform: translateX(-150%);
     transition: 0.3s;
     animation: searchInput 0.3s;
+    @include response(vp-800){
+      transform: translateX(-120%);
+      animation: none;
+    }
     input {
       outline: 0;
       border: 0;
@@ -200,9 +204,9 @@
 
 @keyframes searchInput {
   0% {
-    transform: translate(-50%, -100%);
+    transform: translate(-150%, -100%);
   }
   100% {
-    transform: translate(-50%, 0);
+    transform: translate(-150%, 0);
   }
 }

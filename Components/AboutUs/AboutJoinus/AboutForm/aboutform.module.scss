@@ -2,6 +2,9 @@
 
 .aboutForm{
     padding-left: 9.9rem;
+    @include response(vp-800){
+        padding-left: 0;
+    }
     .inputContainer{
         margin-top: 4rem;
         &:first-child{
@@ -11,10 +14,13 @@
             width: 100%;
             padding: 1.5rem 2.5rem;
             background-color: $white;
-            border: 0;
+            border: 1px solid $white;
             outline: 0;
             font-size: 1.8rem;
             color: $textDark;
+            @include response(vp-800){
+                border-bottom: 1px solid $secondaryCyan;
+            }
         }
         textarea{
             width: 100%;
@@ -25,6 +31,9 @@
             outline: 0;
             font-size: 1.8rem;
             color: $textDark;
+            @include response(vp-800){
+                border: 1px solid $secondaryCyan;
+            }
         }
     }
     .inputSubmit{
