@@ -1,0 +1,33 @@
+@import "../../../../styles/utils/base";
+
+.programsSection {
+  position: relative;
+  height: 325rem;
+  background-color: #f7f7f7;
+
+  @include response(vp-800) {
+    height: fit-content;
+    padding: 20rem 0;
+  }
+
+  .programsSvg {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+  }
+  .programsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-start;
+    align-items: flex-start;
+    grid-auto-flow: dense;
+    gap: 25rem 10rem;
+
+    padding-top: 19.4rem;
+
+    @include response(vp-800) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10rem;
+    }
+  }
+}

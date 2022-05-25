@@ -19,9 +19,6 @@ import Link from "next/link";
 // import PreLoader from "../../Shared/PreLoader/PreLoader";
 
 const HomeVideoSlide = ({ isLoading, videoData }) => {
-  // video slider data
-  // const [isPending, videoData] = useFetch("/yunus-speech");
-
   // States
   const [uniqueId, setUniqueId] = useState("");
   const [activeClass, setActiveClass] = useState(false);
@@ -34,6 +31,14 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
   // set the video url according to the click on the thumbnail
   const setVideoUrl = (url) => {
     const id = url.substring(url.lastIndexOf("/") + 1, url.length);
+    // If the link is not shortened link
+    if (id.includes("watch?v=")) {
+      const newId = id.split("?v=");
+      const slicedId = newId[1];
+      setUniqueId(slicedId);
+      return;
+    }
+
     setUniqueId(id);
   };
 
