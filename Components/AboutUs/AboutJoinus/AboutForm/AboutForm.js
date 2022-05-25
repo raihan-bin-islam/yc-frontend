@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import useFetch from '../../../Hooks/useFetch';
 import styles from './aboutform.module.scss'
 
 const AboutForm = () => {
     const {aboutForm, inputContainer, inputSubmit} = styles 
 
+    // get departments
+    const [deptIsLoading, deptData] = useFetch('/departments')
+    
     // form state 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -12,10 +16,11 @@ const AboutForm = () => {
     const [resume, setResume] = useState('')
     const [cover, setCover] = useState('')
 
-    // const resumeData = {
-    //     name, email, contact, department, resume, cover
-    // }
+    const [isSending, setIsSending] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(false)
 
+
+    // handle submit
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -27,13 +32,45 @@ const AboutForm = () => {
         resumeData.append('department', department);
         resumeData.append('cover_letter', cover);
         resumeData.append('cv', resume);
-        
-        setName('')
-        setEmail('')
-        setContact('')
-        setCover('')
-        setDepartment('')
-        setResume('')
+
+        // request options
+        const requestOptions = {
+            method: 'POST',
+            body: resumeData
+        }
+
+        setIsSending(true)
+        setIsDisabled(true)
+
+        fetch('https://node.pickupexpressbd.com/api/join-us', requestOptions)
+            .then(res => res.json())
+            .then(data => {
+                if(data){
+                    alert("Submitted!")
+                    setName('')
+                    setEmail('')
+                    setContact('')
+                    setCover('')
+                    setDepartment('')
+                    setResume('')
+                    e.target.reset()
+                    setIsSending(false)
+                    setIsDisabled(false)
+                }
+                else{
+                    alert('something went wrong')
+                    setName('')
+                    setEmail('')
+                    setContact('')
+                    setCover('')
+                    setDepartment('')
+                    setResume('')
+                    e.target.reset()
+                    setIsSending(false)
+                    setIsDisabled(false)
+                }
+            })
+            .catch(err => console.log(err))
     }
 
     return (
@@ -41,24 +78,24 @@ const AboutForm = () => {
             <div className={inputContainer}>
                 <input 
                     type='text' 
-                    placeholder='name' 
+                    placeholder='Name' 
                     required 
                     value={name}
-                    onChange={e => setName(e.target.value.trim())}/>
+                    onChange={e => setName(e.target.value)}/>
             </div>
             <div className={inputContainer}>
                 <input 
                     type='email' 
-                    placeholder='email' 
+                    placeholder='Email' 
                     required 
                     value={email}
-                    onChange={e => setEmail(e.target.value.trim())}/>
+                    onChange={e => setEmail(e.target.value)}/>
             </div>
             <div className={inputContainer}>
                 <input 
                     type='number'
                     min='1' 
-                    placeholder='number' 
+                    placeholder='Number' 
                     required
                     value={contact}
                     onChange={e => setContact(e.target.value)}
@@ -66,11 +103,9 @@ const AboutForm = () => {
             </div>
             <div className={inputContainer}>
                 <select required onChange={e => setDepartment(e.target.value)}>
-                    <option>Choose Department</option>
-                    <option>A</option>
-                    <option>B</option>
-                    <option>C</option>
-                    <option>D</option>
+                    <option>Select Department</option>
+                    {deptData && deptData.map(dept => <option key={dept.id} value={dept.id}>{dept.title}</option>)}
+                    
                 </select>
             </div>
             <div className={inputContainer}>
@@ -88,7 +123,7 @@ const AboutForm = () => {
                     onChange={e => setCover(e.target.value)}></textarea>
             </div>
             <div className={inputSubmit}>
-                <button type='submit'>Send</button>
+                <button type='submit' disabled={isDisabled}>{isSending ? 'Sending..' : 'Send'}</button>
             </div>
         </form>
     );

@@ -75,7 +75,9 @@ const Navbar = () => {
     <nav className={scrolled ? nav + " " + navScroll : nav}>
       <div className={`container-layout ${navContainer}`}>
         <div>
-          <img src={logo.src} alt="brand-yc" />
+          <Link href='/'>
+            <a><img src={logo.src} alt="brand-yc" /></a>
+          </Link>
         </div>
         <div className={menuContainer}>
           <ul className={mainList} ref={navRef}>

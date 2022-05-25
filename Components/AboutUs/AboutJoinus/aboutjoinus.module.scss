@@ -91,7 +91,9 @@
         text-align: center;
         margin-top: 4rem;
         padding-left: 9.9rem;
-
+        @include response(vp-800) {
+          padding-left: 0;
+        }
         p {
           font-size: 1.8rem;
           color: $primary;
