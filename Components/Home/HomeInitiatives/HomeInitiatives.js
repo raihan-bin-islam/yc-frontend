@@ -32,7 +32,11 @@ const HomeInitiatives = () => {
               The 3ZERO Club is an initiative towards achieving the Nobel Peace Laureate Professor Muhammad Yunus’s
               vision of creating a world of three zeros{" "}
             </p>
-            <button><a href="https://3zero.club/" target="_blank" rel="noreferrer">learn more</a></button>
+            <button>
+              <a href="https://3zero.club/" target="_blank" rel="noreferrer">
+                learn more
+              </a>
+            </button>
           </div>
           <div className={bodyRow1Right}>
             <img src={initiative1.src} alt="initiative-1" />
@@ -46,7 +50,11 @@ const HomeInitiatives = () => {
               <h3>YUNUS SOCIAL BUSINESS CENTRE</h3>
             </div>
             <div>
-              <button>learn more</button>
+              <button>
+                <a href="https://socialbusinesspedia.com/ysbc/pages/about-YSBC" target="_blank" rel="noreferrer">
+                  learn more
+                </a>
+              </button>
             </div>
           </div>
           <div className={bodyRow2Right}>
@@ -57,7 +65,11 @@ const HomeInitiatives = () => {
               <div>
                 <h4>SOCIAL BUSINESS</h4>
                 <h2>DESIGN LAB</h2>
-                <button>learn more</button>
+                <button>
+                  <a href="https://socialbusinesspedia.com/designlab" target="_blank" rel="noreferrer">
+                    learn more
+                  </a>
+                </button>
               </div>
             </div>
           </div>
