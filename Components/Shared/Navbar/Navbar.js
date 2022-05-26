@@ -75,8 +75,10 @@ const Navbar = () => {
     <nav className={scrolled ? nav + " " + navScroll : nav}>
       <div className={`container-layout ${navContainer}`}>
         <div>
-          <Link href='/'>
-            <a><img src={logo.src} alt="brand-yc" /></a>
+          <Link href="/">
+            <a>
+              <img src={logo.src} alt="brand-yc" />
+            </a>
           </Link>
         </div>
         <div className={menuContainer}>
@@ -96,11 +98,15 @@ const Navbar = () => {
                 <a className={router.pathname.includes("/social-business") ? navActive : ""}>Social Business</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="#">
-                  <li>Concept</li>
+                <Link href="social-business/concept">
+                  <a>
+                    <li>Concept</li>
+                  </a>
                 </Link>
-                <Link href="#">
-                  <li>Issues</li>
+                <Link href="social-business/issues">
+                  <a>
+                    <li>Issues</li>
+                  </a>
                 </Link>
                 <Link href="#">
                   <li>FAQs</li>
@@ -120,6 +126,23 @@ const Navbar = () => {
               <Link href="#">
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
+              <ul className={dropdown}>
+                <Link href="visit-programs/our-programs">
+                  <a>
+                    <li>Our Programs</li>
+                  </a>
+                </Link>
+                <Link href="visit-programs/offshore-programs">
+                  <a>
+                    <li>Offshore Programs</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>SB Volunteer</li>
+                  </a>
+                </Link>
+              </ul>
             </li>
             <li>
               <Link href="#">

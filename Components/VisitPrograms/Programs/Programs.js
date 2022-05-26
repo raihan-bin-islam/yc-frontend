@@ -4,12 +4,11 @@ import { programsSection, programsContainer, programsSvg, leafSvg } from "./prog
 // import components
 import ProgramsCard from "./ProgramsCard/ProgramsCard";
 import ProgramDetails from "./ProgramDetails/ProgramDetails";
-// import data
-import programs from "../../../../staticPageData/visitPrograms/ycPrograms/programs/programs.json";
+
 import ProgramsBgSVg from "./ProgramsBgSVG/ProgramsBgSVg";
 import LeafSvg from "./LeafSvg/LeafSvg";
 
-const Programs = () => {
+const Programs = ({ programs }) => {
   return (
     <section className={programsSection}>
       <ProgramsBgSVg className={programsSvg} />
