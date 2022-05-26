@@ -75,7 +75,11 @@ const Navbar = () => {
     <nav className={scrolled ? nav + " " + navScroll : nav}>
       <div className={`container-layout ${navContainer}`}>
         <div>
-          <img src={logo.src} alt="brand-yc" />
+          <Link href="/">
+            <a>
+              <img src={logo.src} alt="brand-yc" />
+            </a>
+          </Link>
         </div>
         <div className={menuContainer}>
           <ul className={mainList} ref={navRef}>
@@ -94,20 +98,30 @@ const Navbar = () => {
                 <a className={router.pathname.includes("/social-business") ? navActive : ""}>Social Business</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="#">
-                  <li>Concept</li>
+                <Link href="/social-business/concept">
+                  <a>
+                    <li>Concept</li>
+                  </a>
+                </Link>
+                <Link href="/social-business/issues">
+                  <a>
+                    <li>Issues</li>
+                  </a>
                 </Link>
                 <Link href="#">
-                  <li>Issues</li>
+                  <a>
+                    <li>FAQs</li>
+                  </a>
                 </Link>
                 <Link href="#">
-                  <li>FAQs</li>
+                  <a>
+                    <li>Organizations</li>
+                  </a>
                 </Link>
                 <Link href="#">
-                  <li>Organizations</li>
-                </Link>
-                <Link href="#">
-                  <li>Events</li>
+                  <a>
+                    <li>Events</li>
+                  </a>
                 </Link>
               </ul>
               {/* <ul className={dropdown}>
@@ -118,6 +132,23 @@ const Navbar = () => {
               <Link href="#">
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
+              <ul className={dropdown}>
+                <Link href="/visit-programs/our-programs">
+                  <a>
+                    <li>Our Programs</li>
+                  </a>
+                </Link>
+                <Link href="/visit-programs/offshore-programs">
+                  <a>
+                    <li>Offshore Programs</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>SB Volunteer</li>
+                  </a>
+                </Link>
+              </ul>
             </li>
             <li>
               <Link href="#">

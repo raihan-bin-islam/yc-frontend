@@ -1,0 +1,43 @@
+@import "../../../../styles/utils/base";
+
+.cardContainer {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  z-index: 2;
+
+  scroll-margin-top: 10rem;
+  &:nth-child(3) {
+    grid-column: 2;
+    @include response(vp-800) {
+      grid-column: initial;
+    }
+  }
+  .cardImage {
+    width: 100%;
+    object-fit: cover;
+  }
+  .cardTitle {
+    z-index: 2;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    // width: 50rem;
+
+    padding: 5rem;
+    background: rgba($color: $white, $alpha: 0.6);
+
+    font-size: 6.3rem;
+    text-align: center;
+
+    @include response(vp-800) {
+      font-size: 5.3rem;
+    }
+    @include response(M-phone) {
+      font-size: 4.3rem;
+    }
+  }
+}

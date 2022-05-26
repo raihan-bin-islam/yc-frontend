@@ -7,7 +7,8 @@ import Link from "next/link";
 const NewsCard = ({ heading, publisher, pressRelease, news, altText, image }) => {
   //classnames
   const { container, newsCardImg, imageAlt, newsHeading, newsPublisher, newsParagraph, button, readMore } = styles;
-
+  const newsSliced = news.slice(0, 600);
+  const newsDataWithEllipsis = newsSliced.concat("...");
   // data
   //const { image, altText, heading, publisher, pressRelease, news } = newsComponentData;
 
@@ -20,10 +21,7 @@ const NewsCard = ({ heading, publisher, pressRelease, news, altText, image }) =>
       </p>
       <h3 className={newsHeading}>{heading}</h3>
       <span className={newsPublisher}>{publisher}</span> <span className={newsPublisher}>{pressRelease}</span>
-      <p className={newsParagraph}>
-        {news.slice(0, 600)}
-        {news.length > 600 && <span>...</span>}
-      </p>
+      <p className={newsParagraph} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
       <div className={button}>
         <Link href="#" passHref>
           <a>

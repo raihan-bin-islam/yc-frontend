@@ -6,12 +6,13 @@
   color: $primary;
   &:hover {
     background-color: $secondaryCyan;
+    color: $white;
   }
 }
 .btnDark {
   border: 1px solid $primary;
   background-color: $primary;
-  color: $secondaryCyan;
+  color: $secondaryLightBlue;
   &:hover {
     border: 1px solid $secondaryCyan;
     background-color: $secondaryCyan;

@@ -7,7 +7,7 @@ import NextButton from "./NextButton/NextButton";
 
 import Link from "next/link";
 
-const Awards = ({ awardsData }) => {
+const Awards = ({ isLoading, awardsData }) => {
   const { awardsContainer, grid, title, subtitle, nextButton, prevButton, buttonComponent } = styles;
   const [numberOfData, setNumberOfData] = useState(8);
   const [startIndex, setStartIndex] = useState(0);

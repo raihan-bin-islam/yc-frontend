@@ -1,0 +1,20 @@
+[
+  {
+    "link": "immersion-program",
+    "title": "Immersion Program",
+    "image": "/assets/images/visit_programs/yc_programs/immersion_programs.png",
+    "details": "The Immersion Program is a one-month intensive program, which aims to provide young minds with an opportunity to learn about 2006 Nobel Peace Laureate Professor Muhammad Yunus’s ground-breaking concept of Social Business. The program will give you an opportunity to gain practical insight into the Social Business world through meetings, field trips, a short course and access to study materials."
+  },
+  {
+    "link": "exposure-visit",
+    "title": "EXPOSURE VISIT",
+    "image": "/assets/images/visit_programs/yc_programs/exposure_visit.png",
+    "details": "An exposure visit to Yunus Centre may be organised at any time and for a duration of one or two weeks. The exposure visit will enable the visitors to know how Social Businesses function and operate. Field trips can be arranged to make the exposure visit more engaging."
+  },
+  {
+    "link": "internship-program",
+    "title": "Internship Program",
+    "image": "/assets/images/visit_programs/yc_programs/internship_program.png",
+    "details": "The internship program at Yunus Centre is designed to help interns understand the concept of Social Business and get an insight into the activities of Yunus Centre around the world. Applicants, hoping to work alongside their like-minded peers to forge lasting relationships based on the ideas behind social business, will discover the Internship Program at Yunus Centre to be the ideal avenue."
+  }
+]
