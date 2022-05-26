@@ -60,12 +60,7 @@
   }
 }
 
-@mixin heading(
-  $fontSize: $heading,
-  $color: $primary,
-  $align: center,
-  $margin: "true"
-) {
+@mixin heading($fontSize: $heading, $color: $primary, $align: center, $margin: "true") {
   position: relative;
   z-index: 10;
 
@@ -73,6 +68,7 @@
   padding: $borderWidth 0rem;
   border: solid $color;
   border-width: $borderWidth 0rem $borderWidth 0rem;
+  white-space: nowrap;
 
   font-size: $fontSize;
   @include response(vp-800) {
@@ -132,4 +128,22 @@
   border-radius: 50%;
 
   transition: background $duration ease;
+}
+
+@mixin heroBannerLarge {
+  height: 123.6rem;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include response(tab-port) {
+    height: 75vw;
+  }
+  @include response(s-phone) {
+    height: 115vw;
+  }
 }
