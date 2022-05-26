@@ -104,7 +104,7 @@
             display: block;
             color: $primary;
             &:not(:last-child) {
-              border-bottom: 1px solid $primary;
+              // border-bottom: 1px solid $primary;
             }
             a {
               color: $primary;
@@ -154,7 +154,7 @@
     transform: translateX(-150%);
     transition: 0.3s;
     animation: searchInput 0.3s;
-    @include response(vp-800){
+    @include response(vp-800) {
       transform: translateX(-120%);
       animation: none;
     }

@@ -8,7 +8,7 @@ import ProgramDetails from "./ProgramDetails/ProgramDetails";
 import ProgramsBgSVg from "./ProgramsBgSVG/ProgramsBgSVg";
 import LeafSvg from "./LeafSvg/LeafSvg";
 
-const Programs = ({ programs }) => {
+const Programs = ({ programs, handbook }) => {
   return (
     <section className={programsSection}>
       <ProgramsBgSVg className={programsSvg} />
@@ -17,7 +17,7 @@ const Programs = ({ programs }) => {
           return (
             <React.Fragment key={index}>
               <ProgramsCard link={link} title={title} image={image} />
-              <ProgramDetails details={details} handbook />
+              <ProgramDetails details={details} handbook={handbook} />
             </React.Fragment>
           );
         })}

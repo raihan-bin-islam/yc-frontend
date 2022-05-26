@@ -1,5 +1,5 @@
 import React from "react";
-import Programs from "../../../Components/VisitPrograms/Programs/Programs";
+import Programs from "../../../Components/Shared/Programs/Programs";
 // import data
 import programs from "../../../staticPageData/visitPrograms/ycPrograms/programs/programs.json";
 import linksData from "../../../staticPageData/visitPrograms/ycPrograms/hero/links.json";
@@ -12,7 +12,7 @@ const OurPrograms = () => {
   return (
     <>
       <HeroWithLinks linksData={linksData} bannerImage={heroBanner} capitalize />
-      <Programs programs={programs} />
+      <Programs programs={programs} handbook />
     </>
   );
 };

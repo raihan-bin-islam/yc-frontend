@@ -10,7 +10,7 @@ const ProgramDetails = ({ details, handbook }) => {
       <div>
         {handbook && <p className={handbookText}>To learn more, Download the Handbook</p>}
         <div className={buttons}>
-          <ButtonLight text="Download Handbook" />
+          {handbook && <ButtonLight text="Download Handbook" />}
           <ButtonLight text="Apply Now" dark />
         </div>
       </div>

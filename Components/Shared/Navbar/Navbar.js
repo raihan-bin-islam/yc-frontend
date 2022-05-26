@@ -98,24 +98,30 @@ const Navbar = () => {
                 <a className={router.pathname.includes("/social-business") ? navActive : ""}>Social Business</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="social-business/concept">
+                <Link href="/social-business/concept">
                   <a>
                     <li>Concept</li>
                   </a>
                 </Link>
-                <Link href="social-business/issues">
+                <Link href="/social-business/issues">
                   <a>
                     <li>Issues</li>
                   </a>
                 </Link>
                 <Link href="#">
-                  <li>FAQs</li>
+                  <a>
+                    <li>FAQs</li>
+                  </a>
                 </Link>
                 <Link href="#">
-                  <li>Organizations</li>
+                  <a>
+                    <li>Organizations</li>
+                  </a>
                 </Link>
                 <Link href="#">
-                  <li>Events</li>
+                  <a>
+                    <li>Events</li>
+                  </a>
                 </Link>
               </ul>
               {/* <ul className={dropdown}>
@@ -127,12 +133,12 @@ const Navbar = () => {
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="visit-programs/our-programs">
+                <Link href="/visit-programs/our-programs">
                   <a>
                     <li>Our Programs</li>
                   </a>
                 </Link>
-                <Link href="visit-programs/offshore-programs">
+                <Link href="/visit-programs/offshore-programs">
                   <a>
                     <li>Offshore Programs</li>
                   </a>
