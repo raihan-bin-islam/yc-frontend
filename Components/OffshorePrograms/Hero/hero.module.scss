@@ -2,6 +2,12 @@
 
 .heroContainer {
   @include heroBannerLarge;
+  @include response(tab-port) {
+    height: 75vw;
+  }
+  @include response(s-phone) {
+    height: 115vw;
+  }
   .heroImg {
     position: relative;
     z-index: 20;

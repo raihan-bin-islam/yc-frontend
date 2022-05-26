@@ -2,8 +2,62 @@
 
 .container {
   @include heroBannerLarge;
+  .heroContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 5;
+    top: 10%;
+
+    // background-color: rebeccapurple;
+    width: 86.2rem;
+  }
   .sectionTitle {
     @include heading(7.1rem, white);
-    bottom: 30%;
+
+    // margin-bottom: 8rem;
+  }
+  .bookDetailsContainer {
+    position: relative;
+    z-index: 5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 10rem;
+    img {
+      width: 43.1rem;
+      //   padding-right: 6rem;
+      justify-self: flex-end;
+      object-fit: contain;
+    }
+    .bookDetails {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      //   padding-left: 6rem;
+
+      h3 {
+        font-size: 4.5rem;
+        font-weight: $bold;
+        color: white;
+      }
+
+      .author {
+        font-size: 2.5rem;
+        font-weight: $regular;
+        color: white;
+      }
+
+      .details {
+        font-size: 2rem;
+        font-weight: $regular;
+        font-style: italic;
+
+        color: $textLight;
+      }
+    }
   }
 }
