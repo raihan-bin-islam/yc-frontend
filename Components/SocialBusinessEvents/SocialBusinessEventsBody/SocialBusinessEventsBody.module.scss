@@ -1,0 +1,87 @@
+@import "../../../styles/utils/base";
+
+.eventsBody {
+  padding-top: 5rem 0 0 0;
+
+  position: relative;
+
+  @include response(phone) {
+    background-color: #eaf7ff;
+  }
+
+  h1 {
+    color: $primary;
+    margin-bottom: 5rem;
+    font-size: 4.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Graphik", sans-serif;
+
+    display: inline-block;
+
+    @include response(s-phone) {
+      font-size: 5rem;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      display: block;
+      height: 2px;
+      background-color: $primary;
+    }
+  }
+  .layoutContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    svg {
+      height: 78rem;
+
+      @include response(vp-800) {
+        width: 100%;
+      }
+      @include response(phone) {
+        width: 100%;
+        display: none;
+      }
+    }
+  }
+
+  .latestEvents,
+  .pastEvents {
+    padding-top: 5rem;
+    .sliderContainer {
+      padding-bottom: 15rem;
+      border-bottom: 2px solid #707070;
+    }
+  }
+  .latestEvents {
+    margin-bottom: 10rem;
+  }
+  .pastEvents {
+    position: relative;
+    .btnContainer {
+      position: absolute;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .leafContainer {
+    overflow: hidden;
+    svg {
+      display: block;
+      margin-bottom: -20rem;
+      margin-left: auto;
+      margin-right: -16rem;
+      height: 68rem;
+
+      @include response(phone) {
+        margin-inline: auto;
+        height: 60rem;
+      }
+    }
+  }
+}

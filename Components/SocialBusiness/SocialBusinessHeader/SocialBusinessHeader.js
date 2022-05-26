@@ -4,7 +4,6 @@ import React from "react";
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
 
 // IMAGES
-import heroLayer from "../../../public/assets/images/social_business/hero_path.png";
 import heroImage from "../../../public/assets/images/social_business/hero_image.png";
 
 // CSS

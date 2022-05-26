@@ -14,7 +14,14 @@ import Link from "next/link";
 
 const HomeLatestEvents = ({ isLoading, latestEvents }) => {
   // Module style object destructuring
-  const { homeHeading, homeEventsContainer, homeEventsHeader, homeEventsBody, buttonComponent, linkableCard } = styles;
+  const {
+    homeHeading,
+    homeEventsContainer,
+    homeEventsHeader,
+    homeEventsBody,
+    buttonComponent,
+    linkableCard,
+  } = styles;
 
   // Slick Slider Settingss
   const sliderSettings = {
@@ -57,7 +64,12 @@ const HomeLatestEvents = ({ isLoading, latestEvents }) => {
                   <Link href={link} key={index}>
                     <a target="_blank">
                       <div className={linkableCard}>
-                        <SliderCard key={index} image={thumb_image} title={title} type="events" />
+                        <SliderCard
+                          key={index}
+                          image={thumb_image}
+                          title={title}
+                          type="events"
+                        />
                       </div>
                     </a>
                   </Link>
