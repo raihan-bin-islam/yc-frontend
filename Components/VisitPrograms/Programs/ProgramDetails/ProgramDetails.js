@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonLight from "../../../../Shared/Button/Button";
+import ButtonLight from "../../../Shared/Button/Button";
 
 import { cardContainer, detailsContainer, cardText, handbookText, buttons } from "./programDetails.module.scss";
 
