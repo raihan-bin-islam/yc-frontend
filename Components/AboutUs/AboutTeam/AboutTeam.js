@@ -5,6 +5,7 @@ import halfwayPathBg from "../../../public/halfway_path.png";
 
 // COMPONENT
 import MemberCard from "./MemberCard/MemberCard";
+import Preloader from "../../Shared/PreLoader/PreLoader";
 
 // CSS
 import styles from "./aboutTeam.module.scss";
@@ -22,14 +23,19 @@ const AboutTeam = ({ isLoading, data }) => {
         <div className={halfwayPath}>
           <img src={halfwayPathBg.src} alt="half-way-path" />
         </div>
-        {data.map(({ id, link, thumb_image, title }) => (
-          <MemberCard
-            key={id}
-            title={title}
-            image={thumb_image}
-            linkedIn={link}
-          />
-        ))}
+        {!isLoading ? (
+          data.map(({ id, link, thumb_image, title, designation }) => (
+            <MemberCard
+              key={id}
+              title={title}
+              image={thumb_image}
+              linkedIn={link}
+              designation={designation}
+            />
+          ))
+        ) : (
+          <Preloader />
+        )}
       </div>
     </section>
   );

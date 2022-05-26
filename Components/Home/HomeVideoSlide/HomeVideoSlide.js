@@ -43,7 +43,13 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
   };
 
   // styles
-  const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoLeaf, buttonComponent } = styles;
+  const {
+    videoSlideContainer,
+    videoSliderBody,
+    videoHeroContainer,
+    videoLeaf,
+    buttonComponent,
+  } = styles;
   const handleOnClick = (link) => {
     setVideoUrl(link);
     setActiveClass(true);
@@ -90,7 +96,9 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
 
       <div className={videoSliderBody}>
         <div className={videoHeroContainer}>
-          {uniqueId !== "" && <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>}
+          {uniqueId !== "" && (
+            <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>
+          )}
         </div>
         <div className="mt3">
           {!isLoading

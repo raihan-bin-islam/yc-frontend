@@ -14,6 +14,9 @@ const MemberCard = ({ image, title, designation, linkedIn }) => {
     aboutTeamBodyCardLinkedIn,
   } = styles;
 
+  console.log(title);
+  console.log(designation);
+
   return (
     <div className={aboutTeamBodyCard}>
       <div className={aboutTeamBodyCardImg}>
