@@ -1,5 +1,46 @@
 @import '../../styles/utils/base';
 
 .speechContainer{
-    
+    .speechContainerHeader{
+        position: relative;
+        min-height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        h2{
+            @include heading(6rem, $white);
+        }
+        h3{
+            color: $white;
+            font-size: 2.6rem;
+            margin-top: 1.5rem;
+            font-weight: 400;
+            position: relative;
+            z-index: 10;
+        }
+    }
+    .speechContainerBody{
+        padding: 0 26.9rem;
+        @include response(vp-800){
+            padding: 0 1rem;
+        }
+        .speechContainerBodyRow{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            padding: 9.5rem 0;
+            border-bottom: 1px solid #707070;
+            &:last-child{
+                border-bottom: 1px solid $white;
+            }
+            @include response(vp-800){
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+    }
+    .speechContainerFooter{
+        padding-bottom: 9.5rem;
+    }
 }

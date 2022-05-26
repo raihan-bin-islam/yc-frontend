@@ -19,6 +19,16 @@
   margin-top: 2rem;
 }
 
+.ml2{
+  margin-left: 2rem;
+}
+
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .bold {
   font-weight: 700;
 }
