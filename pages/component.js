@@ -10,14 +10,14 @@ import PreLoader from "../Components/Shared/PreLoader/PreLoader";
 import SliderCard from "../Components/Shared/SliderCard/SliderCard";
 import WhatWeDoCard from "../Components/Shared/WhatWeDoCard/WhatWeDoCard";
 import Pagination from "../Components/Shared/Pagination/Pagination";
+import RecommendedReadings from "../Components/Publications/RecommendedReadings/RecommendedReadings";
 
 const Component = () => {
   return (
     <>
-      <PreLoader />
-      <div style={{ margin: 400 }}>
-        <Pagination />
-      </div>
+      {/* <PreLoader /> */}
+      <RecommendedReadings />
+      <div style={{ margin: 400 }}></div>
     </>
   );
 };

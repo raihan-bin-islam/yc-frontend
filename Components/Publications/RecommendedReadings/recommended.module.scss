@@ -1,0 +1,9 @@
+@import "../../../styles/utils/base";
+
+.container {
+  @include heroBannerLarge;
+  .sectionTitle {
+    @include heading(7.1rem, white);
+    bottom: 30%;
+  }
+}
