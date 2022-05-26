@@ -1,5 +1,4 @@
 import React from "react";
-import HomeLatestEvents from "../../Home/HomeLatestEvents/HomeLatestEvents";
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
 import {
   container,
@@ -9,6 +8,8 @@ import {
   bookDetails,
   author,
   details,
+  booksCardSlider,
+  bookCardContainer,
 } from "./recommended.module.scss";
 
 const RecommendedReadings = () => {

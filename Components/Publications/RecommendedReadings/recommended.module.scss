@@ -2,6 +2,7 @@
 
 .container {
   @include heroBannerLarge;
+  flex-direction: column;
   .heroContent {
     position: relative;
     display: flex;
@@ -59,5 +60,8 @@
         color: $textLight;
       }
     }
+  }
+  .booksCardSlider {
+    width: 100%;
   }
 }
