@@ -30,7 +30,7 @@ const ProfBooks = ({ books }) => {
           )}
         </div>
         <div className={profFooter}>
-          <Link href="#">View All</Link>
+          <Link href="/professor-yunus/books">View All</Link>
         </div>
       </div>
     </section>
