@@ -55,7 +55,7 @@ const TestAnimation = () => {
         onRest={() => setItems({ items: [] })}
       >
         {({ opacity }, item) => {
-          console.log(opacity);
+          // console.log(opacity);
           <animated.div
             style={{
               opacity: opacity.to(item.op),

@@ -7,7 +7,7 @@ import pageData from "../../../staticPageData/pageData/profYunus/quotes/pageData
 const ProfYunusQuotes = () => {
   const { title } = pageData;
   const [isLoading, quotes] = useFetch("/quotes");
-  console.log(quotes);
+  // console.log(quotes);
   return <Quotes heading title={title} quotes={quotes} />;
 };
 

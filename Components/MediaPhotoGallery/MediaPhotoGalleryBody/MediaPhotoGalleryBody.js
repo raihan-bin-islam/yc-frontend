@@ -14,8 +14,8 @@ const MediaPhotoGalleryBody = () => {
 
   return (
     <div className={`${photoGalleryBody} container-layout`}>
-      {galleryData.map(({ image, title }) => (
-        <div className={box}>
+      {galleryData.map(({ image, title }, index) => (
+        <div key={index} className={box}>
           <PhotoCard image={image} title={title} />
         </div>
       ))}

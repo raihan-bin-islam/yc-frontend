@@ -4,19 +4,7 @@ import React, { useState } from "react";
 import styles from "./Faq.module.scss";
 
 const Faq = ({ ques, ans }) => {
-  const {
-    faq,
-    icon,
-    answer,
-    questionContainer,
-    question,
-    show,
-    line,
-    lineNone,
-    one,
-    two,
-    rotate,
-  } = styles;
+  const { faq, icon, answer, questionContainer, question, show, line, lineNone, one, two, rotate } = styles;
 
   const [visible, setVisible] = useState(false);
 
@@ -24,7 +12,7 @@ const Faq = ({ ques, ans }) => {
     setVisible(!visible);
   };
 
-  console.log(visible);
+  // console.log(visible);
 
   return (
     <div className={faq} onClick={() => handleVisible()}>

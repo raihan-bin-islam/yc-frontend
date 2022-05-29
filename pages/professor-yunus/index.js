@@ -13,7 +13,7 @@ const ProfYunus = () => {
 
   const [speechIsLoading, videoData] = useFetch("/yunus-speech");
   const yunusSpeech = videoData.length > 0 && videoData.filter(({ is_home_page }) => !is_home_page);
-  console.log(yunusSpeech);
+  // console.log(yunusSpeech);
   return (
     <div>
       <Hero />
