@@ -9,12 +9,30 @@
   grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
   grid-template-rows: [row-start] min-content [row-end];
   grid-gap: 1rem;
+  grid-auto-flow: dense;
+
+  @include response(tab-port) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .box {
-    background-color: aqua;
-    &:nth-child(3n + 1) {
-      grid-column: col-start 1 / col-end 2;
-      grid-row: row-start 1 / row-end 2;
+    @media only screen and (min-width: 959px) {
+      &:nth-child(27n + 1) {
+        grid-column-end: span 2;
+        grid-row-end: span 2;
+      }
+      &:nth-child(27n + 11) {
+        grid-column-end: span 2;
+        grid-row-end: span 2;
+      }
+      &:nth-child(27n + 21) {
+        grid-column-end: span 2;
+        grid-row-end: span 2;
+      }
     }
+
+    // @include response(vp-800){
+    //   grid-column: col-start 1 / ;
+    // }
   }
 }
