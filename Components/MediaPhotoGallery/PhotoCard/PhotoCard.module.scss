@@ -32,8 +32,11 @@
       padding-left: 2rem;
       margin-bottom: 3rem;
       padding-bottom: 1rem;
-
       border-bottom: 1px solid $white;
+
+      @include response(s-phone) {
+        font-size: 1.6rem;
+      }
     }
   }
 }
