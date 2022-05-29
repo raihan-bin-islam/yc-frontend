@@ -1,0 +1,42 @@
+@import "../../../../../styles/utils/base";
+
+.reviewContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 8rem 0;
+  .reviewTextContainer {
+    position: relative;
+    //   width: 117.9rem;
+    background: $secondaryLightBlue;
+    .reviewParagraph {
+      padding: 3rem 4rem;
+
+      font-size: 1.8rem;
+      font-family: $regular;
+
+      color: $textDark;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 8rem;
+      height: 8rem;
+      background-color: $secondaryLightBlue;
+      right: 4%;
+      clip-path: polygon(100% 0, 0 0, 100% 50%);
+    }
+  }
+
+  .authorText {
+    padding-top: 6rem;
+    font-size: 2rem;
+  }
+}
+
+.flipLeft::after {
+  left: 4%;
+  transform: scaleX(-1);
+}

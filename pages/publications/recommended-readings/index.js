@@ -1,5 +1,5 @@
 import React from "react";
-import RecommendedReadings from "../../../Components/Publications/RecommendedReadings/RecommendedReadings";
+import Hero from "../../../Components/Publications/RecommendedReadings/Hero/Hero";
 import useFetch from "../../../Components/Hooks/useFetch";
 import BooksSlider from "../../../Components/Publications/RecommendedReadings/BooksSlider/BooksSlider";
 const Recommended = () => {
@@ -7,7 +7,7 @@ const Recommended = () => {
   // console.log(books);
   return (
     <>
-      <RecommendedReadings />
+      <Hero />
       <BooksSlider isLoading={isLoading} booksData={books} />
     </>
   );

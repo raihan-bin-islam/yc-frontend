@@ -1,0 +1,28 @@
+@import "../../../../styles/utils/base";
+
+.heroContainer {
+  @include heroBannerLarge;
+
+  .heroImageContainer {
+    @include heroImagePositioning;
+    @include heroImageGradient;
+
+    width: 65%;
+    @include response(tab-port) {
+      width: 80%;
+    }
+    img {
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .sectionTitle {
+      @include heading($fontSize: 7.1rem, $color: white);
+      position: absolute;
+      z-index: 10;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -25,27 +25,8 @@
   }
 
   .heroImageContainer {
-    position: relative;
-    z-index: 1;
-
-    width: fit-content;
-    margin: 0 auto;
-
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 3;
-      left: 0;
-      bottom: 0;
-
-      width: 100%;
-      height: 30%;
-
-      background: linear-gradient(to bottom, rgba(255, 0, 0, 0), rgba(49, 49, 49, 1));
-      mix-blend-mode: multiply;
-      isolation: auto;
-    }
-
+    @include heroImagePositioning;
+    @include heroImageGradient;
     img {
       //   height: 78.6rem;
       position: relative;

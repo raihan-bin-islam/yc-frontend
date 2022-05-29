@@ -1,5 +1,5 @@
 import React from "react";
-import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
+import HeroBanner from "../../../Shared/HeroBanner/HeroBanner";
 import {
   container,
   heroContent,
@@ -10,9 +10,9 @@ import {
   details,
   booksCardSlider,
   bookCardContainer,
-} from "./recommended.module.scss";
+} from "./hero.module.scss";
 
-const RecommendedReadings = () => {
+const Hero = () => {
   return (
     <section className={container}>
       <HeroBanner large />
@@ -36,4 +36,4 @@ const RecommendedReadings = () => {
   );
 };
 
-export default RecommendedReadings;
+export default Hero;

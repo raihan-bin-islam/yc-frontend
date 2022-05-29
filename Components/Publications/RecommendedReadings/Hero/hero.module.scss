@@ -1,8 +1,11 @@
-@import "../../../styles/utils/base";
+@import "../../../../styles/utils/base";
 
 .container {
   @include heroBannerLarge;
   flex-direction: column;
+  @include response(vp-800) {
+    height: auto;
+  }
   .heroContent {
     position: relative;
     display: flex;
@@ -10,10 +13,15 @@
     justify-content: center;
     gap: 2rem;
     z-index: 5;
-    top: 10%;
-
     // background-color: rebeccapurple;
     width: 86.2rem;
+    @include response(vp-800) {
+      width: auto;
+      margin: 20rem;
+    }
+    @include response(phone) {
+      margin: 15rem;
+    }
   }
   .sectionTitle {
     @include heading(7.1rem, white);
@@ -27,11 +35,20 @@
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     gap: 10rem;
+
+    @include response(vp-800) {
+      grid-template-columns: repeat(1, 1fr);
+      align-items: center;
+    }
     img {
       width: 43.1rem;
       //   padding-right: 6rem;
       justify-self: flex-end;
       object-fit: contain;
+      @include response(tab-port) {
+        width: 33.1rem;
+        justify-self: center;
+      }
     }
     .bookDetails {
       display: flex;
@@ -39,6 +56,15 @@
       justify-content: space-around;
       height: 100%;
       //   padding-left: 6rem;
+
+      @include response(tab-port) {
+        justify-content: center;
+        gap: 5rem;
+      }
+      @include response(vp-800) {
+        text-align: center;
+        gap: 5rem;
+      }
 
       h3 {
         font-size: 4.5rem;
@@ -50,6 +76,12 @@
         font-size: 2.5rem;
         font-weight: $regular;
         color: white;
+      }
+      @include response(tab-port) {
+        h3,
+        .author {
+          color: $textDark;
+        }
       }
 
       .details {

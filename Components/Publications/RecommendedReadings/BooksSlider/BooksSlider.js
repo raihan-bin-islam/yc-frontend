@@ -24,7 +24,39 @@ const BooksSlider = ({ isLoading, booksData }) => {
     autoplaySpeed: 2000,
     responsive: [
       {
+        breakpoint: 1024,
+        settings: {
+          arrows: true,
+          centerMode: true,
+          slidesToShow: 5,
+        },
+      },
+      {
+        breakpoint: 960,
+        settings: {
+          arrows: true,
+          centerMode: true,
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          arrows: true,
+          centerMode: true,
+          slidesToShow: 3,
+        },
+      },
+      {
         breakpoint: 600,
+        settings: {
+          arrows: true,
+          centerMode: true,
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 500,
         settings: {
           arrows: true,
           centerMode: true,

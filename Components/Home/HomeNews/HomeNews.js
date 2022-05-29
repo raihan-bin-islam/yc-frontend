@@ -60,47 +60,6 @@ const HomeNews = ({ isLoading, newsData }) => {
             ) : (
               <PreLoader />
             )}
-
-            {/* <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            />
-            <Highlight
-              image={articleImg.src}
-              description="Innovate together to achieve sdgs & climate actions through social business"
-            /> */}
           </div>
           <div className={highlightButton}>
             <ButtonLight text="See All" />
