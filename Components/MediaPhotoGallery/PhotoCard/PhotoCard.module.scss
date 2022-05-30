@@ -3,14 +3,17 @@
 .photoCard {
   position: relative;
   height: 100%;
+  width: 100%;
   overflow: hidden;
+  cursor: pointer;
+
   .imageContainer {
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
 
-      transform: scale(1.2);
+      // transform: scale(1.2);
     }
   }
   .mask {

@@ -1,0 +1,76 @@
+@import "../../../styles/utils/base";
+
+.popup {
+  position: fixed;
+  background: #000000ad;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-inline: 10rem;
+
+  z-index: 1111;
+  max-width: 192rem;
+  display: flex;
+  justify-content: center;
+
+  @include response(big-desktop) {
+    padding-top: 15rem;
+  }
+
+  @include response(phone) {
+    padding-inline: 4rem;
+  }
+
+  .box {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    height: 70vh;
+
+    @include response(big-desktop) {
+      width: 45%;
+      height: min-content;
+    }
+    @include response(m-desktop) {
+      width: 40%;
+      height: min-content;
+    }
+    @include response(desktop) {
+      width: 60%;
+      height: min-content;
+    }
+    @include response(tab-port) {
+      width: 80%;
+      height: min-content;
+    }
+    @include response(phone) {
+      height: min-content;
+      width: 95%;
+    }
+    @include response(big-desktop-max) {
+      height: min-content;
+    }
+
+    .btnClose {
+      height: 3rem;
+      width: 3rem;
+      font-weight: 700;
+      font-size: 1.6rem;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+    }
+  }
+}
+.popupClose {
+  display: none;
+}

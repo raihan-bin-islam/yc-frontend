@@ -1,38 +1,43 @@
 @import "../../../styles/utils/base";
 
-.photoGalleryBody {
+.container {
   position: relative;
-  z-index: 111;
   padding-block: 17rem;
 
-  display: grid;
-  grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
-  grid-template-rows: [row-start] min-content [row-end];
-  grid-gap: 1rem;
-  grid-auto-flow: dense;
+  .photoGalleryBody {
+    position: relative;
+    z-index: 111;
 
-  @include response(tab-port) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    display: grid;
+    grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
+    grid-template-rows: [row-start] min-content [row-end];
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
 
-  .box {
-    @media only screen and (min-width: 959px) {
-      &:nth-child(27n + 1) {
-        grid-column-end: span 2;
-        grid-row-end: span 2;
-      }
-      &:nth-child(27n + 11) {
-        grid-column-end: span 2;
-        grid-row-end: span 2;
-      }
-      &:nth-child(27n + 21) {
-        grid-column-end: span 2;
-        grid-row-end: span 2;
-      }
+    @include response(tab-port) {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    // @include response(vp-800){
-    //   grid-column: col-start 1 / ;
-    // }
+    .box {
+      @media only screen and (min-width: 959px) {
+        &:nth-child(27n + 1) {
+          grid-column-end: span 2;
+          grid-row-end: span 2;
+        }
+        &:nth-child(27n + 11) {
+          grid-column-end: span 2;
+          grid-row-end: span 2;
+        }
+        &:nth-child(27n + 21) {
+          grid-column-end: span 2;
+          grid-row-end: span 2;
+        }
+      }
+    }
+  }
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+    margin-block: 5rem;
   }
 }
