@@ -1,0 +1,41 @@
+@import '../../styles/utils/base';
+
+.mediaKitContainer{
+    position: relative;
+    .mediaKitContainerHeader{
+        position: relative;
+        min-height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        h2{
+            @include heading(6rem, $white);
+        }
+    }
+    .mediaKitContainerBody{
+        padding: 0 14.5rem;
+        @include response(vp-800){
+            padding: 0;
+        }
+        .mediaKitContainerBodyTitle{
+            padding: 16.3rem 0 14.3rem 0;
+            h1{
+                font-size: 5.3rem;
+                font-weight: $bold;
+                color: $textDark;
+            }
+        }
+        .mediaKitContainerBodyContent{
+            padding-bottom: 14.5rem;
+            p{
+                color: $textDark;
+                font-size: 2rem;
+                margin-top: 2rem;
+            }
+        }
+    }
+    .mediaKitContainerFooter{
+        
+    }
+}

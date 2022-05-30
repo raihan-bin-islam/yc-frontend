@@ -2,10 +2,11 @@ import React from 'react';
 import HeroBanner from '../Shared/HeroBanner/HeroBanner';
 import styles from './mediakit.module.scss'
 import mediaKitData from './mediakit.json'
+import mediaKitPath from '../../public/assets/images/media-kit/media-kit-path.png'
 
 const MediaKit = () => {
     //styles
-    const {mediaKitContainer, mediaKitContainerHeader, mediaKitContainerBody, mediaKitContainerBodyGrid, mediaKitCard} = styles 
+    const {mediaKitContainer, mediaKitContainerHeader, mediaKitContainerBody, mediaKitContainerBodyGrid, mediaKitCard, mediaKitContainerFooter} = styles 
 
     //
     return (
@@ -31,6 +32,9 @@ const MediaKit = () => {
                         </div>
                     )}
                 </div>
+            </div>
+            <div className={mediaKitContainerFooter}>
+                <img src={mediaKitPath.src} alt='media-kit-path'/>
             </div>
         </section>
     );
