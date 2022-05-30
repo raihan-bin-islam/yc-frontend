@@ -1,6 +1,7 @@
 @import '../../styles/utils/base';
 
 .mediaKitContainer{
+    position: relative;
     .mediaKitContainerHeader{
         position: relative;
         min-height: 40rem;
@@ -57,5 +58,17 @@
                 }
             }
         }
+    }
+    .mediaKitContainerFooter{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        img{
+            height: 45.8rem;
+            @include response(vp-800){
+                display: none;
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import styles from "./Footer.module.scss";
 import ycLogo from "../../../public/yunus_center.png";
 import iconMap from "../../../public/icon_map.svg";
@@ -83,14 +84,14 @@ const Footer = () => {
           <div>
             <ul>
               <li>
-                <a href="/" target="_blank">
-                  Media Kit
-                </a>
+                <Link href="/media-kit">
+                  <a target='_blank'>Media Kit</a>
+                </Link>
               </li>
               <li>
-                <a href="/" target="_blank">
-                  Privacy Policy
-                </a>
+                <Link href="/">
+                  <a target="_blank">Privacy Policy</a>
+                </Link>
               </li>
               <li>
                 <a href="/" target="_blank">
