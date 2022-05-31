@@ -10,7 +10,7 @@ import PreLoader from "../Components/Shared/PreLoader/PreLoader";
 import SliderCard from "../Components/Shared/SliderCard/SliderCard";
 import WhatWeDoCard from "../Components/Shared/WhatWeDoCard/WhatWeDoCard";
 import Pagination from "../Components/Shared/Pagination/Pagination";
-import Hero from "../Components/Publications/BookReviews/Hero/Hero";
+import Hero from "../Components/Publications/InternsMagazine/Hero/Hero";
 import ReviewComponent from "../Components/Publications/BookReviews/Reviews/ReviewComponent/ReviewComponent";
 import Reviews from "../Components/Publications/BookReviews/Reviews/Reviews";
 
@@ -19,9 +19,9 @@ const Component = () => {
     <>
       {/* <PreLoader /> */}
 
-      <div style={{ margin: 400 }}>
-        <Reviews />
-      </div>
+      {/* <div style={{ margin: 400 }}> */}
+      <Hero />
+      {/* </div> */}
     </>
   );
 };

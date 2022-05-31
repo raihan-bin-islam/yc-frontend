@@ -6,7 +6,7 @@ import ProgramsCard from "./ProgramsCard/ProgramsCard";
 import ProgramDetails from "./ProgramDetails/ProgramDetails";
 
 import ProgramsBgSVg from "./ProgramsBgSVG/ProgramsBgSVg";
-import LeafSvg from "./LeafSvg/LeafSvg";
+import LeafSvg from "../CommonSvg/LeafSvg";
 
 const Programs = ({ programs, handbook }) => {
   return (

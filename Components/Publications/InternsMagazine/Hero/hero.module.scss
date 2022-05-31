@@ -1,0 +1,89 @@
+@import "../../../../styles/utils/base";
+
+.heroContainer {
+  @include heroBannerLarge;
+  height: max-content;
+  padding: 0 0 25rem 0;
+  position: relative;
+
+  @include response(tab-port) {
+    min-height: 75vw;
+    height: auto;
+  }
+  @include response(s-phone) {
+    min-height: 115vw;
+    height: auto;
+  }
+
+  .heroImageContainer {
+    position: relative;
+    z-index: 10;
+    top: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+
+    @include response(phone) {
+      gap: 1rem;
+    }
+
+    .sectionTitle {
+      @include heading($fontSize: 7.1rem, $color: white);
+    }
+    p {
+      width: 55%;
+      margin: 0 auto;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: $regular;
+      text-align: center;
+      @include response(vp-800) {
+        width: 75%;
+        color: $textDark;
+        order: 3;
+      }
+    }
+
+    .magazineContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+
+      @include response(phone) {
+        padding-bottom: 5rem;
+      }
+
+      img {
+        width: 74.4rem;
+        object-fit: contain;
+
+        @include response(phone) {
+          width: 54rem;
+        }
+        @include response(s-phone) {
+          width: 44rem;
+        }
+      }
+      .magazineTitle {
+        font-size: 2.5rem;
+        font-weight: $bold;
+        color: $textDark;
+      }
+
+      .buttonContainer {
+        display: flex;
+        gap: 2rem;
+      }
+    }
+  }
+  .leafSvg {
+    position: absolute;
+    width: 50.5rem;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+}

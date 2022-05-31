@@ -2,13 +2,7 @@ import React from "react";
 
 const LeafSvg = ({ className }) => {
   return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      width="505.349"
-      height="686.19"
-      viewBox="0 0 505.349 686.19"
-    >
+    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 505.349 686.19">
       <path
         id="Path_311"
         data-name="Path 311"

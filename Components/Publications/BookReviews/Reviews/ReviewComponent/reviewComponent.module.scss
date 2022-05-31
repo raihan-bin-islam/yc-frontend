@@ -5,11 +5,17 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 8rem 0;
+  margin: 3rem 0;
+  line-height: 1.3;
+  width: 65%;
+  @include response(tab-port) {
+    width: 80%;
+  }
   .reviewTextContainer {
     position: relative;
     //   width: 117.9rem;
     background: $secondaryLightBlue;
+    border-radius: 0.5rem;
     .reviewParagraph {
       padding: 3rem 4rem;
 
@@ -39,4 +45,8 @@
 .flipLeft::after {
   left: 4%;
   transform: scaleX(-1);
+}
+
+.leftAlign {
+  align-items: flex-start;
 }
