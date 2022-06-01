@@ -1,0 +1,73 @@
+@import "../../../styles/utils/base";
+
+.speechContainer {
+  .speechContainerHeader {
+    position: relative;
+    min-height: 40rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h2 {
+      @include heading(6rem, $white);
+    }
+    h3 {
+      color: $white;
+      font-size: 2.6rem;
+      margin-top: 1.5rem;
+      font-weight: 400;
+      position: relative;
+      z-index: 10;
+    }
+  }
+  .speechContainerBody {
+    // padding: 0 26.9rem;
+    @include response(big-desktop-max) {
+      margin-top: 5rem;
+    }
+    @include response(vp-800) {
+      //   padding: 0 1rem;
+      margin-top: 0;
+    }
+    .speechContainerBodyRow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      padding: 9.5rem 0;
+      border-bottom: 1px solid #707070;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:first-child {
+        @include response(phone) {
+          padding-top: 0;
+        }
+      }
+      @include response(vp-800) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+  }
+  .speechContainerFooter {
+    padding-bottom: 9.5rem;
+  }
+  .leafContainer {
+    overflow: hidden;
+    margin-top: -20rem;
+    svg {
+      display: block;
+      margin-bottom: -20rem;
+      margin-left: auto;
+      margin-right: -16rem;
+      //   margin-top: -40rem;
+      height: 68rem;
+
+      @include response(phone) {
+        opacity: 0.5;
+        margin-inline: auto;
+        height: 60rem;
+      }
+    }
+  }
+}

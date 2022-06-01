@@ -8,6 +8,10 @@
   background: transparent;
   margin: 0 0.5rem;
 
+  @include response(phone) {
+    margin: 0 auto;
+  }
+
   .cardTitle {
     padding: 1rem 0rem;
     margin-top: 1rem;
@@ -92,13 +96,14 @@
 
 // Video-slider styles
 .videoContainer {
-  height: 23rem;
+  // height: 23rem;
   // border: 1px solid red;
   // background overlay
+  padding: 0 1rem;
   &::before {
     content: "";
     position: absolute;
-    width: 100%;
+    width: calc(100% - 2rem);
     height: 100%;
     background: linear-gradient(transparent, $textDark);
     opacity: 1;
@@ -111,8 +116,8 @@
   }
 
   @include response(phone) {
-    height: 15rem;
-    width: 25rem;
+    height: 25rem;
+    width: 100%;
     .cardTitle {
       font-size: 1.2rem;
     }
