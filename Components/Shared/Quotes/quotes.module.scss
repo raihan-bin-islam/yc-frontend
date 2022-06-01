@@ -3,7 +3,7 @@
 .pageSection {
   position: relative;
   width: 100%;
-  height: 155rem;
+  height: 165rem;
   padding: 20rem 0rem 5rem;
   overflow: hidden;
 
@@ -81,7 +81,8 @@
       @include response(vp-800) {
         min-height: max-content;
         max-height: max-content;
-        padding: 0;
+        height: max-content;
+        padding: 0 5rem;
       }
 
       line-height: 1.2;

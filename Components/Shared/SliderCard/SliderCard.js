@@ -16,6 +16,7 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, ac
     articlesContainer,
     videoContainer,
     awardCardContainer,
+    magazineContainer,
     cardImg,
     articleImg,
     buttons,
@@ -43,6 +44,8 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, ac
           ? articlesContainer
           : type === "video"
           ? videoContainer
+          : type === "magazine"
+          ? magazineContainer
           : awardCardContainer
       } cardSelector ${cardActivation ? active : inactive}`}
       onClick={() => {

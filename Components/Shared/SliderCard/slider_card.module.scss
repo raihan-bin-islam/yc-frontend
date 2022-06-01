@@ -4,7 +4,8 @@
 .eventsContainer,
 .articlesContainer,
 .videoContainer,
-.awardCardContainer {
+.awardCardContainer,
+.magazineContainer {
   background: transparent;
   margin: 0 0.5rem;
 
@@ -130,5 +131,15 @@
   &::before {
     content: "";
     opacity: 0.5 !important;
+  }
+}
+
+// Style specific to book's magazine
+.magazineContainer {
+  width: 24rem;
+
+  .cardTitle {
+    color: $textDark;
+    text-align: start;
   }
 }
