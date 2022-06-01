@@ -54,7 +54,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
     setVideoUrl(link);
     setActiveClass(true);
   };
-  
+
   // slider settings
   const youTubeSlider = {
     dots: false,

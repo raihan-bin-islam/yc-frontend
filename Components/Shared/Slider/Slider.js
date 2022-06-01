@@ -15,7 +15,7 @@ import sliderData from "./data";
 // CSS
 import styles from "./Slider.module.scss";
 
-const Sliders = () => {
+const Sliders = ({ cardType }) => {
   const { slider, linkableCard } = styles;
 
   // Slick Slider Settingss
@@ -63,7 +63,7 @@ const Sliders = () => {
                     key={data.id}
                     image={data.thumb_image}
                     title={data.title}
-                    type="events"
+                    type={cardType}
                   />
                 </div>
               </a>
