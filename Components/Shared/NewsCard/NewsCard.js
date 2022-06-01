@@ -4,16 +4,26 @@ import Image from "next/dist/client/image";
 import { newsComponentData } from "./data";
 import Link from "next/link";
 
-const NewsCard = ({ heading, publisher, pressRelease, news, altText, image }) => {
+const NewsCard = ({ heading, publisher, pressRelease, news, altText, image, featured }) => {
   //classnames
-  const { container, newsCardImg, imageAlt, newsHeading, newsPublisher, newsParagraph, button, readMore } = styles;
+  const {
+    container,
+    newsCardImg,
+    imageAlt,
+    newsHeading,
+    newsPublisher,
+    newsParagraph,
+    button,
+    readMore,
+    featuredContainer,
+  } = styles;
   const newsSliced = news.slice(0, 600);
   const newsDataWithEllipsis = newsSliced.concat("...");
   // data
   //const { image, altText, heading, publisher, pressRelease, news } = newsComponentData;
 
   return (
-    <div className={container}>
+    <div className={`${container} ${featured && featuredContainer}`}>
       <img className={newsCardImg} src={image} alt={altText} />
       <p className={imageAlt}>
         {altText.slice(0, 160)}

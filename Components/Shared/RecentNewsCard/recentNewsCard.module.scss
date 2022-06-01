@@ -1,0 +1,106 @@
+@import "../../../styles/utils/base";
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+
+  img {
+    width: 100%;
+    // object-fit: contain;
+    // @include response(phone) {
+    //   width: 100%;
+    //   object-fit: contain;
+    // }
+  }
+  h2 {
+    padding: 2.5rem 0;
+
+    font-size: 2.8rem;
+    font-weight: $bold;
+    color: $textDark;
+  }
+  p {
+    padding: 0.5rem 0;
+
+    font-size: 1.8rem;
+    font-weight: $regular;
+    line-height: 1.3;
+    color: $textDark;
+  }
+  .news {
+  }
+  .publisher {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: $textLight;
+  }
+  .buttonComponent {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+}
+
+// For highlight section
+.highlightCard {
+  flex-direction: row;
+  width: fit-content;
+  height: 36.1rem;
+  justify-content: space-between;
+
+  @include response(tab-port) {
+    height: auto;
+  }
+  @include response(phone) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img {
+    height: 100%;
+    margin-right: 5rem;
+    object-fit: contain;
+
+    @include response(tab-port) {
+      height: auto;
+      object-fit: cover;
+    }
+    @include response(phone) {
+      margin-right: 0;
+      margin-bottom: 5rem;
+    }
+  }
+
+  .highlightNewsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include response(phone) {
+      text-align: justify;
+    }
+
+    h2 {
+      padding: 0;
+    }
+
+    p {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+    .publisher {
+      display: inline-block;
+      padding: 1rem 0;
+      padding-right: 2.5rem;
+    }
+
+    .buttonComponent {
+      margin: initial;
+      padding: initial;
+      @include response(phone) {
+        margin: 0 auto;
+      }
+    }
+  }
+}

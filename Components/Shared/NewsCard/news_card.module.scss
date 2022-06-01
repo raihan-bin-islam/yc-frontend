@@ -8,6 +8,7 @@
     height: 40rem;
     object-fit: cover;
   }
+
   .imageAlt {
     padding: 0.5rem 0rem;
 
@@ -78,6 +79,22 @@
     &:hover {
       color: white;
       background-color: $secondaryCyan;
+    }
+  }
+}
+
+// If the image is in featured section of news and highlights page
+.featuredContainer {
+  .newsCardImg {
+    height: 60rem;
+    @include response(vp-800) {
+      height: 40rem;
+    }
+  }
+
+  .readMore {
+    @include response(phone) {
+      bottom: initial;
     }
   }
 }

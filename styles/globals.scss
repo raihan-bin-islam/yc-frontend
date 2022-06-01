@@ -22,6 +22,7 @@ html {
   }
 
   scroll-behavior: smooth;
+  overflow-x: hidden;
   // @include response(tab-port) {
   //   font-size: 0.3em;
   // }
@@ -81,4 +82,9 @@ select,
 option,
 textarea {
   font-family: "Graphik", sans-serif;
+}
+
+.scrll-bar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #eee $white;
 }

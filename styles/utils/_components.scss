@@ -19,11 +19,20 @@
   margin-top: 2rem;
 }
 
-.ml2{
+.ml2 {
   margin-left: 2rem;
 }
 
-.flex-col{
+.pb10 {
+  padding-bottom: 10rem;
+}
+
+.ptb10 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+
+.flex-col {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

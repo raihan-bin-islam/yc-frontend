@@ -1,6 +1,6 @@
 import React from "react";
 import ProfYunusSubPages from "../../../Components/Shared/ProfYunusSubPages/ProfYunusSubPages";
-import pageData from "../../../staticPageData/pageData/profYunus/vision/pageData.json";
+import pageData from "../../../staticPageData/profYunus/vision/pageData.json";
 const ProfYunusVision = () => {
   const { title, desc } = pageData;
   return <ProfYunusSubPages heading title={title} description={desc} />;

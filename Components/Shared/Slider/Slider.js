@@ -10,12 +10,12 @@ import Arrow from "../Arrows/Arrow";
 import Slider from "react-slick/lib/slider";
 
 // DATA
-import sliderData from "./data";
+// import sliderData from "./data";
 
 // CSS
 import styles from "./Slider.module.scss";
 
-const Sliders = ({ cardType }) => {
+const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
   const { slider, linkableCard } = styles;
 
   // Slick Slider Settingss
@@ -23,7 +23,7 @@ const Sliders = ({ cardType }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: numberOfSlides,
     slidesToScroll: 1,
     centerMode: false,
     cssEase: "ease-in-out",
@@ -59,12 +59,7 @@ const Sliders = ({ cardType }) => {
             <Link href={data.link} key={data.id}>
               <a target="_blank">
                 <div className={linkableCard}>
-                  <SliderCard
-                    key={data.id}
-                    image={data.thumb_image}
-                    title={data.title}
-                    type={cardType}
-                  />
+                  <SliderCard key={data.id} image={data.thumb_image} title={data.title} type={cardType} />
                 </div>
               </a>
             </Link>
