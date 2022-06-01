@@ -6,12 +6,12 @@
   width: min-content;
 
   img {
-    width: 100%;
-    // object-fit: contain;
-    // @include response(phone) {
-    //   width: 100%;
-    //   object-fit: contain;
-    // }
+    width: 40rem;
+    object-fit: contain;
+    @include response(phone) {
+      width: 100%;
+      object-fit: contain;
+    }
   }
   h2 {
     padding: 2.5rem 0;
