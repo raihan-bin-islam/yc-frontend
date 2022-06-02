@@ -54,17 +54,18 @@ const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
   return (
     <div className={slider}>
       <Slider {...sliderSettings}>
-        {sliderData.map((data) => {
-          return (
-            <Link href={data.link} key={data.id}>
-              <a target="_blank">
-                <div className={linkableCard}>
-                  <SliderCard key={data.id} image={data.thumb_image} title={data.title} type={cardType} />
-                </div>
-              </a>
-            </Link>
-          );
-        })}
+        {sliderData &&
+          sliderData.map((data) => {
+            return (
+              <Link href={data.link} key={data.id}>
+                <a target="_blank">
+                  <div className={linkableCard}>
+                    <SliderCard key={data.id} image={data.thumb_image} title={data.title} type={cardType} />
+                  </div>
+                </a>
+              </Link>
+            );
+          })}
       </Slider>
     </div>
   );
