@@ -3,7 +3,9 @@ import useFetch from "../../../Hooks/useFetch";
 import ButtonLight from "../../../Shared/Button/Button";
 import Highlight from "../../../Shared/Highlight/Highlight";
 import NewsCard from "../../../Shared/NewsCard/NewsCard";
+import NewsHighlightCard from "../../../Shared/NewsHighlightCard/NewsHighlightCard";
 import RecentNewsCard from "../../../Shared/RecentNewsCard/RecentNewsCard";
+
 import {
   featuredSection,
   featuredContainer,
@@ -22,7 +24,7 @@ const Featured = () => {
       <div>
         <h2 className={titleOne}>Featured</h2>
         <div className={featuredContainer}>
-          {newsData.length && (
+          {newsData.length > 0 && (
             <NewsCard
               key={newsData[0].id}
               heading={newsData[0].title}
@@ -38,40 +40,36 @@ const Featured = () => {
 
         <h2 className={titleOne}>Highlights</h2>
         <div className={highlightsContainer}>
-          <RecentNewsCard highlight />
-          <span></span>
-          <RecentNewsCard highlight />
+          {newsData.length > 2 && (
+            <>
+              <NewsHighlightCard
+                image={newsData[0].thumb_image}
+                title={newsData[0].title}
+                publishedBy="Published by Yunus Centre"
+                pressRelease={newsData[0].published_at}
+                newsContent={newsData[0].desc}
+              />
+              <span></span>
+              <NewsHighlightCard
+                image={newsData[1].thumb_image}
+                title={newsData[1].title}
+                publishedBy="Published by Yunus Centre"
+                pressRelease={newsData[1].published_at}
+                newsContent={newsData[1].desc}
+              />
+            </>
+          )}
         </div>
       </div>
       <div className={libraryContainer}>
         <h2 className={titleTwo}>News Library</h2>
         <div className={newsLibrary}>
-          {newsData.length && (
-            <>
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-              <Highlight image={newsData[0].thumb_image} description={newsData[0].title} />
-            </>
-          )}
+          {newsData.length > 0 &&
+            newsData
+              .filter(({ is_highlight }, index) => is_highlight && index < 20)
+              .map(({ id, thumb_image, title }) => {
+                return <Highlight key={id} image={thumb_image} description={title} />;
+              })}
         </div>
         <div className={buttonComponent}>
           <ButtonLight text="see more" />

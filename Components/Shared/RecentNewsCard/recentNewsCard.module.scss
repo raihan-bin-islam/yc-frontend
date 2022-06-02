@@ -6,8 +6,9 @@
   width: min-content;
 
   img {
-    width: 40rem;
-    object-fit: contain;
+    width: 35rem;
+    height: 35rem;
+    object-fit: cover;
     @include response(phone) {
       width: 100%;
       object-fit: contain;
@@ -36,6 +37,8 @@
     color: $textLight;
   }
   .buttonComponent {
+    position: absolute;
+    bottom: 0;
     width: fit-content;
     margin: 0 auto;
     padding: 2rem 0;
@@ -60,7 +63,7 @@
   img {
     height: 100%;
     margin-right: 5rem;
-    object-fit: contain;
+    object-fit: cover;
 
     @include response(tab-port) {
       height: auto;
@@ -86,8 +89,10 @@
     }
 
     p {
-      padding-top: 2.5rem;
-      padding-bottom: 2.5rem;
+      @include response(vp-800) {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+      }
     }
     .publisher {
       display: inline-block;
@@ -96,6 +101,7 @@
     }
 
     .buttonComponent {
+      position: initial;
       margin: initial;
       padding: initial;
       @include response(phone) {

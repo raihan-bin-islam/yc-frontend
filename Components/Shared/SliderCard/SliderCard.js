@@ -1,15 +1,23 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+
+// SVG Components
 import LikeButton from "../CommonSvg/LikeButton";
 import PlayButton from "../CommonSvg/PlayButton";
 import RightArrowLink from "../CommonSvg/RightArrowLink";
+
+// Data
 import { sliderData } from "./data";
 
 // Import Component Styles
 import styles from "./slider_card.module.scss";
 
+// utility function
+import { toggleActive } from "../../Utils/helpers";
+
 const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, activeClass }) => {
   const [cardActivation, setCardActivation] = useState(false);
+  const cardRef = useRef(null);
   // Destructuring Module Style Object
   const {
     eventsContainer,
@@ -26,17 +34,10 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, ac
     inactive,
   } = styles;
 
-  const activate = () => {
-    const classId = document.getElementsByClassName(active);
-    // console.log();
-    // classId[0].classList.remove(active);
-    setCardActivation(true);
-  };
-  // // Destructuring the Slider Data
-  // const { image, title } = sliderData;
-
   return (
     <div
+      ref={cardRef}
+      id={type}
       className={`${
         type === "events"
           ? eventsContainer // container name based on types, each of these applies type specific styles
@@ -47,10 +48,10 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, ac
           : type === "magazine"
           ? magazineContainer
           : awardCardContainer
-      } cardSelector ${cardActivation ? active : inactive}`}
+      } cardSelector`}
       onClick={() => {
         onClick && onClick();
-        activate();
+        toggleActive("#video", cardRef, active);
       }}
     >
       <img className={`${type === "articles" ? articleImg : cardImg}`} src={image} alt={title} />

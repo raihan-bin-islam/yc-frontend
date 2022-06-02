@@ -14,6 +14,7 @@ import Slider from "react-slick/lib/slider";
 
 // CSS
 import styles from "./Slider.module.scss";
+import RecentNewsCard from "../RecentNewsCard/RecentNewsCard";
 
 const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
   const { slider, linkableCard } = styles;
@@ -33,7 +34,7 @@ const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 600,
+        breakpoint: 640,
         settings: {
           arrows: true,
           centerMode: true,
@@ -53,20 +54,38 @@ const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
 
   return (
     <div className={slider}>
-      <Slider {...sliderSettings}>
-        {sliderData &&
-          sliderData.map((data) => {
-            return (
-              <Link href={data.link} key={data.id}>
-                <a target="_blank">
-                  <div className={linkableCard}>
-                    <SliderCard key={data.id} image={data.thumb_image} title={data.title} type={cardType} />
-                  </div>
-                </a>
-              </Link>
-            );
-          })}
-      </Slider>
+      {cardType != "newsCard" ? (
+        <Slider {...sliderSettings}>
+          {sliderData &&
+            sliderData.map((data) => {
+              return (
+                <Link href={data.link} key={data.id}>
+                  <a target="_blank">
+                    <div className={linkableCard}>
+                      <SliderCard key={data.id} image={data.thumb_image} title={data.title} type={cardType} />
+                    </div>
+                  </a>
+                </Link>
+              );
+            })}
+        </Slider>
+      ) : (
+        <Slider {...sliderSettings}>
+          {sliderData &&
+            sliderData.map((data) => {
+              return (
+                <RecentNewsCard
+                  key={data.id}
+                  image={data.thumb_image}
+                  title={data.title}
+                  publishedBy="Published by Yunus Centre"
+                  pressRelease={data.published_at}
+                  newsContent={data.desc}
+                />
+              );
+            })}
+        </Slider>
+      )}
     </div>
   );
 };

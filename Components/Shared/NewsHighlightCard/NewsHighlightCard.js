@@ -6,25 +6,25 @@ import {
   news,
   publisher,
   buttonComponent,
-} from "./recentNewsCard.module.scss";
+} from "./newsHighlightCard.module.scss";
 
 import ButtonLight from "../../Shared/Button/Button";
 
-const RecentNewsCard = ({ image, title, publishedBy, pressRelease, newsContent, highlight }) => {
+const NewsHighlightCard = ({ image, title, publishedBy, pressRelease, newsContent }) => {
   // slice the news description
   const newsSliced = newsContent.slice(0, 300);
   const newsDataWithEllipsis = newsSliced.concat("...");
 
   return (
-    <div className={`${cardContainer} ${highlight && highlightCard}`}>
+    <div className={`${cardContainer}`}>
       <img src={image} alt="" />
       <div className={highlightNewsContainer}>
         <h2>{title}</h2>
         <div>
-          <p className={`${highlight && publisher}`}>{publishedBy}</p>
-          <p className={`${highlight && publisher}`}>{pressRelease}</p>
+          <p className={`${publisher}`}>{publishedBy}</p>
+          <p className={`${publisher}`}>{pressRelease}</p>
         </div>
-        {highlight && <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>}
+        <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
         <div className={buttonComponent}>
           <ButtonLight text="Read More" />
         </div>
@@ -33,4 +33,4 @@ const RecentNewsCard = ({ image, title, publishedBy, pressRelease, newsContent, 
   );
 };
 
-export default RecentNewsCard;
+export default NewsHighlightCard;

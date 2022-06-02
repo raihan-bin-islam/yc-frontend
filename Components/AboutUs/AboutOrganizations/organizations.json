@@ -1,20 +1,26 @@
 [
-    {
-        "logo": "/assets/images/about_us/organizations/logo1.png"
-    },
-    {
-        "logo": "/assets/images/about_us/organizations/logo2.png"
-    },
-    {
-        "logo": "/assets/images/about_us/organizations/logo3.png"
-    },
-    {
-        "logo": "/assets/images/about_us/organizations/logo4.png"
-    },
-    {
-        "logo": "/assets/images/about_us/organizations/logo5.png"
-    },
-    {
-        "logo": "/assets/images/about_us/organizations/logo6.png"
-    }
+  {
+    "logo": "/assets/images/about_us/organizations/logo1.png",
+    "link": "https://grameencreativelab.co/"
+  },
+  {
+    "logo": "/assets/images/about_us/organizations/logo2.png",
+    "link": "http://www.yunussportshub.com/"
+  },
+  {
+    "logo": "/assets/images/about_us/organizations/logo3.png",
+    "link": "http://yunusenvironmenthub.com/"
+  },
+  {
+    "logo": "/assets/images/about_us/organizations/logo4.png",
+    "link": "https://www.yunussb.com/"
+  },
+  {
+    "logo": "/assets/images/about_us/organizations/logo5.png",
+    "link": "https://yy.ventures/"
+  },
+  {
+    "logo": "/assets/images/about_us/organizations/logo6.png",
+    "link": "https://yunus-thailand.org/"
+  }
 ]

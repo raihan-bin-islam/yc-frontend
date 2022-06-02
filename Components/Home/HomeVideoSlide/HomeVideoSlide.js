@@ -21,7 +21,6 @@ import Link from "next/link";
 const HomeVideoSlide = ({ isLoading, videoData }) => {
   // States
   const [uniqueId, setUniqueId] = useState("");
-  const [activeClass, setActiveClass] = useState(false);
 
   // set Initial video link to the first video after video data is fetched
   useEffect(() => {
@@ -43,16 +42,9 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
   };
 
   // styles
-  const {
-    videoSlideContainer,
-    videoSliderBody,
-    videoHeroContainer,
-    videoLeaf,
-    buttonComponent,
-  } = styles;
+  const { videoSlideContainer, videoSliderBody, videoHeroContainer, videoLeaf, buttonComponent } = styles;
   const handleOnClick = (link) => {
     setVideoUrl(link);
-    setActiveClass(true);
   };
 
   // slider settings
@@ -96,9 +88,7 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
 
       <div className={videoSliderBody}>
         <div className={videoHeroContainer}>
-          {uniqueId !== "" && (
-            <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>
-          )}
+          {uniqueId !== "" && <object data={`https://www.youtube.com/embed/${uniqueId}`}></object>}
         </div>
         <div className="mt3">
           {!isLoading

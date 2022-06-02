@@ -89,7 +89,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/about">
                 <a className={router.pathname == "/about" ? navActive : ""}>About</a>
               </Link>
             </li>
@@ -98,12 +98,12 @@ const Navbar = () => {
                 <a className={router.pathname.includes("/social-business") ? navActive : ""}>Social Business</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="/social-business/concept">
+                <Link href="#">
                   <a>
                     <li>Concept</li>
                   </a>
                 </Link>
-                <Link href="/social-business/issues">
+                <Link href="#">
                   <a>
                     <li>Issues</li>
                   </a>
@@ -133,12 +133,12 @@ const Navbar = () => {
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="/visit-programs/our-programs">
+                <Link href="#">
                   <a>
                     <li>Our Programs</li>
                   </a>
                 </Link>
-                <Link href="/visit-programs/offshore-programs">
+                <Link href="#">
                   <a>
                     <li>Offshore Programs</li>
                   </a>
