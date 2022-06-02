@@ -44,17 +44,16 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
       <div className={`${speechContainerBody} container-layout`}>
         <div className={speechContainerBodyRow}>
           {videoData &&
-            videoData
-              .slice(0, 4)
-              .map((vdo) => (
+            videoData.slice(0, 4).map((vdo) => (
+              <a key={vdo.id} href={vdo.youtube_link}>
                 <SliderCard
                   key={vdo.id}
                   image={vdo.thumb_image}
                   title={vdo.title}
                   type="video"
-                  onClick={() => handleOnClick(vdo.youtube_link)}
                 />
-              ))}
+              </a>
+            ))}
         </div>
         <div className={speechContainerBodyRow}>
           {videoData &&

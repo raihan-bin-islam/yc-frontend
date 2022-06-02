@@ -25,8 +25,7 @@ const MediaPhotoGalleryBody = () => {
     popupClose,
   } = styles;
 
-  const [popupPhoto, setPopupPhoto] = useState(true);
-
+  const [popupPhoto, setPopupPhoto] = useState(0);
   const [photoCardToShow, setPhotoCardToShow] = useState([]);
   const [next, setNext] = useState(9);
 
@@ -48,9 +47,11 @@ const MediaPhotoGalleryBody = () => {
     loopWithSlice(next, next + photoCardPerPage);
     setNext(next + photoCardPerPage);
   };
-
-  const closePopup = () => {
-    setPopupPhoto(!popupPhoto);
+  const getPopup = (value) => {
+    setPopupPhoto(value);
+  };
+  const hidePopup = () => {
+    setPopupPhoto(0);
   };
 
   console.log(photoCardToShow);
@@ -58,12 +59,19 @@ const MediaPhotoGalleryBody = () => {
   return (
     <div className={container}>
       {/* Popup start */}
-      <PhotoPopup />
+      {/* Popup end */}
+
       {/* Photo Gallery start */}
       <div className={`${photoGalleryBody} container-layout`}>
         {photoCardToShow.map(({ image, title, id }) => (
-          <div className={box}>
+          <div className={box} key={id} onClick={() => getPopup(id)}>
             <PhotoCard image={image} title={title} id={id} />
+            <PhotoPopup
+              image={image}
+              title={title}
+              show={popupPhoto === id}
+              onHide={() => hidePopup()}
+            />
           </div>
         ))}
       </div>
