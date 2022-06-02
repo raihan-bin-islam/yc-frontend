@@ -7,7 +7,7 @@ import Layout from "../CommonSvg/Layout";
 import styles from "./videoSubPage.module.scss";
 
 const VideoSubPage = ({ heading, subHeading, videoData }) => {
-  console.log(videoData);
+  // console.log(videoData);
   // classnames
   const {
     speechContainer,

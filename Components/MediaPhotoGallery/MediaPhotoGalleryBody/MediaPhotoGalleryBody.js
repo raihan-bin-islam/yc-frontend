@@ -24,7 +24,7 @@ const MediaPhotoGalleryBody = () => {
 
   const loopWithSlice = (start, end) => {
     const slicedPhotoCard = galleryData.slice(start, end);
-    console.log(slicedPhotoCard);
+    // console.log(slicedPhotoCard);
     arrayForHoldingPhotoCards = [...arrayForHoldingPhotoCards, ...slicedPhotoCard];
     setPhotoCardToShow(arrayForHoldingPhotoCards);
   };
@@ -42,7 +42,7 @@ const MediaPhotoGalleryBody = () => {
     setPopupPhoto(!popupPhoto);
   };
 
-  console.log(photoCardToShow);
+  // console.log(photoCardToShow);
 
   return (
     <div className={container}>
