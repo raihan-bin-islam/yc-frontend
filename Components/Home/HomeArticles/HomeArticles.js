@@ -34,9 +34,10 @@ const HomeArticles = ({ isLoading, articlesData }) => {
 
   //
   useEffect(() => {
+    onMobileScreen();
     window.addEventListener("resize", onMobileScreen);
     return () => window.removeEventListener("resize", onMobileScreen);
-  });
+  }, []);
 
   // Swiper Settings
   useEffect(() => {
