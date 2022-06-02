@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 // COMPONENTS
 import ButtonLight from "../../Shared/Button/Button";
@@ -32,7 +33,9 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" />
         </div>
         <div className={btnContainer}>
-          <ButtonLight text="See All" />
+          <Link href="/media/videos/interviews">
+            <ButtonLight text="See All" />
+          </Link>
         </div>
       </div>
       <div className={`${sliderSection} container-layout`}>
@@ -41,7 +44,9 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" />
         </div>
         <div className={btnContainer}>
-          <ButtonLight text="See All" />
+          <Link href="/media/videos/speeches">
+            <ButtonLight text="See All" />
+          </Link>
         </div>
       </div>
       <div className={`${sliderSection} container-layout`}>
@@ -50,7 +55,9 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" />
         </div>
         <div className={btnContainer}>
-          <ButtonLight text="See All" />
+          <Link href="/media/videos/social-business">
+            <ButtonLight text="See All" />
+          </Link>
         </div>
       </div>
       <div className={`${sliderSection} container-layout`}>
@@ -59,7 +66,9 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" />
         </div>
         <div className={btnContainer}>
-          <ButtonLight text="See All" />
+          <Link href="/media/videos/ysbc-web-lecture-series">
+            <ButtonLight text="See All" />
+          </Link>
         </div>
       </div>
       <div className={leafContainer}>

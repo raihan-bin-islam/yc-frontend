@@ -9,19 +9,19 @@ import galleryData from "../MediaPhotoGalleryBody/data";
 // CSS
 import styles from "./PhotoPopup.module.scss";
 
-const PhotoPopup = () => {
+const PhotoPopup = ({ show, onHide, image, title }) => {
   const { popup, popupClose, btnClose, box } = styles;
-  const [popupPhoto, setPopupPhoto] = useState(true);
+  const [popupPhoto, setPopupPhoto] = useState(false);
 
-  const closePopup = () => {
-    setPopupPhoto(!popupPhoto);
-  };
+  // const closePopup = () => {
+  //   setPopupPhoto(!popupPhoto);
+  // };
 
   return (
-    <div className={popupPhoto ? `${popup}` : `${popupClose}`}>
+    <div className={show ? `${popup}` : `${popupClose}`}>
       <div className={box}>
-        <PhotoCard image={galleryData[1].image} title={galleryData[1].title} />
-        <button className={btnClose} onClick={closePopup}>
+        <PhotoCard image={image} title={title} />
+        <button className={btnClose} onClick={onHide}>
           X
         </button>
       </div>
