@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../../../Components/Publications/InternsMagazine/Hero/Hero";
 import Sliders from "../../../Components/Shared/Slider/Slider";
 
-import magazines from "../../../staticPageData/publications/internsMagazine/magazines.json";
+import magazines from "../../../staticPageData/publications/magazines.json";
 
 const InternMagazine = () => {
   return (

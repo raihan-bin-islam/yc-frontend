@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ReviewComponent from "./ReviewComponent/ReviewComponent";
 import { reviewSection, reviewContainer, leafSvg } from "./reviews.module.scss";
-import { reviews } from "./data";
+// import { reviews } from "./data";
 import Pagination from "../../../Shared/Pagination/Pagination";
 import LeafSvg from "../../../Shared/CommonSvg/LeafSvg";
 
-const Reviews = () => {
+const Reviews = ({ reviews }) => {
   const [startOffset, setStartOffset] = useState(1);
   const [endOffset, setEndOffset] = useState(4);
   const contentsPerPage = 4;
