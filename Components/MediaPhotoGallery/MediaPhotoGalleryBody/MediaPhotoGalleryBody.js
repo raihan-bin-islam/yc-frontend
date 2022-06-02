@@ -15,7 +15,15 @@ const photoCardPerPage = 9;
 let arrayForHoldingPhotoCards = [];
 
 const MediaPhotoGalleryBody = () => {
-  const { photoGalleryBody, box, btnContainer, container, popup, btnClose, popupClose } = styles;
+  const {
+    photoGalleryBody,
+    box,
+    btnContainer,
+    container,
+    popup,
+    btnClose,
+    popupClose,
+  } = styles;
 
   const [popupPhoto, setPopupPhoto] = useState(0);
   const [photoCardToShow, setPhotoCardToShow] = useState([]);
@@ -24,7 +32,10 @@ const MediaPhotoGalleryBody = () => {
   const loopWithSlice = (start, end) => {
     const slicedPhotoCard = galleryData.slice(start, end);
     // console.log(slicedPhotoCard);
-    arrayForHoldingPhotoCards = [...arrayForHoldingPhotoCards, ...slicedPhotoCard];
+    arrayForHoldingPhotoCards = [
+      ...arrayForHoldingPhotoCards,
+      ...slicedPhotoCard,
+    ];
     setPhotoCardToShow(arrayForHoldingPhotoCards);
   };
 
@@ -53,11 +64,7 @@ const MediaPhotoGalleryBody = () => {
       {/* Photo Gallery start */}
       <div className={`${photoGalleryBody} container-layout`}>
         {photoCardToShow.map(({ image, title, id }) => (
-<<<<<<< HEAD
-          <div key={id} className={box}>
-=======
           <div className={box} key={id} onClick={() => getPopup(id)}>
->>>>>>> nabiul
             <PhotoCard image={image} title={title} id={id} />
             <PhotoPopup
               image={image}
