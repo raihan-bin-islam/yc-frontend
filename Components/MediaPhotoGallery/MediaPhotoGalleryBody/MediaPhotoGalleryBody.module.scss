@@ -40,4 +40,13 @@
     justify-content: center;
     margin-block: 5rem;
   }
+
+  span {
+    cursor: pointer;
+    z-index: 1000000;
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    font-size: 5rem;
+  }
 }

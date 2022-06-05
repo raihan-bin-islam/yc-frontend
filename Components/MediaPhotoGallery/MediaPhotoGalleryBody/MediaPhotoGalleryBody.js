@@ -52,7 +52,12 @@ const MediaPhotoGalleryBody = () => {
   };
   const hidePopup = () => {
     setPopupPhoto(0);
+    console.log("hide pupup clicked");
   };
+
+  useEffect(() => {
+    console.log(popupPhoto);
+  }, [popupPhoto]);
 
   // console.log(photoCardToShow);
 
