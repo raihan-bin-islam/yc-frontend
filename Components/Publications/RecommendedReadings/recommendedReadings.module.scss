@@ -1,4 +1,4 @@
-@import "../../../../styles/utils/base";
+@import "../../../styles/utils/base";
 
 .container {
   @include heroBannerLarge;
@@ -93,7 +93,22 @@
       }
     }
   }
-  .booksCardSlider {
-    width: 100%;
+  // .booksCardSlider {
+  //   width: 100%;
+  // }
+}
+
+.booksCardSlider {
+  .bookCardContainer {
+    display: flex !important;
+    justify-content: center;
+
+    cursor: pointer;
+    img {
+      width: 23.1rem;
+      height: 32rem;
+      object-fit: cover;
+    }
   }
+  margin-bottom: 10rem;
 }

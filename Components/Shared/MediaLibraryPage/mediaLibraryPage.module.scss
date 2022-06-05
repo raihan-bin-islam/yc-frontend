@@ -1,0 +1,55 @@
+@import "../../../styles/utils/base";
+
+// hero section
+.heroContainer {
+  position: relative;
+  // Styles specific to hero banner small
+  height: 40vh;
+  @include response(tab-port) {
+    height: 45vh;
+  }
+  @include response(phone) {
+    height: 35vh;
+  }
+  @include response(s-phone) {
+    height: 28vh;
+  }
+
+  .heroTitle {
+    @include heading(5rem, white);
+    top: 60%;
+    transform: translateY(-50%);
+
+    @include response(s-desktop) {
+      top: 35%;
+    }
+    @include response(tab-port) {
+      top: 60%;
+    }
+  }
+}
+
+// Library section
+.libraryContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 10rem;
+  padding-bottom: 10rem;
+
+  @include response(vp-800) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include response(phone) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  //   column-gap: 10rem;
+  //   row-gap: 5rem;
+}
+
+// Recent news section
+.recentNewsContainer {
+  .recentNewsTitle {
+    @include heading(5.5rem);
+    margin: 5rem auto;
+  }
+}

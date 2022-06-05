@@ -1,18 +1,15 @@
 import React from "react";
-import Hero from "../../../Components/Publications/InternsMagazine/Hero/Hero";
-import Sliders from "../../../Components/Shared/Slider/Slider";
+
+import InternsMagazine from "../../../Components/Publications/InternsMagazine/InternsMagazine";
 
 import magazines from "../../../staticPageData/publications/magazines.json";
 
-const InternMagazine = () => {
+const InternMagazinePage = () => {
   return (
     <>
-      <Hero />
-      <div className="container-layout ptb10">
-        <Sliders numberOfSlides={6} sliderData={magazines} />
-      </div>
+      <InternsMagazine isLoading={false} magazines={magazines} />
     </>
   );
 };
 
-export default InternMagazine;
+export default InternMagazinePage;

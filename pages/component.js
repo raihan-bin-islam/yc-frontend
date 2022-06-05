@@ -18,7 +18,8 @@ import RecentNewsCard from "../Components/Shared/RecentNewsCard/RecentNewsCard";
 import useFetch from "../Components/Hooks/useFetch";
 import Featured from "../Components/Media/MediaNewsAndHighlights/Featured/Featured";
 import Hero from "../Components/Media/MediaNewsAndHighlights/Hero/Hero";
-import RecentNews from "../Components/Media/MediaNewsAndHighlights/RecentNews/RecentNews";
+import MediaLibraryPage from "../Components/Shared/MediaLibraryPage/MediaLibraryPage";
+// import RecentNews from "../Components/Media/MediaNewsAndHighlights/RecentNews/RecentNews";
 
 const Component = () => {
   return (
@@ -26,11 +27,8 @@ const Component = () => {
       {/* <PreLoader /> */}
 
       <div className="">
-        <Hero />
-        <div className="container-layout">
-          <Featured />
-          <RecentNews />
-        </div>
+        <MediaLibraryPage />
+        <div className="container-layout">{/* <RecentNews /> */}</div>
       </div>
     </>
   );
