@@ -1,0 +1,74 @@
+@import "../../../styles/utils/base";
+
+.ysbcBody {
+  position: relative;
+  .layoutContainer {
+    position: absolute;
+    top: -40rem;
+    left: 0;
+
+    svg {
+      //   height: 78rem;
+
+      @include response(vp-800) {
+        width: 100%;
+      }
+      @include response(phone) {
+        width: 100%;
+        display: none;
+      }
+    }
+  }
+  .aboutSection {
+    height: 200rem;
+    h1 {
+      font-size: 7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: "Graphik", sans-serif;
+      width: max-content;
+      margin-block: 10rem;
+      margin-inline: auto;
+
+      @include response(s-phone) {
+        font-size: 5rem;
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        display: block;
+        height: 2px;
+        background-color: $textDark;
+      }
+    }
+
+    .box {
+      display: grid;
+      grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
+      grid-gap: 5rem;
+
+      @include response(phone) {
+        grid-template-columns: [col-start] 1fr [col-end];
+        grid-template-rows: repeat(2, min-content);
+      }
+
+      .imageContainer {
+        height: 50rem;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .textContainer {
+        p {
+          font-size: 2.2rem;
+          line-height: 1.3;
+          margin-bottom: 5rem;
+        }
+      }
+    }
+  }
+}

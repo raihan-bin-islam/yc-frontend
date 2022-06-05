@@ -1,0 +1,113 @@
+@import "../../../styles/utils/base";
+
+.headerHero {
+  height: 123.6rem;
+  width: 100%;
+  position: relative;
+  background-color: #eff9ff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include response(tab-port) {
+    height: 75vw;
+  }
+  @include response(s-phone) {
+    height: 115vw;
+  }
+  .heroBanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+  .heroBody {
+    z-index: 2;
+    width: calc(100vw - 29rem);
+    @include response(tab-port) {
+      width: calc(100vw - 5.5rem);
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .imageContainer {
+      height: 75rem;
+      width: 115rem;
+      position: relative;
+
+      @include response(tab-port) {
+        height: 60rem;
+        width: 90rem;
+      }
+      @include response(phone) {
+        height: 45rem;
+        width: 75rem;
+      }
+
+      .mask {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgb(0, 0, 0) -20%, transparent);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+        h1,
+        span {
+          color: white;
+        }
+        h1 {
+          font-size: 7rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          font-family: "Graphik", sans-serif;
+
+          @include response(s-phone) {
+            font-size: 5rem;
+          }
+
+          &::after,
+          &::before {
+            content: "";
+            display: block;
+            height: 2px;
+            background-color: white;
+          }
+        }
+        span {
+          font-size: 3.5rem;
+          line-height: 1.6;
+          margin-bottom: 18rem;
+
+          @include response(phone) {
+            margin-bottom: 10rem;
+          }
+          @include response(s-phone) {
+            font-size: 2.5rem;
+          }
+        }
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        @include response(tab-port) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

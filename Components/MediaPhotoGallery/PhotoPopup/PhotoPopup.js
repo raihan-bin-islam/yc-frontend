@@ -11,11 +11,8 @@ import styles from "./PhotoPopup.module.scss";
 
 const PhotoPopup = ({ show, onHide, image, title }) => {
   const { popup, popupClose, btnClose, box } = styles;
-  const [popupPhoto, setPopupPhoto] = useState(false);
 
-  // const closePopup = () => {
-  //   setPopupPhoto(!popupPhoto);
-  // };
+  const hidePopup = () => {};
 
   return (
     <div className={show ? `${popup}` : `${popupClose}`}>
