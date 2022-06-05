@@ -27,9 +27,11 @@ const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
     slidesToShow: numberOfSlides,
     slidesToScroll: 1,
     centerMode: false,
+    centerPadding: 0, // added to remove extra padding on both side of the slider
     cssEase: "ease-in-out",
-    prevArrow: <Arrow type="prev" size={100} />,
-    nextArrow: <Arrow size={100} />,
+    appendArrows: ".slider-arrow",
+    prevArrow: <Arrow type="prev" recentNews={cardType == "newsCard"} />,
+    nextArrow: <Arrow recentNews={cardType == "newsCard"} />,
     autoplay: false,
     autoplaySpeed: 2000,
     responsive: [

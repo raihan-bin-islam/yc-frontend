@@ -17,7 +17,7 @@ const RecentNewsCard = ({ image, title, publishedBy, pressRelease, newsContent, 
 
   return (
     <div className={`${cardContainer} ${highlight && highlightCard}`}>
-      <img src={image} alt="" />
+      <img className="slider-arrow" src={image} alt="" />
       <div className={highlightNewsContainer}>
         <h2>{title}</h2>
         <div>
@@ -25,9 +25,9 @@ const RecentNewsCard = ({ image, title, publishedBy, pressRelease, newsContent, 
           <p className={`${highlight && publisher}`}>{pressRelease}</p>
         </div>
         {highlight && <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>}
-        <div className={buttonComponent}>
-          <ButtonLight text="Read More" />
-        </div>
+      </div>
+      <div className={buttonComponent}>
+        <ButtonLight text="Read More" />
       </div>
     </div>
   );

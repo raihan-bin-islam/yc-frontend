@@ -54,7 +54,7 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, ac
         toggleActive("#video", cardRef, active);
       }}
     >
-      <img className={`${type === "articles" ? articleImg : cardImg}`} src={image} alt={title} />
+      <img className={`${type === "articles" ? articleImg : cardImg} slider-arrow`} src={image} alt={title} />
       <h4 className={cardTitle}>{title}</h4>
 
       {/* We will use this same slider component for different section based on types */}
