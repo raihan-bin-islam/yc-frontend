@@ -33,7 +33,7 @@
 .libraryContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem 10rem;
+  gap: 2.5rem 5rem;
   padding-bottom: 10rem;
 
   @include response(vp-800) {
@@ -42,8 +42,14 @@
   @include response(phone) {
     grid-template-columns: repeat(1, 1fr);
   }
-  //   column-gap: 10rem;
-  //   row-gap: 5rem;
+
+  .gridItem {
+    padding: 2.5rem;
+    &:not(:last-child) {
+      // padding-right: 1rem;
+      border-right: 1px solid #707070;
+    }
+  }
 }
 
 // Recent news section

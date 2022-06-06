@@ -5,6 +5,7 @@
   justify-content: center;
   padding: 5rem 0rem;
 }
+
 .paginationLabels,
 .nextLabel,
 .prevLabel {
@@ -38,5 +39,18 @@
 .prevLabel {
   svg {
     transform: scaleX(-1);
+  }
+}
+
+.pageActiveTitle {
+  width: fit-content;
+  margin: 0 auto;
+
+  font-size: 1.8rem;
+  font-weight: $regular;
+  color: $primary;
+
+  strong {
+    font-weight: $bold;
   }
 }

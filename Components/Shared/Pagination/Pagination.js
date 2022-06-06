@@ -8,26 +8,32 @@ import {
   disabledLink,
   nextLabel,
   prevLabel,
+  pageActiveTitle,
 } from "./pagination.module.scss";
 
-const Pagination = ({ length, contentsPerPage, onPageChange }) => {
+const Pagination = ({ length, contentsPerPage, onPageChange, currentPage }) => {
   const pageCount = Math.ceil(length / contentsPerPage);
   return (
-    <ReactPaginate
-      className={paginationContainer}
-      pageLinkClassName={paginationLabels}
-      activeLinkClassName={pageActive}
-      previousLinkClassName={prevLabel}
-      nextLinkClassName={nextLabel}
-      disabledLinkClassName={disabledLink}
-      breakLabel="....."
-      nextLabel={<PaginationButton />}
-      onPageChange={onPageChange}
-      pageRangeDisplayed={2}
-      pageCount={pageCount}
-      previousLabel={<PaginationButton />}
-      renderOnZeroPageCount={null}
-    />
+    <>
+      <ReactPaginate
+        className={paginationContainer}
+        pageLinkClassName={paginationLabels}
+        activeLinkClassName={pageActive}
+        previousLinkClassName={prevLabel}
+        nextLinkClassName={nextLabel}
+        disabledLinkClassName={disabledLink}
+        breakLabel="....."
+        nextLabel={<PaginationButton />}
+        onPageChange={onPageChange}
+        pageRangeDisplayed={2}
+        pageCount={pageCount}
+        previousLabel={<PaginationButton />}
+        renderOnZeroPageCount={null}
+      />
+      <h2 className={pageActiveTitle}>
+        <strong>{currentPage}</strong> of <strong>{pageCount}</strong> pages
+      </h2>
+    </>
   );
 };
 
