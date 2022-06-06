@@ -9,10 +9,10 @@ const nextConfig = {
   },
   optimizeFonts: false,
   trailingSlash: true,
-  // images: {
-  //   loader: "imgix",
-  //   path: "https://yunus-centre.netlify.app/",
-  // },
+  images: {
+    loader: "imgix",
+    path: "https://yunus-centre.netlify.app/",
+  },
 };
 
 module.exports = nextConfig;
