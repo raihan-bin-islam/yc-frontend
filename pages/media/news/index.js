@@ -1,17 +1,18 @@
 import React from "react";
+
 import useFetch from "../../../Components/Hooks/useFetch";
+// Components
 import Featured from "../../../Components/Media/MediaNewsAndHighlights/Featured/Featured";
 import Hero from "../../../Components/Media/MediaNewsAndHighlights/Hero/Hero";
-import Sliders from "../../../Components/Shared/Slider/Slider";
+import PreLoader from "../../../Components/Shared/PreLoader/PreLoader";
 
 const News = () => {
-  const [newsIsLoading, newsData] = useFetch("/news");
+  const [isLoading, newsData] = useFetch("/news");
   return (
     <>
       <Hero />
-      <div className="container-layout pb10">
-        <Featured />
-        <Sliders cardType="newsCard" sliderData={newsData} />
+      <div className="container-layout pb10 negMargin12">
+        {newsData ? <Featured newsData={newsData} /> : <PreLoader />}
       </div>
     </>
   );

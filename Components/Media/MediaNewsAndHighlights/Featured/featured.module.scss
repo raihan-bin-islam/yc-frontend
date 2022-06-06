@@ -90,3 +90,12 @@
     }
   }
 }
+
+// Recent news section
+.recentNewsSection {
+  padding: 0 0 5rem 0;
+  .recentNewsTitle {
+    @include heading(5.5rem);
+    margin: 12rem auto;
+  }
+}
