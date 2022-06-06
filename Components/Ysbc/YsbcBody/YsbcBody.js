@@ -2,18 +2,29 @@ import React from "react";
 
 // COMPONENTS
 import ButtonLight from "../../../Components/Shared/Button/Button";
+import Sliders from "../../Shared/Slider/Slider";
+import WhatWeDoCard from "../../Shared/WhatWeDoCard/WhatWeDoCard";
 
 // IMAGES
 import aboutImage from "/public/assets/images/ysbc/about.png";
 import becomeImage from "/public/assets/images/ysbc/become.png";
 
+// API
+import useFetch from "../../Hooks/useFetch";
+
+// Data
+import cardData from "../../../staticPageData/ysbc/ysbcData.json";
+
 // LAYOUR
 import OvalBase from "../../Shared/CommonSvg/OvalBase";
+import LeftLayout from "../../Shared/CommonSvg/LeftLayout";
+import Layout from "../../Shared/CommonSvg/Layout";
 
 // CSS
 import styles from "./YsbcBody.module.scss";
 
 const YsbcBody = () => {
+  console.log(cardData);
   const {
     ysbcBody,
     aboutSection,
@@ -21,13 +32,24 @@ const YsbcBody = () => {
     textContainer,
     box,
     layoutContainer,
+    layoutContainer1,
+    becomeSection,
+    btnContainer,
+    latestSection,
+    cardContainer,
+    sliderContainer,
+    leafContainer,
   } = styles;
+
+  // DATA
+  const [isLoading, data] = useFetch("/yunus-speech");
 
   return (
     <div className={ysbcBody}>
       <div className={layoutContainer}>
         <OvalBase />
       </div>
+      {/* ABOUT SECTION START */}
       <div className={`${aboutSection} container-layout`}>
         <h1>about ysbc</h1>
         <div className={box}>
@@ -52,6 +74,73 @@ const YsbcBody = () => {
             <ButtonLight text="Read More" />
           </div>
         </div>
+      </div>
+      {/* ABOUT SECTION END */}
+
+      {/* BECOME SECTION START */}
+      <div className={`${becomeSection} container-layout`}>
+        <div className={textContainer}>
+          <h1>become a ysbc</h1>
+          <p>
+            To begin the formal process, we require a Letter of Intent from the
+            university by an authorized person from the university which can
+            include its Chancellor, Vice Chancellor, President, Rector,
+            Registrar, Dean, Head of Department or equivalent position proposing
+            the university's interest to set up the Yunus Social Business Centre
+            (YSBC). The letter can be sent electronically through sharing a
+            scanned copy of the signed proposal.
+          </p>
+          <p>
+            The Yunus Centre upon assessment of the proposal shall revert with
+            the following documents that will need to be signed:
+          </p>
+          <p>
+            Memorandum of Understanding outlining the provisions of agreement
+          </p>
+          <p>Terms of Reference for use of “Yunus” Name</p>
+          <p>
+            Upon review of documents by the university and agreement by both the
+            parties to collaborate, the agreements copies are signed by
+            representatives of the Yunus Centre and the university to mark the
+            formal establishment of the YSBC.
+          </p>
+          <div className={btnContainer}>
+            <ButtonLight text="Apply Now" dark />
+          </div>
+        </div>
+        <div className={imageContainer}>
+          <img src={becomeImage.src} alt="become image" />
+        </div>
+      </div>
+      {/* BECOME SECTION END */}
+
+      {/* LATEST SECTION START */}
+      <div className={`${latestSection} container-layout`}>
+        <div className={layoutContainer1}>
+          <LeftLayout />
+        </div>
+        <h1>latest</h1>
+        <span>YSBC Web Lecture Series</span>
+        <div className={sliderContainer}>
+          <Sliders cardType="video" sliderData={data} numberOfSlides={3} />
+        </div>
+        <div className={cardContainer}>
+          {cardData.map((data, index) => (
+            <WhatWeDoCard
+              key={index}
+              title={data.title}
+              desc={data.paragraph}
+              photo={data.image}
+              link={data.link}
+              hoverDisable
+            />
+          ))}
+        </div>
+      </div>
+      {/* LATEST SECTION END */}
+
+      <div className={leafContainer}>
+        <Layout />
       </div>
     </div>
   );
