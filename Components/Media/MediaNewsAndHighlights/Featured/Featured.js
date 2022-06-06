@@ -5,6 +5,7 @@ import Highlight from "../../../Shared/Highlight/Highlight";
 import NewsCard from "../../../Shared/NewsCard/NewsCard";
 import NewsHighlightCard from "../../../Shared/NewsHighlightCard/NewsHighlightCard";
 import Sliders from "../../../Shared/Slider/Slider";
+import Link from "next/link";
 
 import {
   featuredSection,
@@ -74,7 +75,11 @@ const Featured = ({ newsData }) => {
                 })}
           </div>
           <div className={buttonComponent}>
-            <ButtonLight text="see more" />
+            <Link href="/media/news/news-library">
+              <a>
+                <ButtonLight text="see more" />
+              </a>
+            </Link>
           </div>
         </div>
       </section>

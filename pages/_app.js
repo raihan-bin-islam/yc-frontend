@@ -5,6 +5,8 @@ import "../styles/utils/swiper-slider-setting.scss";
 import "swiper/css/bundle";
 // import '../scripts/styles'
 
+import { useRouter } from "next/router";
+
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>

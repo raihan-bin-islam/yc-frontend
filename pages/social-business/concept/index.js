@@ -1,16 +1,18 @@
 import React from "react";
 
-// COMPONENTS
-import SocialBusinessConceptHeader from "../../../Components/SocialBusinessConcept/SocialBusinessConceptHeader/SocialBusinessConceptHeader";
-import SocialBusinessConceptBody from "../../../Components/SocialBusinessConcept/SocialBusinessConceptBody/SocialBusinessConceptBody";
+// SECTION COMPONENTS
+import SocialBusinessHeader from "../../../Components/SocialBusiness/SocialBusinessHeader/SocialBusinessHeader";
+import SocialBusinessConcept from "../../../Components/SocialBusiness/SocialBusinessConcept/SocialBusinessConcept";
+import SocialBusinessPrinciples from "../../../Components/SocialBusiness/SocialBusinessPrinciples/SocialBusinessPrinciples";
 
-const SocialBusinessConcept = () => {
+const SocialBusiness = () => {
   return (
     <div>
-      <SocialBusinessConceptHeader />
-      <SocialBusinessConceptBody />
+      <SocialBusinessHeader />
+      <SocialBusinessConcept />
+      <SocialBusinessPrinciples />
     </div>
   );
 };
 
-export default SocialBusinessConcept;
+export default SocialBusiness;

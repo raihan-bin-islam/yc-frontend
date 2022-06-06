@@ -12,6 +12,9 @@ import conceptLayout3 from "../../../public/assets/images/social_business/layout
 // CSS
 import styles from "./socialBusinessConcept.module.scss";
 
+// Next Link
+import Link from "next/link";
+
 const SocialBusinessConcept = () => {
   const {
     conceptSection,
@@ -31,45 +34,36 @@ const SocialBusinessConcept = () => {
   return (
     <section className={conceptSection}>
       <div className={layoutContainer}>
-        <img
-          className={conceptBanner}
-          src={conceptLayout.src}
-          alt="concept layout"
-        />
+        <img className={conceptBanner} src={conceptLayout.src} alt="concept layout" />
       </div>
       <div className={`${conceptBox} container-layout`}>
         <div className={conceptBoxLeft}>
           <div className={imageContainer}>
-            <img
-              className={conceptImg}
-              src={conceptImage.src}
-              alt="concept image"
-            />
+            <img className={conceptImg} src={conceptImage.src} alt="concept image" />
           </div>
         </div>
         <div className={conceptBoxRight}>
           <h1>concept of social business</h1>
           <p className={largePara}>
-            Social business is a cause-driven business. In a social business,
-            the investors/owners can gradually recoup the money invested, but
-            cannot take any dividend beyond that point. Purpose of the
-            investment is purely to achieve one or more social objectives
-            through the operation of the company, no personal gain is desired by
-            the investors. The company must cover all costs and make profit, at
-            the same time achieve the social objective, such as, healthcare for
-            the poor, housing for the poor, financial services for the poor,
-            nutrition for malnourished children, providing safe drinking water,
-            introducing renewable energy, etc. in a business way.
+            Social business is a cause-driven business. In a social business, the investors/owners can gradually recoup
+            the money invested, but cannot take any dividend beyond that point. Purpose of the investment is purely to
+            achieve one or more social objectives through the operation of the company, no personal gain is desired by
+            the investors. The company must cover all costs and make profit, at the same time achieve the social
+            objective, such as, healthcare for the poor, housing for the poor, financial services for the poor,
+            nutrition for malnourished children, providing safe drinking water, introducing renewable energy, etc. in a
+            business way.
           </p>
           <p className={smallPara}>
-            The impact of the business on people or environment, rather the
-            amount of profit made in a given period measures the success of
-            social business. Sustainability of the company indicates that it is
-            running as a business. The objective of the company is to achieve
-            social goals.
+            The impact of the business on people or environment, rather the amount of profit made in a given period
+            measures the success of social business. Sustainability of the company indicates that it is running as a
+            business. The objective of the company is to achieve social goals.
           </p>
           <div className={btnContainer}>
-            <ButtonLight text="Read More" dark />
+            <Link href="/social-business/concept-detail">
+              <a>
+                <ButtonLight text="Read More" dark />
+              </a>
+            </Link>
           </div>
         </div>
       </div>

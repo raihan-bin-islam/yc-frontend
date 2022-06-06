@@ -18,6 +18,7 @@ import Button from "../Button/Button";
 import HeroBanner from "../HeroBanner/HeroBanner";
 
 import Link from "next/link";
+import BreadCrumb from "../BreadCrumb/BreadCrumb";
 
 const ProfYunusSubPages = ({ heading, name, title, description, wishlist }) => {
   return (
@@ -27,6 +28,7 @@ const ProfYunusSubPages = ({ heading, name, title, description, wishlist }) => {
         {!heading && <p className={profYunusName}>{name}</p>}
         <h2 className={`${pageTitle} ${heading && titleHeading}`}>{title}</h2>
       </div>
+      <BreadCrumb blue />
       <div className={pageLayout}>
         <div className={pageContent}>
           <div className={`${desc} ${wishlist && scrollableDesc}`}>

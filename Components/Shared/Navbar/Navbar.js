@@ -98,27 +98,27 @@ const Navbar = () => {
                 <a className={router.pathname.includes("/social-business") ? navActive : ""}>Social Business</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="#">
+                <Link href="/social-business/concept">
                   <a>
                     <li>Concept</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/social-business/issues">
                   <a>
                     <li>Issues</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/social-business/faq">
                   <a>
                     <li>FAQs</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/social-business/organisations">
                   <a>
                     <li>Organizations</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/social-business/events">
                   <a>
                     <li>Events</li>
                   </a>
@@ -133,12 +133,12 @@ const Navbar = () => {
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
               <ul className={dropdown}>
-                <Link href="#">
+                <Link href="/visit-programs/our-programs">
                   <a>
                     <li>Our Programs</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/visit-programs/offshore-programs">
                   <a>
                     <li>Offshore Programs</li>
                   </a>
@@ -154,11 +154,81 @@ const Navbar = () => {
               <Link href="#">
                 <a className={router.pathname == "/publications" ? navActive : ""}>Publications</a>
               </Link>
+              {/* dropdown menu */}
+              <ul className={dropdown}>
+                <Link href="/publications/recommended-readings">
+                  <a>
+                    <li>Recommended Readings</li>
+                  </a>
+                </Link>
+                <Link href="/publications/book-reviews">
+                  <a>
+                    <li>Book Reviews</li>
+                  </a>
+                </Link>
+                <Link href="/publications/intern-magazine">
+                  <a>
+                    <li>Intern Magazine</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>Newsletter</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>Booklet</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>YC Brochure</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>More to SB Pedia</li>
+                  </a>
+                </Link>
+                <Link href="#">
+                  <a>
+                    <li>YC Spotlight</li>
+                  </a>
+                </Link>
+              </ul>
             </li>
             <li>
               <Link href="#">
                 <a className={router.pathname == "/media" ? navActive : ""}>Media</a>
               </Link>
+              <ul className={dropdown}>
+                <Link href="/media/news">
+                  <a>
+                    <li>News</li>
+                  </a>
+                </Link>
+                <Link href="/media/press-release">
+                  <a>
+                    <li>Press Release</li>
+                  </a>
+                </Link>
+                <Link href="/media/rejoinders">
+                  <a>
+                    <li>Rejoinders</li>
+                  </a>
+                </Link>
+                <Link href="/media/photo-gallery">
+                  <a>
+                    <li>Photo Gallery</li>
+                  </a>
+                </Link>
+                <Link href="/media/videos">
+                  <a>
+                    <li>Video Library</li>
+                  </a>
+                </Link>
+              </ul>
             </li>
             <li>
               <Link href="#">

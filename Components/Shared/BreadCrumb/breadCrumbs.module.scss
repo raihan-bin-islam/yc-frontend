@@ -1,0 +1,33 @@
+@import "../../../styles/utils/base";
+
+.breadCrumbContainer {
+  position: relative;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  a {
+    text-transform: capitalize;
+    font-style: italic;
+
+    color: $textLight;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: $medium;
+    }
+  }
+
+  span {
+    font-size: 1.5rem;
+    font-weight: $medium;
+    font-style: italic;
+
+    color: $textLight;
+  }
+}
+
+.linkBlue,
+.spanBlue {
+  color: $primary;
+}

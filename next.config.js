@@ -13,6 +13,16 @@ const nextConfig = {
     loader: "imgix",
     path: "https://yunus-centre.netlify.app/",
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/media",
+        destination: "/media/news",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

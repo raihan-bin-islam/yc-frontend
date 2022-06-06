@@ -24,12 +24,14 @@ import Link from "next/link";
 const Quotes = ({ heading, title, quotes }) => {
   const [startOffset, setStartOffset] = useState(1);
   const [endOffset, setEndOffset] = useState(3);
+  const [currentPage, setCurrentPage] = useState(1);
   const contentsPerPage = 3;
 
   const handlePageClick = (e) => {
     const currentPage = e.selected;
     setStartOffset(contentsPerPage * currentPage + 1);
     setEndOffset(contentsPerPage * currentPage + contentsPerPage);
+    setCurrentPage(currentPage + 1);
   };
 
   return (
@@ -59,10 +61,17 @@ const Quotes = ({ heading, title, quotes }) => {
                 })}
           </div>
 
-          <Pagination length={quotes.length} contentsPerPage={contentsPerPage} onPageChange={handlePageClick} />
-          <a href="/professor-yunus">
-            <Button text="Back" />
-          </a>
+          <Pagination
+            length={quotes.length}
+            contentsPerPage={contentsPerPage}
+            onPageChange={handlePageClick}
+            currentPage={currentPage}
+          />
+          <Link href="/professor-yunus">
+            <a>
+              <Button text="Back" />
+            </a>
+          </Link>
         </div>
 
         <div className={yunusImage}>
