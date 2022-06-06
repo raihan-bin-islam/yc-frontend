@@ -86,3 +86,17 @@
     color: $secondaryCyan;
   }
 }
+.disable {
+  // add overlay on hover
+  &:hover .imageDiv::after {
+    opacity: 0;
+  }
+  // pop the paragraphs up on hover
+  &:hover .imageDiv .paragraph {
+    bottom: 50%;
+    opacity: 0;
+  }
+  .heading {
+    background: #f7f7f7d8;
+  }
+}

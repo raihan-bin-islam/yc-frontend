@@ -61,10 +61,15 @@ const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
           {sliderData &&
             sliderData.map((data) => {
               return (
-                <Link href={data.link} key={data.id}>
+                <Link href={data.youtube_link} key={data.id}>
                   <a target="_blank">
                     <div className={linkableCard}>
-                      <SliderCard key={data.id} image={data.thumb_image} title={data.title} type={cardType} />
+                      <SliderCard
+                        key={data.id}
+                        image={data.thumb_image}
+                        title={data.title}
+                        type={cardType}
+                      />
                     </div>
                   </a>
                 </Link>

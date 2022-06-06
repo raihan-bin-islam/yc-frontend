@@ -9,6 +9,9 @@ import Sliders from "../../Shared/Slider/Slider";
 import LeftLayout from "../../Shared/CommonSvg/LeftLayout";
 import Layout from "../../Shared/CommonSvg/Layout";
 
+// DATA
+import useFetch from "../../Hooks/useFetch";
+
 // CSS
 import styles from "./MediaVideosBody.module.scss";
 
@@ -22,6 +25,8 @@ const MediaVideosBody = () => {
     leafContainer,
   } = styles;
 
+  const [isLoading, data] = useFetch("/yunus-speech");
+
   return (
     <div className={videosBody}>
       <div className={layoutContainer}>
@@ -30,7 +35,7 @@ const MediaVideosBody = () => {
       <div className={`${sliderSection} container-layout`}>
         <h1>interviews</h1>
         <div className={sliderContainer}>
-          <Sliders cardType="video" />
+          <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
           <Link href="/media/videos/interviews">
@@ -41,7 +46,7 @@ const MediaVideosBody = () => {
       <div className={`${sliderSection} container-layout`}>
         <h1>speeches</h1>
         <div className={sliderContainer}>
-          <Sliders cardType="video" />
+          <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
           <Link href="/media/videos/speeches">
@@ -52,7 +57,7 @@ const MediaVideosBody = () => {
       <div className={`${sliderSection} container-layout`}>
         <h1>social business</h1>
         <div className={sliderContainer}>
-          <Sliders cardType="video" />
+          <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
           <Link href="/media/videos/social-business">
@@ -63,7 +68,7 @@ const MediaVideosBody = () => {
       <div className={`${sliderSection} container-layout`}>
         <h1>ysbc web lecture series</h1>
         <div className={sliderContainer}>
-          <Sliders cardType="video" />
+          <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
           <Link href="/media/videos/ysbc-web-lecture-series">

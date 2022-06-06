@@ -5,17 +5,21 @@ import RightArrowLink from "../CommonSvg/RightArrowLink";
 
 import Link from "next/link";
 
-const WhatWeDoCard = ({ title, desc, photo, link }) => {
-  const { container, imageDiv, image, heading, paragraph } = styles;
+const WhatWeDoCard = ({ title, desc, photo, link, hoverDisable }) => {
+  const { container, imageDiv, image, heading, paragraph, disable } = styles;
+
+  console.log(photo);
 
   return (
     <Link href={link}>
-      <div className={container}>
+      <div
+        className={hoverDisable ? `${disable} ${container}` : `${container}`}
+      >
         <div className={imageDiv}>
           <Image
             className={image}
             src={photo}
-            alt="what we do card image"
+            alt="card image"
             width={19200}
             height={"100%"}
             objectFit="cover"

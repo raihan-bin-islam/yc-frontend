@@ -1,0 +1,32 @@
+[
+  {
+    "title": "YSBC Newsfeed",
+    "image": "/assets/images/ysbc/newsfeed.png",
+    "link": "#"
+  },
+  {
+    "title": "Send Updates",
+    "image": "/assets/images/ysbc/updates.png",
+    "link": "#"
+  },
+  {
+    "title": "Contact Info",
+    "image": "/assets/images/ysbc/contact.png",
+    "link": "#"
+  },
+  {
+    "title": "List of all YSBCs",
+    "image": "/assets/images/ysbc/list-ysbc.png",
+    "link": "#"
+  },
+  {
+    "title": "YSBC FAQs",
+    "image": "/assets/images/ysbc/faq.png",
+    "link": "#"
+  },
+  {
+    "title": "Academia Report",
+    "image": "/assets/images/ysbc/academia.png",
+    "link": "#"
+  }
+]
