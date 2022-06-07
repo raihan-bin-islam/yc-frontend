@@ -12,8 +12,6 @@ import styles from "./YsbcHeader.module.scss";
 const YsbcHeader = () => {
   const { headerHero, heroBody, imageContainer, mask } = styles;
 
-  console.log(heroImage);
-
   return (
     <div className={headerHero}>
       <HeroBanner large />

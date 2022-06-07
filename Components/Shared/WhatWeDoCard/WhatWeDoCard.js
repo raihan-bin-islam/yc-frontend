@@ -8,8 +8,6 @@ import Link from "next/link";
 const WhatWeDoCard = ({ title, desc, photo, link, hoverDisable }) => {
   const { container, imageDiv, image, heading, paragraph, disable } = styles;
 
-  console.log(photo);
-
   return (
     <Link href={link}>
       <div
