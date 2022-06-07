@@ -1,0 +1,48 @@
+@import "../../../styles/utils/base";
+
+.bannerContainer {
+  position: relative;
+  margin-top: -55rem;
+  @include response(s-desktop) {
+    margin-top: -40rem;
+  }
+  @include response(tab-port) {
+    margin-top: -30rem;
+  }
+  @include response(phone) {
+    margin-top: -20rem;
+  }
+  @include response(M-phone) {
+    margin-top: 0;
+  }
+
+  .svgSmall {
+    position: relative;
+    z-index: 1;
+  }
+  .titleContainer {
+    position: absolute;
+    z-index: 2;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include response(M-phone) {
+      top: 50%;
+    }
+
+    width: max-content;
+
+    .bannerTitle {
+      @include heading(4.5rem, white);
+    }
+
+    .bannerSubtitle {
+      position: relative;
+
+      font-size: 2.6rem;
+      font-weight: $regular;
+
+      color: white;
+    }
+  }
+}

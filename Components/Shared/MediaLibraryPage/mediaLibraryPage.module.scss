@@ -2,31 +2,31 @@
 
 // hero section
 .heroContainer {
-  position: relative;
-  // Styles specific to hero banner small
-  height: 40vh;
-  @include response(tab-port) {
-    height: 45vh;
-  }
-  @include response(phone) {
-    height: 35vh;
-  }
-  @include response(s-phone) {
-    height: 28vh;
-  }
+  // position: relative;
+  // // Styles specific to hero banner small
+  // height: 55rem;
+  // // @include response(tab-port) {
+  // //   height: 45vh;
+  // // }
+  // @include response(phone) {
+  //   height: 45rem;
+  // }
+  // @include response(s-phone) {
+  //   height: 35rem;
+  // }
 
-  .heroTitle {
-    @include heading(5rem, white);
-    top: 60%;
-    transform: translateY(-50%);
+  // .heroTitle {
+  //   @include heading(5rem, white);
+  //   top: 60%;
+  //   transform: translateY(-50%);
 
-    @include response(s-desktop) {
-      top: 35%;
-    }
-    @include response(tab-port) {
-      top: 60%;
-    }
-  }
+  //   @include response(s-desktop) {
+  //     top: 35%;
+  //   }
+  //   @include response(tab-port) {
+  //     top: 60%;
+  //   }
+  // }
 }
 
 // Library section
@@ -48,6 +48,9 @@
     &:not(:last-child) {
       // padding-right: 1rem;
       border-right: 1px solid #707070;
+      @include response(phone) {
+        border: none;
+      }
     }
   }
 }
