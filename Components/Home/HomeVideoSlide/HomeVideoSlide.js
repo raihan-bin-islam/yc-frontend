@@ -18,7 +18,7 @@ import Link from "next/link";
 // Custom Hooks
 // import PreLoader from "../../Shared/PreLoader/PreLoader";
 
-const HomeVideoSlide = ({ isLoading, videoData }) => {
+const HomeVideoSlide = ({ isLoading, videoData, viewAllLink = "/media/videos" }) => {
   // States
   const [uniqueId, setUniqueId] = useState("");
 
@@ -109,10 +109,12 @@ const HomeVideoSlide = ({ isLoading, videoData }) => {
               )
             : null}
         </div>
-        <Link href="#">
-          <div className={buttonComponent}>
-            <ButtonLight text="View All" />
-          </div>
+        <Link href={viewAllLink} passHref>
+          <a>
+            <div className={buttonComponent}>
+              <ButtonLight text="View All" />
+            </div>
+          </a>
         </Link>
       </div>
     </section>

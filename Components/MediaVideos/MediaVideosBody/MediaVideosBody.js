@@ -16,14 +16,7 @@ import useFetch from "../../Hooks/useFetch";
 import styles from "./MediaVideosBody.module.scss";
 
 const MediaVideosBody = () => {
-  const {
-    videosBody,
-    sliderSection,
-    sliderContainer,
-    btnContainer,
-    layoutContainer,
-    leafContainer,
-  } = styles;
+  const { videosBody, sliderSection, sliderContainer, btnContainer, layoutContainer, leafContainer } = styles;
 
   const [isLoading, data] = useFetch("/yunus-speech");
 
@@ -38,7 +31,7 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
-          <Link href="/media/videos/interviews">
+          <Link href="/media/videos/interviews" passHref>
             <ButtonLight text="See All" />
           </Link>
         </div>
@@ -49,7 +42,7 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
-          <Link href="/media/videos/speeches">
+          <Link href="/professor-yunus/speeches" passHref>
             <ButtonLight text="See All" />
           </Link>
         </div>
@@ -60,7 +53,7 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
-          <Link href="/media/videos/social-business">
+          <Link href="/media/videos/social-business" passHref>
             <ButtonLight text="See All" />
           </Link>
         </div>
@@ -71,8 +64,10 @@ const MediaVideosBody = () => {
           <Sliders cardType="video" sliderData={data} numberOfSlides={4} />
         </div>
         <div className={btnContainer}>
-          <Link href="/media/videos/ysbc-web-lecture-series">
-            <ButtonLight text="See All" />
+          <Link href="/media/videos/ysbc-web-lecture-series" passHref>
+            <a>
+              <ButtonLight text="See All" />
+            </a>
           </Link>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import HeroBannerSmall from "../../Shared/HeroBanerSmall/HeroBannerSmall";
+import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 
 // COMPONENTS
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";

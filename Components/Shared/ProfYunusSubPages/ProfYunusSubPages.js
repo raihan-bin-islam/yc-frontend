@@ -24,11 +24,12 @@ const ProfYunusSubPages = ({ heading, name, title, description, wishlist }) => {
   return (
     <section className={pageSection}>
       <HeroBanner flipped />
+      <BreadCrumb blue />
       <div className={titleContainer}>
         {!heading && <p className={profYunusName}>{name}</p>}
         <h2 className={`${pageTitle} ${heading && titleHeading}`}>{title}</h2>
       </div>
-      <BreadCrumb blue />
+
       <div className={pageLayout}>
         <div className={pageContent}>
           <div className={`${desc} ${wishlist && scrollableDesc}`}>

@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin: 2rem 0;
 
   a {
     text-transform: capitalize;
@@ -29,5 +30,5 @@
 
 .linkBlue,
 .spanBlue {
-  color: $primary;
+  color: #0a3474 !important;
 }

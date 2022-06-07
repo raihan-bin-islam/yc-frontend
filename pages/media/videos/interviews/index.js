@@ -9,11 +9,7 @@ import VideoSubPage from "../../../../Components/Shared/VideoSubPage/VideoSubPag
 const Interviews = () => {
   const [videoIsLoading, videoData] = useFetch("/yunus-speech");
 
-  return (
-    <div>
-      <VideoSubPage heading="interviews" videoData={videoData} />
-    </div>
-  );
+  return <div>{videoData && <VideoSubPage heading="interviews" videoData={videoData} />}</div>;
 };
 
 export default Interviews;

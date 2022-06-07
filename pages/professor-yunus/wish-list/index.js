@@ -6,7 +6,7 @@ const ProfYunusWishlist = () => {
   const { title, desc } = pageData;
   return (
     <>
-      <ProfYunusSubPages heading title={title} description={desc} wishlist />;
+      <ProfYunusSubPages heading title={title} description={desc} wishlist />
     </>
   );
 };

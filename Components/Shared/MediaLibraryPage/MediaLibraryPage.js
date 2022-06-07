@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
-import HeroBannerSmall from "../HeroBanerSmall/HeroBannerSmall";
+import HeroBannerSmall from "../HeroBannerSmall/HeroBannerSmall";
 import HeroBanner from "../HeroBanner/HeroBanner";
 import Highlight from "../Highlight/Highlight";
 import Pagination from "../Pagination/Pagination";

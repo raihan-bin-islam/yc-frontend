@@ -1,25 +1,25 @@
 @import "../../../styles/utils/base";
 
 .speechContainer {
-  .speechContainerHeader {
-    position: relative;
-    min-height: 40rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    h2 {
-      @include heading(6rem, $white);
-    }
-    h3 {
-      color: $white;
-      font-size: 2.6rem;
-      margin-top: 1.5rem;
-      font-weight: 400;
-      position: relative;
-      z-index: 10;
-    }
-  }
+  // .speechContainerHeader {
+  //   // position: relative;
+  //   // min-height: 40rem;
+  //   // display: flex;
+  //   // align-items: center;
+  //   // justify-content: center;
+  //   // text-align: center;
+  //   // h2 {
+  //   //   @include heading(6rem, $white);
+  //   // }
+  //   // h3 {
+  //   //   color: $white;
+  //   //   font-size: 2.6rem;
+  //   //   margin-top: 1.5rem;
+  //   //   font-weight: 400;
+  //   //   position: relative;
+  //   //   z-index: 10;
+  //   // }
+  // }
   .speechContainerBody {
     // padding: 0 26.9rem;
     @include response(big-desktop-max) {
@@ -27,7 +27,7 @@
     }
     @include response(vp-800) {
       //   padding: 0 1rem;
-      margin-top: 0;
+      // margin-top: 0;
     }
     .speechContainerBodyRow {
       display: grid;

@@ -2,6 +2,7 @@ import React from "react";
 
 // COMPONENTS
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
+import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 
 // CSS
 import styles from "./SocialBusinessPastEventsHeader.module.scss";
@@ -11,8 +12,7 @@ const SocialBusinessPastEventsHeader = () => {
 
   return (
     <div className={heroHeader}>
-      <HeroBanner />
-      <h1>issues of social business</h1>
+      <HeroBannerSmall title="past events" />
     </div>
   );
 };

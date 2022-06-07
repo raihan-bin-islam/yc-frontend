@@ -10,7 +10,7 @@ const ProfVideoSlider = ({ videoData }) => {
       <div className={profVideoHeader}>
         <h2>Speeches</h2>
       </div>
-      {videoData.length > 0 && <HomeVideoSlide videoData={videoData} />}
+      {videoData.length > 0 && <HomeVideoSlide videoData={videoData} viewAllLink="/professor-yunus/speeches" />}
     </section>
   );
 };

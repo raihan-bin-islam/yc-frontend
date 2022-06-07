@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-// import useFetch from "../Hooks/useFetch";
-import HeroBanner from "../HeroBanner/HeroBanner";
+
+// Component
 import Pagination from "../Pagination/Pagination";
 import SliderCard from "../SliderCard/SliderCard";
 import Layout from "../CommonSvg/Layout";
+import HeroBannerSmall from "../HeroBannerSmall/HeroBannerSmall";
+// Styles
 import styles from "./videoSubPage.module.scss";
 
 const VideoSubPage = ({ heading, subHeading, videoData }) => {
-  // console.log(videoData);
   // classnames
   const {
     speechContainer,
@@ -18,47 +19,41 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
     leafContainer,
   } = styles;
 
-  // fetch data
-  // const [videoIsLoading, videoData] = useFetch("/yunus-speech");
-
   // paginate
-  const [startOffset, setStartOffset] = useState(1);
-  const [endOffset, setEndOffset] = useState(3);
+  const [startOffset, setStartOffset] = useState(0);
+  const [endOffset, setEndOffset] = useState(16);
+  const chunkSize = 4;
   const contentsPerPage = 16;
+  const [currentPage, setCurrentPage] = useState(1);
 
+  // on page change
   const handlePageClick = (e) => {
-    const currentPage = e.selected;
+    // save the number of the current page
+    const currentPage = e.selected; // starts with 0 (just like array indices)
+    // set the start and end offset, as well as the active page number
     setStartOffset(contentsPerPage * currentPage + 1);
     setEndOffset(contentsPerPage * currentPage + contentsPerPage);
+    setCurrentPage(currentPage + 1);
   };
 
   return (
     <section className={speechContainer}>
       <div className={speechContainerHeader}>
-        <HeroBanner />
-        <div>
-          <h2>{heading}</h2>
-          <h3>{subHeading}</h3>
-        </div>
+        <HeroBannerSmall title={heading} subtitle={subHeading && subHeading} />
       </div>
       <div className={`${speechContainerBody} container-layout`}>
         <div className={speechContainerBodyRow}>
           {videoData &&
-            videoData.slice(0, 4).map((vdo) => (
+            videoData.slice(startOffset, chunkSize).map((vdo) => (
               <a key={vdo.id} href={vdo.youtube_link}>
-                <SliderCard
-                  key={vdo.id}
-                  image={vdo.thumb_image}
-                  title={vdo.title}
-                  type="video"
-                />
+                <SliderCard key={vdo.id} image={vdo.thumb_image} title={vdo.title} type="video" />
               </a>
             ))}
         </div>
         <div className={speechContainerBodyRow}>
           {videoData &&
             videoData
-              .slice(4, 8)
+              .slice(chunkSize, 2 * chunkSize)
               .map((vdo) => (
                 <SliderCard
                   key={vdo.id}
@@ -72,7 +67,7 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
         <div className={speechContainerBodyRow}>
           {videoData &&
             videoData
-              .slice(8, 12)
+              .slice(2 * chunkSize, 3 * chunkSize)
               .map((vdo) => (
                 <SliderCard
                   key={vdo.id}
@@ -86,7 +81,7 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
         <div className={speechContainerBodyRow}>
           {videoData &&
             videoData
-              .slice(12, 16)
+              .slice(3 * chunkSize, endOffset)
               .map((vdo) => (
                 <SliderCard
                   key={vdo.id}

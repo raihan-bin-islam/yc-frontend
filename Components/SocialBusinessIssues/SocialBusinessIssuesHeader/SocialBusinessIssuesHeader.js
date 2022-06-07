@@ -1,7 +1,7 @@
 import React from "react";
 
 // COMPONENTS
-import HeroBannerSmall from "../../Shared/HeroBanerSmall/HeroBannerSmall";
+import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 
 // CSS
 import styles from "./SocialBusinessIssuesHeader.module.scss";

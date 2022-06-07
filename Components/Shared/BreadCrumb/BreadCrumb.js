@@ -11,14 +11,15 @@ const BreadCrumb = ({ blue }) => {
   let root = "/";
 
   return (
-    <div className={breadCrumbContainer}>
+    <div className={`${breadCrumbContainer} container-layout`}>
       {listOfRoutes.map((data, index, row) => {
         root += data + "/";
+
         return (
           <React.Fragment key={index}>
             <Link href={root}>
               <a className={blue && linkBlue}>
-                <h2>{data}</h2>
+                <h2>{data.replace("-", " ").replace("-", " ")}</h2>
               </a>
             </Link>
             {index < row.length - 1 && <span className={blue && spanBlue}>&#62;</span>}

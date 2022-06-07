@@ -5,9 +5,15 @@ import "../styles/utils/swiper-slider-setting.scss";
 import "swiper/css/bundle";
 // import '../scripts/styles'
 
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
+// import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+  //  Scroll to top
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0 });
+  // }, []);
+
   return (
     <Layout>
       <Component {...pageProps} />

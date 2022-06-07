@@ -3,7 +3,7 @@ import styles from "./books.module.scss";
 import HeroBanner from "../Shared/HeroBanner/HeroBanner";
 import booksData from "../../staticPageData/books.json";
 import ycPath from "../../public/assets/images/media/books/yc_path.png";
-import HeroBannerSmall from "../Shared/HeroBanerSmall/HeroBannerSmall";
+import HeroBannerSmall from "../Shared/HeroBannerSmall/HeroBannerSmall";
 
 const Books = () => {
   const {

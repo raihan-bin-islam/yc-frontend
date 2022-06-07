@@ -1,19 +1,19 @@
 @import "../../../styles/utils/base";
 
 .heroHeader {
-  position: relative;
-  height: 60vh;
+  // position: relative;
+  // height: 60vh;
 
-  @include response(phone) {
-    height: 30vh;
-  }
+  // @include response(phone) {
+  //   height: 30vh;
+  // }
 
-  h1 {
-    @include heading(4.2rem, white, center, "true");
-    top: 30%;
+  // h1 {
+  //   @include heading(4.2rem, white, center, "true");
+  //   top: 30%;
 
-    @include response(phone) {
-      top: 15rem;
-    }
-  }
+  //   @include response(phone) {
+  //     top: 15rem;
+  //   }
+  // }
 }

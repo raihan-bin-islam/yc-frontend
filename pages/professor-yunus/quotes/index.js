@@ -9,7 +9,7 @@ const ProfYunusQuotes = () => {
   const [isLoading, quotes] = useFetch("/quotes");
   return (
     <>
-      <Quotes heading title={title} quotes={quotes} />;
+      <Quotes heading title={title} quotes={quotes} />
     </>
   );
 };
