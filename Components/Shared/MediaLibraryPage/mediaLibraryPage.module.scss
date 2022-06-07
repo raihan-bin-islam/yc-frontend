@@ -4,15 +4,15 @@
 .heroContainer {
   position: relative;
   // Styles specific to hero banner small
-  height: 40vh;
-  @include response(tab-port) {
-    height: 45vh;
-  }
+  height: 55rem;
+  // @include response(tab-port) {
+  //   height: 45vh;
+  // }
   @include response(phone) {
-    height: 35vh;
+    height: 45rem;
   }
   @include response(s-phone) {
-    height: 28vh;
+    height: 35rem;
   }
 
   .heroTitle {
@@ -48,6 +48,9 @@
     &:not(:last-child) {
       // padding-right: 1rem;
       border-right: 1px solid #707070;
+      @include response(phone) {
+        border: none;
+      }
     }
   }
 }

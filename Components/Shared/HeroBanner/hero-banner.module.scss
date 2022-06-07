@@ -11,6 +11,9 @@
   @include response(big-desktop) {
     top: -50rem;
   }
+  @include response(s-desktop) {
+    top: -30rem;
+  }
   @include response(phone) {
     top: -50rem;
   }

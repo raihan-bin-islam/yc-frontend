@@ -1,0 +1,35 @@
+@import "../../../styles/utils/base";
+
+.bannerContainer {
+  position: relative;
+  margin-top: -55rem;
+  @include response(s-desktop) {
+    margin-top: -40rem;
+  }
+  @include response(vp-800) {
+    margin-top: -30rem;
+  }
+  @include response(phone) {
+    margin-top: -20rem;
+  }
+  @include response(M-phone) {
+    margin-top: 0;
+  }
+
+  .svgSmall {
+    position: relative;
+    z-index: 1;
+  }
+  .bannerTitle {
+    @include heading(5.5rem, white);
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    @include response(M-phone) {
+      top: 50%;
+    }
+  }
+}

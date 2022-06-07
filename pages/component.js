@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HeroBannerSmall from "../Components/Shared/HeroBanerSmall/HeroBannerSmall";
 // import HomeNews from "../Components/Home/HomeNews/HomeNews";
 // import HomeVideoSlide from "../Components/Home/HomeVideoSlide/HomeVideoSlide";
 // import TestAnimation from "../Components/ProfYunus/TestAnimation";
@@ -27,6 +28,7 @@ const Component = () => {
       {/* <PreLoader /> */}
 
       <div className="">
+        <HeroBannerSmall />
         {/* <MediaLibraryPage /> */}
         <div className="container-layout">{/* <RecentNews /> */}</div>
       </div>
