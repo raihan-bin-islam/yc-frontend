@@ -1,4 +1,5 @@
 import React from "react";
+import HeroBannerSmall from "../../Shared/HeroBanerSmall/HeroBannerSmall";
 
 // COMPONENTS
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
@@ -10,8 +11,9 @@ const SocialBusinessConceptHeader = () => {
 
   return (
     <div className={headerHero}>
-      <HeroBanner />
-      <h1>concept of social business</h1>
+      {/* <HeroBanner />
+      <h1>concept of social business</h1> */}
+      <HeroBannerSmall title="concept of social business" />
     </div>
   );
 };

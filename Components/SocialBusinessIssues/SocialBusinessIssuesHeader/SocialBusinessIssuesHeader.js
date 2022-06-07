@@ -1,7 +1,7 @@
 import React from "react";
 
 // COMPONENTS
-import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
+import HeroBannerSmall from "../../Shared/HeroBanerSmall/HeroBannerSmall";
 
 // CSS
 import styles from "./SocialBusinessIssuesHeader.module.scss";
@@ -11,8 +11,7 @@ const SocialBusinessIssuesHeader = () => {
 
   return (
     <div className={heroHeader}>
-      <HeroBanner />
-      <h1>issues of social business</h1>
+      <HeroBannerSmall title="issues of social business" />
     </div>
   );
 };

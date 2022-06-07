@@ -1,7 +1,7 @@
 import React from "react";
-import { bannerContainer, svgSmall, bannerTitle } from "./heroBannerSmall.module.scss";
+import { bannerContainer, svgSmall, titleContainer, bannerTitle, bannerSubtitle } from "./heroBannerSmall.module.scss";
 
-const HeroBannerSmall = ({ title = "heading" }) => {
+const HeroBannerSmall = ({ title, subtitle }) => {
   return (
     <div className={bannerContainer}>
       <svg className={svgSmall} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1010.85">
@@ -13,7 +13,12 @@ const HeroBannerSmall = ({ title = "heading" }) => {
           fill="#1c5991"
         />
       </svg>
-      <h2 className={bannerTitle}>{title}</h2>
+      {title && (
+        <div className={titleContainer}>
+          <h2 className={bannerTitle}>{title}</h2>
+          {subtitle && <h3 className={bannerSubtitle}>{subtitle}</h3>}
+        </div>
+      )}
     </div>
   );
 };

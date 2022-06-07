@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useFetch from "../../Hooks/useFetch";
+import HeroBannerSmall from "../HeroBanerSmall/HeroBannerSmall";
 import HeroBanner from "../HeroBanner/HeroBanner";
 import Highlight from "../Highlight/Highlight";
 import Pagination from "../Pagination/Pagination";
@@ -35,8 +36,7 @@ const MediaLibraryPage = ({ title, newsData }) => {
     <>
       {/*  Hero section */}
       <section className={heroContainer}>
-        <HeroBanner />
-        <h2 className={heroTitle}>{title}</h2>
+        <HeroBannerSmall title={title} />
       </section>
       {/* Library Section */}
       <section className={`${libraryContainer} container-layout pt10`}>
