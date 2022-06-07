@@ -177,7 +177,10 @@
       font-size: 3rem;
       color: #919090;
       display: block;
-      text-align: center;
+
+      @include response(phone) {
+        text-align: center;
+      }
     }
 
     .layoutContainer1 {
