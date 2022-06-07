@@ -24,7 +24,6 @@ import Layout from "../../Shared/CommonSvg/Layout";
 import styles from "./YsbcBody.module.scss";
 
 const YsbcBody = () => {
-  console.log(cardData);
   const {
     ysbcBody,
     aboutSection,

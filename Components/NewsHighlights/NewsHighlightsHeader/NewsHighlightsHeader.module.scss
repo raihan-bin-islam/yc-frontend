@@ -1,0 +1,67 @@
+@import "../../../styles/utils/base";
+
+.newsHeader {
+  .contentContainer {
+    position: relative;
+    z-index: 1111;
+    margin-top: -25rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10rem;
+
+    @include response(vp-800) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, [row-start] min-content [row-end]);
+      gap: 5rem;
+    }
+
+    .textContainer {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 80% 20%;
+
+      @include response(vp-800) {
+        grid-row: row-start 2 / row-end 2;
+      }
+      h1 {
+        font-size: 5.3rem;
+        font-weight: bold;
+        margin-top: auto;
+      }
+      .box {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+
+        align-self: flex-end;
+        margin-bottom: 1rem;
+
+        span {
+          color: $textLight;
+          &:not(:last-child) {
+            margin-right: 4rem;
+          }
+        }
+      }
+    }
+    .imageContainer {
+      height: 66rem;
+
+      @include response(vp-800) {
+        grid-row: row-start 1 / row-end 1;
+        margin-top: 10rem;
+      }
+      @include response(s-phone) {
+        height: 55rem;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      span {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

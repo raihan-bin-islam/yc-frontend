@@ -1,0 +1,42 @@
+@import "../../../styles/utils/base";
+
+.newsBody {
+  padding-block: 10rem;
+
+  p {
+    font-size: 2rem;
+    line-height: 1.3;
+    color: $textDark;
+
+    margin-bottom: 1rem;
+  }
+
+  img {
+    display: block;
+    height: 80rem;
+    width: 80%;
+    object-fit: cover;
+    margin-inline: auto;
+    margin-top: 5rem;
+
+    @include response(vp-800) {
+      height: max-content;
+      padding-inline: 0;
+      object-fit: contain;
+    }
+    @include response(phone) {
+      width: 100%;
+    }
+  }
+  em {
+    display: block;
+    width: 80%;
+    margin-inline: auto;
+    font-size: 1.2rem;
+    margin-bottom: 4rem;
+
+    @include response(phone) {
+      width: 100%;
+    }
+  }
+}
