@@ -12,12 +12,12 @@ import useFetch from "../../Hooks/useFetch";
 // CSS
 import styles from "./NewsHighlightsHeader.module.scss";
 
-function NewsHighlightsHeader(props) {
+function NewsHighlightsHeader() {
   const { newsHeader, textContainer, box, contentContainer, imageContainer } = styles;
 
   const [isLoading, data] = useFetch("/news");
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className={newsHeader}>

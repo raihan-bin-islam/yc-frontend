@@ -4,7 +4,7 @@ import React from "react";
 import NewsHighlightsHeader from "../../../Components/NewsHighlights/NewsHighlightsHeader/NewsHighlightsHeader";
 import NewsHighlightsBody from "../../../Components/NewsHighlights/NewsHighlightsBody/NewsHighlightsBody";
 
-function newsHighlights(props) {
+function newsHighlights() {
   return (
     <div>
       <NewsHighlightsHeader />

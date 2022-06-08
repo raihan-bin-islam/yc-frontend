@@ -6,7 +6,7 @@ import styles from "./NewsHighlightsBody.module.scss";
 // API
 import useFetch from "../../Hooks/useFetch";
 
-function NewsHighlightsBody(props) {
+function NewsHighlightsBody() {
   const { newsBody } = styles;
 
   const [isLoading, data] = useFetch("/news");
@@ -21,7 +21,7 @@ function NewsHighlightsBody(props) {
         ut aliqua aute laboris cillum aliqua exercitation. Consequat et labore
         in ad esse deserunt minim excepteur.
       </p> */}
-      <div dangerouslySetInnerHTML={{ __html: data[0].desc }}></div>
+      <div dangerouslySetInnerHTML={{ __html: data && data[0].desc }}></div>
     </div>
   );
 }
