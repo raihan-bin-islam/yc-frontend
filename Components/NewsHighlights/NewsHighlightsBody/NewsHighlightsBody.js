@@ -21,7 +21,7 @@ function NewsHighlightsBody() {
         ut aliqua aute laboris cillum aliqua exercitation. Consequat et labore
         in ad esse deserunt minim excepteur.
       </p> */}
-      <div dangerouslySetInnerHTML={{ __html: data && data[0].desc }}></div>
+      <div dangerouslySetInnerHTML={{ __html: data.length > 0 && data[0].desc }}></div>
     </div>
   );
 }
