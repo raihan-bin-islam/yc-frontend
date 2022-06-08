@@ -4,14 +4,14 @@ import Link from "next/link";
 
 import { breadCrumbContainer, linkBlue, spanBlue } from "./breadCrumbs.module.scss";
 
-const BreadCrumb = ({ blue }) => {
+const BreadCrumb = ({ blue, noPadding }) => {
   const router = useRouter();
   const pathName = router.asPath;
   const listOfRoutes = pathName.split("/").filter((data) => data !== "");
   let root = "/";
 
   return (
-    <div className={`${breadCrumbContainer} container-layout`}>
+    <div className={`${breadCrumbContainer} ${!noPadding && "container-layout"}`}>
       {listOfRoutes.map((data, index, row) => {
         root += data + "/";
 
