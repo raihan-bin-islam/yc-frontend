@@ -9,7 +9,7 @@ const PaginationButton = () => {
         d="M6.664,0,0,6.664l6.664,6.664"
         transform="translate(8.078 14.742) rotate(180)"
         fill="none"
-        stroke="#1c5991"
+        stroke=""
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

@@ -21,6 +21,11 @@ const nextConfig = {
         destination: "/media/news#",
         permanent: true,
       },
+      {
+        source: "/social-business",
+        destination: "/social-business/concept",
+        permanent: true,
+      },
     ];
   },
 };

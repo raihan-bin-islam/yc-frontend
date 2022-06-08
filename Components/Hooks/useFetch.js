@@ -18,6 +18,7 @@ const useFetch = (endPoint) => {
         setIsPending(false);
         // console.log(data);
         setData(data);
+        // reversed ? setData(data.reverse()) : setData(data);
       })
       .catch((err) => {
         setIsPending(false);

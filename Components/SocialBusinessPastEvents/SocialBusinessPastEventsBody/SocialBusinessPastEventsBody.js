@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // COMPONENTS
 import Sliders from "../../Shared/Slider/Slider";
@@ -13,12 +13,14 @@ import styles from "./SocialBusinessPastEventsBody.module.scss";
 import useFetch from "../../Hooks/useFetch";
 import BreadCrumb from "../../Shared/BreadCrumb/BreadCrumb";
 
-const SocialBusinessPastEventsBody = () => {
-  const [isLoading, pastEventsYearWise] = useFetch("/events/year-wise");
+const SocialBusinessPastEventsBody = ({ pastEventsYearWise }) => {
   const contentsPerPage = 3;
   const [startOffset, setStartOffset] = useState(0);
   const [endOffset, setEndOffset] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
+  // const [reverseArray, setReverseArray] = useState([]);
+
+  // useEffect(() => {}, [pastEventsYearWise]);
 
   const {
     pastEventBody,
@@ -45,16 +47,19 @@ const SocialBusinessPastEventsBody = () => {
       </div>
       <div className={eventsContainer} id="events-section">
         <BreadCrumb />
-        {pastEventsYearWise.slice(startOffset, endOffset).map(({ year, data: events }, index) => {
-          return (
-            <div className={`${pastEvents} container-layout`} key={index}>
-              <h1>{year}</h1>
-              <div className={sliderContainer}>
-                <Sliders cardType="events" sliderData={events} />
+        {pastEventsYearWise
+          .reverse()
+          .slice(startOffset, endOffset)
+          .map(({ year, data: events }, index) => {
+            return (
+              <div className={`${pastEvents} container-layout`} key={index}>
+                <h1>{year}</h1>
+                <div className={sliderContainer}>
+                  <Sliders cardType="events" sliderData={events} />
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
 
       <div className={paginationContainer}>

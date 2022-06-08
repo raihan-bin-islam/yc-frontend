@@ -14,7 +14,7 @@ import {
 const Pagination = ({ length, contentsPerPage, onPageChange, currentPage }) => {
   const pageCount = Math.ceil(length / contentsPerPage);
   return (
-    <>
+    <div>
       <ReactPaginate
         className={paginationContainer}
         pageLinkClassName={paginationLabels}
@@ -33,7 +33,7 @@ const Pagination = ({ length, contentsPerPage, onPageChange, currentPage }) => {
       <h2 className={pageActiveTitle}>
         <strong>{currentPage}</strong> of <strong>{pageCount}</strong> pages
       </h2>
-    </>
+    </div>
   );
 };
 

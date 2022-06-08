@@ -44,11 +44,14 @@
         }
       }
       img {
-        height: 12.4rem;
-        width: 100%;
+        max-height: 20rem;
+        width: 80%;
         object-fit: contain;
         filter: grayscale(100%);
         transition: 0.3s;
+        @include response(s-phone) {
+          width: 90%;
+        }
       }
     }
   }

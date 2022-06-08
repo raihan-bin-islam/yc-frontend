@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // COMPONENTS
 import PhotoCard from "../PhotoCard/PhotoCard";
@@ -12,54 +12,17 @@ import galleryData from "./data";
 import styles from "./MediaPhotoGalleryBody.module.scss";
 
 const photoCardPerPage = 9;
-let arrayForHoldingPhotoCards = [];
 
 const MediaPhotoGalleryBody = () => {
-  const {
-    photoGalleryBody,
-    box,
-    btnContainer,
-    container,
-    popup,
-    btnClose,
-    popupClose,
-  } = styles;
+  const { photoGalleryBody, box, btnContainer, container, popup, btnClose, popupClose } = styles;
 
   const [popupPhoto, setPopupPhoto] = useState(0);
-  const [photoCardToShow, setPhotoCardToShow] = useState([]);
-  const [next, setNext] = useState(9);
 
-  const loopWithSlice = (start, end) => {
-    const slicedPhotoCard = galleryData.slice(start, end);
-    // console.log(slicedPhotoCard);
-    arrayForHoldingPhotoCards = [
-      ...arrayForHoldingPhotoCards,
-      ...slicedPhotoCard,
-    ];
-    setPhotoCardToShow(arrayForHoldingPhotoCards);
-  };
+  const [endOffset, setEndOffset] = useState(9);
 
-  useEffect(() => {
-    loopWithSlice(0, photoCardPerPage);
-  }, []);
-
-  const handleShowMorePhotoCard = () => {
-    loopWithSlice(next, next + photoCardPerPage);
-    setNext(next + photoCardPerPage);
-  };
   const getPopup = (value) => {
     setPopupPhoto(value);
   };
-  const hidePopup = () => {
-    setPopupPhoto(0);
-    console.log("hide pupup clicked");
-  };
-
-  useEffect(() => {
-    console.log(popupPhoto);
-  }, [popupPhoto]);
-
-  // console.log(photoCardToShow);
 
   return (
     <div className={container}>
@@ -68,22 +31,21 @@ const MediaPhotoGalleryBody = () => {
 
       {/* Photo Gallery start */}
       <div className={`${photoGalleryBody} container-layout`}>
-        {photoCardToShow.map(({ image, title, id }) => (
+        {galleryData.slice(0, endOffset).map(({ image, title, id }) => (
           <div className={box} key={id} onClick={() => getPopup(id)}>
             <PhotoCard image={image} title={title} id={id} />
-            <PhotoPopup
-              image={image}
-              title={title}
-              show={popupPhoto === id}
-              onHide={() => hidePopup()}
-            />
+            <PhotoPopup image={image} title={title} show={popupPhoto === id} />
           </div>
         ))}
       </div>
       {/* Photo Gallery end */}
-
       <div className={btnContainer}>
-        <ButtonLight text="Load More" onClick={handleShowMorePhotoCard} />
+        <ButtonLight
+          text="Load More"
+          onClick={() => {
+            setEndOffset((prev) => prev + photoCardPerPage);
+          }}
+        />
       </div>
     </div>
   );
