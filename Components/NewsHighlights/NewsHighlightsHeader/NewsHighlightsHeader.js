@@ -1,7 +1,7 @@
 import React from "react";
 
 // COMPONENTS
-import HeroBannerSmall from "../../Shared/HeroBanerSmall/HeroBannerSmall";
+import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 
 // IMAGE
 import newImage from "../../../public/assets/images/media/news-and-highlights/news-image.png";
@@ -13,8 +13,7 @@ import useFetch from "../../Hooks/useFetch";
 import styles from "./NewsHighlightsHeader.module.scss";
 
 function NewsHighlightsHeader(props) {
-  const { newsHeader, textContainer, box, contentContainer, imageContainer } =
-    styles;
+  const { newsHeader, textContainer, box, contentContainer, imageContainer } = styles;
 
   const [isLoading, data] = useFetch("/news");
 
@@ -33,9 +32,7 @@ function NewsHighlightsHeader(props) {
         </div>
         <div className={imageContainer}>
           <img src={newImage.src} alt="image" />
-          <span>
-            Nobel Peace laureate Professor Muhammad Yunus and Mahathir Mohammad
-          </span>
+          <span>Nobel Peace laureate Professor Muhammad Yunus and Mahathir Mohammad</span>
         </div>
       </div>
     </div>
