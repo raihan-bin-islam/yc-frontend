@@ -8,12 +8,7 @@ import BreadCrumb from "../../../../Components/Shared/BreadCrumb/BreadCrumb";
 const NewsLibrary = () => {
   const [isLoading, newsData] = useFetch("/news");
 
-  return (
-    <>
-      {newsData.length > 0 ? <MediaLibraryPage title="news library" newsData={newsData} /> : <PreLoader />}
-      <BreadCrumb />
-    </>
-  );
+  return <>{newsData.length > 0 ? <MediaLibraryPage title="news library" newsData={newsData} /> : <PreLoader />}</>;
 };
 
 export default NewsLibrary;

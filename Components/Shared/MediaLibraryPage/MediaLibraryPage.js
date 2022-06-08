@@ -16,6 +16,7 @@ import {
   recentNewsTitle,
   gridItem,
 } from "./mediaLibraryPage.module.scss";
+import BreadCrumb from "../BreadCrumb/BreadCrumb";
 
 const MediaLibraryPage = ({ title, newsData }) => {
   const [startOffset, setStartOffset] = useState(0); // start offset (should start from 0)
@@ -38,6 +39,7 @@ const MediaLibraryPage = ({ title, newsData }) => {
       <section className={heroContainer}>
         <HeroBannerSmall title={title} />
       </section>
+      <BreadCrumb />
       {/* Library Section */}
       <section className={`${libraryContainer} container-layout pt10`}>
         {/* 1st chunk of data */}

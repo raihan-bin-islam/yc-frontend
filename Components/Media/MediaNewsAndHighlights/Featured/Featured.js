@@ -19,10 +19,12 @@ import {
   recentNewsSection,
   recentNewsTitle,
 } from "./featured.module.scss";
+import BreadCrumb from "../../../Shared/BreadCrumb/BreadCrumb";
 
 const Featured = ({ newsData }) => {
   return (
     <>
+      <BreadCrumb noPadding />
       <section className={featuredSection}>
         <div>
           <h2 className={titleOne}>Featured</h2>
