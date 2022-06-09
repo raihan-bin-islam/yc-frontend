@@ -7,7 +7,7 @@
   z-index: 2;
 
   scroll-margin-top: 10rem;
-  &:nth-child(3) {
+  &:nth-child(4n + 3) {
     grid-column: 2;
     @include response(vp-800) {
       grid-column: initial;

@@ -2,14 +2,15 @@
 
 .programsSection {
   position: relative;
-  height: 325rem;
+  min-height: 325rem;
+  height: fit-content;
   background-color: #f7f7f7;
   z-index: 2;
-
-  @include response(vp-800) {
-    height: fit-content;
-    padding: 20rem 0;
-  }
+  padding: 20rem 0;
+  // @include response(vp-800) {
+  //   height: fit-content;
+  //   padding: 20rem 0;
+  // }
 
   .programsSvg {
     z-index: 1;

@@ -133,14 +133,14 @@ const Navbar = () => {
                 <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
               </Link>
               <ul className={dropdown}>
-                {/* <Link href="/visit-programs/our-programs"> */}
-                <Link href="#">
+                <Link href="/visit-programs/our-programs">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Our Programs</li>
                   </a>
                 </Link>
-                {/* <Link href="/visit-programs/offshore-programs"> */}
-                <Link href="#">
+                <Link href="/visit-programs/offshore-programs">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Offshore Programs</li>
                   </a>
@@ -158,20 +158,20 @@ const Navbar = () => {
               </Link>
               {/* dropdown menu */}
               <ul className={dropdown}>
-                {/* <Link href="/publications/recommended-readings"> */}
-                <Link href="#">
+                <Link href="/publications/recommended-readings">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Recommended Readings</li>
                   </a>
                 </Link>
-                {/* <Link href="/publications/book-reviews"> */}
-                <Link href="#">
+                <Link href="/publications/book-reviews">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Book Reviews</li>
                   </a>
                 </Link>
-                {/* <Link href="/publications/intern-magazine"> */}
-                <Link href="#">
+                <Link href="/publications/intern-magazine">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Intern Magazine</li>
                   </a>
@@ -191,11 +191,9 @@ const Navbar = () => {
                     <li>YC Brochure</li>
                   </a>
                 </Link>
-                <Link href="#">
-                  <a>
-                    <li>More to SB Pedia</li>
-                  </a>
-                </Link>
+                <a href="http://socialbusinesspedia.com/" target="__blank">
+                  <li>More to SB Pedia</li>
+                </a>
                 <Link href="#">
                   <a>
                     <li>YC Spotlight</li>
@@ -208,32 +206,32 @@ const Navbar = () => {
                 <a className={router.pathname == "/media" ? navActive : ""}>Media</a>
               </Link>
               <ul className={dropdown}>
-                {/* <Link href="/media/news"> */}
-                <Link href="#">
+                <Link href="/media/news">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>News</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/press-release"> */}
-                <Link href="#">
+                <Link href="/media/press-release">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Press Release</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/rejoinders"> */}
-                <Link href="#">
+                <Link href="/media/rejoinders">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Rejoinders</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/photo-gallery"> */}
-                <Link href="#">
+                <Link href="/media/photo-gallery">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Photo Gallery</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/videos"> */}
-                <Link href="#">
+                <Link href="/media/videos">
+                  {/* <Link href="#"> */}
                   <a>
                     <li>Video Library</li>
                   </a>
@@ -241,7 +239,7 @@ const Navbar = () => {
               </ul>
             </li>
             <li>
-              <Link href="#">
+              <Link href="/ysbc">
                 <a className={router.pathname == "/ysbc" ? navActive : ""}>YSBC</a>
               </Link>
             </li>
