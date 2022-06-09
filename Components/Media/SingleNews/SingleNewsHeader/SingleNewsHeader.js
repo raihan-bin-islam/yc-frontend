@@ -7,10 +7,10 @@ import HeroBannerSmall from "../../Shared/HeroBanerSmall/HeroBannerSmall";
 import newImage from "../../../public/assets/images/media/news-and-highlights/news-image.png";
 
 // API
-import useFetch from "../../Hooks/useFetch";
+import useFetch from "../../../Hooks/useFetch";
 
 // CSS
-import styles from "./NewsHighlightsHeader.module.scss";
+import styles from "./SingleNewsHeader.scss";
 
 function NewsHighlightsHeader(props) {
   const { newsHeader, textContainer, box, contentContainer, imageContainer } =
