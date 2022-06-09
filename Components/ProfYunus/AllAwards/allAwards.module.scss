@@ -1,0 +1,14 @@
+@import "../../../styles/utils/base";
+
+.awardsSection {
+  padding: 5rem 0;
+  .awardsContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .buttonComponent {
+    width: fit-content;
+    margin: 10rem auto;
+  }
+}
