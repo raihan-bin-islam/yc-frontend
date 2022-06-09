@@ -57,8 +57,12 @@
 
       img {
         width: 74.4rem;
+        max-height: 60rem;
         object-fit: contain;
 
+        @include response(tab-port) {
+          margin-top: 5rem;
+        }
         @include response(phone) {
           width: 54rem;
         }

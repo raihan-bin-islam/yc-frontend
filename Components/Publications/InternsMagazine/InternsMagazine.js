@@ -28,6 +28,7 @@ const InternsMagazine = ({ isLoading, magazines }) => {
     slidesToShow: 6,
     slidesToScroll: 1,
     centerMode: false,
+
     cssEase: "ease-in-out",
     prevArrow: <Arrow type="prev" size={100} />,
     nextArrow: <Arrow size={100} />,
@@ -71,6 +72,7 @@ const InternsMagazine = ({ isLoading, magazines }) => {
         settings: {
           arrows: true,
           centerMode: true,
+          centerPadding: 0,
           slidesToShow: 1,
         },
       },
