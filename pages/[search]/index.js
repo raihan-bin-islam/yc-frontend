@@ -8,10 +8,10 @@ const Search = () => {
   const { keyword } = router.query;
   const [isLoading, events] = useFetch("/events");
   const filterSearchData = (keyword) => {
-    if (keyword.length > 3) {
-      return events.length > 0 && events.filter(({ title }) => title.toLowerCase().includes(keyword.toLowerCase()));
+    if (keyword && keyword.length > 3) {
+      return events.filter(({ title }) => title.toLowerCase().includes(keyword.toLowerCase()));
     }
-    return "query should be more than 3 characters at least";
+    return [];
   };
   const searchResult = filterSearchData(keyword);
 
