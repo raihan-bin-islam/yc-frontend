@@ -7,12 +7,15 @@ const Search = () => {
   const router = useRouter();
   const { keyword } = router.query;
   const [isLoading, events] = useFetch("/events");
+
+  // filter and return the array based on search keyword
   const filterSearchData = (keyword) => {
     if (keyword && keyword.length > 3) {
       return events.filter(({ title }) => title.toLowerCase().includes(keyword.toLowerCase()));
     }
     return [];
   };
+  // variable to hold the filtered data
   const searchResult = filterSearchData(keyword);
 
   return (
