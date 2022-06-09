@@ -27,6 +27,9 @@
       grid-template-columns: repeat(6, 1fr);
       gap: 5rem;
       @include response(vp-800) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include response(M-phone) {
         grid-template-columns: repeat(2, 1fr);
       }
       .bookGridCollection {
