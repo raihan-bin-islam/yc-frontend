@@ -4,13 +4,16 @@ import React from "react";
 import SocialBusinessFaqHeader from "../../../Components/SocialBusinessFaq/SocialBusinessFaqHeader/SocialBusinessFaqHeader";
 import SocialBusinessFaqBody from "../../../Components/SocialBusinessFaq/SocialBusinessFaqBody/SocialBusinessFaqBody";
 
-const index = () => {
+import useFetch from "../../../Components/Hooks/useFetch";
+
+const Faq = () => {
+  const [isLoading, faqData] = useFetch("/faqs");
   return (
     <div>
       <SocialBusinessFaqHeader />
-      <SocialBusinessFaqBody />
+      <SocialBusinessFaqBody faqData={faqData} />
     </div>
   );
 };
 
-export default index;
+export default Faq;

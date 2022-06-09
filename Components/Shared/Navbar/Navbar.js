@@ -51,10 +51,17 @@ const Navbar = () => {
 
   const HandleSearchInput = () => {
     setSearchOpen(true);
+    // router.push("/media/news");
   };
 
   const HandleSearchClose = () => {
     setSearchOpen(false);
+  };
+
+  const handleSearch = (e) => {
+    // console.log(e);
+    e.code === "Enter" && router.push(`/search?keyword=${e.target.value}`);
+    console.log(e.target.value);
   };
 
   const handleScroll = () => {
@@ -261,7 +268,7 @@ const Navbar = () => {
       {/* search box */}
       {searchOpen && (
         <div className={searchInput} id="searchInput">
-          <input type="text" placeholder="search your query.." />
+          <input type="text" placeholder="search your query.." onKeyUp={handleSearch} />
           <span className={inputCross} onClick={HandleSearchClose}>
             <img src={crossIcon.src} alt="brand-yc" />
           </span>
