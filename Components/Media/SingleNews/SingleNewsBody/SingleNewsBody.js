@@ -1,10 +1,10 @@
 import React from "react";
 
 // CSS
-import styles from "./NewsHighlightsBody.module.scss";
+import styles from "./SingleNewsBody.module.scss";
 
 // API
-import useFetch from "../../Hooks/useFetch";
+import useFetch from "../../../Hooks/useFetch";
 
 function NewsHighlightsBody() {
   const { newsBody } = styles;

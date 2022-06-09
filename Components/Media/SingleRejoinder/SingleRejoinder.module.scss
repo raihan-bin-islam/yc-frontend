@@ -1,0 +1,47 @@
+@import "../../../styles/utils/base";
+
+.rejoinderContainer {
+  .rejoinderHeader {
+  }
+  .rejoinderBody {
+    position: relative;
+
+    .layoutContainer {
+      height: 55rem;
+      width: 40rem;
+
+      position: absolute;
+      top: -5rem;
+      right: -21.5rem;
+    }
+
+    .headingContainer {
+      padding-top: 10rem;
+      h1 {
+        font-size: 5.3rem;
+        font-weight: $bold;
+        color: $textDark;
+        margin-bottom: 10rem;
+      }
+      .box {
+        display: flex;
+        gap: 5rem;
+
+        span {
+          font-size: 1.5rem;
+          color: $textLight;
+        }
+      }
+    }
+    .bodyContainer {
+      padding-block: 5rem;
+
+      p {
+        font-size: 2rem;
+        color: $textDark;
+        margin-block: 2rem;
+        line-height: 1.3;
+      }
+    }
+  }
+}
