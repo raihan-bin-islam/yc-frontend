@@ -11,7 +11,6 @@ const SingleNewsPage = () => {
   const { id } = router.query;
   const [isLoading, newsData] = useFetch("/news");
   const singleNews = newsData?.filter(({ id: newsId }) => newsId === id);
-  console.log(singleNews);
 
   return (
     <>
