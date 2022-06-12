@@ -1,4 +1,4 @@
-@import "../../../styles/utils/base";
+@import "../../../../styles/utils/base";
 
 .newsHeader {
   .contentContainer {
@@ -25,7 +25,7 @@
         grid-row: row-start 2 / row-end 2;
       }
       h1 {
-        font-size: 5.3rem;
+        font-size: 4.3rem;
         font-weight: bold;
         margin-top: auto;
       }

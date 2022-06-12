@@ -1,21 +1,21 @@
 import React from "react";
 
 // COMPONENTS
-import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
+import HeroBannerSmall from "../../../Shared/HeroBannerSmall/HeroBannerSmall";
 
 // IMAGE
-import newImage from "../../../public/assets/images/media/news-and-highlights/news-image.png";
+import newImage from "../../../../public/assets/images/media/news-and-highlights/news-image.png";
 
 // API
 import useFetch from "../../../Hooks/useFetch";
 
 // CSS
-import styles from "./SingleNewsHeader.scss";
+import styles from "./SingleNewsHeader.module.scss";
 
-function NewsHighlightsHeader() {
+function SingleNewsHeader({ singleNewsData }) {
   const { newsHeader, textContainer, box, contentContainer, imageContainer } = styles;
 
-  const [isLoading, data] = useFetch("/news");
+  // const [isLoading, data] = useFetch("/news");
 
   // console.log(data);
 
@@ -24,19 +24,19 @@ function NewsHighlightsHeader() {
       <HeroBannerSmall />
       <div className={`${contentContainer} container-layout`}>
         <div className={textContainer}>
-          <h1>Mahathir Mohammad Invites Professor Yunus for a Discussion</h1>
+          <h1>{singleNewsData?.title}</h1>
           <div className={box}>
             <span>Published by Yunus Centre</span>
-            <span>Press Release (March 30, 2022)</span>
+            <span>{singleNewsData?.published_at}</span>
           </div>
         </div>
         <div className={imageContainer}>
-          <img src={newImage.src} alt="image" />
-          <span>Nobel Peace laureate Professor Muhammad Yunus and Mahathir Mohammad</span>
+          <img src={singleNewsData?.thumb_image} alt="image" />
+          <span>{singleNewsData?.image_caption}</span>
         </div>
       </div>
     </div>
   );
 }
 
-export default NewsHighlightsHeader;
+export default SingleNewsHeader;

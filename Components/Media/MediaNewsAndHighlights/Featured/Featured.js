@@ -48,6 +48,7 @@ const Featured = ({ newsData }) => {
             {newsData.length > 2 && (
               <>
                 <NewsHighlightCard
+                  id={newsData[0].id}
                   image={newsData[0].thumb_image}
                   title={newsData[0].title}
                   publishedBy="Published by Yunus Centre"
@@ -56,6 +57,7 @@ const Featured = ({ newsData }) => {
                 />
                 <span></span>
                 <NewsHighlightCard
+                  id={newsData[1].id}
                   image={newsData[1].thumb_image}
                   title={newsData[1].title}
                   publishedBy="Published by Yunus Centre"
@@ -73,7 +75,7 @@ const Featured = ({ newsData }) => {
               newsData
                 .filter(({ is_highlight }, index) => is_highlight && index < 20)
                 .map(({ id, thumb_image, title }) => {
-                  return <Highlight key={id} image={thumb_image} description={title} />;
+                  return <Highlight key={id} id={id} image={thumb_image} description={title} />;
                 })}
           </div>
           <div className={buttonComponent}>

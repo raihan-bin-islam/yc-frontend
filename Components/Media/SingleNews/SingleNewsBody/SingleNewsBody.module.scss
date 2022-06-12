@@ -1,9 +1,13 @@
-@import "../../../styles/utils/base";
+@import "../../../../styles/utils/base";
 
 .newsBody {
   padding-block: 10rem;
+  font-size: 2rem;
+  line-height: 1.3;
+  color: $textDark;
 
-  p {
+  p,
+  span {
     font-size: 2rem;
     line-height: 1.3;
     color: $textDark;
@@ -28,6 +32,7 @@
       width: 100%;
     }
   }
+
   em {
     display: block;
     width: 80%;

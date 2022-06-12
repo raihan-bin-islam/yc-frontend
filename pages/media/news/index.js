@@ -12,7 +12,6 @@ const News = () => {
   return (
     <>
       <Hero />
-
       <div className="container-layout pb10 negMargin12">
         {newsData ? <Featured newsData={newsData} /> : <PreLoader />}
       </div>

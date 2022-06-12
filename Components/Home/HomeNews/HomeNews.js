@@ -32,6 +32,7 @@ const HomeNews = ({ isLoading, newsData }) => {
                 return (
                   <NewsCard
                     key={id}
+                    id={id}
                     heading={title}
                     publisher="Published by Yunus Centre"
                     pressRelease={published_at}
@@ -55,7 +56,7 @@ const HomeNews = ({ isLoading, newsData }) => {
                   return is_highlight;
                 })
                 .map(({ id, title, thumb_image }) => {
-                  return <Highlight key={id} image={thumb_image} description={title} />;
+                  return <Highlight key={id} id={id} image={thumb_image} description={title} />;
                 })
             ) : (
               <PreLoader />

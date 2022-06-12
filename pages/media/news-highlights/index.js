@@ -1,16 +1,16 @@
 import React from "react";
 
 // COMPONENTS
-import NewsHighlightsHeader from "../../../Components/NewsHighlights/NewsHighlightsHeader/NewsHighlightsHeader";
-import NewsHighlightsBody from "../../../Components/NewsHighlights/NewsHighlightsBody/NewsHighlightsBody";
+import SingleNewsHeader from "../../../Components/Media/SingleNews/SingleNewsHeader/SingleNewsHeader";
+import SingleNewsBody from "../../../Components/Media/SingleNews/SingleNewsBody/SingleNewsBody";
 
-function newsHighlights() {
+function NewsHighlights() {
   return (
     <div>
-      <NewsHighlightsHeader />
-      <NewsHighlightsBody />
+      <SingleNewsHeader />
+      <SingleNewsBody />
     </div>
   );
 }
 
-export default newsHighlights;
+export default NewsHighlights;

@@ -4,7 +4,7 @@ import Image from "next/dist/client/image";
 import { newsComponentData } from "./data";
 import Link from "next/link";
 
-const NewsCard = ({ heading, publisher, pressRelease, news, altText, image, featured }) => {
+const NewsCard = ({ id, heading, publisher, pressRelease, news, altText, image, featured }) => {
   //classnames
   const {
     container,
@@ -17,8 +17,12 @@ const NewsCard = ({ heading, publisher, pressRelease, news, altText, image, feat
     readMore,
     featuredContainer,
   } = styles;
+  // slice news description
   const newsSliced = news.slice(0, 600);
+  // add ellipsis after 600 characters
   const newsDataWithEllipsis = newsSliced.concat("...");
+
+  const titledUrl = heading.toLowerCase().replace(/\s+/g, "-").trim();
   // data
   //const { image, altText, heading, publisher, pressRelease, news } = newsComponentData;
 
@@ -33,7 +37,7 @@ const NewsCard = ({ heading, publisher, pressRelease, news, altText, image, feat
       <span className={newsPublisher}>{publisher}</span> <span className={newsPublisher}>{pressRelease}</span>
       <p className={newsParagraph} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
       <div className={button}>
-        <Link href="#" passHref>
+        <Link href={`/media/news/${id}/${titledUrl}`} passHref>
           <a>
             <button className={readMore}>Read More</button>
           </a>

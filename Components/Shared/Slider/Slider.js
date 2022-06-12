@@ -78,6 +78,7 @@ const Sliders = ({ cardType, numberOfSlides = 4, sliderData }) => {
               return (
                 <RecentNewsCard
                   key={data.id}
+                  id={data.id}
                   image={data.thumb_image}
                   title={data.title}
                   publishedBy="Published by Yunus Centre"

@@ -1,4 +1,8 @@
 import React from "react";
+
+import Link from "next/link";
+
+// Styles
 import {
   cardContainer,
   highlightCard,
@@ -10,10 +14,14 @@ import {
 
 import ButtonLight from "../../Shared/Button/Button";
 
-const NewsHighlightCard = ({ image, title, publishedBy, pressRelease, newsContent }) => {
+const NewsHighlightCard = ({ id, image, title, publishedBy, pressRelease, newsContent }) => {
   // slice the news description
   const newsSliced = newsContent.slice(0, 300);
+  // add ellipsis after 300 characters
   const newsDataWithEllipsis = newsSliced.concat("...");
+
+  // converts the title into url link
+  const titledUrl = title.toLowerCase().replace(/\s+/g, "-").trim();
 
   return (
     <div className={`${cardContainer}`}>
@@ -26,7 +34,11 @@ const NewsHighlightCard = ({ image, title, publishedBy, pressRelease, newsConten
         </div>
         <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
         <div className={buttonComponent}>
-          <ButtonLight text="Read More" />
+          <Link href={`/media/news/${id}/${titledUrl}`} passHref>
+            <a>
+              <ButtonLight text="Read More" />
+            </a>
+          </Link>
         </div>
       </div>
     </div>

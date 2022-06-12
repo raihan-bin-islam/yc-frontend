@@ -9,11 +9,16 @@ import {
 } from "./recentNewsCard.module.scss";
 
 import ButtonLight from "../../Shared/Button/Button";
+import Link from "next/link";
 
-const RecentNewsCard = ({ image, title, publishedBy, pressRelease, newsContent, highlight }) => {
+const RecentNewsCard = ({ id, image, title, publishedBy, pressRelease, newsContent, highlight }) => {
   // slice the news description
   const newsSliced = newsContent.slice(0, 300);
+  // add ellipsis after 300 characters
   const newsDataWithEllipsis = newsSliced.concat("...");
+
+  // converts the title into url link
+  const titledUrl = title.toLowerCase().replace(/\s+/g, "-").trim();
 
   return (
     <div className={`${cardContainer} ${highlight && highlightCard}`}>
@@ -27,7 +32,11 @@ const RecentNewsCard = ({ image, title, publishedBy, pressRelease, newsContent, 
         {highlight && <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>}
       </div>
       <div className={buttonComponent}>
-        <ButtonLight text="Read More" />
+        <Link href={`/media/news/${id}/${titledUrl}`} passHref>
+          <a>
+            <ButtonLight text="Read More" />
+          </a>
+        </Link>
       </div>
     </div>
   );

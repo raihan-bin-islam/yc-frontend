@@ -6,10 +6,8 @@ import styles from "./SingleNewsBody.module.scss";
 // API
 import useFetch from "../../../Hooks/useFetch";
 
-function NewsHighlightsBody() {
+function SingleNewsBody({ singleNewsData }) {
   const { newsBody } = styles;
-
-  const [isLoading, data] = useFetch("/news");
 
   return (
     <div className={`${newsBody} container-layout`}>
@@ -21,9 +19,9 @@ function NewsHighlightsBody() {
         ut aliqua aute laboris cillum aliqua exercitation. Consequat et labore
         in ad esse deserunt minim excepteur.
       </p> */}
-      <div dangerouslySetInnerHTML={{ __html: data.length > 0 && data[0].desc }}></div>
+      <div dangerouslySetInnerHTML={{ __html: singleNewsData?.desc }}></div>
     </div>
   );
 }
 
-export default NewsHighlightsBody;
+export default SingleNewsBody;
