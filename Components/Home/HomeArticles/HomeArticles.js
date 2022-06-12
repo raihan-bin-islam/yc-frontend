@@ -14,6 +14,7 @@ import styles from "./home_articles.module.scss";
 import SliderCard from "../../Shared/SliderCard/SliderCard";
 import Background from "./Background";
 import PreLoader from "../../Shared/PreLoader/PreLoader";
+import ButtonLight from "../../Shared/Button/Button";
 
 const HomeArticles = ({ isLoading, articlesData }) => {
   // UI States
@@ -90,7 +91,11 @@ const HomeArticles = ({ isLoading, articlesData }) => {
       </div>
       {/* see all */}
       <div className={articleFooter}>
-        <Link href="/">See All</Link>
+        <Link href="/" passHref>
+          <a>
+            <ButtonLight text="See All" />
+          </a>
+        </Link>
       </div>
     </section>
   );

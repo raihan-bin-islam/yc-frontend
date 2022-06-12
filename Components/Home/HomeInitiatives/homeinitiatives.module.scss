@@ -48,24 +48,24 @@
           font-weight: $bold;
           margin-top: 14rem;
         }
-        button {
-          outline: 0;
-          border: 1px solid $secondaryCyan;
-          background-color: inherit;
-          color: $primary;
-          padding: 1rem 3.4rem;
-          font-size: 16px;
-          text-transform: capitalize;
-          margin-top: 7rem;
-          transition: 0.3s;
-          &:hover {
-            background-color: $secondaryCyan;
-          }
-          a {
-            color: $primary;
-            text-decoration: none;
-          }
-        }
+        // button {
+        //   outline: 0;
+        //   border: 1px solid $secondaryCyan;
+        //   background-color: inherit;
+        //   color: $primary;
+        //   padding: 1rem 3.4rem;
+        //   font-size: 16px;
+        //   text-transform: capitalize;
+        //   margin-top: 7rem;
+        //   transition: 0.3s;
+        //   &:hover {
+        //     background-color: $secondaryCyan;
+        //   }
+        //   a {
+        //     color: $primary;
+        //     text-decoration: none;
+        //   }
+        // }
       }
       .bodyRow1Right {
         img {
@@ -103,24 +103,24 @@
           font-size: 4.3rem;
           color: $textDark;
         }
-        button {
-          outline: 0;
-          border: 1px solid $secondaryCyan;
-          background-color: inherit;
-          color: $primary;
-          padding: 1rem 3.4rem;
-          font-size: 16px;
-          text-transform: capitalize;
-          margin-top: 7rem;
-          transition: 0.3s;
-          &:hover {
-            background-color: $secondaryCyan;
-          }
-          a {
-            color: $primary;
-            text-decoration: none;
-          }
-        }
+        // button {
+        //   outline: 0;
+        //   border: 1px solid $secondaryCyan;
+        //   background-color: inherit;
+        //   color: $primary;
+        //   padding: 1rem 3.4rem;
+        //   font-size: 16px;
+        //   text-transform: capitalize;
+        //   margin-top: 7rem;
+        //   transition: 0.3s;
+        //   &:hover {
+        //     background-color: $secondaryCyan;
+        //   }
+        //   a {
+        //     color: $primary;
+        //     text-decoration: none;
+        //   }
+        // }
       }
       .bodyRow2Right {
         display: grid;
@@ -147,26 +147,31 @@
             font-size: 6.3rem;
             color: $textDark;
           }
-          button {
-            outline: 0;
-            border: 1px solid $secondaryCyan;
-            background-color: inherit;
-            color: $primary;
-            padding: 1rem 3.4rem;
-            font-size: 16px;
-            text-transform: capitalize;
-            margin-top: 7rem;
-            transition: 0.3s;
-            &:hover {
-              background-color: $secondaryCyan;
-            }
-            a {
-              color: $primary;
-              text-decoration: none;
-            }
-          }
+
+          // button {
+          //   outline: 0;
+          //   border: 1px solid $secondaryCyan;
+          //   background-color: inherit;
+          //   color: $primary;
+          //   padding: 1rem 3.4rem;
+          //   font-size: 16px;
+          //   text-transform: capitalize;
+          //   margin-top: 7rem;
+          //   transition: 0.3s;
+          //   &:hover {
+          //     background-color: $secondaryCyan;
+          //   }
+          //   a {
+          //     color: $primary;
+          //     text-decoration: none;
+          //   }
+          // }
         }
       }
     }
   }
+}
+
+.buttonComponent {
+  margin-top: 7rem;
 }

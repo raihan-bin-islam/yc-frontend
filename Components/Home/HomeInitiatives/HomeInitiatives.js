@@ -5,6 +5,8 @@ import initiative2 from "../../../public/assets/images/landing_page/initiative2.
 import initiative3 from "../../../public/assets/images/landing_page/initiative3.jpg";
 import threeZeroImg from "../../../public/assets/images/landing_page/3zero_logo.svg";
 import BgSvg from "./bgSvg/BgSvg";
+import Link from "next/link";
+import ButtonLight from "../../Shared/Button/Button";
 
 const HomeInitiatives = () => {
   const {
@@ -19,6 +21,7 @@ const HomeInitiatives = () => {
     bodyRow2Left,
     bodyRow2Right,
     rightContent,
+    buttonComponent,
   } = styles;
   return (
     <section className={initiativesSection}>
@@ -32,11 +35,14 @@ const HomeInitiatives = () => {
               The 3ZERO Club is an initiative towards achieving the Nobel Peace Laureate Professor Muhammad Yunus’s
               vision of creating a world of three zeros{" "}
             </p>
-            <button>
-              <a href="https://3zero.club/" target="_blank" rel="noreferrer">
-                learn more
-              </a>
-            </button>
+
+            <div className={buttonComponent}>
+              <Link href="https://3zero.club/">
+                <a target="_blank" rel="noreferrer">
+                  <ButtonLight text="learn more" />
+                </a>
+              </Link>
+            </div>
           </div>
           <div className={bodyRow1Right}>
             <img src={initiative1.src} alt="initiative-1" />
@@ -49,12 +55,15 @@ const HomeInitiatives = () => {
               <h2>YSBC</h2>
               <h3>YUNUS SOCIAL BUSINESS CENTRE</h3>
             </div>
+
             <div>
-              <button>
-                <a href="https://socialbusinesspedia.com/ysbc/pages/about-YSBC" target="_blank" rel="noreferrer">
-                  learn more
-                </a>
-              </button>
+              <div className={buttonComponent}>
+                <Link href="https://socialbusinesspedia.com/ysbc/pages/about-YSBC">
+                  <a target="_blank" rel="noreferrer">
+                    <ButtonLight text="learn more" />
+                  </a>
+                </Link>
+              </div>
             </div>
           </div>
           <div className={bodyRow2Right}>
@@ -65,11 +74,14 @@ const HomeInitiatives = () => {
               <div>
                 <h4>SOCIAL BUSINESS</h4>
                 <h2>DESIGN LAB</h2>
-                <button>
-                  <a href="https://socialbusinesspedia.com/designlab" target="_blank" rel="noreferrer">
-                    learn more
-                  </a>
-                </button>
+
+                <div className={buttonComponent}>
+                  <Link href="https://socialbusinesspedia.com/designlab">
+                    <a target="_blank" rel="noreferrer">
+                      <ButtonLight text="learn more" />
+                    </a>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
