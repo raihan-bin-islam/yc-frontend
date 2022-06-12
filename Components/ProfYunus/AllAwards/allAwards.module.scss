@@ -5,6 +5,16 @@
   .awardsContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    @include response(vp-800) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include response(phone) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include response(s-phone) {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 2rem;
+    }
   }
 
   .buttonComponent {
