@@ -18,10 +18,10 @@ const SocialBusinessPrinciples = ({ isLoading, principles }) => {
         <span>of Social Business</span>
       </div>
       <div className={principlesContainer}>
-        {principles?.map(({ id, title, order }) => {
+        {principles?.map(({ id, title, order }, index) => {
           return (
             <div className={item} key={id}>
-              <PrincipleCard number={order} text={title} />
+              <PrincipleCard number={order} text={title} left={index % 2 == 0 && index < 6} right={index % 2 !== 0} />
             </div>
           );
         })}

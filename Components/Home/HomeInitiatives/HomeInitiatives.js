@@ -7,8 +7,11 @@ import threeZeroImg from "../../../public/assets/images/landing_page/3zero_logo.
 import BgSvg from "./bgSvg/BgSvg";
 import Link from "next/link";
 import ButtonLight from "../../Shared/Button/Button";
+import useScrollReveal from "../../Hooks/useScrollReveal";
 
 const HomeInitiatives = () => {
+  const { revealFromTop, revealFromRight, revealFromBottom, revealFromLeft } = useScrollReveal("home__initiatives");
+
   const {
     bgSvg,
     initiativesSection,
@@ -23,20 +26,23 @@ const HomeInitiatives = () => {
     rightContent,
     buttonComponent,
   } = styles;
+
+  // Scroll reveal classes
+
   return (
     <section className={initiativesSection}>
       <BgSvg className={bgSvg} />
       <h2 className={initiativeHeader}>LATEST INITIATIVES</h2>
       <div className={`container-layout ${initiativeBody}`}>
         <div className={bodyRow1}>
-          <div className={bodyRow1Left}>
-            <img src={threeZeroImg.src} alt="3zero club" />
-            <p>
+          <div className={`${bodyRow1Left}`}>
+            <img className={revealFromLeft} src={threeZeroImg.src} alt="3zero club" />
+            <p className={revealFromLeft}>
               The 3ZERO Club is an initiative towards achieving the Nobel Peace Laureate Professor Muhammad Yunus’s
               vision of creating a world of three zeros{" "}
             </p>
 
-            <div className={buttonComponent}>
+            <div className={`${buttonComponent} ${revealFromLeft}`}>
               <Link href="https://3zero.club/">
                 <a target="_blank" rel="noreferrer">
                   <ButtonLight text="learn more" />

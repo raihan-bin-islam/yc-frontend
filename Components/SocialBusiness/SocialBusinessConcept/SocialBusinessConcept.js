@@ -14,6 +14,7 @@ import styles from "./socialBusinessConcept.module.scss";
 
 // Next Link
 import Link from "next/link";
+import useScrollReveal from "../../Hooks/useScrollReveal";
 
 const SocialBusinessConcept = () => {
   const {
@@ -31,6 +32,8 @@ const SocialBusinessConcept = () => {
     layoutContainer1,
   } = styles;
 
+  const { revealFromLeft, revealFromRight } = useScrollReveal("sb__concept");
+
   return (
     <section className={conceptSection}>
       <div className={layoutContainer}>
@@ -39,10 +42,10 @@ const SocialBusinessConcept = () => {
       <div className={`${conceptBox} container-layout`}>
         <div className={conceptBoxLeft}>
           <div className={imageContainer}>
-            <img className={conceptImg} src={conceptImage.src} alt="concept image" />
+            <img className={`${conceptImg} ${revealFromLeft}`} src={conceptImage.src} alt="concept image" />
           </div>
         </div>
-        <div className={conceptBoxRight}>
+        <div className={`${conceptBoxRight} ${revealFromRight}`}>
           <h1>concept of social business</h1>
           <p className={largePara}>
             Social business is a cause-driven business. In a social business, the investors/owners can gradually recoup
