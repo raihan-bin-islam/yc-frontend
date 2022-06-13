@@ -14,9 +14,7 @@ export default function Home() {
   const [articlesIsPending, articlesData] = useFetch("/articles");
   const [videoIsLoading, videoData] = useFetch("/yunus-speech");
 
-  // console.log(videoData);
   const homePageVideos = videoData && videoData.filter(({ is_home_page }) => is_home_page);
-  // console.log(homePageVideos);
 
   return (
     <div>
@@ -25,7 +23,7 @@ export default function Home() {
       {latestEvents.length > 0 && <HomeLatestEvents isLoading={eventIsLoading} latestEvents={latestEvents} />}
       {newsData.length > 0 && <HomeNews isLoading={newsIsLoading} newsData={newsData} />}
       {articlesData.length > 0 && <HomeArticles isLoading={articlesIsPending} articlesData={articlesData} />}
-      <HomeInitiatives />
+      {!videoIsLoading && <HomeInitiatives />}
       {homePageVideos.length > 0 && <HomeVideoSlide isLoading={videoIsLoading} videoData={homePageVideos} />}
     </div>
   );
