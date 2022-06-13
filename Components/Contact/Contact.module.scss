@@ -1,0 +1,66 @@
+@import "../../styles/utils/base";
+
+.contactContainer {
+  .contactHeader {
+  }
+  .contactBody {
+    position: relative;
+    padding-block: 10rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+
+    @include response(phone) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, [row-start] min-content [row-end]);
+      gap: 15rem;
+    }
+
+    .layoutContainer {
+      position: absolute;
+      top: -10rem;
+      right: 0;
+      z-index: -1;
+
+      @include response(big-desktop-max) {
+        top: -20rem;
+      }
+    }
+    .mapContainer {
+      @include response(phone) {
+        grid-row: row-start 2 / row-end 2;
+        height: 50rem;
+      }
+    }
+    .formContainer {
+      height: 50rem;
+
+      @include response(phone) {
+        grid-row: row-start 1 / row-end 1;
+        height: 40rem;
+      }
+    }
+  }
+  .leafContainer {
+    margin-bottom: -22rem;
+    padding-left: 8rem;
+
+    @include response(phone) {
+      padding-left: 0;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    svg {
+      height: 68rem;
+      width: 50rem;
+      margin-top: -10rem;
+
+      @include response(phone) {
+        height: 58rem;
+        width: 40rem;
+      }
+    }
+  }
+}

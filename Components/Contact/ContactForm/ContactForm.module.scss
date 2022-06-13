@@ -1,0 +1,35 @@
+@import "../../../styles/utils/base";
+
+.contactForm {
+  position: relative;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .inputContainer,
+  .textareaContainer {
+    input,
+    textarea {
+      width: 100%;
+      padding: 1.5rem 2.5rem;
+      font-size: 1.8rem;
+      border: none;
+    }
+    textarea {
+      height: 100%;
+    }
+  }
+  .inputContainer {
+    margin-bottom: 2rem;
+  }
+  .textareaContainer {
+    height: 100%;
+  }
+  .btnContainer {
+    position: absolute;
+    bottom: -8rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
