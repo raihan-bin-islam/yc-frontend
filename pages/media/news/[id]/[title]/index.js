@@ -7,6 +7,7 @@ import useFetch from "../../../../../Components/Hooks/useFetch";
 
 import SingleNewsHeader from "../../../../../Components/Media/SingleNews/SingleNewsHeader/SingleNewsHeader";
 import ButtonLight from "../../../../../Components/Shared/Button/Button";
+import Link from "next/link";
 
 const SingleNewsPage = () => {
   const router = useRouter();
@@ -18,7 +19,13 @@ const SingleNewsPage = () => {
     <>
       {singleNews.length > 0 && <SingleNewsHeader singleNewsData={singleNews[0]} />}
       {singleNews.length > 0 && <SingleNewsBody singleNewsData={singleNews[0]} />}
-      <ButtonLight text="Back" />
+      <div className="container-layout pb10">
+        <Link href="/media/news" passHref>
+          <a>
+            <ButtonLight text="Back" />
+          </a>
+        </Link>
+      </div>
     </>
   );
 };
