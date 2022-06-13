@@ -1,14 +1,16 @@
 import React from "react";
 import Programs from "../../../Components/Shared/Programs/Programs";
 // import data
-import programs from "../../../staticPageData/visitPrograms/ycPrograms/programs/programs.json";
+// import programs from "../../../staticPageData/visitPrograms/ycPrograms/programs/programs.json";
 import linksData from "../../../staticPageData/visitPrograms/ycPrograms/hero/links.json";
 
 import heroBanner from "../../../public/assets/images/visit_programs/yc_programs/yc_programs_banner.png";
 // import component
 import HeroWithLinks from "../../../Components/Shared/HeroWithLinks/HeroWithLinks";
+import useFetch from "../../../Components/Hooks/useFetch";
 
 const OurPrograms = () => {
+  const [isLoading, programs] = useFetch("/visit-programs");
   return (
     <>
       <HeroWithLinks linksData={linksData} bannerImage={heroBanner} capitalize />

@@ -86,11 +86,18 @@
       }
       .aboutJoinRightBodyForm {
         margin-top: 10.8rem;
+        .applicationInfo {
+          font-size: 1.8rem;
+          font-weight: $medium;
+          color: #cc0000;
+          text-align: center;
+          transition: all 1s ease;
+        }
       }
       .aboutJoinRightFooter {
         text-align: center;
         margin-top: 4rem;
-        padding-left: 9.9rem;
+        // padding-left: 9.9rem; temporarily commented out
         @include response(vp-800) {
           padding-left: 0;
         }

@@ -13,11 +13,11 @@ const Programs = ({ programs, handbook }) => {
     <section className={programsSection}>
       <ProgramsBgSVg className={programsSvg} />
       <div className={`${programsContainer} container-layout`}>
-        {programs.map(({ link, title, details, image }, index) => {
+        {programs.map(({ id, title, desc, category, thumb_image, handbook }, index) => {
           return (
-            <React.Fragment key={index}>
-              <ProgramsCard link={link} title={title} image={image} />
-              <ProgramDetails details={details} handbook={handbook} />
+            <React.Fragment key={id}>
+              <ProgramsCard link={category} title={title} image={thumb_image} />
+              <ProgramDetails details={desc} handbook={handbook} />
             </React.Fragment>
           );
         })}

@@ -15,6 +15,7 @@ const AboutJoinUs = () => {
     aboutJoinRightBody,
     aboutJoinRightBodyForm,
     aboutJoinRightFooter,
+    applicationInfo,
   } = styles;
 
   // states
@@ -42,20 +43,22 @@ const AboutJoinUs = () => {
             <div className={aboutJoinRightHeader}>
               <h2>join us</h2>
             </div>
-            {!isSubmit && (
-              <div className={aboutJoinRightBody}>
-                <p>
-                  Yunus Centre seeks like-minded individuals who are driven by a
-                  strong sense of purpose, creation and passion for excellence.
-                  If you want to be part of a strong, diverse team that has the
-                  potential to redefine the large and tune in with rapidly
-                  growing industry then join us.
-                </p>
-                <button onClick={handleIsSubmit}>submit your CV</button>
-              </div>
-            )}
+            {/* All the commented out code should be re-added when applications are open */}
+            {/* {!isSubmit && ( */}
+            <div className={aboutJoinRightBody}>
+              <p>
+                Yunus Centre seeks like-minded individuals who are driven by a strong sense of purpose, creation and
+                passion for excellence. If you want to be part of a strong, diverse team that has the potential to
+                redefine the large and tune in with rapidly growing industry then join us.
+              </p>
+              {!isSubmit && <button onClick={handleIsSubmit}>submit your CV</button>}
+            </div>
+            {/* )} */}
             <div className={aboutJoinRightBodyForm}>
-              {isSubmit && <AboutForm />}
+              {/* {isSubmit && <AboutForm />} */}
+              {isSubmit && (
+                <p className={applicationInfo}>We are not taking any applications currently, please apply later</p>
+              )}
             </div>
             {isSubmit && (
               <div className={aboutJoinRightFooter}>
