@@ -89,7 +89,7 @@ const Navbar = () => {
             </a>
           </Link>
         </div>
-        <div className={menuContainer}>
+        <div className={menuContainer} onClick={HandleMenuClose}>
           <ul className={mainList} ref={navRef}>
             <li>
               <Link href="/">
