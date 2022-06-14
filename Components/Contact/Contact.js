@@ -15,15 +15,8 @@ import LeafSvg from "../Shared/CommonSvg/LeafSvg";
 import styles from "./Contact.module.scss";
 
 const Contact = () => {
-  const {
-    contactContainer,
-    contactHeader,
-    contactBody,
-    mapContainer,
-    formContainer,
-    layoutContainer,
-    leafContainer,
-  } = styles;
+  const { contactContainer, contactHeader, contactBody, mapContainer, formContainer, layoutContainer, leafContainer } =
+    styles;
 
   return (
     <div className={contactContainer}>
@@ -41,10 +34,10 @@ const Contact = () => {
             height="100%"
             id="gmap_canvas"
             src="https://maps.google.com/maps?q=Grameen%20Bank%20Head%20Office,%205%20Mirpur%20Rd,%20Dhaka%201216&t=&z=17&ie=UTF8&iwloc=&output=embed"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            marginheight="0"
-            marginwidth="0"
+            marginHeight="0"
+            marginWidth="0"
           ></iframe>
         </div>
         <div className={formContainer}>
