@@ -62,7 +62,9 @@ const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, ac
       {type === "articles" && (
         <span className={buttons}>
           <LikeButton />
-          <RightArrowLink link={link} />
+          <a href={link}>
+            <RightArrowLink />
+          </a>
         </span>
       )}
 

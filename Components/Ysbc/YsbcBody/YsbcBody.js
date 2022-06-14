@@ -57,20 +57,18 @@ const YsbcBody = () => {
           </div>
           <div className={textContainer}>
             <p>
-              A Yunus Social Business Centre (YSBC) is a hub for social business
-              in universities around the world, following the principles of
-              Nobel Laureate Professor Muhammad Yunus. YSBCs are set in
-              collaboration through agreement between Yunus Centre and the
-              university with the aim of spreading the concept and practice of
-              social business among the university students and researchers.
-              YSBCs conduct research, teaching, academic program and curriculum
-              development, action research, knowledge-sharing events in social
-              business like competitions, workshops and seminars among other
-              things. YSBCs also find new and innovative means to expand the
-              concept of social business among the students and researchers and
-              even outside the university to the larger community and region.
+              A Yunus Social Business Centre (YSBC) is a hub for social business in universities around the world,
+              following the principles of Nobel Laureate Professor Muhammad Yunus. YSBCs are set in collaboration
+              through agreement between Yunus Centre and the university with the aim of spreading the concept and
+              practice of social business among the university students and researchers. YSBCs conduct research,
+              teaching, academic program and curriculum development, action research, knowledge-sharing events in social
+              business like competitions, workshops and seminars among other things. YSBCs also find new and innovative
+              means to expand the concept of social business among the students and researchers and even outside the
+              university to the larger community and region.
             </p>
-            <ButtonLight text="Read More" />
+            <a href="https://socialbusinesspedia.com/ysbc/pages/about-YSBC" target="__blank">
+              <ButtonLight text="Read More" />
+            </a>
           </div>
         </div>
       </div>
@@ -81,30 +79,26 @@ const YsbcBody = () => {
         <div className={textContainer}>
           <h1>become a ysbc</h1>
           <p>
-            To begin the formal process, we require a Letter of Intent from the
-            university by an authorized person from the university which can
-            include its Chancellor, Vice Chancellor, President, Rector,
-            Registrar, Dean, Head of Department or equivalent position proposing
-            the university's interest to set up the Yunus Social Business Centre
-            (YSBC). The letter can be sent electronically through sharing a
-            scanned copy of the signed proposal.
+            To begin the formal process, we require a Letter of Intent from the university by an authorized person from
+            the university which can include its Chancellor, Vice Chancellor, President, Rector, Registrar, Dean, Head
+            of Department or equivalent position proposing the university's interest to set up the Yunus Social Business
+            Centre (YSBC). The letter can be sent electronically through sharing a scanned copy of the signed proposal.
           </p>
           <p>
-            The Yunus Centre upon assessment of the proposal shall revert with
-            the following documents that will need to be signed:
+            The Yunus Centre upon assessment of the proposal shall revert with the following documents that will need to
+            be signed:
           </p>
-          <p>
-            Memorandum of Understanding outlining the provisions of agreement
-          </p>
+          <p>Memorandum of Understanding outlining the provisions of agreement</p>
           <p>Terms of Reference for use of “Yunus” Name</p>
           <p>
-            Upon review of documents by the university and agreement by both the
-            parties to collaborate, the agreements copies are signed by
-            representatives of the Yunus Centre and the university to mark the
-            formal establishment of the YSBC.
+            Upon review of documents by the university and agreement by both the parties to collaborate, the agreements
+            copies are signed by representatives of the Yunus Centre and the university to mark the formal establishment
+            of the YSBC.
           </p>
           <div className={btnContainer}>
-            <ButtonLight text="Apply Now" dark />
+            <a href="https://socialbusinesspedia.com/ysbc/pages/how-to-join" target="__blank">
+              <ButtonLight text="Apply Now" dark />
+            </a>
           </div>
         </div>
         <div className={imageContainer}>
@@ -132,6 +126,7 @@ const YsbcBody = () => {
               photo={data.image}
               link={data.link}
               hoverDisable
+              externalLink
             />
           ))}
         </div>
