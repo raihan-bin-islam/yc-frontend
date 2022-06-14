@@ -6,6 +6,7 @@ import articleImg from "../../../public/assets/images/landing_page/highlight-img
 
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 import ButtonLight from "../../Shared/Button/Button";
+import Link from "next/link";
 
 const HomeNews = ({ isLoading, newsData }) => {
   // Module Style Object Destructuring
@@ -63,7 +64,11 @@ const HomeNews = ({ isLoading, newsData }) => {
             )}
           </div>
           <div className={highlightButton}>
-            <ButtonLight text="See All" />
+            <Link href="/media/news/news-library" passHref>
+              <a>
+                <ButtonLight text="See All" />
+              </a>
+            </Link>
           </div>
         </aside>
       </div>

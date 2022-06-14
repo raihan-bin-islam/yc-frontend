@@ -19,9 +19,9 @@ const AboutOrganizations = () => {
         </div>
         <div className={aboutOrgBody}>
           {orgData.map((org, index) => (
-            <div className={aboutOrgCard} key={`org_${index}`}>
+            <a className={aboutOrgCard} href={org.link} target="__blank" key={`org_${index}`}>
               <img src={org.logo} alt="organizations" />
-            </div>
+            </a>
           ))}
         </div>
       </div>

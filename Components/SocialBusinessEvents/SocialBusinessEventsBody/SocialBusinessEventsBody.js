@@ -36,13 +36,13 @@ const SocialBusinessEventsBody = () => {
         <div className={sliderContainer}>
           <Sliders cardType="events" sliderData={pastEventsData} />
         </div>
-        <div className={btnContainer}>
-          <Link href="/social-business/events/past-events">
+        {/* <div className={btnContainer}>
+          <Link href="#">
             <a>
               <ButtonLight text="See All" />
             </a>
           </Link>
-        </div>
+        </div> */}
       </div>
       <div className={leafContainer}>
         <Layout />

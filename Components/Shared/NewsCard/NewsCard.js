@@ -37,7 +37,7 @@ const NewsCard = ({ id, heading, publisher, pressRelease, news, altText, image, 
       <span className={newsPublisher}>{publisher}</span> <span className={newsPublisher}>{pressRelease}</span>
       <p className={newsParagraph} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
       <div className={button}>
-        <Link href={`/media/news/${id}/${titledUrl}`} passHref>
+        <Link href={`/media/news/${id}`} passHref>
           <a>
             <button className={readMore}>Read More</button>
           </a>

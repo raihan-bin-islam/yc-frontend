@@ -17,6 +17,7 @@ const Navbar = () => {
     navScroll,
     navActive,
     dropdown,
+    dropdownParent,
     mainList,
     burger,
     cross,
@@ -100,9 +101,15 @@ const Navbar = () => {
                 <a className={router.pathname == "/about" ? navActive : ""}>About</a>
               </Link>
             </li>
-            <li>
+            <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname.includes("/social-business") ? navActive : ""}>Social Business</a>
+                <a
+                  className={
+                    router.pathname.includes("/social-business") ? `${navActive} ${dropdownParent}` : dropdownParent
+                  }
+                >
+                  Social Business
+                </a>
               </Link>
               <ul className={dropdown}>
                 <Link href="/social-business/concept">
@@ -115,7 +122,7 @@ const Navbar = () => {
                     <li>Issues</li>
                   </a>
                 </Link>
-                <Link href="/social-business/faq">
+                <Link href="#">
                   <a>
                     <li>FAQs</li>
                   </a>
@@ -135,9 +142,11 @@ const Navbar = () => {
                 <li>About Us</li>
               </ul> */}
             </li>
-            <li>
+            <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname == "/visit-programs" ? navActive : ""}>Visit Programs</a>
+                <a className={router.pathname == "/visit-programs" ? `${navActive} ${dropdownParent}` : dropdownParent}>
+                  Visit Programs
+                </a>
               </Link>
               <ul className={dropdown}>
                 <Link href="/visit-programs/our-programs">
@@ -159,26 +168,28 @@ const Navbar = () => {
                 </Link>
               </ul>
             </li>
-            <li>
+            <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname == "/publications" ? navActive : ""}>Publications</a>
+                <a className={router.pathname == "/publications" ? `${navActive} ${dropdownParent}` : dropdownParent}>
+                  Publications
+                </a>
               </Link>
               {/* dropdown menu */}
               <ul className={dropdown}>
-                <Link href="/publications/recommended-readings">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/publications/recommended-readings"> */}
+                <Link href="#">
                   <a>
                     <li>Recommended Readings</li>
                   </a>
                 </Link>
-                <Link href="/publications/book-reviews">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/publications/book-reviews"> */}
+                <Link href="#">
                   <a>
                     <li>Book Reviews</li>
                   </a>
                 </Link>
-                <Link href="/publications/intern-magazine">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/publications/intern-magazine"> */}
+                <Link href="#">
                   <a>
                     <li>Intern Magazine</li>
                   </a>
@@ -208,9 +219,9 @@ const Navbar = () => {
                 </Link>
               </ul>
             </li>
-            <li>
+            <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname == "/media" ? navActive : ""}>Media</a>
+                <a className={router.pathname == "/media" ? `${navActive} ${dropdownParent}` : dropdownParent}>Media</a>
               </Link>
               <ul className={dropdown}>
                 <Link href="/media/news">
@@ -219,26 +230,26 @@ const Navbar = () => {
                     <li>News</li>
                   </a>
                 </Link>
-                <Link href="/media/press-release">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/media/press-release"> */}
+                <Link href="#">
                   <a>
                     <li>Press Release</li>
                   </a>
                 </Link>
-                <Link href="/media/rejoinders">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/media/rejoinders"> */}
+                <Link href="#">
                   <a>
                     <li>Rejoinders</li>
                   </a>
                 </Link>
-                <Link href="/media/photo-gallery">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/media/photo-gallery"> */}
+                <Link href="#">
                   <a>
                     <li>Photo Gallery</li>
                   </a>
                 </Link>
-                <Link href="/media/videos">
-                  {/* <Link href="#"> */}
+                {/* <Link href="/media/videos"> */}
+                <Link href="#">
                   <a>
                     <li>Video Library</li>
                   </a>

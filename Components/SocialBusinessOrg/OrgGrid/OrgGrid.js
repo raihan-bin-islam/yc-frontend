@@ -29,9 +29,11 @@ const OrgGrid = ({ subHeadline, mainHeadline, orgData, countPerPage }) => {
       <div className={orgGridBody}>
         {orgData &&
           orgData.slice(startOffset, endOffset).map((org, index) => (
-            <div key={`org_${index}`} className={orgGridBodyCard}>
-              <img src={org.thumb_image} alt="organizations" />
-            </div>
+            <a href={org.link} target="__blank" key={org.id}>
+              <div key={`org_${index}`} className={orgGridBodyCard}>
+                <img src={org.thumb_image} alt="organizations" />
+              </div>
+            </a>
           ))}
       </div>
       <div className={paginateContainer}>

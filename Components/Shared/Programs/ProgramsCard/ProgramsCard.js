@@ -2,9 +2,9 @@
 import React from "react";
 // import styles
 import { cardContainer, cardImage, cardTitle } from "./programsCard.module.scss";
-const ProgramsCard = ({ link, title, image }) => {
+const ProgramsCard = ({ sectionId, title, image }) => {
   return (
-    <div className={`${cardContainer} grid-item`} id={link}>
+    <div className={`${cardContainer} grid-item`} id={sectionId}>
       <img className={cardImage} src={image} alt="" />
       <h2 className={cardTitle}>{title}</h2>
     </div>

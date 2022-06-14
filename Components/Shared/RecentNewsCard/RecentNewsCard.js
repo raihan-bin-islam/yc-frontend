@@ -32,7 +32,7 @@ const RecentNewsCard = ({ id, image, title, publishedBy, pressRelease, newsConte
         {highlight && <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>}
       </div>
       <div className={buttonComponent}>
-        <Link href={`/media/news/${id}/${titledUrl}`} passHref>
+        <Link href={`/media/news/${id}`} passHref>
           <a>
             <ButtonLight text="Read More" />
           </a>

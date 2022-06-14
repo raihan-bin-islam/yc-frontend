@@ -34,7 +34,7 @@ const NewsHighlightCard = ({ id, image, title, publishedBy, pressRelease, newsCo
         </div>
         <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
         <div className={buttonComponent}>
-          <Link href={`/media/news/${id}/${titledUrl}`} passHref>
+          <Link href={`/media/news/${id}`} passHref>
             <a>
               <ButtonLight text="Read More" />
             </a>

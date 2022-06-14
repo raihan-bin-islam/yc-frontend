@@ -9,7 +9,7 @@ const Highlight = ({ id, image, description }) => {
   const titledUrl = description.toLowerCase().replace(/\s+/g, "-").trim();
 
   return (
-    <Link href={`/media/news/${id}/${titledUrl}`} passHref>
+    <Link href={`/media/news/${id}`} passHref>
       <a className={highlightContainer}>
         <div className={highlightContainer}>
           <div className={imgContainer}>

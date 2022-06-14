@@ -18,22 +18,22 @@ const MemberCard = ({ image, title, designation, linkedIn }) => {
   // console.log(designation);
 
   return (
-    <div className={aboutTeamBodyCard}>
-      <div className={aboutTeamBodyCardImg}>
-        <img src={image} alt={title} />
-      </div>
-      <div className={aboutTeamBodyCardContent}>
-        <div className={aboutTeamBodyCardContentContainer}>
-          <h2>{title}</h2>
-          <h5>{designation}</h5>
+    <a href={linkedIn} target="_blank" rel="noreferrer">
+      <div className={aboutTeamBodyCard}>
+        <div className={aboutTeamBodyCardImg}>
+          <img src={image} alt={title} />
+        </div>
+        <div className={aboutTeamBodyCardContent}>
+          <div className={aboutTeamBodyCardContentContainer}>
+            <h2>{title}</h2>
+            <h5>{designation}</h5>
+          </div>
+        </div>
+        <div className={aboutTeamBodyCardLinkedIn}>
+          <img src={IconLinkedIn.src} />
         </div>
       </div>
-      <div className={aboutTeamBodyCardLinkedIn}>
-        <a href={linkedIn} target="_blank" rel="noreferrer">
-          <img src={IconLinkedIn.src} />
-        </a>
-      </div>
-    </div>
+    </a>
   );
 };
 

@@ -32,6 +32,7 @@ const Featured = ({ newsData }) => {
             {newsData.length > 0 && (
               <NewsCard
                 key={newsData[0].id}
+                id={newsData[0].id}
                 heading={newsData[0].title}
                 publisher="Published by Yunus Centre"
                 pressRelease={newsData[0].published_at}
