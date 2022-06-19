@@ -25,7 +25,12 @@ const useScrollReveal = (uniqueId = "", offset = 0) => {
   const revealFromLeft = "scroll-reveal__reveal__from-left" + uniqueId;
   // class names to reveal from
 
-  const revealFrom = { revealFromTop, revealFromRight, revealFromBottom, revealFromLeft };
+  const revealFrom = {
+    revealFromTop,
+    revealFromRight,
+    revealFromBottom,
+    revealFromLeft,
+  };
 
   // dynamic import
   useEffect(() => {
