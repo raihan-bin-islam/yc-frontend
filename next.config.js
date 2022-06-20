@@ -9,7 +9,6 @@ const nextConfig = {
   },
   optimizeFonts: false,
   trailingSlash: true / false,
-  exportTrailingSlash: true,
   images: {
     loader: "imgix",
     path: "https://yunus-centre.netlify.app/",

@@ -1,14 +1,14 @@
 import React from "react";
-
-import InternsMagazine from "../../../Components/Publications/InternsMagazine/InternsMagazine";
-
+import useFetch from "../../../Components/Hooks/useFetch";
+// Component
+import Magazine from "../../../Components/Publications/Magazine/Magazine";
+// Data
 import magazines from "../../../staticPageData/publications/magazines.json";
 
 const InternMagazinePage = () => {
+  const [isLoading, internMagazine] = useFetch("/publications?category=interns_magazine");
   return (
-    <>
-      <InternsMagazine isLoading={false} magazines={magazines} />
-    </>
+    <>{internMagazine.length > 0 && <Magazine title={`Interns Magazine`} isLoading={false} data={internMagazine} />}</>
   );
 };
 

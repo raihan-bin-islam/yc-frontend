@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./homeinitiatives.module.scss";
 import initiative1 from "../../../public/assets/images/landing_page/initiative1.jpg";
 import initiative2 from "../../../public/assets/images/landing_page/initiative2.jpg";
@@ -51,19 +51,19 @@ const HomeInitiatives = () => {
             </div>
           </div>
           <div className={bodyRow1Right}>
-            <img src={initiative1.src} alt="initiative-1" />
+            <img className={revealFromRight} src={initiative1.src} alt="initiative-1" />
           </div>
         </div>
         <div className={bodyRow2}>
           <div className={bodyRow2Left}>
-            <img src={initiative2.src} alt="initiative-2" />
+            <img className={revealFromLeft} src={initiative2.src} alt="initiative-2" />
             <div>
-              <h2>YSBC</h2>
-              <h3>YUNUS SOCIAL BUSINESS CENTRE</h3>
+              <h2 className={revealFromLeft}>YSBC</h2>
+              <h3 className={revealFromLeft}>YUNUS SOCIAL BUSINESS CENTRE</h3>
             </div>
 
             <div>
-              <div className={buttonComponent}>
+              <div className={`${buttonComponent} ${revealFromLeft}`}>
                 <Link href="https://socialbusinesspedia.com/ysbc/pages/about-YSBC">
                   <a target="_blank" rel="noreferrer">
                     <ButtonLight text="learn more" />
@@ -74,14 +74,14 @@ const HomeInitiatives = () => {
           </div>
           <div className={bodyRow2Right}>
             <div>
-              <img src={initiative3.src} alt="initiative-3" />
+              <img className={revealFromBottom} src={initiative3.src} alt="initiative-3" />
             </div>
             <div className={rightContent}>
               <div>
-                <h4>SOCIAL BUSINESS</h4>
-                <h2>DESIGN LAB</h2>
+                <h4 className={revealFromRight}>SOCIAL BUSINESS</h4>
+                <h2 className={revealFromRight}>DESIGN LAB</h2>
 
-                <div className={buttonComponent}>
+                <div className={`${buttonComponent} ${revealFromRight}`}>
                   <Link href="https://socialbusinesspedia.com/designlab">
                     <a target="_blank" rel="noreferrer">
                       <ButtonLight text="learn more" />

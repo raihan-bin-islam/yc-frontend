@@ -20,6 +20,7 @@ import HeroBanner from "../HeroBanner/HeroBanner";
 import QuotationSvg from "./QuotationSvg";
 
 import Link from "next/link";
+import BreadCrumb from "../BreadCrumb/BreadCrumb";
 
 const Quotes = ({ heading, title, quotes }) => {
   const [startOffset, setStartOffset] = useState(1);
@@ -37,6 +38,7 @@ const Quotes = ({ heading, title, quotes }) => {
   return (
     <section className={pageSection}>
       <HeroBanner flipped />
+      <BreadCrumb />
       <div className={titleContainer}>
         <h2 className={`${pageTitle} ${heading && titleHeading}`}>{title}</h2>
       </div>

@@ -1,16 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 
-const useScrollReveal = (uniqueId = "", offset = 0) => {
+const useScrollReveal = (uniqueId = "", offset = 100) => {
   //-------------- options ----------------------//
   const bottom = {
     delay: 100,
     // reset: true, // this option determines if we should animate every time the element enters the viewport or not
-    distance: "500px",
+    distance: "800px",
     interval: 150,
     viewOffset: {
       top: offset,
+      bottom: offset,
     },
+    viewFactor: 0.5,
   };
 
   const right = { ...bottom, origin: "right" };

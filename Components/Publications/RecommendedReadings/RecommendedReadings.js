@@ -91,12 +91,9 @@ const RecommendedReadings = ({ isLoading, booksData }) => {
             <div className={bookDetails}>
               <div>
                 <h3>{recommendedBook.title}</h3>
-                <p className={author}>By Professor Muhammad Yunus</p>
+                <p className={author}>By {recommendedBook.author}</p>
               </div>
-              <p className={details}>
-                The University Press Limited Red Crescent House, Level 6 61 Motijheel C/A, Dhaka-1000 Ph#+88029565441.
-                01917733741 info@uplbooks.com.bd
-              </p>
+              <p className={details}>{recommendedBook.desc}</p>
             </div>
           </div>
         </div>
@@ -106,12 +103,14 @@ const RecommendedReadings = ({ isLoading, booksData }) => {
         <Slider {...sliderSettings}>
           {!isLoading ? (
             booksData &&
-            booksData.map(({ id, title, thumb_image }) => {
+            booksData.map(({ id, title, author, desc, thumb_image }) => {
               return (
                 <div
                   key={id}
                   className={bookCardContainer}
-                  onClick={() => setRecommendedBook({ id: id, title: title, thumb_image: thumb_image })}
+                  onClick={() =>
+                    setRecommendedBook({ id: id, title: title, author: author, desc: desc, thumb_image: thumb_image })
+                  }
                 >
                   <img src={thumb_image} alt="" />
                 </div>

@@ -3,6 +3,7 @@ import styles from "./aboutjoinus.module.scss";
 import joinBg from "../../../public/assets/images/about_us/joinus_path.png";
 import joinTeam from "../../../public/assets/images/about_us/join_team.png";
 import AboutForm from "./AboutForm/AboutForm";
+import FormErrorMessage from "../../Forms/FormErrorMessage/FormErrorMessage";
 
 const AboutJoinUs = () => {
   const {
@@ -57,7 +58,8 @@ const AboutJoinUs = () => {
             <div className={aboutJoinRightBodyForm}>
               {/* {isSubmit && <AboutForm />} */}
               {isSubmit && (
-                <p className={applicationInfo}>We are not taking any applications currently, please apply later</p>
+                // <p className={applicationInfo}>We are not taking any applications currently, please apply later</p>
+                <FormErrorMessage msg="We are not taking any applications currently, please apply later" />
               )}
             </div>
             {isSubmit && (

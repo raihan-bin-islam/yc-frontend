@@ -10,6 +10,7 @@ import image3 from "../../../public/assets/images/social_business/concept_image-
 
 // CSS
 import styles from "./SocialBusinessConceptBody.module.scss";
+import useScrollReveal from "../../Hooks/useScrollReveal";
 
 const SocialBusinessConceptBody = () => {
   const {
@@ -34,12 +35,14 @@ const SocialBusinessConceptBody = () => {
     date,
   } = styles;
 
+  const { revealFromLeft, revealFromRight } = useScrollReveal("sb_concept_details");
+
   return (
     <div className={conceptBody}>
       <div className={`${sectionOne} container-layout`}>
         <div className={sectionOneLeft}>
-          <h1>“Social business is a new concept and its practice is just beginning.”</h1>
-          <p>
+          <h1 className={revealFromLeft}>“Social business is a new concept and its practice is just beginning.”</h1>
+          <p className={revealFromLeft}>
             Social business is a cause-driven business. In a social business, the investors/owners can gradually recoup
             the money invested, but cannot take any dividend beyond that point. Purpose of the investment is purely to
             achieve one or more social objectives through the operation of the company, no personal gain is desired by
@@ -48,7 +51,7 @@ const SocialBusinessConceptBody = () => {
             nutrition for malnourished children, providing safe drinking water, introducing renewable energy, etc. in a
             business way.
           </p>
-          <p>
+          <p className={revealFromLeft}>
             The impact of the business on people or environment, rather the amount of profit made in a given period
             measures the success of social business. Sustainability of the company indicates that it is running as a
             business. The objective of the company is to achieve social goals.
@@ -56,15 +59,15 @@ const SocialBusinessConceptBody = () => {
         </div>
         <div className={sectionOneRight}>
           <div className={imgContainer}>
-            <img src={image1.src} alt="image" />
+            <img className={revealFromRight} src={image1.src} alt="image" />
           </div>
         </div>
       </div>
       <div className={`${sectionTwo} container-layout`}>
-        <h2>Clarifications on Social Business</h2>
+        <h2 className={revealFromLeft}>Clarifications on Social Business</h2>
         <div className={gridBox}>
           <div className={sectionTwoLeft}>
-            <p>
+            <p className={revealFromLeft}>
               I am not opposed to making profit. Even social businesses are allowed to make profit with the condition
               that profit stays with the company; the owners will not take profit beyond the amount equivalent to
               investment. Social business is a new category of business. It does not stipulate the end of the existing
@@ -72,7 +75,7 @@ const SocialBusinessConceptBody = () => {
               intend to monopolise the market and take the existing option away. It adds to the competition. It brings a
               new dimension to the business world, and a new feeling of social awareness among the business community.
             </p>
-            <p>
+            <p className={revealFromLeft}>
               When we approach the concept of social business from the philanthropy side, it looks very convincing and
               logical. Why should everything in philanthropy be given away? If some of these goals can be achieved more
               efficiently and sustainably in a (social) business format, then why not take that route? After all our
@@ -80,11 +83,11 @@ const SocialBusinessConceptBody = () => {
             </p>
           </div>
           <div className={sectionTwoRight}>
-            <p>
+            <p className={revealFromRight}>
               But when you approach it from the orthodox business side, it tends to look a bit out of tune. Why on earth
               give up profit? Why should anyone run a business without profit? I understand the surprise perfectly.
             </p>
-            <p>
+            <p className={revealFromRight}>
               <b>Let me clarify:</b> I am not asking any businessperson to give up any of their businesses. Nor am I
               asking them to convert some of their businesses into social business. The idea of “giving up” something
               creates this shock wave. I am not asking anybody to “give up” anything. All I am saying, if you are
@@ -93,7 +96,7 @@ const SocialBusinessConceptBody = () => {
               you may even open the door to eliminate the problem globally. You can do both: conventional business and
               social business.
             </p>
-            <p>
+            <p className={revealFromRight}>
               It is all upto you to decide whether you want to do a such thing or not. Nobody will raise an accusing
               finger at you if you do no such thing. But you may feel happy if you do it. I am suggesting a way which
               may make you a happier person.

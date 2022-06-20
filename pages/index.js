@@ -7,6 +7,7 @@ import HomeVideoSlide from "../Components/Home/HomeVideoSlide/HomeVideoSlide";
 import HomeWhatWeDo from "../Components/Home/HomeWhatWeDo/HomeWhatWeDo";
 
 import useFetch from "../Components/Hooks/useFetch";
+import PreLoader from "../Components/Shared/PreLoader/PreLoader";
 
 export default function Home() {
   const [eventIsLoading, latestEvents] = useFetch("/events");
@@ -20,11 +21,23 @@ export default function Home() {
     <div>
       <HomeHeader />
       <HomeWhatWeDo />
-      {latestEvents.length > 0 && <HomeLatestEvents isLoading={eventIsLoading} latestEvents={latestEvents} />}
-      {newsData.length > 0 && <HomeNews isLoading={newsIsLoading} newsData={newsData} />}
-      {articlesData.length > 0 && <HomeArticles isLoading={articlesIsPending} articlesData={articlesData} />}
-      {!videoIsLoading && <HomeInitiatives />}
-      {homePageVideos.length > 0 && <HomeVideoSlide isLoading={videoIsLoading} videoData={homePageVideos} />}
+      {latestEvents.length > 0 ? (
+        <HomeLatestEvents isLoading={eventIsLoading} latestEvents={latestEvents} />
+      ) : (
+        <PreLoader />
+      )}
+      {newsData.length > 0 ? <HomeNews isLoading={newsIsLoading} newsData={newsData} /> : <PreLoader />}
+      {articlesData.length > 0 ? (
+        <HomeArticles isLoading={articlesIsPending} articlesData={articlesData} />
+      ) : (
+        <PreLoader />
+      )}
+      {!videoIsLoading ? <HomeInitiatives /> : <PreLoader />}
+      {homePageVideos.length > 0 ? (
+        <HomeVideoSlide isLoading={videoIsLoading} videoData={homePageVideos} />
+      ) : (
+        <PreLoader />
+      )}
     </div>
   );
 }

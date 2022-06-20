@@ -6,11 +6,11 @@ import weDoData from "../../../../staticPageData/whatWeDo.json";
 // CSS
 import styles from "./AboutDoCard.module.scss";
 
-const AboutDoCard = ({ image, title, paragraph }) => {
+const AboutDoCard = ({ scrollRevealClass, image, title, paragraph }) => {
   const { aboutDoGrid, box, aboutDoGridFooter } = styles;
 
   return (
-    <div className={aboutDoGrid}>
+    <div className={`${aboutDoGrid} ${scrollRevealClass}`}>
       <img src={image} alt={title} />
       <div className={box}>
         <div className={aboutDoGridFooter}>

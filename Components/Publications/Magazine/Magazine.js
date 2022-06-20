@@ -14,16 +14,16 @@ import {
   magazineTitle,
   buttonContainer,
   leafSvg,
-} from "./internsMagazine.module.scss";
+} from "./magazine.module.scss";
 
-const InternsMagazine = ({ isLoading, magazines }) => {
+const Magazine = ({ title, isLoading, data }) => {
   // Magazine data for hero section
-  const [magazineData, setMagazineData] = useState(magazines[0]);
+  const [magazineData, setMagazineData] = useState(data[0]);
 
   // slick slider settings
   const sliderSettings = {
     dots: false,
-    infinite: magazines.length > 6,
+    infinite: data.length > 6,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 1,
@@ -84,7 +84,7 @@ const InternsMagazine = ({ isLoading, magazines }) => {
       <section className={heroContainer}>
         <HeroBanner large />
         <div className={heroImageContainer}>
-          <h2 className={sectionTitle}>Interns magazine</h2>
+          <h2 className={sectionTitle}>{title}</h2>
           <p>
             YC Intern Magazine basically gives you the idea about the internship program. This magazine tells the
             stories about the experience of the interns during the internship period. They talk about themselves, talk
@@ -95,8 +95,13 @@ const InternsMagazine = ({ isLoading, magazines }) => {
             <img src={magazineData.thumb_image} alt="" />
             <h5 className={magazineTitle}>{magazineData.title}</h5>
             <div className={buttonContainer}>
-              <ButtonLight text="Read" />
-              <ButtonLight text="Download" />
+              <a href={magazineData.handbook}>
+                <ButtonLight text="Read" />
+              </a>
+
+              <a href={magazineData.handbook} download>
+                <ButtonLight text="Download" />
+              </a>
             </div>
           </div>
         </div>
@@ -106,15 +111,15 @@ const InternsMagazine = ({ isLoading, magazines }) => {
       <section className={`container-layout pb10`}>
         <Slider {...sliderSettings}>
           {!isLoading ? (
-            magazines &&
-            magazines.map(({ id, title, thumb_image }) => {
+            data &&
+            data.map(({ id, title, thumb_image, handbook }) => {
               return (
                 <SliderCard
                   key={id}
                   image={thumb_image}
                   title={title}
                   type="magazine"
-                  onClick={() => setMagazineData({ id: id, title: title, thumb_image: thumb_image })}
+                  onClick={() => setMagazineData({ id, title, thumb_image, handbook })}
                 />
               );
             })
@@ -127,4 +132,4 @@ const InternsMagazine = ({ isLoading, magazines }) => {
   );
 };
 
-export default InternsMagazine;
+export default Magazine;

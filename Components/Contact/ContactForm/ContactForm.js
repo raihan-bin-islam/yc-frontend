@@ -7,8 +7,7 @@ import Button from "../../Shared/Button/Button";
 import styles from "./ContactForm.module.scss";
 
 const ContactForm = () => {
-  const { contactForm, inputContainer, btnContainer, textareaContainer } =
-    styles;
+  const { contactForm, inputContainer, btnContainer, textareaContainer } = styles;
 
   // STATE
   const [userName, setUserName] = useState("");
@@ -31,8 +30,9 @@ const ContactForm = () => {
       method: "POST",
       body: contactData,
     };
+    const baseUrl = process.env.baseUrl;
 
-    fetch("required api url", requestOption)
+    fetch(`${baseUrl}/contact-form`, requestOption)
       .then((res) => res.json())
       .then((data) => {
         if (data) {
@@ -60,36 +60,16 @@ const ContactForm = () => {
   return (
     <form className={contactForm} onSubmit={handleSubmit}>
       <div className={inputContainer}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={userName}
-          required
-          onChange={(e) => setUserName(e.target.value)}
-        />
+        <input type="text" placeholder="Name" value={userName} required onChange={(e) => setUserName(e.target.value)} />
       </div>
       <div className={inputContainer}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          required
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <input type="email" placeholder="Email" value={email} required onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div className={textareaContainer}>
-        <textarea
-          placeholder="Message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
+        <textarea placeholder="Message" value={message} onChange={(e) => setMessage(e.target.value)} />
       </div>
       <div className={btnContainer}>
-        <Button
-          text={isSubmission ? "Sending.." : "Send"}
-          type="submit"
-          disabled={isDisabled}
-        />
+        <Button text={isSubmission ? "Sending.." : "Send"} type="submit" disabled={isDisabled} />
       </div>
     </form>
   );
