@@ -31,6 +31,37 @@ const ExposureVisitForm = () => {
     mobilePhoneBox,
     emailBox,
     box,
+    educationInfoContainer,
+    institutionHeading,
+    institutionField,
+    periodHeading,
+    periodFromHeading,
+    periodFromField,
+    periodToHeading,
+    periodToField,
+    majorHeading,
+    majorField,
+    qualificationHeading,
+    qualificationField,
+    employmentStatusContainer,
+    orgField,
+    orgHeader,
+    desigHeader,
+    desigField,
+    sinceHeader,
+    sinceField,
+    responHeader,
+    responField,
+    questionOne,
+    ansOne,
+    questionTwo,
+    ansTwo,
+    questionThree,
+    ansThree,
+    questionFour,
+    ansFour,
+    questionFive,
+    ansFive,
   } = styles;
 
   //   useForm API
@@ -108,7 +139,7 @@ const ExposureVisitForm = () => {
               />
             </div>
             <div className={`${imageFileBox} ${box}`}>
-              <p>Recent Photo (Within 3 months)</p>
+              <p>Recent Photo</p>
               {/* <input id="imageFile" type="file" {...register("imageFile")} /> */}
             </div>
             <div className={`${mailingAddBox} ${box}`}>
@@ -134,6 +165,118 @@ const ExposureVisitForm = () => {
             <div className={`${emailBox} ${box}`}>
               <label for="email">Email Address</label>
               <input id="email" type="text" {...register("email")} />
+            </div>
+          </div>
+          <div className={educationInfoContainer}>
+            <div className={`${headingContainer} ${box}`}>
+              <p>Education (in chronological order)</p>
+            </div>
+            <div className={`${institutionHeading} ${box}`}>
+              <p>School, College, University, Etc. Attended / Attending</p>
+            </div>
+            <div className={`${institutionField} ${box}`}>
+              <p>field</p>
+            </div>
+            <div className={`${periodHeading} ${box}`}>
+              <p>Period</p>
+            </div>
+            <div className={`${periodFromHeading} ${box}`}>
+              <p>From (month/year)</p>
+            </div>
+            <div className={`${periodFromField} ${box}`}>
+              <p>From Field</p>
+            </div>
+            <div className={`${periodToHeading} ${box}`}>
+              <p>To (month/year)</p>
+            </div>
+            <div className={`${periodToField} ${box}`}>
+              <p>To Field</p>
+            </div>
+            <div className={`${majorHeading} ${box}`}>
+              <p>Major</p>
+            </div>
+            <div className={`${majorField} ${box}`}>
+              <p>Major Field</p>
+            </div>
+            <div className={`${qualificationHeading} ${box}`}>
+              <p>Qualification Obtained/ to be obtained</p>
+            </div>
+            <div className={`${qualificationField} ${box}`}>
+              <p>Qualification Field</p>
+            </div>
+          </div>
+          <div className={employmentStatusContainer}>
+            <div className={`${headingContainer} ${box}`}>
+              <p>Current Employment Status</p>
+            </div>
+            <div className={`${orgHeader} ${box}`}>
+              <p>Name of Organization</p>
+            </div>
+            <div className={`${orgField} ${box}`}>
+              <p>Field</p>
+            </div>
+            <div className={`${desigHeader} ${box}`}>
+              <p>Designation</p>
+            </div>
+            <div className={`${desigField} ${box}`}>
+              <p>Field</p>
+            </div>
+            <div className={`${sinceHeader} ${box}`}>
+              <p>Since</p>
+            </div>
+            <div className={`${sinceField} ${box}`}>
+              <p>Field</p>
+            </div>
+            <div className={`${responHeader} ${box}`}>
+              <p>Responsibilities</p>
+            </div>
+            <div className={`${responField} ${box}`}>
+              <p>Field</p>
+            </div>
+            <div className={`${questionOne} ${box}`}>
+              <p>
+                How will an exposure visit at the Yunus Centre apply to your
+                professional goals?
+              </p>
+            </div>
+            <div className={`${ansOne} ${box}`}>
+              <p>Field</p>
+            </div>
+            <div className={`${questionTwo} ${box}`}>
+              <p>What does the future of Social Business look like to you?</p>
+            </div>
+            <div className={`${ansTwo} ${box}`}>
+              <p>Field</p>
+            </div>
+            <div className={`${questionThree} ${box}`}>
+              <p>
+                Tick (√) five or less Grameen Organizations you would like to
+                meet during your time here?
+              </p>
+            </div>
+            <div className={`${ansThree} ${box}`}>
+              <p>checkboxs Field</p>
+            </div>
+            <div className={`${questionFour} ${box}`}>
+              <p>
+                Did you participate in any field trip with any Grameen
+                organization before?
+              </p>
+              <p>
+                If yes, please specify the organization, the date and duration?
+              </p>
+            </div>
+            <div className={`${ansFour} ${box}`}>
+              <p>checkboxs Field</p>
+            </div>
+            <div className={`${questionFive} ${box}`}>
+              <p>
+                Where did you learn about the program (Please tick √ as
+                appropriate)
+              </p>
+            </div>
+            <div className={`${ansFive} ${box}`}>
+              <p>checkboxs Field</p>
             </div>
           </div>
           <input type="submit" />
