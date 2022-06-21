@@ -7,10 +7,14 @@ import articleImg from "../../../public/assets/images/landing_page/highlight-img
 import PreLoader from "../../Shared/PreLoader/PreLoader";
 import ButtonLight from "../../Shared/Button/Button";
 import Link from "next/link";
+import useScrollReveal from "../../Hooks/useScrollReveal";
 
 const HomeNews = ({ isLoading, newsData }) => {
   // Module Style Object Destructuring
   const { homeNewsContainer, homeNewsContainerBody, asideHeader, asideContent, highlightButton } = styles;
+
+  // Scroll Reveal
+  const { scaleUp } = useScrollReveal("home__news_news-card");
 
   // Set highlights from all the news data
   const highlights =
@@ -31,16 +35,17 @@ const HomeNews = ({ isLoading, newsData }) => {
               })
               .map(({ id, title, desc, image_caption, thumb_image, published_at }) => {
                 return (
-                  <NewsCard
-                    key={id}
-                    id={id}
-                    heading={title}
-                    publisher="Published by Yunus Centre"
-                    pressRelease={published_at}
-                    news={desc}
-                    image={thumb_image}
-                    altText={image_caption}
-                  />
+                  <div key={id} className={scaleUp}>
+                    <NewsCard
+                      id={id}
+                      heading={title}
+                      publisher="Published by Yunus Centre"
+                      pressRelease={published_at}
+                      news={desc}
+                      image={thumb_image}
+                      altText={image_caption}
+                    />
+                  </div>
                 );
               })
           ) : (

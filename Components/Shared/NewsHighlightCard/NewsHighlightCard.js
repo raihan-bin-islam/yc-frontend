@@ -13,6 +13,7 @@ import {
 } from "./newsHighlightCard.module.scss";
 
 import ButtonLight from "../../Shared/Button/Button";
+import useScrollReveal from "../../Hooks/useScrollReveal";
 
 const NewsHighlightCard = ({ id, image, title, publishedBy, pressRelease, newsContent }) => {
   // slice the news description
@@ -22,18 +23,19 @@ const NewsHighlightCard = ({ id, image, title, publishedBy, pressRelease, newsCo
 
   // converts the title into url link
   const titledUrl = title.toLowerCase().replace(/\s+/g, "-").trim();
+  const { revealFromLeft } = useScrollReveal("news-highlight-card");
 
   return (
     <div className={`${cardContainer}`}>
-      <img src={image} alt="" />
+      <img className={revealFromLeft} src={image} alt="" />
       <div className={highlightNewsContainer}>
-        <h2>{title}</h2>
+        <h2 className={revealFromLeft}>{title}</h2>
         <div>
-          <p className={`${publisher}`}>{publishedBy}</p>
-          <p className={`${publisher}`}>{pressRelease}</p>
+          <p className={`${publisher} ${revealFromLeft}`}>{publishedBy}</p>
+          <p className={`${publisher} ${revealFromLeft}`}>{pressRelease}</p>
         </div>
-        <p className={news} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
-        <div className={buttonComponent}>
+        <p className={`${news} ${revealFromLeft}`} dangerouslySetInnerHTML={{ __html: newsDataWithEllipsis }}></p>
+        <div className={`${buttonComponent} ${revealFromLeft}`}>
           <Link href={`/media/news/${id}`} passHref>
             <a>
               <ButtonLight text="Read More" />

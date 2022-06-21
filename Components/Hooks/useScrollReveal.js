@@ -18,6 +18,8 @@ const useScrollReveal = (uniqueId = "", offset = 100) => {
   const right = { ...bottom, origin: "right" };
   const left = { ...bottom, origin: "left" };
   const top = { ...bottom, origin: "top" };
+
+  const scaleUpProps = { delay: 100, scale: 0.5, interval: 150 };
   //-------------- options ----------------------//
 
   // class names to reveal from
@@ -25,6 +27,7 @@ const useScrollReveal = (uniqueId = "", offset = 100) => {
   const revealFromRight = "scroll-reveal__reveal__from-right" + uniqueId;
   const revealFromBottom = "scroll-reveal__reveal__from-bottom" + uniqueId;
   const revealFromLeft = "scroll-reveal__reveal__from-left" + uniqueId;
+  const scaleUp = "scroll-reveal__reveal__scale-up" + uniqueId;
   // class names to reveal from
 
   const revealFrom = {
@@ -32,6 +35,7 @@ const useScrollReveal = (uniqueId = "", offset = 100) => {
     revealFromRight,
     revealFromBottom,
     revealFromLeft,
+    scaleUp,
   };
 
   // dynamic import
@@ -42,6 +46,7 @@ const useScrollReveal = (uniqueId = "", offset = 100) => {
       sr().reveal(`.${revealFromRight}`, right);
       sr().reveal(`.${revealFromBottom}`, bottom);
       sr().reveal(`.${revealFromLeft}`, left);
+      sr().reveal(`.${scaleUp}`, scaleUpProps);
     }
     animate();
   }, []);
