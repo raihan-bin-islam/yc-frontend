@@ -6,9 +6,10 @@ import PreLoader from "../../../../Components/Shared/PreLoader/PreLoader";
 import BreadCrumb from "../../../../Components/Shared/BreadCrumb/BreadCrumb";
 
 const NewsLibrary = () => {
-  const [isLoading, newsData] = useFetch("/news");
+  const [isLoading, newsData] = useFetch("/news?category=news");
+  const highlights = newsData?.filter(({ is_highlight }) => is_highlight);
 
-  return <>{newsData.length > 0 ? <MediaLibraryPage title="news library" newsData={newsData} /> : <PreLoader />}</>;
+  return <>{highlights.length > 0 ? <MediaLibraryPage title="news library" newsData={highlights} /> : <PreLoader />}</>;
 };
 
 export default NewsLibrary;

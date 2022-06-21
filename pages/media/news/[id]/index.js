@@ -13,7 +13,7 @@ import PreLoader from "../../../../Components/Shared/PreLoader/PreLoader";
 const SingleNewsPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [isLoading, newsData] = useFetch("/news");
+  const [isLoading, newsData] = useFetch("/news?category=news");
   const singleNews = newsData?.filter(({ id: newsId }) => newsId === id);
 
   return (

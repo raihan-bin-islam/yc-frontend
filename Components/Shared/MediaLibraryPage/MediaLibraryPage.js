@@ -45,19 +45,15 @@ const MediaLibraryPage = ({ title, newsData }) => {
         {/* 1st chunk of data */}
         <div className={gridItem}>
           {newsData.length > 0 &&
-            newsData
-              .filter(({ is_highlight }) => is_highlight)
-              .slice(startOffset, startOffset + chunkSize)
-              .map(({ id, thumb_image, title }, index) => {
-                return <Highlight key={id} image={thumb_image} description={title} />;
-              })}
+            newsData.slice(startOffset, startOffset + chunkSize).map(({ id, thumb_image, title }, index) => {
+              return <Highlight key={id} image={thumb_image} description={title} />;
+            })}
         </div>
         {/* 2nd chunk of data */}
-        {startOffset + 2 * chunkSize < newsData.length && (
+        {startOffset + 2 * chunkSize <= newsData.length && (
           <div className={gridItem}>
             {newsData.length > 0 &&
               newsData
-                .filter(({ is_highlight }) => is_highlight)
                 .slice(startOffset + chunkSize, startOffset + 2 * chunkSize)
                 .map(({ id, thumb_image, title }, index) => {
                   return <Highlight key={id} image={thumb_image} description={title} />;
@@ -68,12 +64,9 @@ const MediaLibraryPage = ({ title, newsData }) => {
         {/* 3rd chunk of data */}
         <div className={gridItem}>
           {newsData.length > 0 &&
-            newsData
-              .filter(({ is_highlight }) => is_highlight)
-              .slice(startOffset + 2 * chunkSize, endOffset)
-              .map(({ id, thumb_image, title }, index) => {
-                return <Highlight key={id} image={thumb_image} description={title} />;
-              })}
+            newsData.slice(startOffset + 2 * chunkSize, endOffset).map(({ id, thumb_image, title }, index) => {
+              return <Highlight key={id} image={thumb_image} description={title} />;
+            })}
         </div>
       </section>
       {/* Pagination Component */}

@@ -8,7 +8,7 @@ import BreadCrumb from "../../../Components/Shared/BreadCrumb/BreadCrumb";
 import PreLoader from "../../../Components/Shared/PreLoader/PreLoader";
 
 const News = () => {
-  const [isLoading, newsData] = useFetch("/news");
+  const [isLoading, newsData] = useFetch("/news?category=news");
   return (
     <>
       <Hero />

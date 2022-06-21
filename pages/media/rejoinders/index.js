@@ -4,8 +4,8 @@ import MediaLibraryPage from "../../../Components/Shared/MediaLibraryPage/MediaL
 import PreLoader from "../../../Components/Shared/PreLoader/PreLoader";
 
 const Rejoinders = () => {
-  const [isLoading, newsData] = useFetch("/news");
-  return <>{newsData.length > 0 ? <MediaLibraryPage title="rejoinders" newsData={newsData} /> : <PreLoader />}</>;
+  const [isLoading, rejoinders] = useFetch("/rejoinders");
+  return <>{rejoinders.length > 0 ? <MediaLibraryPage title="rejoinders" newsData={rejoinders} /> : <PreLoader />}</>;
 };
 
 export default Rejoinders;

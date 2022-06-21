@@ -38,8 +38,8 @@
         li {
           list-style-type: none;
           display: inline;
-          margin: 0 1.7rem;
-          padding: 3.5rem 0;
+          // margin: 0 1.7rem;
+          padding: 3.5rem 1.7rem;
           font-weight: 600;
           font-size: 2rem;
           color: $white;
@@ -54,6 +54,7 @@
             //margin: 5rem;
           }
           a {
+            position: relative;
             color: $white;
             font-weight: 600;
             font-size: 2rem;
@@ -66,6 +67,25 @@
               font-size: 16px;
             }
           }
+
+          a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 0%;
+            height: 2px;
+            background: $secondary;
+            transition: 0.3s ease;
+          }
+          a:hover,
+          .navActive {
+            color: $secondary;
+            &::after {
+              width: 100%;
+            }
+          }
+
           img {
             width: 1.643rem;
             height: 1.64rem;
@@ -75,9 +95,7 @@
               height: 16.4px;
             }
           }
-          .navActive {
-            color: $secondary;
-          }
+
           &:hover {
             .dropdown {
               display: block;
@@ -98,15 +116,26 @@
             min-height: fit-content;
             margin-top: 15px;
           }
+
+          a:hover {
+            &:after {
+              display: none !important;
+            }
+          }
           li {
             text-align: center;
             min-width: 15rem;
             padding: 2rem;
             display: block;
             color: $primary;
+            transition: 0.3s ease;
+            &:hover {
+              background-color: $secondaryCyan;
+            }
             &:not(:last-child) {
               // border-bottom: 1px solid $primary;
             }
+
             a {
               color: $primary;
             }
@@ -192,6 +221,44 @@
 .navScroll {
   background-color: rgba($color: $primary, $alpha: 1);
   transition: 0.3s;
+  .navContainer {
+    .menuContainer {
+      .mainList {
+        li {
+          a {
+            position: relative;
+          }
+          a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 0%;
+            height: 2px;
+            background: $secondaryCyan;
+            transition: 0.3s ease;
+          }
+          a:hover,
+          .navActive {
+            color: $secondaryCyan;
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+
+        .dropdownParent {
+          .dropdown {
+            a:hover {
+              &:after {
+                display: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @keyframes opacityNew {

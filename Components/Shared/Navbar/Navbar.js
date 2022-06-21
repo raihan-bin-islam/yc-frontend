@@ -89,16 +89,20 @@ const Navbar = () => {
             </a>
           </Link>
         </div>
-        <div className={menuContainer} onClick={HandleMenuClose}>
+        <div className={menuContainer}>
           <ul className={mainList} ref={navRef}>
             <li>
               <Link href="/">
-                <a className={router.pathname == "/" ? navActive : ""}>Home</a>
+                <a onClick={HandleMenuClose} className={router.pathname == "/" ? navActive : ""}>
+                  Home
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a className={router.pathname == "/about" ? navActive : ""}>About</a>
+                <a onClick={HandleMenuClose} className={router.pathname == "/about" ? navActive : ""}>
+                  About
+                </a>
               </Link>
             </li>
             <li className={dropdownParent}>
@@ -113,27 +117,27 @@ const Navbar = () => {
               </Link>
               <ul className={dropdown}>
                 <Link href="/social-business/concept">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Concept</li>
                   </a>
                 </Link>
                 <Link href="/social-business/issues">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Issues</li>
                   </a>
                 </Link>
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>FAQs</li>
                   </a>
                 </Link>
                 <Link href="/social-business/organisations">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Organizations</li>
                   </a>
                 </Link>
                 <Link href="/social-business/events">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Events</li>
                   </a>
                 </Link>
@@ -144,25 +148,29 @@ const Navbar = () => {
             </li>
             <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname == "/visit-programs" ? `${navActive} ${dropdownParent}` : dropdownParent}>
+                <a
+                  className={
+                    router.pathname.includes("/visit-programs") ? `${navActive} ${dropdownParent}` : dropdownParent
+                  }
+                >
                   Visit Programs
                 </a>
               </Link>
               <ul className={dropdown}>
                 <Link href="/visit-programs/our-programs">
                   {/* <Link href="#"> */}
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Our Programs</li>
                   </a>
                 </Link>
                 <Link href="/visit-programs/offshore-programs">
                   {/* <Link href="#"> */}
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Offshore Programs</li>
                   </a>
                 </Link>
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>SB Volunteer</li>
                   </a>
                 </Link>
@@ -170,7 +178,11 @@ const Navbar = () => {
             </li>
             <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname == "/publications" ? `${navActive} ${dropdownParent}` : dropdownParent}>
+                <a
+                  className={
+                    router.pathname.includes("/publications") ? `${navActive} ${dropdownParent}` : dropdownParent
+                  }
+                >
                   Publications
                 </a>
               </Link>
@@ -178,42 +190,42 @@ const Navbar = () => {
               <ul className={dropdown}>
                 {/* <Link href="/publications/recommended-readings"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Recommended Readings</li>
                   </a>
                 </Link>
                 {/* <Link href="/publications/book-reviews"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Book Reviews</li>
                   </a>
                 </Link>
                 {/* <Link href="/publications/intern-magazine"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Intern Magazine</li>
                   </a>
                 </Link>
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Newsletter</li>
                   </a>
                 </Link>
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Booklet</li>
                   </a>
                 </Link>
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>YC Brochure</li>
                   </a>
                 </Link>
-                <a href="http://socialbusinesspedia.com/" target="__blank">
+                <a onClick={HandleMenuClose} href="http://socialbusinesspedia.com/" target="__blank">
                   <li>More to SB Pedia</li>
                 </a>
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>YC Spotlight</li>
                   </a>
                 </Link>
@@ -221,36 +233,38 @@ const Navbar = () => {
             </li>
             <li className={dropdownParent}>
               <Link href="#">
-                <a className={router.pathname == "/media" ? `${navActive} ${dropdownParent}` : dropdownParent}>Media</a>
+                <a className={router.pathname.includes("/media") ? `${navActive} ${dropdownParent}` : dropdownParent}>
+                  Media
+                </a>
               </Link>
               <ul className={dropdown}>
                 <Link href="/media/news">
                   {/* <Link href="#"> */}
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>News</li>
                   </a>
                 </Link>
                 {/* <Link href="/media/press-release"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Press Release</li>
                   </a>
                 </Link>
                 {/* <Link href="/media/rejoinders"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Rejoinders</li>
                   </a>
                 </Link>
                 {/* <Link href="/media/photo-gallery"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Photo Gallery</li>
                   </a>
                 </Link>
                 {/* <Link href="/media/videos"> */}
                 <Link href="#">
-                  <a>
+                  <a onClick={HandleMenuClose}>
                     <li>Video Library</li>
                   </a>
                 </Link>
@@ -258,12 +272,16 @@ const Navbar = () => {
             </li>
             <li>
               <Link href="/ysbc">
-                <a className={router.pathname == "/ysbc" ? navActive : ""}>YSBC</a>
+                <a onClick={HandleMenuClose} className={router.pathname == "/ysbc" ? navActive : ""}>
+                  YSBC
+                </a>
               </Link>
             </li>
             <li>
               <Link href="/professor-yunus">
-                <a className={router.pathname == "/professor-yunus" ? navActive : ""}>Professor Yunus</a>
+                <a onClick={HandleMenuClose} className={router.pathname == "/professor-yunus" ? navActive : ""}>
+                  Professor Yunus
+                </a>
               </Link>
             </li>
             <li>

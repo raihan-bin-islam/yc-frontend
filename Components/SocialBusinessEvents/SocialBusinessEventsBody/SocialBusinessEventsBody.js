@@ -12,11 +12,8 @@ import yunusLeaf from "../../../public/assets/images/social_business/yunus_leaf.
 
 // CSS
 import styles from "./SocialBusinessEventsBody.module.scss";
-import useFetch from "../../Hooks/useFetch";
 
-const SocialBusinessEventsBody = () => {
-  const [latestEventsIsLoading, latestEventsData] = useFetch("/events/latest");
-  const [pastEventsIsLoading, pastEventsData] = useFetch("/events/past");
+const SocialBusinessEventsBody = ({ latestEventsData, pastEventsData }) => {
   const { eventsBody, latestEvents, pastEvents, sliderContainer, btnContainer, leafContainer, layoutContainer } =
     styles;
 
@@ -37,7 +34,7 @@ const SocialBusinessEventsBody = () => {
           <Sliders cardType="events" sliderData={pastEventsData} />
         </div>
         {/* <div className={btnContainer}>
-          <Link href="#">
+          <Link href="events/past-events">
             <a>
               <ButtonLight text="See All" />
             </a>

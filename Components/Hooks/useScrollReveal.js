@@ -19,7 +19,16 @@ const useScrollReveal = (uniqueId = "", offset = 100) => {
   const left = { ...bottom, origin: "left" };
   const top = { ...bottom, origin: "top" };
 
-  const scaleUpProps = { delay: 100, scale: 0.5, interval: 150 };
+  const scaleUpProps = {
+    delay: 100,
+    scale: 0.5,
+    interval: 150,
+    viewOffset: {
+      top: offset,
+      bottom: offset,
+    },
+    viewFactor: 0.5,
+  };
   //-------------- options ----------------------//
 
   // class names to reveal from
