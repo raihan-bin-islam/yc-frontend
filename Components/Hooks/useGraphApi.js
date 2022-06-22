@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import FormErrorMessage from "../Components/Forms/FormErrorMessage/FormErrorMessage";
-import BreadCrumb from "../Components/Shared/BreadCrumb/BreadCrumb";
-import HeroBannerSmall from "../Components/Shared/HeroBannerSmall/HeroBannerSmall";
+import { useEffect } from "react";
 
-const Component = () => {
+const useGraphApi = () => {
   // Fetch the data from the api based on the endpoint
   const fetchData = async () => {
     await fetch(
@@ -27,20 +24,8 @@ const Component = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  return (
-    <>
-      {/* <PreLoader /> */}
 
-      <div className="">
-        {/* <HeroBannerSmall />
-        <BreadCrumb blue /> */}
-        {/* <MediaLibraryPage /> */}
-        <div className="container-layout pt10 pb10">
-          {/* <RecentNews /> */} <FormErrorMessage msg="This Field Is Required" />
-        </div>
-      </div>
-    </>
-  );
+  return true;
 };
 
-export default Component;
+export default useGraphApi;

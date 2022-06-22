@@ -13,13 +13,12 @@ import PreLoader from "../../../../Components/Shared/PreLoader/PreLoader";
 const SingleNewsPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [isLoading, newsData] = useFetch("/news?category=news");
-  const singleNews = newsData?.filter(({ id: newsId }) => newsId === id);
+  const [isLoading, singleNews] = useFetch(`/news/${id}`);
 
   return (
     <>
-      {singleNews.length > 0 ? <SingleNewsHeader singleNewsData={singleNews[0]} /> : <PreLoader />}
-      {singleNews.length > 0 ? <SingleNewsBody singleNewsData={singleNews[0]} /> : <PreLoader />}
+      {singleNews ? <SingleNewsHeader singleNewsData={singleNews} /> : <PreLoader />}
+      {singleNews ? <SingleNewsBody singleNewsData={singleNews} /> : <PreLoader />}
       <div className="container-layout pb10">
         <Link href="/media/news" passHref>
           <a>

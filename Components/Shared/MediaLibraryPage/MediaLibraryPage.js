@@ -18,7 +18,7 @@ import {
 } from "./mediaLibraryPage.module.scss";
 import BreadCrumb from "../BreadCrumb/BreadCrumb";
 
-const MediaLibraryPage = ({ title, newsData }) => {
+const MediaLibraryPage = ({ title, newsData, recentNews }) => {
   const [startOffset, setStartOffset] = useState(0); // start offset (should start from 0)
   const [endOffset, setEndOffset] = useState(15); // end offset (number of objects we want to show)
   const [pageNumber, setPageNumber] = useState(1); // Current page number
@@ -46,7 +46,7 @@ const MediaLibraryPage = ({ title, newsData }) => {
         <div className={gridItem}>
           {newsData.length > 0 &&
             newsData.slice(startOffset, startOffset + chunkSize).map(({ id, thumb_image, title }, index) => {
-              return <Highlight key={id} image={thumb_image} description={title} />;
+              return <Highlight key={id} id={id} image={thumb_image} description={title} />;
             })}
         </div>
         {/* 2nd chunk of data */}
@@ -56,7 +56,7 @@ const MediaLibraryPage = ({ title, newsData }) => {
               newsData
                 .slice(startOffset + chunkSize, startOffset + 2 * chunkSize)
                 .map(({ id, thumb_image, title }, index) => {
-                  return <Highlight key={id} image={thumb_image} description={title} />;
+                  return <Highlight key={id} id={id} image={thumb_image} description={title} />;
                 })}
           </div>
         )}
@@ -65,7 +65,7 @@ const MediaLibraryPage = ({ title, newsData }) => {
         <div className={gridItem}>
           {newsData.length > 0 &&
             newsData.slice(startOffset + 2 * chunkSize, endOffset).map(({ id, thumb_image, title }, index) => {
-              return <Highlight key={id} image={thumb_image} description={title} />;
+              return <Highlight key={id} id={id} image={thumb_image} description={title} />;
             })}
         </div>
       </section>
@@ -79,7 +79,7 @@ const MediaLibraryPage = ({ title, newsData }) => {
       {/* Recent News */}
       <section className={`${recentNewsContainer} container-layout pt10 pb10`}>
         <h2 className={recentNewsTitle}>Recent News</h2>
-        <Sliders cardType="newsCard" sliderData={newsData} />
+        <Sliders cardType="newsCard" sliderData={recentNews} />
       </section>
     </>
   );

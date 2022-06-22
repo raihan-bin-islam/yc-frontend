@@ -6,7 +6,6 @@ import "swiper/css/bundle";
 // import '../scripts/styles'
 
 import { useEffect } from "react";
-import { Router } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

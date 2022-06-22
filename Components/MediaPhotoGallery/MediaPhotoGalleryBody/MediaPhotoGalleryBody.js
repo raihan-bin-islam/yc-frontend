@@ -43,7 +43,9 @@ const MediaPhotoGalleryBody = () => {
         <ButtonLight
           text="Load More"
           onClick={() => {
-            setEndOffset((prev) => prev + photoCardPerPage);
+            setTimeout(() => {
+              setEndOffset((prev) => prev + photoCardPerPage);
+            }, 500);
           }}
         />
       </div>

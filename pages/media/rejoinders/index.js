@@ -5,7 +5,16 @@ import PreLoader from "../../../Components/Shared/PreLoader/PreLoader";
 
 const Rejoinders = () => {
   const [isLoading, rejoinders] = useFetch("/rejoinders");
-  return <>{rejoinders.length > 0 ? <MediaLibraryPage title="rejoinders" newsData={rejoinders} /> : <PreLoader />}</>;
+  const [newsIsLoading, recentNews] = useFetch("/news");
+  return (
+    <>
+      {rejoinders.length > 0 ? (
+        <MediaLibraryPage title="rejoinders" newsData={rejoinders} recentNews={recentNews} />
+      ) : (
+        <PreLoader />
+      )}
+    </>
+  );
 };
 
 export default Rejoinders;

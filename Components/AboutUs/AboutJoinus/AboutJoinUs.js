@@ -15,6 +15,7 @@ const AboutJoinUs = () => {
     aboutJoinBody,
     aboutJoinRightBody,
     aboutJoinRightBodyForm,
+    aboutJoinRightBodyFormError,
     aboutJoinRightFooter,
     applicationInfo,
   } = styles;
@@ -59,7 +60,9 @@ const AboutJoinUs = () => {
               {/* {isSubmit && <AboutForm />} */}
               {isSubmit && (
                 // <p className={applicationInfo}>We are not taking any applications currently, please apply later</p>
-                <FormErrorMessage msg="We are not taking any applications currently, please apply later" />
+                <div className={aboutJoinRightBodyFormError}>
+                  <FormErrorMessage msg="We are not taking any applications currently, please apply later" />
+                </div>
               )}
             </div>
             {isSubmit && (

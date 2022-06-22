@@ -109,7 +109,9 @@ const Navbar = () => {
               <Link href="#">
                 <a
                   className={
-                    router.pathname.includes("/social-business") ? `${navActive} ${dropdownParent}` : dropdownParent
+                    router.pathname.includes("/social-business") && router.pathname !== "/media/videos/social-business"
+                      ? `${navActive} ${dropdownParent}`
+                      : dropdownParent
                   }
                 >
                   Social Business

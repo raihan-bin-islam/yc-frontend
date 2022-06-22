@@ -70,6 +70,7 @@
           font-weight: $bold;
         }
         button {
+          opacity: 0;
           outline: 0;
           border: 1px solid $secondaryCyan;
           padding: 1rem 2.5rem;
@@ -79,6 +80,7 @@
           transition: 0.3s;
           text-transform: capitalize;
           margin-top: 8.4rem;
+          animation: fadeIn 500ms ease 100ms forwards;
           &:hover {
             background-color: $secondaryCyan;
           }
@@ -93,10 +95,20 @@
           text-align: center;
           transition: all 1s ease;
         }
+
+        .aboutJoinRightBodyFormError {
+          width: fit-content;
+          margin: 0 auto;
+
+          opacity: 0;
+          animation: fadeIn 500ms ease 100ms forwards;
+        }
       }
       .aboutJoinRightFooter {
+        opacity: 0;
         text-align: center;
         margin-top: 4rem;
+        animation: fadeIn 500ms ease 100ms forwards;
         // padding-left: 9.9rem; temporarily commented out
         @include response(vp-800) {
           padding-left: 0;
@@ -108,5 +120,15 @@
         }
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    display: block;
+    opacity: 1;
   }
 }
