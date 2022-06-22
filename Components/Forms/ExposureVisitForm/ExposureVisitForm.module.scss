@@ -10,7 +10,7 @@
       padding: 2rem;
       font-size: 2rem;
 
-      border: 1px solid black;
+      border: 1px solid $primary;
 
       label {
         width: max-content;
@@ -61,9 +61,9 @@
 
         // background-color: azure;
 
-        border-top: 2px solid black;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-top: 2px solid $primary;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .purposeBox {
         //2
@@ -75,7 +75,7 @@
           grid-row: initial;
         }
 
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
       }
       .familyNameBox {
         //3
@@ -87,7 +87,7 @@
           grid-row: initial;
         }
 
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
       }
       .firstNameBox {
         //4
@@ -109,7 +109,7 @@
           grid-row: initial;
         }
 
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
       }
       .durationBox {
         //6
@@ -141,7 +141,7 @@
           grid-row: initial;
         }
 
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
       }
       .genderBox {
         //9
@@ -173,7 +173,7 @@
           grid-row: initial;
         }
 
-        border-right: 2px solid black;
+        border-right: 2px solid $primary;
 
         display: flex;
         flex-direction: column;
@@ -195,8 +195,8 @@
           grid-row: initial;
         }
 
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .telephoneNoBox {
         //13
@@ -208,8 +208,8 @@
           grid-row: initial;
         }
 
-        border-left: 2px solid black;
-        border-bottom: 2px solid black;
+        border-left: 2px solid $primary;
+        border-bottom: 2px solid $primary;
       }
       .residenceBox {
         //14
@@ -221,7 +221,7 @@
           grid-row: initial;
         }
 
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $primary;
       }
       .mobilePhoneBox {
         //15
@@ -233,7 +233,7 @@
           grid-row: initial;
         }
 
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $primary;
       }
       .emailBox {
         //16
@@ -245,8 +245,8 @@
           grid-row: initial;
         }
 
-        border-right: 2px solid black;
-        border-bottom: 2px solid black;
+        border-right: 2px solid $primary;
+        border-bottom: 2px solid $primary;
       }
     }
 
@@ -281,22 +281,22 @@
       .headingContainer {
         background-color: $primary;
         color: white;
-        border-top: 2px solid black;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-top: 2px solid $primary;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
 
         grid-column: col-start 1 / col-end 6;
         grid-row: row-start 1 / row-end 1;
       }
       .institutionHeading {
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
 
         grid-column: col-start 1 / col-end 2;
         grid-row: row-start 2 / row-end 3;
       }
       .institutionField {
-        border-left: 2px solid black;
-        border-bottom: 2px solid black;
+        border-left: 2px solid $primary;
+        border-bottom: 2px solid $primary;
 
         grid-column: col-start 1 / col-end 2;
         grid-row: row-start 4 / row-end 4;
@@ -310,7 +310,7 @@
         grid-row: row-start 3 / row-end 3;
       }
       .periodFromField {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $primary;
 
         grid-column: col-start 3 / col-end 3;
         grid-row: row-start 4 / row-end 4;
@@ -320,7 +320,7 @@
         grid-row: row-start 3 / row-end 3;
       }
       .periodToField {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $primary;
 
         grid-column: col-start 4 / col-end 4;
         grid-row: row-start 4 / row-end 4;
@@ -330,20 +330,20 @@
         grid-row: row-start 2 / row-end 3;
       }
       .majorField {
-        border-bottom: 2px solid black;
+        border-bottom: 2px solid $primary;
 
         grid-column: col-start 5 / col-end 5;
         grid-row: row-start 4 / row-end 4;
       }
       .qualificationHeading {
-        border-right: 2px solid black;
+        border-right: 2px solid $primary;
 
         grid-column: col-start 6 / col-end 6;
         grid-row: row-start 2 / row-end 3;
       }
       .qualificationField {
-        border-bottom: 2px solid black;
-        border-right: 2px solid black;
+        border-bottom: 2px solid $primary;
+        border-right: 2px solid $primary;
 
         grid-column: col-start 6 / col-end 6;
         grid-row: row-start 4 / row-end 4;
@@ -361,13 +361,9 @@
       margin-bottom: 2rem;
 
       .orgHeader,
-      .orgField,
       .desigHeader,
-      .desigField,
       .sinceHeader,
-      .sinceField,
-      .responHeader,
-      .responField {
+      .responHeader {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -380,19 +376,19 @@
 
         background-color: $primary;
         color: white;
-        border-top: 2px solid black;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-top: 2px solid $primary;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .orgHeader {
         grid-column: col-start 1 / col-end 1;
         grid-row: row-start 2 / row-end 2;
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
       }
       .orgField {
         grid-column: col-start 1 / col-end 1;
         grid-row: row-start 3 / row-end 3;
-        border-left: 2px solid black;
+        border-left: 2px solid $primary;
       }
       .desigHeader {
         grid-column: col-start 2 / col-end 3;
@@ -413,12 +409,21 @@
       .responHeader {
         grid-column: col-start 5 / col-end 6;
         grid-row: row-start 2 / row-end 2;
-        border-right: 2px solid black;
+        border-right: 2px solid $primary;
       }
       .responField {
         grid-column: col-start 5 / col-end 6;
         grid-row: row-start 3 / row-end 3;
-        border-right: 2px solid black;
+        border-right: 2px solid $primary;
+      }
+      .ansOne,
+      .ansTwo,
+      .ansFour {
+        textarea {
+          height: 20rem;
+          font-size: 2rem;
+          padding: 0.5rem 1rem;
+        }
       }
       .questionOne {
         grid-column: col-start 1 / col-end 6;
@@ -426,15 +431,15 @@
 
         background-color: $primary;
         color: white;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .ansOne {
         grid-column: col-start 1 / col-end 6;
         grid-row: row-start 5 / row-end 5;
 
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .questionTwo {
         grid-column: col-start 1 / col-end 6;
@@ -442,15 +447,15 @@
 
         background-color: $primary;
         color: white;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .ansTwo {
         grid-column: col-start 1 / col-end 6;
         grid-row: row-start 7 / row-end 7;
 
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .questionThree {
         grid-column: col-start 1 / col-end 6;
@@ -458,15 +463,26 @@
 
         background-color: $primary;
         color: white;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .ansThree {
         grid-column: col-start 1 / col-end 6;
         grid-row: row-start 9 / row-end 9;
 
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+        padding-inline: 20rem;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, min-content);
+
+        .checkboxContainer {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
       }
       .questionFour {
         grid-column: col-start 1 / col-end 6;
@@ -477,15 +493,15 @@
 
         background-color: $primary;
         color: white;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .ansFour {
         grid-column: col-start 1 / col-end 6;
         grid-row: row-start 11 / row-end 11;
 
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .questionFive {
         grid-column: col-start 1 / col-end 6;
@@ -493,18 +509,97 @@
 
         background-color: $primary;
         color: white;
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
       .ansFive {
         grid-column: col-start 1 / col-end 6;
         grid-row: row-start 13 / row-end 13;
 
-        border-left: 2px solid black;
-        border-right: 2px solid black;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
       }
     }
 
     // EMERGENCY CONTACT
+
+    .emergencyContactContainer {
+      background-color: $secondaryLightBlue;
+      border: 1px solid $primary;
+
+      display: grid;
+      grid-template-columns: [col-full-start col-lg-start] 60% [col-lg-end col-sm-start] 40% [col-sm-end col-full-end];
+      grid-template-rows: repeat(11, [row-start] min-content [row-end]);
+
+      .headingContainer {
+        background-color: $primary;
+        color: white;
+
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 1 / row-end 1;
+      }
+      .firstContactName {
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 2 / row-end 2;
+      }
+      .firstContactAddress {
+        grid-column: col-lg-start / col-lg-end;
+        grid-row: row-start 3 / row-end 3;
+      }
+      .firstContactTel {
+        grid-column: col-sm-start / col-sm-end;
+        grid-row: row-start 3 / row-end 3;
+      }
+      .firstContactBusinessName {
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 4 / row-end 4;
+      }
+      .firstContactBusinessAddress {
+        grid-column: col-lg-start / col-lg-end;
+        grid-row: row-start 5 / row-end 5;
+      }
+      .firstContactBusinessTel {
+        grid-column: col-sm-start / col-sm-end;
+        grid-row: row-start 5 / row-end 5;
+      }
+      .firstContactRelation {
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 6 / row-end 6;
+
+        margin-bottom: 2rem;
+        border-bottom: 2px solid $primary;
+      }
+      // Second Contact
+      .secondContactName {
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 7 / row-end 7;
+
+        border-top: 2px solid $primary;
+      }
+      .secondContactAddress {
+        grid-column: col-lg-start / col-lg-end;
+        grid-row: row-start 8 / row-end 8;
+      }
+      .secondContactTel {
+        grid-column: col-sm-start / col-sm-end;
+        grid-row: row-start 8 / row-end 8;
+      }
+      .secondContactBusinessName {
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 9 / row-end 9;
+      }
+      .secondContactBusinessAddress {
+        grid-column: col-lg-start / col-lg-end;
+        grid-row: row-start 10 / row-end 10;
+      }
+      .secondContactBusinessTel {
+        grid-column: col-sm-start / col-sm-end;
+        grid-row: row-start 10 / row-end 10;
+      }
+      .secondContactRelation {
+        grid-column: col-full-start / col-full-end;
+        grid-row: row-start 11 / row-end 11;
+      }
+    }
   }
 }
