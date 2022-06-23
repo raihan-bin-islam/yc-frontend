@@ -168,11 +168,6 @@
         grid-column: col-start 5 / col-end 5;
         grid-row: row-start 2 / row-end 5;
 
-        @include response(phone) {
-          grid-column: initial;
-          grid-row: initial;
-        }
-
         border-right: 2px solid $primary;
 
         display: flex;
@@ -180,9 +175,47 @@
         justify-content: center;
         align-items: center;
 
-        input {
-          background-color: palevioletred;
-          width: min-content;
+        @include response(phone) {
+          grid-column: initial;
+          grid-row: initial;
+        }
+
+        .imageContainer {
+          text-align: center;
+        }
+
+        .imageFileBtn {
+          width: 15rem;
+        }
+        .imageFileBtn::-webkit-file-upload-button {
+          visibility: hidden;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .imageFileBtn::before {
+          content: "Upload Image";
+          display: block;
+          background: linear-gradient(top, #f9f9f9, #e3e3e3);
+          border: 1px solid #999;
+          border-radius: 3px;
+          text-align: center;
+          padding: 5px 8px;
+          outline: none;
+          white-space: nowrap;
+          -webkit-user-select: none;
+          cursor: pointer;
+          text-shadow: 1px 1px #fff;
+          font-weight: 700;
+          font-size: 10pt;
+        }
+        .imageFileBtn:hover::before {
+          border-color: black;
+        }
+        .imageFileBtn:active::before {
+          background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
         }
       }
       .mailingAddBox {
@@ -262,16 +295,11 @@
 
       // .headingContainer,
       .institutionHeading,
-      .institutionField,
       .periodHeading,
       .periodFromHeading,
-      .periodFromField,
       .periodToHeading,
-      .periodToField,
       .majorHeading,
-      .majorField,
-      .qualificationHeading,
-      .qualificationField {
+      .qualificationHeading {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -518,6 +546,18 @@
 
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
+
+        display: grid;
+        grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
+        grid-template-rows: repeat(2, min-content);
+        row-gap: 4rem;
+
+        padding-inline: 20rem;
+        .optionContainer {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
       }
     }
 
@@ -601,5 +641,11 @@
         grid-row: row-start 11 / row-end 11;
       }
     }
+  }
+  .btnContainer {
+    margin-top: 5rem;
+
+    display: flex;
+    justify-content: center;
   }
 }

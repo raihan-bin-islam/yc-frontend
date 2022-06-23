@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 // COMPONENTS
 import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 import FormErrorMessage from "../FormErrorMessage/FormErrorMessage";
+import ButtonLight from "../../Shared/Button/Button";
 
 // Data
 import orgData from "./data/checkboxOrgData.json";
@@ -83,6 +84,10 @@ const ExposureVisitForm = () => {
     secondContactRelation,
     checkboxContainer,
     gridBox,
+    optionContainer,
+    btnContainer,
+    imageFileBtn,
+    imageContainer,
   } = styles;
 
   //   useForm API
@@ -92,7 +97,53 @@ const ExposureVisitForm = () => {
     watch,
     formState: { errors },
     required,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      purpose: "",
+      familyName: "",
+      firstName: "",
+      dob: "",
+      duration: "",
+      startDate: "",
+      nationality: "",
+      gender: "",
+      passportNumber: "",
+      imageFile: "",
+      mailingAdd: "",
+      telephoneNo: "",
+      residence: "",
+      mobilePhone: "",
+      email: "",
+      institutionName: "",
+      institutionFrom: "",
+      institutionTo: "",
+      major: "",
+      qualification: "",
+      orgName: "",
+      designation: "",
+      since: "",
+      responsibility: "",
+      profGoal: "",
+      futureSocialBusiness: "",
+      organization: [],
+      participateGrameenOrg: "",
+      sourceCampus: "",
+      firstContactName: "",
+      firstContactAddress: "",
+      firstContactTel: "",
+      firstContactBusinessName: "",
+      firstContactBusinessAddress: "",
+      firstContactBusinessTel: "",
+      firstContactRelation: "",
+      secondContactName: "",
+      secondContactAddress: "",
+      secondContactTel: "",
+      secondContactBusinessName: "",
+      secondContactBusinessAddress: "",
+      secondContactBusinessTel: "",
+      secondContactRelation: "",
+    },
+  });
   const onSubmit = (data) => {
     console.log(data);
     console.log(watch("purpose"));
@@ -119,155 +170,142 @@ const ExposureVisitForm = () => {
               <input
                 id="purpose"
                 type="text"
-                {...register("purpose", { required: true })}
+                {...register("purpose")}
+                value="hello"
               />
-              {errors.purpose?.type === "required" && (
+              {/* {errors.purpose?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${familyNameBox} ${box}`}>
               <label htmlFor="familyName">Family Name</label>
-              <input
-                id="familyName"
-                type="text"
-                {...register("familyName", { required: true })}
-              />
-              {errors.familyName?.type === "required" && (
+              <input id="familyName" type="text" {...register("familyName")} />
+              {/* {errors.familyName?.type === "required" && (
                 <FormErrorMessage msg="Family Name Required" />
-              )}
+              )} */}
             </div>
             <div className={`${firstNameBox} ${box}`}>
               <label htmlFor="firstName">First Name</label>
-              <input
-                id="firstName"
-                type="text"
-                {...register("firstName", { required: true })}
-              />
-              {errors.firstName?.type === "required" && (
+              <input id="firstName" type="text" {...register("firstName")} />
+              {/* {errors.firstName?.type === "required" && (
                 <FormErrorMessage msg="First Name Required" />
-              )}
+              )} */}
             </div>
             <div className={`${dobBox} ${box}`}>
               <label htmlFor="dob">Date of Birth</label>
-              <input
-                id="dob"
-                type="date"
-                {...register("dob", { required: true })}
-              />
-              {errors.dob?.type === "required" && (
+              <input id="dob" type="date" {...register("dob")} />
+              {/* {errors.dob?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${durationBox} ${box}`}>
               <label htmlFor="duration">Expected Duration</label>
-              <input
-                id="duration"
-                type="number"
-                {...register("duration", { required: true })}
-              />
-              {errors.duration?.type === "required" && (
+              <input id="duration" type="number" {...register("duration")} />
+              {/* {errors.duration?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${startDateBox} ${box}`}>
               <label htmlFor="startDate">Start Date</label>
-              <input
-                id="startDate"
-                type="date"
-                {...register("startDate", { required: true })}
-              />
-              {errors.startDate?.type === "required" && (
+              <input id="startDate" type="date" {...register("startDate")} />
+              {/* {errors.startDate?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${nationalityBox} ${box}`}>
               <label htmlFor="nationality">Nationality</label>
               <input
                 id="nationality"
                 type="text"
-                {...register("nationality", { required: true })}
+                {...register("nationality")}
               />
-              {errors.nationality?.type === "required" && (
+              {/* {errors.nationality?.type === "required" && (
                 <FormErrorMessage msg="Nationality Required" />
-              )}
+              )} */}
             </div>
             <div className={`${genderBox} ${box}`}>
               <label htmlFor="gender">Gender</label>
-              <select {...register("gender", { required: true })}>
+              <select {...register("gender")}>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="other">Other</option>
               </select>
-              {errors.gender?.type === "required" && (
+              {/* {errors.gender?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${passportNumberBox} ${box}`}>
               <label htmlFor="passportNumber">Passport Number</label>
               <input
                 id="passportNumber"
                 type="text"
-                {...register("passportNumber", { required: true })}
+                {...register("passportNumber")}
               />
-              {errors.passportNumber?.type === "required" && (
+              {/* {errors.passportNumber?.type === "required" && (
                 <FormErrorMessage msg="Passport No. Required" />
-              )}
+              )} */}
             </div>
             <div className={`${imageFileBox} ${box}`}>
-              <p>Recent Photo</p>
-              {/* <input id="imageFile" type="file" {...register("imageFile")} /> */}
+              <div className={imageContainer}>
+                <p>Recent Photo</p>
+                <p>(Within 3 months)</p>
+              </div>
+              <input
+                id="imageFile"
+                className={imageFileBtn}
+                type="file"
+                {...register("imageFile")}
+              />
             </div>
             <div className={`${mailingAddBox} ${box}`}>
               <label htmlFor="mailingAdd">Mailing Address</label>
-              <input
-                id="mailingAdd"
-                type="text"
-                {...register("mailingAdd", { required: true })}
-              />
-              {errors.mailingAdd?.type === "required" && (
+              <input id="mailingAdd" type="text" {...register("mailingAdd")} />
+              {/* {errors.mailingAdd?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${telephoneNoBox} ${box}`}>
               <label htmlFor="telephoneNo">Telephone No.</label>
               <input
                 id="telephoneNo"
                 type="tel"
-                {...register("telephoneNo", { required: true })}
+                {...register(
+                  "telephoneNo",
+
+                  {
+                    required: true,
+                    pattern: /^[0-9]+$/i,
+                  }
+                )}
               />
+              {errors.telephoneNo?.type === "pattern" && (
+                <FormErrorMessage msg="invalid number" />
+              )}
             </div>
             <div className={`${residenceBox} ${box}`}>
               <label htmlFor="residence">Residence</label>
-              <input
-                id="residence"
-                type="text"
-                {...register("residence", { required: true })}
-              />
-              {errors.residence?.type === "required" && (
+              <input id="residence" type="text" {...register("residence")} />
+              {/* {errors.residence?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${mobilePhoneBox} ${box}`}>
               <label htmlFor="mobilePhone">Mobile Phone</label>
               <input
                 id="mobilePhone"
                 type="text"
-                {...register("mobilePhone", { required: true })}
+                {...register("mobilePhone")}
               />
-              {errors.mobilePhone?.type === "required" && (
+              {/* {errors.mobilePhone?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${emailBox} ${box}`}>
               <label htmlFor="email">Email Address</label>
-              <input
-                id="email"
-                type="text"
-                {...register("email", { required: true })}
-              />
-              {errors.email?.type === "required" && (
+              <input id="email" type="text" {...register("email")} />
+              {/* {errors.email?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
           </div>
 
@@ -281,7 +319,7 @@ const ExposureVisitForm = () => {
               <p>School, College, University, Etc. Attended / Attending</p>
             </div>
             <div className={`${institutionField} ${box}`}>
-              <p>field</p>
+              <input type="text" {...register("institutionName")} />
             </div>
             <div className={`${periodHeading} ${box}`}>
               <p>Period</p>
@@ -290,25 +328,29 @@ const ExposureVisitForm = () => {
               <p>From (month/year)</p>
             </div>
             <div className={`${periodFromField} ${box}`}>
-              <p>From Field</p>
+              <input type="date" {...register("institutionFrom")} />
             </div>
             <div className={`${periodToHeading} ${box}`}>
               <p>To (month/year)</p>
             </div>
             <div className={`${periodToField} ${box}`}>
-              <p>To Field</p>
+              <input type="date" {...register("institutionTo")} />
             </div>
             <div className={`${majorHeading} ${box}`}>
               <p>Major</p>
             </div>
             <div className={`${majorField} ${box}`}>
-              <p>Major Field</p>
+              <select {...register("major")}>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+                <option value="BBA">BBA</option>
+              </select>
             </div>
             <div className={`${qualificationHeading} ${box}`}>
               <p>Qualification Obtained/ to be obtained</p>
             </div>
             <div className={`${qualificationField} ${box}`}>
-              <p>Qualification Field</p>
+              <input type="text" {...register("qualification")} />
             </div>
           </div>
 
@@ -322,47 +364,41 @@ const ExposureVisitForm = () => {
               <p>Name of Organization</p>
             </div>
             <div className={`${orgField} ${box}`}>
-              <input type="text" {...register("orgName", { required: true })} />
-              {errors.orgName?.type === "required" && (
+              <input type="text" {...register("orgName")} />
+              {/* {errors.orgName?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${desigHeader} ${box}`}>
               <p>Designation</p>
             </div>
             <div className={`${desigField} ${box}`}>
-              <input
-                type="text"
-                {...register("designation", { required: true })}
-              />
-              {errors.designation?.type === "required" && (
+              <input type="text" {...register("designation")} />
+              {/* {errors.designation?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${sinceHeader} ${box}`}>
               <p>Since</p>
             </div>
             <div className={`${sinceField} ${box}`}>
-              <select {...register("since", { required: true })}>
+              <select {...register("since")}>
                 <option value="2022">2022</option>
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
               </select>
-              {errors.since?.type === "required" && (
+              {/* {errors.since?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${responHeader} ${box}`}>
               <p>Responsibilities</p>
             </div>
             <div className={`${responField} ${box}`}>
-              <input
-                type="text"
-                {...register("responsibility", { required: true })}
-              />
-              {errors.responsibility?.type === "required" && (
+              <input type="text" {...register("responsibility")} />
+              {/* {errors.responsibility?.type === "required" && (
                 <FormErrorMessage msg="Field can not be empty" />
-              )}
+              )} */}
             </div>
             <div className={`${questionOne} ${box}`}>
               <p>
@@ -371,13 +407,13 @@ const ExposureVisitForm = () => {
               </p>
             </div>
             <div className={`${ansOne} ${box}`}>
-              <textarea />
+              <textarea {...register("profGoal")} />
             </div>
             <div className={`${questionTwo} ${box}`}>
               <p>What does the future of Social Business look like to you?</p>
             </div>
             <div className={`${ansTwo} ${box}`}>
-              <textarea />
+              <textarea {...register("futureSocialBusiness")} />
             </div>
             <div className={`${questionThree} ${box}`}>
               <p>
@@ -410,7 +446,7 @@ const ExposureVisitForm = () => {
               </p>
             </div>
             <div className={`${ansFour} ${box}`}>
-              <textarea />
+              <textarea {...register("participateGrameenOrg")} />
             </div>
             <div className={`${questionFive} ${box}`}>
               <p>
@@ -419,7 +455,26 @@ const ExposureVisitForm = () => {
               </p>
             </div>
             <div className={`${ansFive} ${box}`}>
-              <p>checkboxs Field</p>
+              <div className={optionContainer}>
+                <input type="checkbox" id="sourceCampus" value="Campus" />
+                <label htmlFor="sourceCampus">Campus (Specify)</label>
+                <input type="text" {...register("sourceCampus")} />
+              </div>
+              <div className={optionContainer}>
+                <input type="checkbox" id="sourceRef" value="Campus" />
+                <label htmlFor="sourceRef">Referred by (Specify)</label>
+                <input type="text" {...register("sourceCampus")} />
+              </div>
+              <div className={optionContainer}>
+                <input type="checkbox" id="sourceYunus" value="Campus" />
+                <label htmlFor="sourceYunus">Yunus Centre Website</label>
+                <input type="text" {...register("sourceCampus")} />
+              </div>
+              <div className={optionContainer}>
+                <input type="checkbox" id="sourceOther" value="Campus" />
+                <label htmlFor="sourceOther">Others (Specify)</label>
+                <input type="text" {...register("sourceCampus")} />
+              </div>
             </div>
           </div>
 
@@ -557,7 +612,9 @@ const ExposureVisitForm = () => {
               />
             </div>
           </div>
-          <input type="submit" />
+          <div className={btnContainer}>
+            <ButtonLight text="Submit" type="submit" dark />
+          </div>
         </form>
       </div>
     </div>
