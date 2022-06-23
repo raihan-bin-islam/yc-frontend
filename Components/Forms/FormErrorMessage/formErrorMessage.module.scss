@@ -1,11 +1,11 @@
 @import "../../../styles/utils/base";
 
 .errorMsgContainer {
-  width: max-content;
+  // width: max-content;
   h2 {
     font-size: 1.8rem;
     font-weight: $medium;
-    padding: 1rem 0.5rem;
+    padding: 1.5rem 3rem;
     background-color: #f8d7da;
     color: #c20317;
     border: 2px solid #f5c6c6;

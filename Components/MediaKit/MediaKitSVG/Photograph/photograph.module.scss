@@ -1,0 +1,34 @@
+@import "../../../../styles/utils/base";
+
+.photographSvgContainer {
+  //   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+  height: 16rem;
+  svg {
+    width: 60%;
+    height: 60%;
+  }
+  .mask {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .frontFrame {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: all 0.25s ease;
+  }
+
+  &:hover {
+    path {
+      fill: $primary;
+    }
+    //   .frontFrame {
+    //     transform: rotate(-3deg);
+    //   }
+  }
+}

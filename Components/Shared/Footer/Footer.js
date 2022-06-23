@@ -85,23 +85,19 @@ const Footer = () => {
             <ul>
               <li>
                 <Link href="/media-kit">
-                  <a target='_blank'>Media Kit</a>
+                  <a>Media Kit</a>
                 </Link>
               </li>
               <li>
                 <Link href="/">
-                  <a target="_blank">Privacy Policy</a>
+                  <a>Privacy Policy</a>
                 </Link>
               </li>
               <li>
-                <a href="/" target="_blank">
-                  Contact
-                </a>
+                <a href="#">Contact</a>
               </li>
               <li>
-                <a href="/" target="_blank">
-                  Social Business FAQs
-                </a>
+                <a href="#">Social Business FAQs</a>
               </li>
             </ul>
           </div>

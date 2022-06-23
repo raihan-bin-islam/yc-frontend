@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FormErrorMessage from "../Components/Forms/FormErrorMessage/FormErrorMessage";
+import Book from "../Components/MediaKit/MediaKitSVG/Book/Book";
+import BrandGuideline from "../Components/MediaKit/MediaKitSVG/BrandGuideline/BrandGuideline";
+import Photograph from "../Components/MediaKit/MediaKitSVG/Photograph/Photograph";
+import YCLogo from "../Components/MediaKit/MediaKitSVG/YCLogo/YCLogo";
 import BreadCrumb from "../Components/Shared/BreadCrumb/BreadCrumb";
 import HeroBannerSmall from "../Components/Shared/HeroBannerSmall/HeroBannerSmall";
 
@@ -34,9 +38,14 @@ const Component = () => {
       <div className="">
         {/* <HeroBannerSmall />
         <BreadCrumb blue /> */}
+
         {/* <MediaLibraryPage /> */}
         <div className="container-layout pt10 pb10">
-          {/* <RecentNews /> */} <FormErrorMessage msg="This Field Is Required" />
+          {/* <FormErrorMessage msg="This Field Is Required" /> */}
+          <Book />
+          <Photograph />
+          <BrandGuideline />
+          <YCLogo />
         </div>
       </div>
     </>
