@@ -198,7 +198,7 @@
         .imageFileBtn::before {
           content: "Upload Image";
           display: block;
-          background: linear-gradient(top, #f9f9f9, #e3e3e3);
+          background: linear-gradient(to top, #f9f9f9, #e3e3e3);
           border: 1px solid #999;
           border-radius: 3px;
           text-align: center;
@@ -209,7 +209,7 @@
           cursor: pointer;
           text-shadow: 1px 1px #fff;
           font-weight: 700;
-          font-size: 10pt;
+          font-size: 1.6rem;
         }
         .imageFileBtn:hover::before {
           border-color: black;
@@ -231,22 +231,22 @@
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
       }
-      .telephoneNoBox {
-        //13
-        grid-column: col-start 1 / col-end 1;
-        grid-row: row-start 7 / row-end 7;
+      // .telephoneNoBox {
+      //   //13
+      //   grid-column: col-start 1 / col-end 1;
+      //   grid-row: row-start 7 / row-end 7;
 
-        @include response(phone) {
-          grid-column: initial;
-          grid-row: initial;
-        }
+      //   @include response(phone) {
+      //     grid-column: initial;
+      //     grid-row: initial;
+      //   }
 
-        border-left: 2px solid $primary;
-        border-bottom: 2px solid $primary;
-      }
+      //   border-left: 2px solid $primary;
+      //   border-bottom: 2px solid $primary;
+      // }
       .residenceBox {
         //14
-        grid-column: col-start 2 / col-end 2;
+        grid-column: col-start 1 / col-end 1;
         grid-row: row-start 7 / row-end 7;
 
         @include response(phone) {
@@ -258,7 +258,7 @@
       }
       .mobilePhoneBox {
         //15
-        grid-column: col-start 3 / col-end 3;
+        grid-column: col-start 2 / col-end 2;
         grid-row: row-start 7 / row-end 7;
 
         @include response(phone) {
@@ -270,7 +270,7 @@
       }
       .emailBox {
         //16
-        grid-column: col-start 4 / col-end 5;
+        grid-column: col-start 3 / col-end 5;
         grid-row: row-start 7 / row-end 7;
 
         @include response(phone) {
@@ -288,7 +288,7 @@
     .educationInfoContainer {
       display: grid;
       grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
-      grid-template-rows: repeat(4, [row-start] min-content [row-end]);
+      grid-template-rows: repeat(8, [row-start] min-content [row-end]);
 
       background-color: $secondaryLightBlue;
       margin-bottom: 2rem;
@@ -327,7 +327,7 @@
         border-bottom: 2px solid $primary;
 
         grid-column: col-start 1 / col-end 2;
-        grid-row: row-start 4 / row-end 4;
+        grid-row-end: span 1;
       }
       .periodHeading {
         grid-column: col-start 3 / col-end 4;
@@ -341,7 +341,7 @@
         border-bottom: 2px solid $primary;
 
         grid-column: col-start 3 / col-end 3;
-        grid-row: row-start 4 / row-end 4;
+        grid-row-end: span 1;
       }
       .periodToHeading {
         grid-column: col-start 4 / col-end 4;
@@ -351,7 +351,7 @@
         border-bottom: 2px solid $primary;
 
         grid-column: col-start 4 / col-end 4;
-        grid-row: row-start 4 / row-end 4;
+        grid-row-end: span 1;
       }
       .majorHeading {
         grid-column: col-start 5 / col-end 5;
@@ -361,7 +361,7 @@
         border-bottom: 2px solid $primary;
 
         grid-column: col-start 5 / col-end 5;
-        grid-row: row-start 4 / row-end 4;
+        grid-row-end: span 1;
       }
       .qualificationHeading {
         border-right: 2px solid $primary;
@@ -374,7 +374,20 @@
         border-right: 2px solid $primary;
 
         grid-column: col-start 6 / col-end 6;
-        grid-row: row-start 4 / row-end 4;
+        grid-row-end: span 1;
+      }
+      .addMoreButton {
+        border-bottom: 2px solid $primary;
+        border-right: 2px solid $primary;
+        border-left: 2px solid $primary;
+
+        grid-column: col-start 1 / col-end 6;
+        grid-row: end;
+        .buttonComponent {
+          width: fit-content;
+          margin: 0 auto;
+          position: relative;
+        }
       }
     }
 
