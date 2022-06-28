@@ -156,6 +156,7 @@ const ExposureVisitForm = () => {
     },
   });
   const onSubmit = async (data) => {
+    console.log(data.imageFile[0]);
     let formdata = new FormData();
 
     formdata.append("purpose_of_visit", data.purpose);
@@ -167,7 +168,7 @@ const ExposureVisitForm = () => {
     formdata.append("nationality", data.nationality);
     formdata.append("gender", data.gender);
     formdata.append("passport_no", data.passportNumber);
-    formdata.append("photo", data.imageFile);
+    formdata.append("photo", data.imageFile[0]);
     formdata.append("mailing_address", data.mailingAdd);
     formdata.append("telephone_mobile", data.mobilePhone);
     formdata.append("telephone_residence", data.telephoneNo);
@@ -221,8 +222,9 @@ const ExposureVisitForm = () => {
 
             <div className={`${purposeBox} ${box}`}>
               <label htmlFor="purpose">Purpose of Visit</label>
-              <input id="purpose" type="text" {...register("purpose", { required: true })} />
+              <input id="purpose" type="text" {...register("purpose", { required: true, max: 5 })} />
               {errors.purpose?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+              {errors.purpose?.type === "max" && <FormErrorMessage msg="Must be shorter than 5 characters" />}
             </div>
 
             <div className={`${familyNameBox} ${box}`}>
@@ -280,7 +282,13 @@ const ExposureVisitForm = () => {
                 <p>Recent Photo</p>
                 <p>(Within 3 months)</p>
               </div>
-              <input id="imageFile" className={imageFileBtn} type="file" {...register("imageFile")} />
+              <input
+                id="imageFile"
+                className={imageFileBtn}
+                type="file"
+                {...register("imageFile", { required: true })}
+              />
+              {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
             </div>
             <div className={`${mailingAddBox} ${box}`}>
               <label htmlFor="mailingAdd">Mailing Address</label>
@@ -455,13 +463,13 @@ const ExposureVisitForm = () => {
               <p>How will an exposure visit at the Yunus Centre apply to your professional goals?</p>
             </div>
             <div className={`${ansOne} ${box}`}>
-              <textarea {...register("profGoal")} />
+              <textarea {...register("profGoal", { required: true, maxLength: 250 })} />
             </div>
             <div className={`${questionTwo} ${box}`}>
               <p>What does the future of Social Business look like to you?</p>
             </div>
             <div className={`${ansTwo} ${box}`}>
-              <textarea {...register("futureSocialBusiness")} />
+              <textarea {...register("futureSocialBusiness", { required: true, maxLength: 250 })} />
             </div>
             <div className={`${questionThree} ${box}`}>
               <p>Tick (√) five or less Grameen Organizations you would like to meet during your time here?</p>
@@ -487,7 +495,7 @@ const ExposureVisitForm = () => {
               <p>If yes, please specify the organization, the date and duration?</p>
             </div>
             <div className={`${ansFour} ${box}`}>
-              <textarea {...register("participateGrameenOrg")} />
+              <textarea {...register("participateGrameenOrg", { required: true, maxLength: 250 })} />
             </div>
             <div className={`${questionFive} ${box}`}>
               <p>Where did you learn about the program (Please tick √ as appropriate)</p>
