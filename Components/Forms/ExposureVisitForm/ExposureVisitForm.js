@@ -211,7 +211,7 @@ const ExposureVisitForm = () => {
         <HeroBannerSmall title="Exposure Visit Form" />
       </div>
       <div className={`${exposureFormBody} container-layout`}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           {/* PERSONAL INFORMATION */}
 
           <div className={personalInfoContainer}>
