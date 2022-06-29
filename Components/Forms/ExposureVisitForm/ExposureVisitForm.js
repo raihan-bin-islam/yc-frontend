@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
 // COMPONENTS
@@ -97,6 +97,8 @@ const ExposureVisitForm = () => {
   // state variable for program-source to control checkbox input
   const [source, setSource] = useState([0, 0, 0, 0]);
   const [orgCount, setOrgCount] = useState(0);
+  const [eduCount, setEduCount] = useState(0);
+  const eduCountPrev = useRef(0);
 
   //   useForm API
   const {
@@ -122,11 +124,11 @@ const ExposureVisitForm = () => {
       residence: "",
       mobilePhone: "",
       email: "",
-      institutionName: "",
-      institutionFrom: "",
-      institutionTo: "",
-      major: "",
-      qualification: "",
+      institutionName: [],
+      institutionFrom: [],
+      institutionTo: [],
+      major: [],
+      qualification: [],
       orgName: "",
       designation: "",
       since: "",
@@ -156,7 +158,7 @@ const ExposureVisitForm = () => {
     },
   });
   const onSubmit = async (data) => {
-    // console.log(data.imageFile[0]);
+    console.log(data);
     const baseUrl = process.env.baseUrl;
 
     let formdata = new FormData();
@@ -175,11 +177,14 @@ const ExposureVisitForm = () => {
     formdata.append("telephone_mobile", data.mobilePhone);
     formdata.append("telephone_residence", data.telephoneNo);
     formdata.append("email", data.email);
-    formdata.append("education[0][institution]", data.institutionName);
-    formdata.append("education[0][period_from]", data.institutionFrom);
-    formdata.append("education[0][period_to]", data.institutionTo);
-    formdata.append("education[0][major]", data.major);
-    formdata.append("education[0][qualification]", data.qualification);
+    data.institutionName.forEach((element, index) => {
+      console.log(index);
+      formdata.append(`education[${index}][institution]`, data.institutionName[index]);
+      formdata.append(`education[${index}][period_from]`, data.institutionFrom[index]);
+      formdata.append(`education[${index}][period_to]`, data.institutionTo[index]);
+      formdata.append(`education[${index}][major]`, data.major[index]);
+      formdata.append(`education[${index}][qualification]`, data.qualification[index]);
+    });
     formdata.append("current_employment[0][organization]", data.orgName);
     formdata.append("current_employment[0][designation]", data.designation);
     formdata.append("current_employment[0][since]", data.since);
@@ -198,6 +203,13 @@ const ExposureVisitForm = () => {
     formdata.append("emmergency_contacts[0][business_address]", data.firstContactBusinessAddress);
     formdata.append("emmergency_contacts[0][business_telephone]", data.firstContactBusinessTel);
     formdata.append("emmergency_contacts[0][relation_to_applicant]", data.firstContactRelation);
+    formdata.append("emmergency_contacts[1][name]", data.secondContactName);
+    formdata.append("emmergency_contacts[1][address]", data.secondContactAddress);
+    formdata.append("emmergency_contacts[1][telephone]", data.secondContactTel);
+    formdata.append("emmergency_contacts[1][business_name]", data.secondContactBusinessName);
+    formdata.append("emmergency_contacts[1][business_address]", data.secondContactBusinessAddress);
+    formdata.append("emmergency_contacts[1][business_telephone]", data.secondContactBusinessTel);
+    formdata.append("emmergency_contacts[1][relation_to_applicant]", data.secondContactRelation);
 
     await fetch(`${baseUrl}/exposure-visit-application`, {
       method: "POST",
@@ -224,50 +236,50 @@ const ExposureVisitForm = () => {
             {/* Purpose Of Visit */}
             <div className={`${purposeBox} ${box}`}>
               <label htmlFor="purpose">Purpose of Visit</label>
-              <input id="purpose" type="text" {...register("purpose", { required: true, max: 5 })} />
+              <input id="purpose" type="text" {...register("purpose", { required: false, max: 5 })} />
               {errors.purpose?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
               {errors.purpose?.type === "max" && <FormErrorMessage msg="Must be shorter than 5 characters" />}
             </div>
             {/* Family Name */}
             <div className={`${familyNameBox} ${box}`}>
               <label htmlFor="familyName">Family Name</label>
-              <input id="familyName" type="text" {...register("familyName", { required: true })} />
+              <input id="familyName" type="text" {...register("familyName", { required: false })} />
               {errors.familyName?.type === "required" && <FormErrorMessage msg="Family Name Required" />}
             </div>
             {/* First Name */}
             <div className={`${firstNameBox} ${box}`}>
               <label htmlFor="firstName">First Name</label>
-              <input id="firstName" type="text" {...register("firstName", { required: true })} />
+              <input id="firstName" type="text" {...register("firstName", { required: false })} />
               {errors.firstName?.type === "required" && <FormErrorMessage msg="First Name Required" />}
             </div>
             {/* Date of birth */}
             <div className={`${dobBox} ${box}`}>
               <label htmlFor="dob">Date of Birth</label>
-              <input id="dob" type="date" {...register("dob", { required: true })} />
+              <input id="dob" type="date" {...register("dob", { required: false })} />
               {errors.dob?.type === "required" && <FormErrorMessage msg="Date of birth is required" />}
             </div>
             {/* Expected duration */}
             <div className={`${durationBox} ${box}`}>
               <label htmlFor="duration">Expected Duration</label>
-              <input id="duration" type="number" {...register("duration", { required: true })} />
+              <input id="duration" type="number" {...register("duration", { required: false })} />
               {errors.duration?.type === "required" && <FormErrorMessage msg="Expected duration cannot be empty" />}
             </div>
             {/* Start date */}
             <div className={`${startDateBox} ${box}`}>
               <label htmlFor="startDate">Start Date</label>
-              <input id="startDate" type="date" {...register("startDate", { required: true })} />
+              <input id="startDate" type="date" {...register("startDate", { required: false })} />
               {errors.startDate?.type === "required" && <FormErrorMessage msg="Start Date is required" />}
             </div>
             {/*  Nationality */}
             <div className={`${nationalityBox} ${box}`}>
               <label htmlFor="nationality">Nationality</label>
-              <input id="nationality" type="text" {...register("nationality", { required: true })} />
+              <input id="nationality" type="text" {...register("nationality", { required: false })} />
               {errors.nationality?.type === "required" && <FormErrorMessage msg="Nationality Required" />}
             </div>
             {/* Gender */}
             <div className={`${genderBox} ${box}`}>
               <label htmlFor="gender">Gender</label>
-              <select {...register("gender", { required: true })}>
+              <select {...register("gender", { required: false })}>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="other">Other</option>
@@ -277,7 +289,7 @@ const ExposureVisitForm = () => {
             {/* Passport number */}
             <div className={`${passportNumberBox} ${box}`}>
               <label htmlFor="passportNumber">Passport Number</label>
-              <input id="passportNumber" type="text" {...register("passportNumber", { required: true })} />
+              <input id="passportNumber" type="text" {...register("passportNumber", { required: false })} />
               {errors.passportNumber?.type === "required" && <FormErrorMessage msg="Passport No. Required" />}
             </div>
             {/* Recent Photo */}
@@ -290,14 +302,14 @@ const ExposureVisitForm = () => {
                 id="imageFile"
                 className={imageFileBtn}
                 type="file"
-                {...register("imageFile", { required: true })}
+                {...register("imageFile", { required: false })}
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
             </div>
             {/* Mailing Address */}
             <div className={`${mailingAddBox} ${box}`}>
               <label htmlFor="mailingAdd">Mailing Address</label>
-              <input id="mailingAdd" type="text" {...register("mailingAdd", { required: true })} />
+              <input id="mailingAdd" type="text" {...register("mailingAdd", { required: false })} />
               {errors.mailingAdd?.type === "required" && <FormErrorMessage msg="Mailing Address can not be empty" />}
             </div>
             {/* Telephone */}
@@ -310,7 +322,7 @@ const ExposureVisitForm = () => {
                   "telephoneNo",
 
                   {
-                    required: true,
+                    required: false,
                     pattern: /^[0-9]+$/i,
                   }
                 )}
@@ -325,7 +337,7 @@ const ExposureVisitForm = () => {
                 id="mobilePhone"
                 type="text"
                 {...register("mobilePhone", {
-                  required: true,
+                  required: false,
                   pattern: /^[0-9]{3,14}$/i,
                 })}
               />
@@ -338,7 +350,7 @@ const ExposureVisitForm = () => {
               <input
                 id="email"
                 type="text"
-                {...register("email", { required: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i })}
+                {...register("email", { required: false, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i })}
               />
               {errors.email?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
               {errors.email?.type === "pattern" && <FormErrorMessage msg="Please Provide a valid email address" />}
@@ -357,7 +369,7 @@ const ExposureVisitForm = () => {
             </div>
 
             <div id="education-status-field" className={`${institutionField} ${box}`}>
-              <input type="text" {...register("institutionName")} />
+              <input type="text" {...register("institutionName[0]")} />
             </div>
             {/* Period */}
             <div className={`${periodHeading} ${box}`}>
@@ -367,20 +379,20 @@ const ExposureVisitForm = () => {
               <p>From (month/year)</p>
             </div>
             <div id="education-status-field" className={`${periodFromField} ${box}`}>
-              <input type="date" {...register("institutionFrom")} />
+              <input type="date" {...register("institutionFrom[0]")} />
             </div>
             <div className={`${periodToHeading} ${box}`}>
               <p>To (month/year)</p>
             </div>
             <div id="education-status-field" className={`${periodToField} ${box}`}>
-              <input type="date" {...register("institutionTo")} />
+              <input type="date" {...register("institutionTo[0]")} />
             </div>
             {/* Major */}
             <div className={`${majorHeading} ${box}`}>
               <p>Major</p>
             </div>
             <div id="education-status-field" className={`${majorField} ${box}`}>
-              <select {...register("major")}>
+              <select {...register("major[0]")}>
                 <option value="CSE">CSE</option>
                 <option value="EEE">EEE</option>
                 <option value="BBA">BBA</option>
@@ -391,18 +403,105 @@ const ExposureVisitForm = () => {
               <p>Qualification Obtained/ to be obtained</p>
             </div>
             <div id="education-status-field" className={`${qualificationField} ${box}`}>
-              <input type="text" {...register("qualification")} />
+              <input type="text" {...register("qualification[0]", { required: false })} />
+              {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
             </div>
+            {eduCount >= 1 && (
+              <>
+                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                  <input type="text" {...register(`institutionName[1]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                  <input type="date" {...register(`institutionFrom[1]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                  <input type="date" {...register(`institutionTo[1]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${majorField} ${box}`}>
+                  <select {...register(`major[1]`)}>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BBA">BBA</option>
+                  </select>
+                </div>
+
+                <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                  <input type="text" {...register(`qualification[1]`, { required: false })} />
+                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+                </div>
+              </>
+            )}
+            {eduCount >= 2 && (
+              <>
+                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                  <input type="text" {...register(`institutionName[2]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                  <input type="date" {...register(`institutionFrom[2]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                  <input type="date" {...register(`institutionTo[2]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${majorField} ${box}`}>
+                  <select {...register(`major[2]`)}>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BBA">BBA</option>
+                  </select>
+                </div>
+
+                <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                  <input type="text" {...register(`qualification[2]`, { required: false })} />
+                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+                </div>
+              </>
+            )}
+            {eduCount >= 3 && (
+              <>
+                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                  <input type="text" {...register(`institutionName[3]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                  <input type="date" {...register(`institutionFrom[3]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                  <input type="date" {...register(`institutionTo[3]`)} />
+                </div>
+
+                <div id="education-status-field" className={`${majorField} ${box}`}>
+                  <select {...register(`major[3]`)}>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BBA">BBA</option>
+                  </select>
+                </div>
+
+                <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                  <input type="text" {...register(`qualification[3]`, { required: false })} />
+                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+                </div>
+              </>
+            )}
 
             <div className={`${addMoreButton} ${box}`}>
               <div
                 className={buttonComponent}
                 onClick={() => {
-                  appendChildTo();
+                  setEduCount((prev) => prev + 1);
+                  // eduCount < 3 && appendChildTo(eduCount);
                 }}
               >
                 <ButtonLight type="button" text="Add More" />
               </div>
+              {eduCount > 3 && <FormErrorMessage msg="Cannot Add more than 4" />}
             </div>
           </div>
 
@@ -456,13 +555,13 @@ const ExposureVisitForm = () => {
               <p>How will an exposure visit at the Yunus Centre apply to your professional goals?</p>
             </div>
             <div className={`${ansOne} ${box}`}>
-              <textarea {...register("profGoal", { required: true, maxLength: 250 })} />
+              <textarea {...register("profGoal", { required: false, maxLength: 250 })} />
             </div>
             <div className={`${questionTwo} ${box}`}>
               <p>What does the future of Social Business look like to you?</p>
             </div>
             <div className={`${ansTwo} ${box}`}>
-              <textarea {...register("futureSocialBusiness", { required: true, maxLength: 250 })} />
+              <textarea {...register("futureSocialBusiness", { required: false, maxLength: 250 })} />
             </div>
             <div className={`${questionThree} ${box}`}>
               <p>Tick (√) five or less Grameen Organizations you would like to meet during your time here?</p>
@@ -474,7 +573,7 @@ const ExposureVisitForm = () => {
                     <input
                       type="checkbox"
                       id={data.id}
-                      {...register("organization")}
+                      {...register("organization", { required: false })}
                       value={data.organization}
                       onChange={(e) => e.target.checked && setOrgCount((prev) => prev + 1)}
                     />
@@ -482,13 +581,14 @@ const ExposureVisitForm = () => {
                   </div>
                 );
               })}
+              {errors.organization?.type === "required" && <FormErrorMessage msg="Organization is required" />}
             </div>
             <div className={`${questionFour} ${box}`}>
               <p>Did you participate in any field trip with any Grameen organization before?</p>
               <p>If yes, please specify the organization, the date and duration?</p>
             </div>
             <div className={`${ansFour} ${box}`}>
-              <textarea {...register("participateGrameenOrg", { required: true, maxLength: 250 })} />
+              <textarea {...register("participateGrameenOrg", { required: false, maxLength: 250 })} />
             </div>
             <div className={`${questionFive} ${box}`}>
               <p>Where did you learn about the program (Please tick √ as appropriate)</p>
