@@ -15,6 +15,8 @@ import {
 import ButtonLight from "../../Shared/Button/Button";
 import useScrollReveal from "../../Hooks/useScrollReveal";
 
+import altImage from "../../../public/assets/images/media/news-and-highlights/news_alt_image.jpg";
+
 const NewsHighlightCard = ({ id, image, title, publishedBy, pressRelease, newsContent }) => {
   // slice the news description
   const newsSliced = newsContent.slice(0, 300);
@@ -27,7 +29,7 @@ const NewsHighlightCard = ({ id, image, title, publishedBy, pressRelease, newsCo
 
   return (
     <div className={`${cardContainer}`}>
-      <img className={revealFromLeft} src={image} alt="" />
+      <img className={revealFromLeft} src={image.includes(undefined) ? altImage.src : image} alt="" />
       <div className={highlightNewsContainer}>
         <h2 className={revealFromLeft}>{title}</h2>
         <div>
