@@ -1,13 +1,13 @@
-import React from "react";
+// import React from "react";
 
-import SingleRejoinder from "../../../../Components/Media/SingleRejoinder/SingleRejoinder";
+// import SingleRejoinder from "../../../../Components/Media/SingleRejoinder/SingleRejoinder";
 
-const index = () => {
-  return (
-    <div>
-      <SingleRejoinder />
-    </div>
-  );
-};
+// const index = () => {
+//   return (
+//     <div>
+//       <SingleRejoinder />
+//     </div>
+//   );
+// };
 
-export default index;
+// export default index;

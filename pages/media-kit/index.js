@@ -1,12 +1,12 @@
-import React from 'react';
-import MediaKit from '../../Components/MediaKit/MediaKit';
+import React from "react";
+import MediaKit from "../../Components/MediaKit/MediaKit";
 
-const mediaKitPage = () => {
-    return (
-        <>
-          <MediaKit/>  
-        </>
-    );
+const MediaKitPage = () => {
+  return (
+    <>
+      <MediaKit />
+    </>
+  );
 };
 
-export default mediaKitPage;
+export default MediaKitPage;
