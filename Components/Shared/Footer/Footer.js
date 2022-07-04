@@ -89,15 +89,19 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/">
+                <Link href="/privacy-policy">
                   <a>Privacy Policy</a>
                 </Link>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <Link href="/contact">
+                  <a>Contact</a>
+                </Link>
               </li>
               <li>
-                <a href="#">Social Business FAQs</a>
+                <Link href="/social-business/faq">
+                  <a>Social Business FAQs</a>
+                </Link>
               </li>
             </ul>
           </div>
