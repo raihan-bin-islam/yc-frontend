@@ -96,11 +96,11 @@ const Magazine = ({ title, isLoading, data }) => {
             <h5 className={magazineTitle}>{magazineData.title}</h5>
             <div className={buttonContainer}>
               <a href={magazineData.handbook}>
-                <ButtonLight text="Read" />
+                <ButtonLight type="button" text="Read" />
               </a>
 
               <a href={magazineData.handbook} download>
-                <ButtonLight text="Download" />
+                <ButtonLight type="button" text="Download" />
               </a>
             </div>
           </div>
