@@ -15,12 +15,12 @@ import Typewriter from "typewriter-effect";
 import styles from "./homeheader.module.scss";
 
 const HomeHeader = () => {
-  const { headerHero, heroBody, heroContentLeft, heroContentRight, h2 } = styles;
+  const { headerHero, heroBody, homeHeroImage, heroContentLeft, heroContentRight, h2 } = styles;
   return (
     <section className={headerHero}>
       <HeroBanner large />
       <div className={heroBody}>
-        <div>
+        <div className={homeHeroImage}>
           <img src={heroYunus.src} alt="hero-banner" />
         </div>
         <div className={heroContentLeft}>
