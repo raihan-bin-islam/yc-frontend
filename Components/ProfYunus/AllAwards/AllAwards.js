@@ -5,8 +5,7 @@ import ButtonLight from "../../Shared/Button/Button";
 
 import { awardsSection, awardsContainer, buttonComponent } from "./allAwards.module.scss";
 
-const AllAwards = () => {
-  const [isLoading, awardsData] = useFetch("/awards");
+const AllAwards = ({ awardsData }) => {
   const [endOffset, setEndOffset] = useState(8);
 
   return (
