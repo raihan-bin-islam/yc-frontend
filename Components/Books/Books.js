@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./books.module.scss";
 import HeroBanner from "../Shared/HeroBanner/HeroBanner";
-import booksData from "../../staticPageData/books.json";
+// import booksData from "../../staticPageData/books.json";
 import ycPath from "../../public/assets/images/media/books/yc_path.png";
 import HeroBannerSmall from "../Shared/HeroBannerSmall/HeroBannerSmall";
 
-const Books = () => {
+const Books = ({ booksData }) => {
   const {
     booksContainer,
     booksContainerHeader,
@@ -26,7 +26,7 @@ const Books = () => {
             {booksData.map((book, index) => (
               <div key={`books_${index}`}>
                 <div className={bookGridCollection}>
-                  <img src={`/assets/images/prof_yunus/books/${book.photo}.jpg`} alt="books" />
+                  <img src={book.thumb_image} alt="books" />
                 </div>
               </div>
             ))}
