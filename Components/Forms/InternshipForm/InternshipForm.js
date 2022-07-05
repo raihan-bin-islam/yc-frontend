@@ -6,6 +6,9 @@ import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 import FormErrorMessage from "../FormErrorMessage/FormErrorMessage";
 import ButtonLight from "../../Shared/Button/Button";
 
+// FORM VALIDATION
+import { isFutureDate } from "../utilityFunctions/customFormValidations";
+
 // DATA
 import fieldData from "./data/checkboxInterestData.json";
 
@@ -131,7 +134,7 @@ function InternshipForm(props) {
   } = useForm();
 
   const onSubmit = () => {
-    console.log("submited");
+    console.log("submit");
   };
 
   return (
@@ -168,11 +171,16 @@ function InternshipForm(props) {
             </div>
             {/* Family Name */}
             <div className={`${familyNameBox} ${box}`}>
-              <label htmlFor="familyName">Family Name</label>
+              <label htmlFor="familyName" className={requiredField}>
+                Family Name
+              </label>
               <input
                 id="familyName"
                 type="text"
-                {...register("familyName", { required: true })}
+                {...register("familyName", {
+                  required: true,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
               />
               {errors.familyName?.type === "required" && (
                 <FormErrorMessage msg="Family Name Required" />
@@ -180,11 +188,16 @@ function InternshipForm(props) {
             </div>
             {/* First Name */}
             <div className={`${firstNameBox} ${box}`}>
-              <label htmlFor="firstName">First Name</label>
+              <label htmlFor="firstName" className={requiredField}>
+                First Name
+              </label>
               <input
                 id="firstName"
                 type="text"
-                {...register("firstName", { required: true })}
+                {...register("firstName", {
+                  required: true,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
               />
               {errors.firstName?.type === "required" && (
                 <FormErrorMessage msg="First Name Required" />
@@ -192,31 +205,46 @@ function InternshipForm(props) {
             </div>
             {/* Date of birth */}
             <div className={`${dobBox} ${box}`}>
-              <label htmlFor="dob">Date of Birth</label>
+              <label htmlFor="dob" className={requiredField}>
+                Date of Birth
+              </label>
               <input
                 id="dob"
                 type="date"
-                {...register("dob", { required: true })}
+                {...register("dob", {
+                  required: true,
+                  validate: (v) => isFutureDate(v),
+                })}
               />
               {errors.dob?.type === "required" && (
                 <FormErrorMessage msg="Date of birth is required" />
               )}
+              {errors.dob?.type === "validate" && (
+                <FormErrorMessage msg="Date of birth cannot be a future date" />
+              )}
             </div>
             {/* Expected duration */}
             <div className={`${durationBox} ${box}`}>
-              <label htmlFor="duration">Expected Duration</label>
+              <label htmlFor="duration" className={requiredField}>
+                Expected Duration
+              </label>
               <input
                 id="duration"
                 type="number"
-                {...register("duration", { required: true })}
+                {...register("duration", { required: true, min: 0 })}
               />
               {errors.duration?.type === "required" && (
                 <FormErrorMessage msg="Expected duration cannot be empty" />
               )}
+              {errors.duration?.type === "min" && (
+                <FormErrorMessage msg="Expected duration cannot be negative" />
+              )}
             </div>
             {/* Start date */}
             <div className={`${startDateBox} ${box}`}>
-              <label htmlFor="startDate">Start Date</label>
+              <label htmlFor="startDate" className={requiredField}>
+                Start Date
+              </label>
               <input
                 id="startDate"
                 type="date"
@@ -228,19 +256,29 @@ function InternshipForm(props) {
             </div>
             {/*  Nationality */}
             <div className={`${nationalityBox} ${box}`}>
-              <label htmlFor="nationality">Nationality</label>
+              <label htmlFor="nationality" className={requiredField}>
+                Nationality
+              </label>
               <input
                 id="nationality"
                 type="text"
-                {...register("nationality", { required: true })}
+                {...register("nationality", {
+                  required: true,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
               />
               {errors.nationality?.type === "required" && (
                 <FormErrorMessage msg="Nationality Required" />
               )}
+              {errors.nationality?.type === "pattern" && (
+                <FormErrorMessage msg="Only use A-Z a-z" />
+              )}
             </div>
             {/* Gender */}
             <div className={`${genderBox} ${box}`}>
-              <label htmlFor="gender">Gender</label>
+              <label htmlFor="gender" className={requiredField}>
+                Gender
+              </label>
               <select {...register("gender", { required: true })}>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
@@ -256,16 +294,16 @@ function InternshipForm(props) {
               <input
                 id="passportNumber"
                 type="text"
-                {...register("passportNumber", { required: true })}
+                {...register("passportNumber", { pattern: /^[A-Z][0-9]{8}$/i })}
               />
-              {errors.passportNumber?.type === "required" && (
-                <FormErrorMessage msg="Passport No. Required" />
+              {errors.passportNumber?.type === "pattern" && (
+                <FormErrorMessage msg="Invalid passport number" />
               )}
             </div>
             {/* Recent Photo */}
             <div className={`${imageFileBox} ${box}`}>
               <div className={imageContainer}>
-                <p>Recent Photo</p>
+                <p className={requiredField}>Recent Photo</p>
                 <p>(Within 3 months)</p>
               </div>
               <input
@@ -280,7 +318,9 @@ function InternshipForm(props) {
             </div>
             {/* Mailing Address */}
             <div className={`${mailingAddBox} ${box}`}>
-              <label htmlFor="mailingAdd">Mailing Address</label>
+              <label htmlFor="mailingAdd" className={requiredField}>
+                Mailing Address
+              </label>
               <input
                 id="mailingAdd"
                 type="text"
@@ -300,16 +340,12 @@ function InternshipForm(props) {
                   "telephoneNo",
 
                   {
-                    required: true,
                     pattern: /^[0-9]+$/i,
                   }
                 )}
               />
               {errors.telephoneNo?.type === "pattern" && (
                 <FormErrorMessage msg="invalid number" />
-              )}
-              {errors.telephoneNo?.type === "required" && (
-                <FormErrorMessage msg="Telephone no. is required" />
               )}
             </div>
             {/* Mobile Phone */}
@@ -319,30 +355,29 @@ function InternshipForm(props) {
                 id="mobilePhone"
                 type="text"
                 {...register("mobilePhone", {
-                  required: true,
-                  pattern: /^[0-9]{3,14}$/i,
+                  pattern: /^[0-9]+$/i,
                 })}
               />
-              {errors.mobilePhone?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )}
               {errors.mobilePhone?.type === "pattern" && (
                 <FormErrorMessage msg="Please enter a valid mobile number" />
               )}
             </div>
             {/* Email Address */}
             <div className={`${emailBox} ${box}`}>
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email" className={requiredField}>
+                Email Address
+              </label>
               <input
                 id="email"
                 type="text"
                 {...register("email", {
                   required: true,
-                  pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i,
+                  pattern:
+                    /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/i,
                 })}
               />
               {errors.email?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
+                <FormErrorMessage msg="Email can not be empty" />
               )}
               {errors.email?.type === "pattern" && (
                 <FormErrorMessage msg="Please Provide a valid email address" />
@@ -358,36 +393,56 @@ function InternshipForm(props) {
             </div>
             {/* Institution Name */}
             <div className={`${institutionHeading} ${box}`}>
-              <p>School, College, University, Etc. Attended / Attending</p>
+              <p className={requiredField}>
+                School, College, University, Etc. Attended / Attending
+              </p>
             </div>
 
             <div
               id="education-status-field"
               className={`${institutionField} ${box}`}
             >
-              <input type="text" {...register("institutionName")} />
+              <input
+                type="text"
+                {...register("institutionName", { required: true })}
+              />
+              {errors.institutionName?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
             </div>
             {/* Period */}
             <div className={`${periodHeading} ${box}`}>
               <p>Period</p>
             </div>
             <div className={`${periodFromHeading} ${box}`}>
-              <p>From (month/year)</p>
+              <p className={requiredField}>From (month/year)</p>
             </div>
             <div
               id="education-status-field"
               className={`${periodFromField} ${box}`}
             >
-              <input type="date" {...register("institutionFrom")} />
+              <input
+                type="date"
+                {...register("institutionFrom", { required: true })}
+              />
+              {errors.institutonFrom?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${periodToHeading} ${box}`}>
-              <p>To (month/year)</p>
+              <p className={requiredField}>To (month/year)</p>
             </div>
             <div
               id="education-status-field"
               className={`${periodToField} ${box}`}
             >
-              <input type="date" {...register("institutionTo")} />
+              <input
+                type="date"
+                {...register("institutionTo", { required: true })}
+              />
+              {errors.institutonTo?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             {/* Major */}
             <div className={`${majorHeading} ${box}`}>
@@ -402,13 +457,21 @@ function InternshipForm(props) {
             </div>
             {/* Score Obtained */}
             <div className={`${qualificationHeading} ${box}`}>
-              <p>Qualification Obtained/ to be obtained</p>
+              <p className={requiredField}>
+                Qualification Obtained/ to be obtained
+              </p>
             </div>
             <div
               id="education-status-field"
               className={`${qualificationField} ${box}`}
             >
-              <input type="text" {...register("qualification")} />
+              <input
+                type="text"
+                {...register("qualification", { required: true })}
+              />
+              {errors.qualification?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
 
             <div className={`${addMoreButton} ${box}`}>
@@ -708,17 +771,25 @@ function InternshipForm(props) {
             </div>
             {/* First Reference */}
             <div className={`${firstReferenceName} ${box}`}>
-              <label htmlFor="firstReferenceName">
+              <label htmlFor="firstReferenceName" className={requiredField}>
                 Name of <b>First</b> Reference
               </label>
               <input
                 id="firstReferenceName"
                 type="text"
-                {...register("firstReferenceName")}
+                {...register("firstReferenceName", { required: true })}
               />
+              {errors.firstReferenceName?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstReferencePosition} ${box}`}>
-              <label htmlFor="firstReferencePosition">Position</label>
+              <label htmlFor="firstReferencePosition" className={requiredField}>
+                Position
+              </label>
+              {errors.firstReferencePosition?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
               <input
                 id="firstReferencePosition"
                 type="text"
@@ -726,41 +797,72 @@ function InternshipForm(props) {
               />
             </div>
             <div className={`${firstReferenceOrg} ${box}`}>
-              <label htmlFor="firstReferenceOrg">Name of Organization</label>
+              <label htmlFor="firstReferenceOrg" className={requiredField}>
+                Name of Organization
+              </label>
               <input
                 id="firstReferenceOrg"
                 type="text"
-                {...register("firstReferenceOrg")}
+                {...register("firstReferenceOrg", { required: true })}
               />
+              {errors.firstReferenceOrg?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstReferenceAddress} ${box}`}>
-              <label htmlFor="firstReferenceAddress">
+              <label htmlFor="firstReferenceAddress" className={requiredField}>
                 Correspondence Address
               </label>
               <input
                 id="firstReferenceAddress"
                 type="text"
-                {...register("firstReferenceAddress")}
+                {...register("firstReferenceAddress", { required: true })}
               />
+              {errors.firstReferenceAddress?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstReferenceTel} ${box}`}>
-              <label htmlFor="firstReferenceTel">Telephone No.</label>
+              <label htmlFor="firstReferenceTel" className={requiredField}>
+                Telephone No.
+              </label>
               <input
                 id="firstReferenceTel"
                 type="tel"
-                {...register("firstReferenceTel")}
+                {...register("firstReferenceTel", {
+                  required: true,
+                  pattern: /^[0-9]+$/i,
+                })}
               />
+              {errors.firstReferenceTel?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              {errors.firstReferenceTel?.type === "pattern" && (
+                <FormErrorMessage msg="Invalid number" />
+              )}
             </div>
             <div className={`${firstReferenceEmail} ${box}`}>
-              <label htmlFor="firstReferenceEmail">Telephone</label>
+              <label htmlFor="firstReferenceEmail" className={requiredField}>
+                Email Address
+              </label>
               <input
                 id="firstReferenceEmail"
                 type="email"
-                {...register("firstReferenceEmail")}
+                {...register("firstReferenceEmail", {
+                  required: true,
+                  pattern:
+                    /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/i,
+                })}
               />
+              {errors.firstReferenceEmail?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              {errors.firstReferenceEmail?.type === "pattern" && (
+                <FormErrorMessage msg="Invalid email" />
+              )}
             </div>
 
-            {/* Second Contact */}
+            {/* Second Reference */}
             <div className={`${secondReferenceName} ${box}`}>
               <label htmlFor="secondReferenceName">
                 Name of <b>second</b> Reference
@@ -823,30 +925,49 @@ function InternshipForm(props) {
             </div>
             {/* First Contact */}
             <div className={`${firstContactName} ${box}`}>
-              <label htmlFor="firstContactName">
+              <label htmlFor="firstContactName" className={requiredField}>
                 Name of <b>First</b> Contact
               </label>
               <input
                 id="firstContactName"
                 type="text"
-                {...register("firstContactName")}
+                {...register("firstContactName", { required: true })}
               />
+              {errors.firstContactName?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstContactAddress} ${box}`}>
-              <label htmlFor="firstContactAddress">Address</label>
+              <label htmlFor="firstContactAddress" className={requiredField}>
+                Address
+              </label>
               <input
                 id="firstContactAddress"
                 type="text"
-                {...register("firstContactAddress")}
+                {...register("firstContactAddress", { required: true })}
               />
+              {errors.firstContactAddress?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstContactTel} ${box}`}>
-              <label htmlFor="firstContactTel">Telephone</label>
+              <label htmlFor="firstContactTel" className={requiredField}>
+                Telephone
+              </label>
               <input
                 id="firstContactTel"
                 type="tel"
-                {...register("firstContactTel")}
+                {...register("firstContactTel", {
+                  required: true,
+                  pattern: /^[0-9]+$/i,
+                })}
               />
+              {errors.firstContactTel?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              {errors.firstContactTel?.type === "pattern" && (
+                <FormErrorMessage msg="invalid number" />
+              )}
             </div>
             <div className={`${firstContactBusinessName} ${box}`}>
               <label htmlFor="firstContactBusinessName">Business Name</label>
@@ -875,14 +996,17 @@ function InternshipForm(props) {
               />
             </div>
             <div className={`${firstContactRelation} ${box}`}>
-              <label htmlFor="firstContactRelation">
+              <label htmlFor="firstContactRelation" className={requiredField}>
                 Relation to Applicant
               </label>
               <input
                 id="firstContactRelation"
                 type="text"
-                {...register("firstContactRelation")}
+                {...register("firstContactRelation", { required: true })}
               />
+              {errors.firstContactRelation?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
 
             {/* Second Contact */}

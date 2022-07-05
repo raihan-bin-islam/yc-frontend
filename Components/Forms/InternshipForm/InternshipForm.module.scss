@@ -1,11 +1,12 @@
 @import "../../../styles/utils/base";
 
 .internshipForm {
+  // USE REQUIRED USING CLASSNAME
   .requiredField::before {
     content: "*";
     display: inline-block;
     color: red;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
     font-size: 2.5rem;
   }
   .internshipFormHeader {
@@ -944,6 +945,13 @@
           }
 
           .containerBox {
+            input,
+            label {
+              cursor: pointer;
+            }
+            input {
+              margin-right: 1rem;
+            }
             @include response(phone) {
               display: flex;
               gap: 2rem;
@@ -995,6 +1003,9 @@
       .firstReferenceEmail {
         grid-column: col-start / col-end;
         grid-row: row-start 7 / row-end 7;
+
+        margin-bottom: 2rem;
+        border-bottom: 2px solid $primary;
       }
 
       // Second Reference
