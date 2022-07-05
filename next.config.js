@@ -18,7 +18,7 @@ const nextConfig = {
     return [
       {
         source: "/media",
-        destination: "/media/news#",
+        destination: "/media/news",
         permanent: true,
       },
       {

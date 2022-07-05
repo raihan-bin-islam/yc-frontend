@@ -33,10 +33,10 @@ const SocialBusinessPastEventsBody = ({ pastEventsYearWise }) => {
   } = styles;
 
   const handlePageClick = (e) => {
-    const currentPage = e.selected;
-    setStartOffset(contentsPerPage * currentPage);
-    setEndOffset(contentsPerPage * currentPage + contentsPerPage);
-    setCurrentPage(currentPage + 1);
+    const pageNumber = e.selected;
+    setStartOffset(contentsPerPage * pageNumber);
+    setEndOffset(contentsPerPage * pageNumber + contentsPerPage);
+    setCurrentPage(pageNumber + 1);
     document.getElementById("events-section").scrollIntoView();
   };
 

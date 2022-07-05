@@ -128,7 +128,7 @@ const Navbar = () => {
                     <li>Issues</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/social-business/faq">
                   <a onClick={HandleMenuClose}>
                     <li>FAQs</li>
                   </a>
@@ -149,7 +149,7 @@ const Navbar = () => {
               </ul> */}
             </li>
             <li className={dropdownParent}>
-              <Link href="#">
+              <Link href="">
                 <a
                   className={
                     router.pathname.includes("/visit-programs") ? `${navActive} ${dropdownParent}` : dropdownParent
@@ -171,11 +171,14 @@ const Navbar = () => {
                     <li>Offshore Programs</li>
                   </a>
                 </Link>
-                <Link href="#">
-                  <a onClick={HandleMenuClose}>
-                    <li>SB Volunteer</li>
-                  </a>
-                </Link>
+
+                <a
+                  href="http://socialbusinesspedia.com/apps/application_bank/sbv/registration"
+                  onClick={HandleMenuClose}
+                  target="__blank"
+                >
+                  <li>SB Volunteer</li>
+                </a>
               </ul>
             </li>
             <li className={dropdownParent}>
@@ -190,35 +193,35 @@ const Navbar = () => {
               </Link>
               {/* dropdown menu */}
               <ul className={dropdown}>
-                {/* <Link href="/publications/recommended-readings"> */}
-                <Link href="#">
+                <Link href="/publications/recommended-readings">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Recommended Readings</li>
                   </a>
                 </Link>
-                {/* <Link href="/publications/book-reviews"> */}
-                <Link href="#">
+                <Link href="/publications/book-reviews">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Book Reviews</li>
                   </a>
                 </Link>
-                {/* <Link href="/publications/intern-magazine"> */}
-                <Link href="#">
+                <Link href="/publications/intern-magazine">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Intern Magazine</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/publications/newsletter">
                   <a onClick={HandleMenuClose}>
                     <li>Newsletter</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/publications/booklet">
                   <a onClick={HandleMenuClose}>
                     <li>Booklet</li>
                   </a>
                 </Link>
-                <Link href="#">
+                <Link href="/publications/yc-brochure">
                   <a onClick={HandleMenuClose}>
                     <li>YC Brochure</li>
                   </a>
@@ -226,7 +229,7 @@ const Navbar = () => {
                 <a onClick={HandleMenuClose} href="http://socialbusinesspedia.com/" target="__blank">
                   <li>More to SB Pedia</li>
                 </a>
-                <Link href="#">
+                <Link href="/publications/yc-spotlight">
                   <a onClick={HandleMenuClose}>
                     <li>YC Spotlight</li>
                   </a>
@@ -246,26 +249,26 @@ const Navbar = () => {
                     <li>News</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/press-release"> */}
-                <Link href="#">
+                <Link href="/media/press-release">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Press Release</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/rejoinders"> */}
-                <Link href="#">
+                <Link href="/media/rejoinders">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Rejoinders</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/photo-gallery"> */}
-                <Link href="#">
+                <Link href="/media/photo-gallery">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Photo Gallery</li>
                   </a>
                 </Link>
-                {/* <Link href="/media/videos"> */}
-                <Link href="#">
+                <Link href="/media/videos">
+                  {/* <Link href="#"> */}
                   <a onClick={HandleMenuClose}>
                     <li>Video Library</li>
                   </a>

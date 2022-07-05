@@ -26,6 +26,16 @@
 
       transform: translateY(-50%);
       height: 50%;
+
+      rect {
+        fill: #c7c6c6;
+        opacity: 0.3;
+        transition: 0.25s ease;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
     }
     .prevButton {
       transform: translateY(-50%) scale(-1);

@@ -91,11 +91,9 @@ const HomeArticles = ({ isLoading, articlesData }) => {
       </div>
       {/* see all */}
       <div className={articleFooter}>
-        <Link href="/" passHref>
-          <a>
-            <ButtonLight text="See All" />
-          </a>
-        </Link>
+        <a href="https://www.facebook.com/YunusCentre/" target="__blank">
+          <ButtonLight text="See All" />
+        </a>
       </div>
     </section>
   );
