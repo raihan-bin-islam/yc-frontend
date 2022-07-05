@@ -6,22 +6,25 @@ import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 import FormErrorMessage from "../FormErrorMessage/FormErrorMessage";
 import ButtonLight from "../../Shared/Button/Button";
 
-// Data
-import orgData from "./data/checkboxOrgData.json";
+// DATA
+import fieldData from "./data/checkboxInterestData.json";
 
 // CSS
-import styles from "./ExposureVisitForm.module.scss";
+import styles from "./InternshipForm.module.scss";
 import { appendChildTo, isChecked } from "../utilityFunctions/formDataChecks";
 
-const ExposureVisitForm = () => {
-  // Style ClassName
+function InternshipForm(props) {
+  // STYLE CLASSNAME
   const {
-    exposureForm,
-    exposureFormHeader,
-    exposureFormBody,
+    internshipForm,
+    internshipFormHeader,
+    internshipFormBody,
+    box,
     personalInfoContainer,
     headingContainer,
-    purposeBox,
+    interestBox,
+    container,
+    checkboxContainer,
     familyNameBox,
     firstNameBox,
     dobBox,
@@ -30,13 +33,13 @@ const ExposureVisitForm = () => {
     nationalityBox,
     genderBox,
     imageFileBox,
+    imageContainer,
+    imageFileBtn,
     passportNumberBox,
     mailingAddBox,
-    telephoneNoBox,
     residenceBox,
     mobilePhoneBox,
     emailBox,
-    box,
     educationInfoContainer,
     institutionHeading,
     institutionField,
@@ -51,25 +54,50 @@ const ExposureVisitForm = () => {
     qualificationField,
     addMoreButton,
     buttonComponent,
-    employmentStatusContainer,
-    orgField,
-    orgHeader,
-    desigHeader,
-    desigField,
-    sinceHeader,
-    sinceField,
-    responHeader,
-    responField,
-    questionOne,
-    ansOne,
-    questionTwo,
-    ansTwo,
-    questionThree,
-    ansThree,
-    questionFour,
-    ansFour,
-    questionFive,
-    ansFive,
+    notableContainer,
+    scholarshipHeading,
+    scholarshipField,
+    organizationHeading,
+    organizationField,
+    issueDateHeading,
+    issueDateField,
+    activitiesContainer,
+    activityHeading,
+    activityField,
+    positionHeading,
+    positionField,
+    achievementHeading,
+    achievementField,
+    activityPeriodHeading,
+    activityPeriodFromHeading,
+    activityPeriodFromField,
+    activityPeriodToHeading,
+    activityPeriodToField,
+    whyAndExpectationHeading,
+    whyAndExpectationField,
+    interestInHeading,
+    interestInField,
+    additionalSkillHeading,
+    additionalSkillField,
+    fieldTripHeading,
+    fieldTripField,
+    learnProgramHeading,
+    learnProgramField,
+    optionContainer,
+    containerBox,
+    referenceContainer,
+    firstReferenceName,
+    firstReferencePosition,
+    firstReferenceOrg,
+    firstReferenceAddress,
+    firstReferenceTel,
+    firstReferenceEmail,
+    secondReferenceName,
+    secondReferencePosition,
+    secondReferenceOrg,
+    secondReferenceAddress,
+    secondReferenceTel,
+    secondReferenceEmail,
     emergencyContactContainer,
     firstContactName,
     firstContactAddress,
@@ -85,19 +113,13 @@ const ExposureVisitForm = () => {
     secondContactBusinessAddress,
     secondContactBusinessTel,
     secondContactRelation,
-    checkboxContainer,
-    gridBox,
-    optionContainer,
     btnContainer,
-    imageFileBtn,
-    imageContainer,
-    container,
+    requiredField,
   } = styles;
 
   // State Variables
   // state variable for program-source to control checkbox input
   const [source, setSource] = useState([0, 0, 0, 0]);
-  const [orgCount, setOrgCount] = useState(0);
 
   //   useForm API
   const {
@@ -106,159 +128,43 @@ const ExposureVisitForm = () => {
     watch,
     formState: { errors },
     required,
-  } = useForm({
-    defaultValues: {
-      purpose: "",
-      familyName: "",
-      firstName: "",
-      dob: "",
-      duration: "",
-      startDate: "",
-      nationality: "",
-      gender: "",
-      passportNumber: "",
-      imageFile: "",
-      mailingAdd: "",
-      telephoneNo: "",
-      residence: "",
-      mobilePhone: "",
-      email: "",
-      institutionName: "",
-      institutionFrom: "",
-      institutionTo: "",
-      major: "",
-      qualification: "",
-      orgName: "",
-      designation: "",
-      since: "",
-      responsibility: "",
-      profGoal: "",
-      futureSocialBusiness: "",
-      organization: [],
-      participateGrameenOrg: "",
-      sourceCampus: "",
-      sourceRef: "",
-      sourceYunus: "",
-      sourceOthers: "",
-      firstContactName: "",
-      firstContactAddress: "",
-      firstContactTel: "",
-      firstContactBusinessName: "",
-      firstContactBusinessAddress: "",
-      firstContactBusinessTel: "",
-      firstContactRelation: "",
-      secondContactName: "",
-      secondContactAddress: "",
-      secondContactTel: "",
-      secondContactBusinessName: "",
-      secondContactBusinessAddress: "",
-      secondContactBusinessTel: "",
-      secondContactRelation: "",
-    },
-  });
-  const onSubmit = async (data) => {
-    // console.log(data.imageFile[0]);
-    const baseUrl = process.env.baseUrl;
+  } = useForm();
 
-    console.log(data);
-
-    let formdata = new FormData();
-
-    formdata.append("purpose_of_visit", data.purpose);
-    formdata.append("family_name", data.familyName);
-    formdata.append("first_name", data.firstName);
-    formdata.append("date_of_birth", data.dob);
-    formdata.append("expected_duration", data.duration);
-    formdata.append("start_date", data.startDate);
-    formdata.append("nationality", data.nationality);
-    formdata.append("gender", data.gender);
-    formdata.append("passport_no", data.passportNumber);
-    formdata.append("photo", data.imageFile[0]);
-    formdata.append("mailing_address", data.mailingAdd);
-    formdata.append("telephone_mobile", data.mobilePhone);
-    formdata.append("telephone_residence", data.telephoneNo);
-    formdata.append("email", data.email);
-    formdata.append("education[0][institution]", data.institutionName);
-    formdata.append("education[0][period_from]", data.institutionFrom);
-    formdata.append("education[0][period_to]", data.institutionTo);
-    formdata.append("education[0][major]", data.major);
-    formdata.append("education[0][qualification]", data.qualification);
-    formdata.append("current_employment[0][organization]", data.orgName);
-    formdata.append("current_employment[0][designation]", data.designation);
-    formdata.append("current_employment[0][since]", data.since);
-    formdata.append(
-      "current_employment[0][responsibilities]",
-      data.responsibility
-    );
-    formdata.append("visit_prof_goal", data.profGoal);
-    formdata.append("future_of_sb", data.futureSocialBusiness);
-    formdata.append("grameen_org_to_meet", data.organization);
-    formdata.append("source_of_learning[0][campus]", data.sourceCampus);
-    formdata.append("source_of_learning[0][reference]", data.sourceRef);
-    formdata.append("source_of_learning[0][yc_website]", data.sourceYunus);
-    formdata.append("source_of_learning[0][others]", data.sourceOthers);
-    formdata.append("emmergency_contacts[0][name]", data.firstContactName);
-    formdata.append(
-      "emmergency_contacts[0][address]",
-      data.firstContactAddress
-    );
-    formdata.append("emmergency_contacts[0][telephone]", data.firstContactTel);
-    formdata.append(
-      "emmergency_contacts[0][business_name]",
-      data.firstContactBusinessName
-    );
-    formdata.append(
-      "emmergency_contacts[0][business_address]",
-      data.firstContactBusinessAddress
-    );
-    formdata.append(
-      "emmergency_contacts[0][business_telephone]",
-      data.firstContactBusinessTel
-    );
-    formdata.append(
-      "emmergency_contacts[0][relation_to_applicant]",
-      data.firstContactRelation
-    );
-
-    await fetch(`${baseUrl}/exposure-visit-application`, {
-      method: "POST",
-      body: formdata,
-    })
-      .then((res) => res.status)
-      .then((status) => console.log(status))
-      .catch((err) => err);
+  const onSubmit = () => {
+    console.log("submited");
   };
 
   return (
-    <div className={exposureForm}>
-      <div className={exposureFormHeader}>
-        <HeroBannerSmall title="Exposure Visit Form" />
+    <div className={internshipForm}>
+      <div className={internshipFormHeader}>
+        <HeroBannerSmall title="Application Form for Internship" />
       </div>
-      <div className={`${exposureFormBody} container-layout`}>
-        <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
+      <div className={`${internshipFormBody} container-layout`}>
+        <form className={handleSubmit(onSubmit)} encType="multipart/form-data">
           {/* PERSONAL INFORMATION */}
-
           <div className={personalInfoContainer}>
             <div className={`${headingContainer} ${box}`}>
-              <p>
-                Apply at-least 1 months before start date; Facilitation Fee $50
-                for a week
-              </p>
+              <p>(Apply at-least 2 months before start date)</p>
             </div>
-            {/* Purpose Of Visit */}
-            <div className={`${purposeBox} ${box}`}>
-              <label htmlFor="purpose">Purpose of Visit</label>
-              <input
-                id="purpose"
-                type="text"
-                {...register("purpose", { required: true, max: 5 })}
-              />
-              {errors.purpose?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )}
-              {errors.purpose?.type === "max" && (
-                <FormErrorMessage msg="Must be shorter than 5 characters" />
-              )}
+
+            {/* Field of interest */}
+            <div className={`${interestBox} ${box}`}>
+              <p className={requiredField}>Ineterest field</p>
+              <div className={container}>
+                {fieldData.map((data) => {
+                  return (
+                    <div key={data.id} className={checkboxContainer}>
+                      <input
+                        type="checkbox"
+                        id={data.id}
+                        {...register("interest-field")}
+                        value={data.field}
+                      />
+                      <label htmlFor={data.id}>{data.field}</label>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             {/* Family Name */}
             <div className={`${familyNameBox} ${box}`}>
@@ -517,125 +423,211 @@ const ExposureVisitForm = () => {
             </div>
           </div>
 
-          {/* CURRENT EMPLOYMENT STATUS */}
-
-          <div className={employmentStatusContainer}>
+          {/* NOTABLE ACHIEVEMENT */}
+          <div className={notableContainer}>
             <div className={`${headingContainer} ${box}`}>
-              <p>Current Employment Status</p>
+              <p>Notable Achievement</p>
             </div>
-            <div className={`${orgHeader} ${box}`}>
-              <p>Name of Organization</p>
+            <div className={`${scholarshipHeading} ${box}`}>
+              <p>Name of Scholarship</p>
             </div>
-            <div className={`${orgField} ${box}`}>
-              <input type="text" {...register("orgName")} />
-              {/* {errors.orgName?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
-            </div>
-            <div className={`${desigHeader} ${box}`}>
-              <p>Designation</p>
-            </div>
-            <div className={`${desigField} ${box}`}>
-              <input type="text" {...register("designation")} />
-              {/* {errors.designation?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
-            </div>
-            <div className={`${sinceHeader} ${box}`}>
-              <p>Since</p>
-            </div>
-            <div className={`${sinceField} ${box}`}>
-              <select {...register("since")}>
-                <option value="2022">2022</option>
-                <option value="2021">2021</option>
-                <option value="2020">2020</option>
-              </select>
-              {/* {errors.since?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
-            </div>
-            <div className={`${responHeader} ${box}`}>
-              <p>Responsibilities</p>
-            </div>
-            <div className={`${responField} ${box}`}>
-              <input type="text" {...register("responsibility")} />
-              {/* {errors.responsibility?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
-            </div>
-            <div className={`${questionOne} ${box}`}>
-              <p>
-                How will an exposure visit at the Yunus Centre apply to your
-                professional goals?
-              </p>
-            </div>
-            <div className={`${ansOne} ${box}`}>
-              <textarea
-                {...register("profGoal", { required: true, maxLength: 250 })}
+            <div className={`${scholarshipField} ${box}`}>
+              <input
+                id="scholarship"
+                type="text"
+                {...register("scholarship", { required: true })}
               />
+              {errors.scholarship?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
             </div>
-            <div className={`${questionTwo} ${box}`}>
-              <p>What does the future of Social Business look like to you?</p>
+            <div className={`${organizationHeading} ${box}`}>
+              <p>Issuing Organization</p>
             </div>
-            <div className={`${ansTwo} ${box}`}>
-              <textarea
-                {...register("futureSocialBusiness", {
-                  required: true,
-                  maxLength: 250,
-                })}
+            <div className={`${organizationField} ${box}`}>
+              <input
+                id="organization"
+                type="text"
+                {...register("organization", { required: true })}
               />
+              {errors.organization?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
             </div>
-            <div className={`${questionThree} ${box}`}>
-              <p>
-                Tick (√) five or less Grameen Organizations you would like to
-                meet during your time here?
-              </p>
+            <div className={`${issueDateHeading} ${box}`}>
+              <p>Date of Issue</p>
             </div>
-            <div className={`${ansThree} ${box}`}>
-              {orgData.map((data) => {
-                return (
-                  <div key={data.id} className={checkboxContainer}>
-                    <input
-                      type="checkbox"
-                      id={data.id}
-                      {...register("organization")}
-                      value={data.organization}
-                      onChange={(e) =>
-                        e.target.checked && setOrgCount((prev) => prev + 1)
-                      }
-                    />
-                    <label htmlFor={data.id}>{data.organization}</label>
-                  </div>
-                );
-              })}
-            </div>
-            <div className={`${questionFour} ${box}`}>
-              <p>
-                Did you participate in any field trip with any Grameen
-                organization before?
-              </p>
-              <p>
-                If yes, please specify the organization, the date and duration?
-              </p>
-            </div>
-            <div className={`${ansFour} ${box}`}>
-              <textarea
-                {...register("participateGrameenOrg", {
-                  required: true,
-                  maxLength: 250,
-                })}
+            <div className={`${issueDateField} ${box}`}>
+              <input
+                id="issueDate"
+                type="date"
+                {...register("issueDate", { required: true })}
               />
+              {errors.issueDate?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
             </div>
-            <div className={`${questionFive} ${box}`}>
+          </div>
+
+          {/* EXTRA CURRICULAR ACTIVITIES */}
+          <div className={activitiesContainer}>
+            {/* HEADING */}
+            <div className={`${headingContainer} ${box}`}>
+              <p>Extra Curricular Activities</p>
+            </div>
+            {/* ACTIVITY */}
+            <div className={`${activityHeading} ${box}`}>
+              <p>Activity</p>
+            </div>
+            <div className={`${activityField} ${box}`}>
+              <input
+                id="activity"
+                type="text"
+                {...register("activity", { required: true })}
+              />
+              {errors.activity?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            {/* POSITION */}
+            <div className={`${positionHeading} ${box}`}>
+              <p>Position</p>
+            </div>
+            <div className={`${positionField} ${box}`}>
+              <input
+                id="position"
+                type="text"
+                {...register("position", { required: true })}
+              />
+              {errors.position?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            {/* ACHIEVEMENT */}
+            <div className={`${achievementHeading} ${box}`}>
+              <p>Achievement</p>
+            </div>
+            <div className={`${achievementField} ${box}`}>
+              <input
+                id="achievement"
+                type="text"
+                {...register("achievement", { required: true })}
+              />
+              {errors.achievement?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            {/* PERIOD */}
+            <div className={`${activityPeriodHeading} ${box}`}>
+              <p>Period</p>
+            </div>
+            <div className={`${activityPeriodFromHeading} ${box}`}>
+              <span>From</span>
+              <span>(month/year)</span>
+            </div>
+            <div className={`${activityPeriodToHeading} ${box}`}>
+              <span>To</span>
+              <span>(month/year)</span>
+            </div>
+            <div className={`${activityPeriodFromField} ${box}`}>
+              <input
+                id="activityPeriodFrom"
+                type="date"
+                {...register("activityPeriodFrom", { required: true })}
+              />
+              {errors.activityPeriodFrom?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            <div className={`${activityPeriodToField} ${box}`}>
+              <input
+                id="activityPeriodTo"
+                type="date"
+                {...register("activityPeriodTo", { required: true })}
+              />
+              {errors.activityPeriodTo?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            {/* QUESTIONS */}
+            <div className={`${whyAndExpectationHeading} ${box}`}>
               <p>
-                Where did you learn about the program (Please tick √ as
+                Why are you interested in interning at Yunus Centre? What are
+                your expectation?
+              </p>
+            </div>
+            <div className={`${whyAndExpectationField} ${box}`}>
+              <textarea
+                id="whyAndExpectation"
+                type="text"
+                {...register("whyAndExpectation", { required: true })}
+              />
+              {errors.whyAndExpectation?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            <div className={`${interestInHeading} ${box}`}>
+              <p>
+                Is there any particular feature/s in social business which you
+                find interesting?
+              </p>
+            </div>
+            <div className={`${interestInField} ${box}`}>
+              <textarea
+                id="interestIn"
+                type="text"
+                {...register("interestIn", { required: true })}
+              />
+              {errors.interestIn?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+            <div className={`${additionalSkillHeading} ${box}`}>
+              <p>
+                Please state additionalskills which will support your
+                application
+              </p>
+              <p>(e.g. language proficiency, computer skills etc.)</p>
+            </div>
+            <div className={`${additionalSkillField} ${box}`}>
+              <textarea
+                id="additionalSkill"
+                type="text"
+                {...register("additionalSkill", { required: true })}
+              />
+              {errors.additionalSkill?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+
+            <div className={`${fieldTripHeading} ${box}`}>
+              <p>
+                Did you participate in any field trip with Grameen Bank or any
+                Grameen Organization before?
+              </p>
+              <p>If yes, please specify the date and duration.</p>
+            </div>
+            <div className={`${fieldTripField} ${box}`}>
+              <textarea
+                id="fieldTrip"
+                type="text"
+                {...register("fieldTrip", { required: true })}
+              />
+              {errors.fieldTrip?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
+            </div>
+
+            <div className={`${learnProgramHeading} ${box}`}>
+              <p>
+                Where did you learn about the program(Please tick √ as
                 appropriate)
               </p>
             </div>
-            <div id="program-source" className={`${ansFive} ${box}`}>
+            <div id="program-source" className={`${learnProgramField} ${box}`}>
               {/* option 1 */}
               <div className={optionContainer}>
-                <div className={container}>
+                <div className={containerBox}>
                   <input
                     type="checkbox"
                     id="sourceCampus"
@@ -653,7 +645,7 @@ const ExposureVisitForm = () => {
               </div>
               {/* option 2 */}
               <div className={optionContainer}>
-                <div className={container}>
+                <div className={containerBox}>
                   <input
                     type="checkbox"
                     id="sourceRef"
@@ -671,7 +663,7 @@ const ExposureVisitForm = () => {
               </div>
               {/* option 3 */}
               <div className={optionContainer}>
-                <div className={container}>
+                <div className={containerBox}>
                   <input
                     type="checkbox"
                     id="sourceYunus"
@@ -689,7 +681,7 @@ const ExposureVisitForm = () => {
               </div>
               {/* option 4 */}
               <div className={optionContainer}>
-                <div className={container}>
+                <div className={containerBox}>
                   <input
                     type="checkbox"
                     id="sourceOther"
@@ -705,6 +697,121 @@ const ExposureVisitForm = () => {
                   disabled={!source[3]}
                 />
               </div>
+            </div>
+          </div>
+
+          {/* REFERENCES */}
+
+          <div className={referenceContainer}>
+            <div className={`${headingContainer} ${box}`}>
+              <p>References</p>
+            </div>
+            {/* First Reference */}
+            <div className={`${firstReferenceName} ${box}`}>
+              <label htmlFor="firstReferenceName">
+                Name of <b>First</b> Reference
+              </label>
+              <input
+                id="firstReferenceName"
+                type="text"
+                {...register("firstReferenceName")}
+              />
+            </div>
+            <div className={`${firstReferencePosition} ${box}`}>
+              <label htmlFor="firstReferencePosition">Position</label>
+              <input
+                id="firstReferencePosition"
+                type="text"
+                {...register("firstReferencePosition")}
+              />
+            </div>
+            <div className={`${firstReferenceOrg} ${box}`}>
+              <label htmlFor="firstReferenceOrg">Name of Organization</label>
+              <input
+                id="firstReferenceOrg"
+                type="text"
+                {...register("firstReferenceOrg")}
+              />
+            </div>
+            <div className={`${firstReferenceAddress} ${box}`}>
+              <label htmlFor="firstReferenceAddress">
+                Correspondence Address
+              </label>
+              <input
+                id="firstReferenceAddress"
+                type="text"
+                {...register("firstReferenceAddress")}
+              />
+            </div>
+            <div className={`${firstReferenceTel} ${box}`}>
+              <label htmlFor="firstReferenceTel">Telephone No.</label>
+              <input
+                id="firstReferenceTel"
+                type="tel"
+                {...register("firstReferenceTel")}
+              />
+            </div>
+            <div className={`${firstReferenceEmail} ${box}`}>
+              <label htmlFor="firstReferenceEmail">Telephone</label>
+              <input
+                id="firstReferenceEmail"
+                type="email"
+                {...register("firstReferenceEmail")}
+              />
+            </div>
+
+            {/* Second Contact */}
+            <div className={`${secondReferenceName} ${box}`}>
+              <label htmlFor="secondReferenceName">
+                Name of <b>second</b> Reference
+              </label>
+              <input
+                id="secondReferenceName"
+                type="text"
+                {...register("secondReferenceName")}
+              />
+            </div>
+            <div className={`${secondReferencePosition} ${box}`}>
+              <label htmlFor="secondReferencePosition">Position</label>
+              <input
+                id="secondReferencePosition"
+                type="text"
+                {...register("secondReferencePosition")}
+              />
+            </div>
+            <div className={`${secondReferenceOrg} ${box}`}>
+              <label htmlFor="secondReferenceOrg">Name of Organization</label>
+              <input
+                id="secondReferenceOrg"
+                type="text"
+                {...register("secondReferenceOrg")}
+              />
+            </div>
+            <div className={`${secondReferenceAddress} ${box}`}>
+              <label htmlFor="secondReferenceAddress">
+                Correspondence Address
+              </label>
+              <input
+                id="secondReferenceAddress"
+                type="text"
+                {...register("secondReferenceAddress")}
+              />
+            </div>
+            <div className={`${secondReferenceTel} ${box}`}>
+              <label htmlFor="secondReferenceTel">Telephone No.</label>
+              <input
+                id="secondReferenceTel"
+                type="text"
+                {...register("secondReferenceTel")}
+              />
+            </div>
+            <div className={`${secondReferenceEmail} ${box}`}>
+              <label htmlFor="secondReferenceEmail">E-mail Address</label>
+              <input
+                id="secondReferenceEmail"
+                type="email"
+                {...register("secondReferenceEmail")}
+              />
             </div>
           </div>
 
@@ -849,6 +956,6 @@ const ExposureVisitForm = () => {
       </div>
     </div>
   );
-};
+}
 
-export default ExposureVisitForm;
+export default InternshipForm;
