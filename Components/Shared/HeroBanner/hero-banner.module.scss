@@ -17,6 +17,9 @@
   @include response(phone) {
     top: -50rem;
   }
+  // @media screen and (max-width: 320px) {
+  //   top: -52rem;
+  // }
 
   .svgSmall {
     width: 100%;
@@ -47,7 +50,10 @@
     top: -10rem;
   }
   @include response(tab-port) {
-    top: -50rem;
+    top: -38rem;
+  }
+  @include response(phone) {
+    top: -52rem;
   }
   .svgLarge {
     width: 100%;

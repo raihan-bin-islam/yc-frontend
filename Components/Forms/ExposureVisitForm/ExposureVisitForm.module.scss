@@ -1,6 +1,9 @@
 @import "../../../styles/utils/base";
 
 .exposureForm {
+  .requiredField {
+    color: crimson;
+  }
   .exposureFormHeader {
   }
   .exposureFormBody {
@@ -203,6 +206,11 @@
 
         .imageContainer {
           text-align: center;
+          img {
+            padding: 1rem 0 0 0;
+            width: 20rem;
+            object-fit: contain;
+          }
         }
 
         .imageFileBtn {
@@ -499,10 +507,36 @@
           border-right: 1px solid $primary;
           border-left: 1px solid $primary;
         }
+        .buttonContainer {
+          display: flex;
+          justify-content: center;
+        }
+
         .buttonComponent {
           width: fit-content;
-          margin: 0 auto;
           position: relative;
+        }
+        .removeButtonComponent {
+          background: none;
+          color: inherit;
+          font: inherit;
+          outline: 0;
+
+          font-size: 1.6rem;
+          text-transform: capitalize;
+
+          padding: 1rem 3.4rem;
+          margin: 0 1rem;
+          cursor: pointer;
+          transition: 0.3s;
+
+          border: 1px solid crimson;
+          background-color: inherit;
+          color: crimson;
+          &:hover {
+            background-color: crimson;
+            color: $white;
+          }
         }
       }
     }

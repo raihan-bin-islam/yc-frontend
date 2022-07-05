@@ -11,6 +11,8 @@ import {
 import ButtonLight from "../../Shared/Button/Button";
 import Link from "next/link";
 
+import altImage from "../../../public/assets/images/media/news-and-highlights/news_alt_image.jpg";
+
 const RecentNewsCard = ({ id, image, title, publishedBy, pressRelease, newsContent, highlight }) => {
   // slice the news description
   const newsSliced = newsContent.slice(0, 300);
@@ -22,7 +24,7 @@ const RecentNewsCard = ({ id, image, title, publishedBy, pressRelease, newsConte
 
   return (
     <div className={`${cardContainer} ${highlight && highlightCard}`}>
-      <img className="slider-arrow" src={image} alt="" />
+      <img className="slider-arrow" src={image.includes(undefined) ? altImage.src : image} alt="" />
       <div className={highlightNewsContainer}>
         <h2>{title}</h2>
         <div>

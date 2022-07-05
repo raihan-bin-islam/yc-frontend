@@ -11,10 +11,20 @@ import useFetch from "../../../Components/Hooks/useFetch";
 
 const OurPrograms = () => {
   const [isLoading, programs] = useFetch("/visit-programs");
+  // Internal Links for all the forms
+  const formLinks = [
+    "/application-form/immersion-program",
+    "/application-form/exposure-visit",
+    "/application-form/internship",
+  ];
+
+  // Add links to the programs data fetched from the api
+  const programsWithLinks = programs?.map((data, index) => ({ ...data, link: formLinks[index] }));
+
   return (
     <>
       <HeroWithLinks linksData={linksData} bannerImage={heroBanner} capitalize />
-      <Programs programs={programs} handbook />
+      <Programs programs={programsWithLinks} formLinks={formLinks} handbook />
     </>
   );
 };

@@ -35,6 +35,20 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    .homeHeroImage {
+      position: relative;
+      @include response(phone) {
+        &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+      }
+    }
+
     img {
       //   height: 78.6rem;
       width: 84.1rem;
@@ -50,13 +64,13 @@
         left: 5rem;
       }
       bottom: 0;
-      @include response(tab-port) {
-        // left: 5%;
-        bottom: -15vw;
-      }
       @include response(s-desktop) {
         // left: 5%;
         bottom: -10vw;
+      }
+      @include response(tab-port) {
+        // left: 5%;
+        bottom: -15vw;
       }
 
       h5 {
@@ -94,7 +108,8 @@
 
       @include response(tab-port) {
         width: 94%;
-        top: 60%;
+        top: initial;
+        bottom: 5%;
         left: 5%;
       }
       .h2 {
@@ -121,6 +136,9 @@
           font-size: 4rem;
           line-height: 1;
           text-align: left;
+        }
+        @media screen and (max-width: 320px) {
+          font-size: 3.5rem;
         }
       }
     }

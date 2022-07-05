@@ -9,12 +9,12 @@ import useScrollReveal from "../../Hooks/useScrollReveal";
 const WhatWeDoCard = ({ title, desc, photo, link, hoverDisable, externalLink }) => {
   const { container, imageDiv, image, heading, paragraph, disable } = styles;
 
-  const { revealFromLeft } = useScrollReveal("home_what-we-do");
+  // const { revealFromLeft } = useScrollReveal("home_what-we-do");
 
   return (
     <Link href={link} passHref={true}>
       <a target={externalLink && "__blank"}>
-        <div className={hoverDisable ? `${disable} ${container} ${revealFromLeft}` : `${container} ${revealFromLeft}`}>
+        <div className={hoverDisable ? `${disable} ${container} ` : `${container} `}>
           <div className={imageDiv}>
             <Image className={image} src={photo} alt="card image" width={19200} height={"100%"} objectFit="cover" />
             <p className={paragraph}>{desc}</p>

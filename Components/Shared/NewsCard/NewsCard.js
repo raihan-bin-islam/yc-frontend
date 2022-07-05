@@ -4,6 +4,8 @@ import Image from "next/dist/client/image";
 import { newsComponentData } from "./data";
 import Link from "next/link";
 
+import altImage from "../../../public/assets/images/media/news-and-highlights/news_alt_image.jpg";
+
 const NewsCard = ({ id, heading, publisher, pressRelease, news, altText, image, featured }) => {
   //classnames
   const {
@@ -28,7 +30,7 @@ const NewsCard = ({ id, heading, publisher, pressRelease, news, altText, image, 
 
   return (
     <div className={`${container} ${featured && featuredContainer}`}>
-      <img className={newsCardImg} src={image} alt={altText} />
+      <img className={newsCardImg} src={image.includes(undefined) ? altImage.src : image} alt={altText} />
       <p className={imageAlt}>
         {altText.slice(0, 160)}
         {altText.length > 160 && <span>...</span>}

@@ -9,7 +9,15 @@ const NewsLibrary = () => {
   const [isLoading, newsData] = useFetch("/news?category=news");
   const highlights = newsData?.filter(({ is_highlight }) => is_highlight);
 
-  return <>{highlights.length > 0 ? <MediaLibraryPage title="news library" newsData={highlights} /> : <PreLoader />}</>;
+  return (
+    <>
+      {highlights.length > 0 ? (
+        <MediaLibraryPage title="news library" newsData={newsData} recentNews={newsData} />
+      ) : (
+        <PreLoader />
+      )}
+    </>
+  );
 };
 
 export default NewsLibrary;

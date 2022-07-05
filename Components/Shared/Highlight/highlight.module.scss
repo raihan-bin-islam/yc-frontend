@@ -14,10 +14,10 @@
     margin-top: 0;
   }
   .imgContainer {
-    width: 11.3rem;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
+    // width: 11.3rem;
+    // position: relative;
+    // overflow: hidden;      previous
+    // border-radius: 50%;
   }
   // highlight description
   .desc {
@@ -35,9 +35,11 @@
     }
   }
   img {
-    width: 100%;
+    // width: 100%;  previous
+    width: 10rem;
     aspect-ratio: 1;
     object-fit: cover;
+    border-radius: 50%;
   }
   &:hover {
     .desc {
