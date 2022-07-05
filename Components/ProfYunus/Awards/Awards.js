@@ -45,9 +45,11 @@ const Awards = ({ isLoading, awardsData }) => {
     // for mobile screens less than 700px width
     if (screenWidth <= 800 && screenWidth !== null) {
       setNumberOfData(4);
+      setEndIndex(4);
       return;
     }
     setNumberOfData(8);
+    setEndIndex(8);
   };
 
   useEffect(() => {
@@ -70,7 +72,7 @@ const Awards = ({ isLoading, awardsData }) => {
       <h2 className={title}>Awards</h2>
       <p className={subtitle}>Received by Professor Muhammad Yunus</p>
       <div className={grid}>
-        {/* <NextButton onClick={prev} className={prevButton} /> */}
+        <NextButton onClick={prev} className={prevButton} />
         {awardsData
           .filter((data, index) => {
             return index >= startIndex && index < endIndex;
@@ -78,11 +80,15 @@ const Awards = ({ isLoading, awardsData }) => {
           .map(({ id, thumb_image, title, year }, index) => {
             return <AwardsCard image={thumb_image} title={title} year={year} key={id} i={index} />;
           })}
-        {/* <NextButton onClick={next} className={nextButton} /> */}
+        <NextButton onClick={next} className={nextButton} />
       </div>
       <Link href="#">
         <div className={buttonComponent}>
-          <ButtonLight text="See All" />
+          <Link href="/professor-yunus/awards">
+            <a>
+              <ButtonLight text="See All" />
+            </a>
+          </Link>
         </div>
       </Link>
     </div>

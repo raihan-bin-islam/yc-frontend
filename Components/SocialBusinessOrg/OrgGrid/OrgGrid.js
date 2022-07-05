@@ -13,10 +13,10 @@ const OrgGrid = ({ subHeadline, mainHeadline, orgData, countPerPage }) => {
   const contentsPerPage = countPerPage;
 
   const handlePageClick = (e) => {
-    const currentPage = e.selected;
-    setStartOffset(contentsPerPage * currentPage);
-    setEndOffset(contentsPerPage * (currentPage + 1));
-    setCurrentPage(currentPage + 1);
+    const pageNumber = e.selected;
+    setStartOffset(contentsPerPage * pageNumber);
+    setEndOffset(contentsPerPage * (pageNumber + 1));
+    setCurrentPage(pageNumber + 1);
   };
 
   return (

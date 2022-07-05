@@ -8,12 +8,14 @@ import LeafSvg from "../../../Shared/CommonSvg/LeafSvg";
 const Reviews = ({ reviews }) => {
   const [startOffset, setStartOffset] = useState(1);
   const [endOffset, setEndOffset] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
   const contentsPerPage = 4;
 
   const handlePageClick = (e) => {
-    const currentPage = e.selected;
-    setStartOffset(contentsPerPage * currentPage + 1);
-    setEndOffset(contentsPerPage * currentPage + contentsPerPage);
+    const pageNumber = e.selected;
+    setStartOffset(contentsPerPage * pageNumber + 1);
+    setEndOffset(contentsPerPage * pageNumber + contentsPerPage);
+    setCurrentPage(pageNumber + 1);
   };
 
   return (
@@ -28,7 +30,12 @@ const Reviews = ({ reviews }) => {
               <ReviewComponent key={id} review={review} author={author} left i={index} />
             );
           })}
-        <Pagination length={reviews.length} contentsPerPage={contentsPerPage} onPageChange={handlePageClick} />
+        <Pagination
+          length={reviews.length}
+          contentsPerPage={contentsPerPage}
+          onPageChange={handlePageClick}
+          currentPage={currentPage}
+        />
       </div>
       <LeafSvg className={leafSvg} />
     </section>

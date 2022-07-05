@@ -184,8 +184,6 @@ const ExposureVisitForm = () => {
     // Base url of api
     const baseUrl = process.env.baseUrl;
 
-    console.log(data);
-
     let formdata = new FormData();
 
     formdata.append("purpose_of_visit", data.purpose);

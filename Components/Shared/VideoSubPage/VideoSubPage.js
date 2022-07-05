@@ -29,11 +29,11 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
   // on page change
   const handlePageClick = (e) => {
     // save the number of the current page
-    const currentPage = e.selected; // starts with 0 (just like array indices)
+    const pageNumber = e.selected; // starts with 0 (just like array indices)
     // set the start and end offset, as well as the active page number
-    setStartOffset(contentsPerPage * currentPage + 1);
-    setEndOffset(contentsPerPage * currentPage + contentsPerPage);
-    setCurrentPage(currentPage + 1);
+    setStartOffset(contentsPerPage * pageNumber + 1);
+    setEndOffset(contentsPerPage * pageNumber + contentsPerPage);
+    setCurrentPage(pageNumber + 1);
   };
 
   return (
@@ -45,52 +45,34 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
         <div className={speechContainerBodyRow}>
           {videoData &&
             videoData.slice(startOffset, chunkSize).map((vdo) => (
-              <a key={vdo.id} href={vdo.youtube_link}>
+              <a key={vdo.id} href={vdo.youtube_link} target="__blank">
                 <SliderCard key={vdo.id} image={vdo.thumb_image} title={vdo.title} type="video" />
               </a>
             ))}
         </div>
         <div className={speechContainerBodyRow}>
           {videoData &&
-            videoData
-              .slice(chunkSize, 2 * chunkSize)
-              .map((vdo) => (
-                <SliderCard
-                  key={vdo.id}
-                  image={vdo.thumb_image}
-                  title={vdo.title}
-                  type="video"
-                  onClick={() => handleOnClick(vdo.youtube_link)}
-                />
-              ))}
+            videoData.slice(chunkSize, 2 * chunkSize).map((vdo) => (
+              <a key={vdo.id} href={vdo.youtube_link} target="__blank">
+                <SliderCard key={vdo.id} image={vdo.thumb_image} title={vdo.title} type="video" />
+              </a>
+            ))}
         </div>
         <div className={speechContainerBodyRow}>
           {videoData &&
-            videoData
-              .slice(2 * chunkSize, 3 * chunkSize)
-              .map((vdo) => (
-                <SliderCard
-                  key={vdo.id}
-                  image={vdo.thumb_image}
-                  title={vdo.title}
-                  type="video"
-                  onClick={() => handleOnClick(vdo.youtube_link)}
-                />
-              ))}
+            videoData.slice(2 * chunkSize, 3 * chunkSize).map((vdo) => (
+              <a key={vdo.id} href={vdo.youtube_link} target="__blank">
+                <SliderCard key={vdo.id} image={vdo.thumb_image} title={vdo.title} type="video" />
+              </a>
+            ))}
         </div>
         <div className={speechContainerBodyRow}>
           {videoData &&
-            videoData
-              .slice(3 * chunkSize, endOffset)
-              .map((vdo) => (
-                <SliderCard
-                  key={vdo.id}
-                  image={vdo.thumb_image}
-                  title={vdo.title}
-                  type="video"
-                  onClick={() => handleOnClick(vdo.youtube_link)}
-                />
-              ))}
+            videoData.slice(3 * chunkSize, endOffset).map((vdo) => (
+              <a key={vdo.id} href={vdo.youtube_link} target="__blank">
+                <SliderCard key={vdo.id} image={vdo.thumb_image} title={vdo.title} type="video" />
+              </a>
+            ))}
         </div>
       </div>
       <div className={speechContainerFooter}>
@@ -98,6 +80,7 @@ const VideoSubPage = ({ heading, subHeading, videoData }) => {
           length={videoData && videoData.length}
           contentsPerPage={contentsPerPage}
           onPageChange={handlePageClick}
+          currentPage={currentPage}
         />
       </div>
       <div className={leafContainer}>

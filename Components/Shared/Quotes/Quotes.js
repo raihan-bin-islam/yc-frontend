@@ -29,10 +29,10 @@ const Quotes = ({ heading, title, quotes }) => {
   const contentsPerPage = 3;
 
   const handlePageClick = (e) => {
-    const currentPage = e.selected;
-    setStartOffset(contentsPerPage * currentPage + 1);
-    setEndOffset(contentsPerPage * currentPage + contentsPerPage);
-    setCurrentPage(currentPage + 1);
+    const pageNumber = e.selected;
+    setStartOffset(contentsPerPage * pageNumber + 1);
+    setEndOffset(contentsPerPage * pageNumber + contentsPerPage);
+    setCurrentPage(pageNumber + 1);
   };
 
   return (
