@@ -1,7 +1,9 @@
 import React from "react";
 
+import ImmersionForm from "../../../Components/Forms/ImmersionForm/ImmersionForm";
+
 const ImmersionProgram = () => {
-  return <div>ImmersionProgram</div>;
+  return <ImmersionForm />;
 };
 
 export default ImmersionProgram;

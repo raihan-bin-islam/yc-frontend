@@ -1,6 +1,6 @@
 @import "../../../styles/utils/base";
 
-.internshipForm {
+.immersionForm {
   // USE REQUIRED USING CLASSNAME
   .requiredField::after {
     content: "*";
@@ -9,9 +9,9 @@
     margin-right: 0.5rem;
     font-size: 2.5rem;
   }
-  .internshipFormHeader {
+  .immersionFormHeader {
   }
-  .internshipFormBody {
+  .immersionFormBody {
     padding-block: 5rem;
 
     .box {
@@ -550,357 +550,153 @@
         }
       }
     }
-    // NOTABLE ACHIEVEMENT
-    .notableContainer {
+
+    // EMPLOYMENT INFO
+
+    .employmentStatusContainer {
       display: grid;
-      grid-template-columns: repeat(3, [col-start] 1fr [col-end]);
-      grid-template-rows: repeat(3, [row-start] min-content [row-end]);
+      grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+      grid-template-rows: repeat(11, [row-start] min-content [row-end]);
 
       background-color: $secondaryLightBlue;
+      margin-bottom: 2rem;
 
       @include response(phone) {
         grid-template-columns: [col-start] 1fr [col-end];
-        grid-template-rows: repeat(7, min-content);
+        grid-template-rows: repeat(17, [row-start] min-content [row-end]);
       }
 
-      .headingContainer {
-        grid-column: col-start 1 / col-end 3;
-        grid-row: row-start 1 / row-end 1;
-
-        border-inline: 2px solid $primary;
-        border-top: 2px solid $primary;
-        background-color: $primary;
-        color: $white;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 1 / row-end 1;
-        }
-      }
-      .scholarshipHeading {
-        grid-column: col-start 1 / col-end 1;
-        grid-row: row-start 2 / row-end 2;
-
-        border-left: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 2 / row-end 2;
-        }
-      }
-      .scholarshipField {
-        grid-column: col-start 1 / col-end 1;
-        grid-row: row-start 3 / row-end 3;
-
-        border-left: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 3 / row-end 3;
-        }
-      }
-      .organizationHeading {
-        grid-column: col-start 2 / col-end 2;
-        grid-row: row-start 2 / row-end 2;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 4 / row-end 4;
-        }
-      }
-      .organizationField {
-        grid-column: col-start 2 / col-end 2;
-        grid-row: row-start 3 / row-end 3;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 5 / row-end 5;
-        }
-      }
-      .issueDateHeading {
-        grid-column: col-start 3 / col-end 3;
-        grid-row: row-start 2 / row-end 2;
-
-        border-right: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 6 / row-end 6;
-        }
-      }
-      .issueDateField {
-        grid-column: col-start 3 / col-end 3;
-        grid-row: row-start 3 / row-end 3;
-
-        border-right: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start / col-end;
-          grid-row: row-start 7 / row-end 7;
-        }
-      }
-    }
-    // EXTRA CURRICULAR ACTIVITIES
-    .activitiesContainer {
-      display: grid;
-      grid-template-columns: repeat(5, [col-start] 1fr [col-end]);
-      grid-template-rows: repeat(14, [row-start] min-content [row-end]);
-
-      background-color: $secondaryLightBlue;
-
-      @include response(phone) {
-        grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
-        grid-template-rows: repeat(21, [row-start] min-content [row-end]);
-      }
-
-      .headingContainer {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 1 / row-end 1;
-
-        border-inline: 2px solid $primary;
-        background-color: $primary;
-        color: $white;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 1 / row-end 1;
-        }
-      }
-      .activityHeading,
-      .positionHeading,
-      .achievementHeading,
-      .activityPeriodHeading,
-      .activityPeriodFromHeading,
-      .activityPeriodToHeading {
+      .orgHeader,
+      .desigHeader,
+      .sinceHeader,
+      .responHeader {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-      .activityPeriodFromHeading,
-      .activityPeriodToHeading {
-        span {
-          display: block;
+
+      .headingContainer {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 1 / row-end 1;
+
+        background-color: $primary;
+        color: white;
+        border-top: 2px solid $primary;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        @include response(phone) {
+          border-top: 1px solid $primary;
+          border-left: 1px solid $primary;
+          border-right: 1px solid $primary;
         }
       }
-      .activityHeading {
+      .orgHeader {
         grid-column: col-start 1 / col-end 1;
-        grid-row: row-start 2 / row-end 3;
-
+        grid-row: row-start 2 / row-end 2;
         border-left: 2px solid $primary;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 2 / row-end 2;
+
+          border-left: 1px solid $primary;
         }
       }
-      .activityField {
+      .orgField {
         grid-column: col-start 1 / col-end 1;
-        grid-row: row-start 4 / row-end 4;
-
+        grid-row: row-start 3 / row-end 3;
         border-left: 2px solid $primary;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 3 / row-end 3;
+
+          border-left: 1px solid $primary;
+          border-top: none;
+          border-bottom: none;
         }
       }
-      .positionHeading {
-        grid-column: col-start 2 / col-end 2;
-        grid-row: row-start 2 / row-end 3;
+      .desigHeader {
+        grid-column: col-start 2 / col-end 3;
+        grid-row: row-start 2 / row-end 2;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 4 / row-end 4;
         }
       }
-      .positionField {
-        grid-column: col-start 2 / col-end 2;
-        grid-row: row-start 4 / row-end 4;
+      .desigField {
+        grid-column: col-start 2 / col-end 3;
+        grid-row: row-start 3 / row-end 3;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 5 / row-end 5;
+
+          border-top: none;
+          border-bottom: none;
         }
       }
-      .achievementHeading {
-        grid-column: col-start 3 / col-end 3;
-        grid-row: row-start 2 / row-end 3;
+      .sinceHeader {
+        grid-column: col-start 4 / col-end 4;
+        grid-row: row-start 2 / row-end 2;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 6 / row-end 6;
         }
       }
-      .achievementField {
-        grid-column: col-start 3 / col-end 3;
-        grid-row: row-start 4 / row-end 4;
+      .sinceField {
+        grid-column: col-start 4 / col-end 4;
+        grid-row: row-start 3 / row-end 3;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 7 / row-end 7;
+
+          border-top: none;
+          border-bottom: none;
         }
       }
-      .activityPeriodHeading {
-        grid-column: col-start 4 / col-end 5;
+      .responHeader {
+        grid-column: col-start 5 / col-end 6;
         grid-row: row-start 2 / row-end 2;
-
         border-right: 2px solid $primary;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 8 / row-end 8;
+
+          border-right: 1px solid $primary;
+          border-bottom: none;
         }
       }
-      .activityPeriodFromHeading {
-        grid-column: col-start 4 / col-end 4;
+      .responField {
+        grid-column: col-start 5 / col-end 6;
         grid-row: row-start 3 / row-end 3;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 1;
-          grid-row: row-start 9 / row-end 9;
-        }
-      }
-      .activityPeriodToHeading {
-        grid-column: col-start 5 / col-end 5;
-        grid-row: row-start 3 / row-end 3;
-
         border-right: 2px solid $primary;
 
         @include response(phone) {
-          grid-column: col-start 2 / col-end 2;
+          grid-column: col-start / col-end;
           grid-row: row-start 9 / row-end 9;
+
+          border-right: 1px solid $primary;
         }
       }
-      .activityPeriodFromField {
-        grid-column: col-start 4 / col-end 4;
+      .ansOne,
+      .ansTwo,
+      .ansFour {
+        textarea {
+          height: 20rem;
+          font-size: 2rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+      .questionOne {
+        grid-column: col-start 1 / col-end 6;
         grid-row: row-start 4 / row-end 4;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 1;
-          grid-row: row-start 10 / row-end 10;
-        }
-      }
-      .activityPeriodToField {
-        grid-column: col-start 5 / col-end 5;
-        grid-row: row-start 4 / row-end 4;
-
-        border-right: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start 2 / col-end 2;
-          grid-row: row-start 10 / row-end 10;
-        }
-      }
-      .institutionHeading {
-        grid-column: col-start 5 / col-end 5;
-        grid-row: row-start 4 / row-end 4;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 11 / row-end 11;
-        }
-      }
-      .whyAndExpectationHeading {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 5 / row-end 5;
-
-        border-inline: 2px solid $primary;
-        background-color: $primary;
-        color: $white;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 12 / row-end 12;
-        }
-      }
-      .whyAndExpectationField {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 6 / row-end 6;
-
-        border-inline: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 13 / row-end 13;
-        }
-      }
-      .interestInHeading {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 7 / row-end 7;
-
-        border-inline: 2px solid $primary;
-        background-color: $primary;
-        color: $white;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 14 / row-end 14;
-        }
-      }
-      .interestInField {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 8 / row-end 8;
-
-        border-inline: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 15 / row-end 15;
-        }
-      }
-      .additionalSkillHeading {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 9 / row-end 9;
-
-        border-inline: 2px solid $primary;
-        background-color: $primary;
-        color: $white;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 16 / row-end 16;
-        }
-      }
-      .additionalSkillField {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 10 / row-end 10;
-
-        border-inline: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 17 / row-end 17;
-        }
-      }
-      .fieldTripHeading {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 11 / row-end 11;
-
-        border-inline: 2px solid $primary;
-        background-color: $primary;
-        color: $white;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 18 / row-end 18;
-        }
-      }
-      .fieldTripField {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 12 / row-end 12;
-
-        border-inline: 2px solid $primary;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 19 / row-end 19;
-        }
-      }
-
-      .learnProgramHeading {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 13 / row-end 13;
 
         background-color: $primary;
         color: white;
@@ -908,16 +704,101 @@
         border-right: 2px solid $primary;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 20 / row-end 20;
+          grid-column: col-start / col-end;
+          grid-row: row-start 10 / row-end 10;
         }
       }
-      .learnProgramField {
-        grid-column: col-start 1 / col-end 5;
-        grid-row: row-start 14 / row-end 14;
+      .ansOne {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 5 / row-end 5;
 
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
+
+        @include response(phone) {
+          grid-column: col-start / col-end;
+          grid-row: row-start 11 / row-end 11;
+        }
+      }
+      .questionTwo {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 6 / row-end 6;
+
+        background-color: $primary;
+        color: white;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        @include response(phone) {
+          grid-column: col-start / col-end;
+          grid-row: row-start 12 / row-end 12;
+        }
+      }
+      .ansTwo {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 7 / row-end 7;
+
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        @include response(phone) {
+          grid-column: col-start / col-end;
+          grid-row: row-start 13 / row-end 13;
+        }
+      }
+      .questionThree {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 8 / row-end 8;
+
+        background-color: $primary;
+        color: white;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        @include response(phone) {
+          grid-column: col-start / col-end;
+          grid-row: row-start 14 / row-end 14;
+        }
+      }
+      .ansThree {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 9 / row-end 9;
+
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        @include response(phone) {
+          grid-column: col-start / col-end;
+          grid-row: row-start 15 / row-end 15;
+        }
+
+        .checkboxContainer {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+      }
+      .questionFour {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 10 / row-end 10;
+
+        background-color: $primary;
+        color: white;
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+
+        @include response(phone) {
+          grid-column: col-start / col-end;
+          grid-row: row-start 16 / row-end 16;
+        }
+      }
+      .ansFour {
+        grid-column: col-start 1 / col-end 6;
+        grid-row: row-start 11 / row-end 11;
+
+        border-left: 2px solid $primary;
+        border-right: 2px solid $primary;
+        border-bottom: 2px solid $primary;
 
         display: grid;
         grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
@@ -927,8 +808,8 @@
         padding-inline: 20rem;
 
         @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 21 / row-end 21;
+          grid-column: col-start / col-end;
+          grid-row: row-start 17 / row-end 17;
 
           grid-template-columns: 1fr;
           grid-template-rows: auto-fit;
@@ -944,14 +825,7 @@
             flex-direction: column;
           }
 
-          .containerBox {
-            input,
-            label {
-              cursor: pointer;
-            }
-            input {
-              margin-right: 1rem;
-            }
+          .container {
             @include response(phone) {
               display: flex;
               gap: 2rem;
