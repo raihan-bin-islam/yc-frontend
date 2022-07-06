@@ -13,6 +13,8 @@ import useFetch from "../../../Hooks/useFetch";
 import styles from "./SingleNewsHeader.module.scss";
 import PreLoader from "../../../Shared/PreLoader/PreLoader";
 
+import altImage from "../../../../public/assets/images/media/news-and-highlights/news_alt_image.jpg";
+
 function SingleNewsHeader({ singleNewsData }) {
   const { newsHeader, textContainer, box, contentContainer, imageContainer } = styles;
 
@@ -33,7 +35,16 @@ function SingleNewsHeader({ singleNewsData }) {
             </div>
           </div>
           <div className={imageContainer}>
-            <img src={singleNewsData?.thumb_image} alt="image" />
+            <img
+              src={
+                singleNewsData === undefined
+                  ? altImage.src
+                  : singleNewsData?.thumb_image?.includes(undefined)
+                  ? altImage.src
+                  : singleNewsData?.thumb_image
+              }
+              alt="image"
+            />
             <span>{singleNewsData?.image_caption}</span>
           </div>
         </div>

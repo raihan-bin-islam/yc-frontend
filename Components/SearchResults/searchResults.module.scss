@@ -1,0 +1,22 @@
+@import "../../styles/utils/base";
+
+.container {
+  .pageTitle {
+    font-size: 5rem;
+    text-align: center;
+    text-decoration: underline;
+    color: $primary;
+    margin-bottom: 2.5rem;
+  }
+  .heading {
+    @include heading(2.8rem);
+  }
+
+  .noData {
+    font-size: 2.8rem;
+    text-align: center;
+    text-transform: capitalize;
+    color: $textLight;
+    margin: 2.5rem 0;
+  }
+}

@@ -10,7 +10,7 @@ import ButtonLight from "../../../../Components/Shared/Button/Button";
 import Link from "next/link";
 import PreLoader from "../../../../Components/Shared/PreLoader/PreLoader";
 
-const SingleNewsPage = () => {
+const SinglePressReleasePage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [isLoading, singleNews] = useFetch(`/news/${id}`);
@@ -20,12 +20,14 @@ const SingleNewsPage = () => {
       {singleNews ? <SingleNewsHeader singleNewsData={singleNews} /> : <PreLoader />}
       {singleNews ? <SingleNewsBody singleNewsData={singleNews} /> : <PreLoader />}
       <div className="container-layout pb10">
-        <div onClick={() => router.back()}>
-          <ButtonLight text="Back" />
-        </div>
+        <Link href="/media/press-release" passHref>
+          <a>
+            <ButtonLight text="Back" />
+          </a>
+        </Link>
       </div>
     </>
   );
 };
 
-export default SingleNewsPage;
+export default SinglePressReleasePage;

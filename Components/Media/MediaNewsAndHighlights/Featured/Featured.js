@@ -74,7 +74,7 @@ const Featured = ({ newsData }) => {
           <div className={newsLibrary}>
             {newsData.length > 0 &&
               newsData
-                .filter(({ is_highlight }, index) => is_highlight && index < 20)
+                .filter(({ is_highlight }, index) => is_highlight && index < 15)
                 .map(({ id, thumb_image, title }) => {
                   return <Highlight key={id} id={id} image={thumb_image} description={title} />;
                 })}
