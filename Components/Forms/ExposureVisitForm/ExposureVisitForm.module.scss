@@ -2,6 +2,7 @@
 
 .exposureForm {
   .requiredField {
+    font-size: 2.5rem;
     color: crimson;
   }
   .exposureFormHeader {
@@ -208,7 +209,7 @@
           text-align: center;
           img {
             padding: 1rem 0 0 0;
-            width: 20rem;
+            width: 15rem;
             object-fit: contain;
           }
         }
@@ -318,14 +319,14 @@
     .educationInfoContainer {
       display: grid;
       grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
-      grid-template-rows: repeat(15, [row-start] min-content [row-end]);
-
+      grid-template-rows: repeat(50, [row-start] min-content [row-end]);
+      grid-auto-flow: dense;
       background-color: $secondaryLightBlue;
       margin-bottom: 2rem;
 
       @include response(phone) {
         grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
-        grid-template-rows: repeat(15, [row-start] min-content [row-end]);
+        grid-template-rows: repeat(50, [row-start] min-content [row-end]);
       }
 
       // .headingContainer,
@@ -349,11 +350,13 @@
         border-right: 2px solid $primary;
 
         grid-column: col-start 1 / col-end 6;
-        grid-row: row-start 1 / row-end 1;
+        // grid-row: row-start 1 / row-end 1;
+        grid-row-end: span 1;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 1 / row-end 1;
+          // grid-row: row-start 1 / row-end 1;
+          grid-row-end: span 1;
 
           border-top: 1px solid $primary;
           border-left: 1px solid $primary;
@@ -364,11 +367,13 @@
         border-left: 2px solid $primary;
 
         grid-column: col-start 1 / col-end 2;
-        grid-row: row-start 2 / row-end 3;
+        // grid-row: row-start 2 / row-end 3;
+        grid-row-end: span 2;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 2 / row-end 2;
+          // grid-row: row-start 2 / row-end 2;
+          grid-row-end: span 2;
 
           border-left: 1px solid $primary;
           border-bottom: none;
@@ -382,7 +387,8 @@
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 3 / row-end 3;
+          // grid-row: row-start 3 / row-end 3;
+          grid-row-end: span 1;
 
           border-left: 1px solid $primary;
           border-bottom: none;
@@ -390,20 +396,24 @@
       }
       .periodHeading {
         grid-column: col-start 3 / col-end 4;
-        grid-row: row-start 2 / row-end 2;
+        // grid-row: row-start 2 / row-end 2;
+        grid-row-end: span 1;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 4 / row-end 4;
+          // grid-row: row-start 4 / row-end 4;
+          grid-row-end: span 1;
         }
       }
       .periodFromHeading {
         grid-column: col-start 3 / col-end 3;
-        grid-row: row-start 3 / row-end 3;
+        // grid-row: row-start 3 / row-end 3;
+        grid-row-end: span 1;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 1;
-          grid-row: row-start 5 / row-end 5;
+          // grid-row: row-start 5 / row-end 5;
+          grid-row-end: span 1;
 
           border-top: none;
           border-bottom: none;
@@ -416,7 +426,8 @@
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 1;
-          grid-row: row-start 6 / row-end 6;
+          // grid-row: row-start 6 / row-end 6;
+          grid-row-end: span 1;
 
           border-bottom: none;
           border-right: none;
@@ -424,11 +435,13 @@
       }
       .periodToHeading {
         grid-column: col-start 4 / col-end 4;
-        grid-row: row-start 3 / row-end 3;
+        // grid-row: row-start 3 / row-end 3;
+        grid-row-end: span 1;
 
         @include response(phone) {
           grid-column: col-start 2 / col-end 2;
-          grid-row: row-start 5 / row-end 5;
+          // grid-row: row-start 5 / row-end 5;
+          grid-row-end: span 1;
 
           border-top: none;
           border-bottom: none;
@@ -440,18 +453,21 @@
 
         @include response(phone) {
           grid-column: col-start 2 / col-end 2;
-          grid-row: row-start 6 / row-end 6;
+          // grid-row: row-start 6 / row-end 6;
+          grid-row-end: span 1;
 
           border-bottom: none;
         }
       }
       .majorHeading {
         grid-column: col-start 5 / col-end 5;
-        grid-row: row-start 2 / row-end 3;
+        // grid-row: row-start 2 / row-end 3;
+        grid-row-end: span 2;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 7 / row-end 7;
+          // grid-row: row-start 7 / row-end 7;
+          grid-row-end: span 1;
         }
       }
       .majorField {
@@ -460,7 +476,8 @@
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 8 / row-end 8;
+          // grid-row: row-start 8 / row-end 8;
+          grid-row-end: span 1;
 
           border-top: none;
           border-bottom: none;
@@ -470,11 +487,13 @@
         border-right: 2px solid $primary;
 
         grid-column: col-start 6 / col-end 6;
-        grid-row: row-start 2 / row-end 3;
+        // grid-row: row-start 2 / row-end 3;
+        grid-row-end: span 2;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 9 / row-end 9;
+          // grid-row: row-start 9 / row-end 9;
+          grid-row-end: span 1;
 
           border-right: 1px solid $primary;
         }
@@ -487,7 +506,8 @@
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 10 / row-end 10;
+          // grid-row: row-start 10 / row-end 10;
+          grid-row-end: span 1;
 
           border-top: none;
           border-bottom: none;
@@ -537,6 +557,11 @@
             background-color: crimson;
             color: $white;
           }
+        }
+        .removeButtonDisabled {
+          pointer-events: none;
+          color: $textLight;
+          border-color: $textLight;
         }
       }
     }
