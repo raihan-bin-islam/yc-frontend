@@ -131,7 +131,71 @@ function InternshipForm(props) {
     watch,
     formState: { errors },
     required,
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      familyName: "",
+      firstName: "",
+      dob: "",
+      duration: "",
+      startDate: "",
+      nationality: "",
+      gender: "",
+      passportNumber: "",
+      imageFile: "",
+      mailingAdd: "",
+      telephoneNo: "",
+      residence: "",
+      mobilePhone: "",
+      email: "",
+      institutionName: [],
+      institutionFrom: [],
+      institutionTo: [],
+      major: [],
+      qualification: [],
+      scholarship: "",
+      organization: "",
+      issueDate: "",
+      activity: "",
+      position: "",
+      achievement: "",
+      activityPeriodFrom: "",
+      activityPeriodTo: "",
+      whyAndExpectation: "",
+      interestIn: "",
+      additionalSkill: "",
+      fieldTrip: "",
+      sourceCampus: "",
+      sourceRef: "",
+      sourceYunus: "",
+      sourceOthers: "",
+      firstReferenceName: "",
+      firstReferencePosition: "",
+      firstReferenceOrg: "",
+      firstReferenceAddress: "",
+      firstReferenceTel: "",
+      firstReferenceEmail: "",
+      secondReferenceName: "",
+      secondReferencePosition: "",
+      secondReferenceOrg: "",
+      secondReferenceAddress: "",
+      secondReferenceTel: "",
+      secondReferenceEmail: "",
+      firstContactName: "",
+      firstContactAddress: "",
+      firstContactTel: "",
+      firstContactBusinessName: "",
+      firstContactBusinessAddress: "",
+      firstContactBusinessTel: "",
+      firstContactRelation: "",
+      secondContactName: "",
+      secondContactAddress: "",
+      secondContactTel: "",
+      secondContactBusinessName: "",
+      secondContactBusinessAddress: "",
+      secondContactBusinessTel: "",
+      secondContactRelation: "",
+    },
+  });
 
   const onSubmit = () => {
     console.log("submit");
@@ -690,75 +754,115 @@ function InternshipForm(props) {
             <div id="program-source" className={`${learnProgramField} ${box}`}>
               {/* option 1 */}
               <div className={optionContainer}>
-                <div className={containerBox}>
+                <div className={container}>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="sourceCampus"
+                      value="Campus"
+                      onChange={() =>
+                        setSource((prevSource) => [
+                          !prevSource[0],
+                          false,
+                          false,
+                          false,
+                        ])
+                      }
+                      checked={source[0]}
+                    />
+                    <label htmlFor="sourceCampus">Campus (Specify)</label>
+                  </div>
                   <input
-                    type="checkbox"
-                    id="sourceCampus"
-                    value="Campus"
-                    onChange={() => setSource([!source[0], 0, 0, 0])}
-                    checked={source[0]}
+                    id="sourceCampusInput"
+                    type="text"
+                    {...register("sourceCampus")}
+                    disabled={!source[0]}
                   />
-                  <label htmlFor="sourceCampus">Campus (Specify)</label>
                 </div>
-                <input
-                  type="text"
-                  {...register("sourceCampus")}
-                  disabled={!source[0]}
-                />
               </div>
               {/* option 2 */}
               <div className={optionContainer}>
-                <div className={containerBox}>
+                <div className={container}>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="sourceRef"
+                      value="Reference"
+                      onChange={() =>
+                        setSource((prevSource) => [
+                          false,
+                          !prevSource[1],
+                          false,
+                          false,
+                        ])
+                      }
+                      checked={source[1]}
+                    />
+                    <label htmlFor="sourceRef">Referred by (Specify)</label>
+                  </div>
                   <input
-                    type="checkbox"
-                    id="sourceRef"
-                    value="Reference"
-                    onChange={() => setSource([0, !source[1], 0, 0])}
-                    checked={source[1]}
+                    id="sourceRefInput"
+                    type="text"
+                    {...register("sourceRef")}
+                    disabled={!source[1]}
                   />
-                  <label htmlFor="sourceRef">Referred by (Specify)</label>
                 </div>
-                <input
-                  type="text"
-                  {...register("sourceRef")}
-                  disabled={!source[1]}
-                />
               </div>
               {/* option 3 */}
               <div className={optionContainer}>
-                <div className={containerBox}>
+                <div className={container}>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="sourceYunus"
+                      value="Website"
+                      onChange={() => {
+                        setSource((prevSource) => [
+                          false,
+                          false,
+                          !prevSource[2],
+                          false,
+                        ]);
+                      }}
+                      checked={source[2]}
+                    />
+                    <label htmlFor="sourceYunus">Yunus Centre Website</label>
+                  </div>
                   <input
-                    type="checkbox"
-                    id="sourceYunus"
-                    value="Website"
-                    onChange={() => setSource([0, 0, !source[2], 0])}
-                    checked={source[2]}
+                    id="sourceYunusInput"
+                    type="text"
+                    {...register("sourceYunus")}
+                    disabled={!source[2]}
                   />
-                  <label htmlFor="sourceYunus">Yunus Centre Website</label>
                 </div>
-                <input
-                  type="text"
-                  {...register("sourceYunus")}
-                  disabled={!source[2]}
-                />
               </div>
               {/* option 4 */}
               <div className={optionContainer}>
-                <div className={containerBox}>
+                <div className={container}>
+                  <div>
+                    <input
+                      type="checkbox"
+                      id="sourceOther"
+                      value="Others"
+                      onChange={() => {
+                        setSource((prevSource) => [
+                          false,
+                          false,
+                          false,
+                          !prevSource[3],
+                        ]);
+                      }}
+                      checked={source[3]}
+                    />
+                    <label htmlFor="sourceOther">Others (Specify)</label>
+                  </div>
                   <input
-                    type="checkbox"
-                    id="sourceOther"
-                    value="Others"
-                    onChange={() => setSource([0, 0, 0, !source[3]])}
-                    checked={source[3]}
+                    id="sourceOtherInput"
+                    type="text"
+                    {...register("sourceOthers")}
+                    disabled={!source[3]}
                   />
-                  <label htmlFor="sourceOther">Others (Specify)</label>
                 </div>
-                <input
-                  type="text"
-                  {...register("sourceOthers")}
-                  disabled={!source[3]}
-                />
               </div>
             </div>
           </div>

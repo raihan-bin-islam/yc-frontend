@@ -311,7 +311,7 @@
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
-
+          border-left: 1px solid $primary;
           border-bottom: 1px solid $primary;
         }
       }
@@ -823,11 +823,19 @@
 
           @include response(phone) {
             flex-direction: column;
+            align-items: flex-start;
           }
 
           .container {
+            display: flex;
+            input,
+            label {
+              margin-right: 1rem;
+              cursor: pointer;
+            }
             @include response(phone) {
               display: flex;
+              flex-direction: column;
               gap: 2rem;
             }
           }

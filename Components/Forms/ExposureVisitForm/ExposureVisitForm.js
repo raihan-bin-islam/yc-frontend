@@ -963,32 +963,24 @@ const ExposureVisitForm = () => {
                     type="checkbox"
                     id="sourceCampus"
                     value="Campus"
-                    onChange={() => setSource([!source[0], 0, 0, 0])}
+                    onChange={() =>
+                      setSource((prevSource) => [
+                        !prevSource[0],
+                        false,
+                        false,
+                        false,
+                      ])
+                    }
                     checked={source[0]}
                   />
                   <label htmlFor="sourceCampus">Campus (Specify)</label>
+                  <input
+                    id="sourceCampusInput"
+                    type="text"
+                    {...register("sourceCampus")}
+                    disabled={!source[0]}
+                  />
                 </div>
-                <input
-                  type="checkbox"
-                  id="sourceCampus"
-                  value="Campus"
-                  onChange={() =>
-                    setSource((prevSource) => [
-                      !prevSource[0],
-                      false,
-                      false,
-                      false,
-                    ])
-                  }
-                  checked={source[0]}
-                />
-                <label htmlFor="sourceCampus">Campus (Specify)</label>
-                <input
-                  id="sourceCampusInput"
-                  type="text"
-                  {...register("sourceCampus")}
-                  disabled={!source[0]}
-                />
               </div>
               {/* option 2 */}
               <div className={optionContainer}>
@@ -997,32 +989,24 @@ const ExposureVisitForm = () => {
                     type="checkbox"
                     id="sourceRef"
                     value="Reference"
-                    onChange={() => setSource([0, !source[1], 0, 0])}
+                    onChange={() =>
+                      setSource((prevSource) => [
+                        false,
+                        !prevSource[1],
+                        false,
+                        false,
+                      ])
+                    }
                     checked={source[1]}
                   />
                   <label htmlFor="sourceRef">Referred by (Specify)</label>
+                  <input
+                    id="sourceRefInput"
+                    type="text"
+                    {...register("sourceRef")}
+                    disabled={!source[1]}
+                  />
                 </div>
-                <input
-                  type="checkbox"
-                  id="sourceRef"
-                  value="Reference"
-                  onChange={() =>
-                    setSource((prevSource) => [
-                      false,
-                      !prevSource[1],
-                      false,
-                      false,
-                    ])
-                  }
-                  checked={source[1]}
-                />
-                <label htmlFor="sourceRef">Referred by (Specify)</label>
-                <input
-                  id="sourceRefInput"
-                  type="text"
-                  {...register("sourceRef")}
-                  disabled={!source[1]}
-                />
               </div>
               {/* option 3 */}
               <div className={optionContainer}>
@@ -1031,32 +1015,24 @@ const ExposureVisitForm = () => {
                     type="checkbox"
                     id="sourceYunus"
                     value="Website"
-                    onChange={() => setSource([0, 0, !source[2], 0])}
+                    onChange={() => {
+                      setSource((prevSource) => [
+                        false,
+                        false,
+                        !prevSource[2],
+                        false,
+                      ]);
+                    }}
                     checked={source[2]}
                   />
                   <label htmlFor="sourceYunus">Yunus Centre Website</label>
+                  <input
+                    id="sourceYunusInput"
+                    type="text"
+                    {...register("sourceYunus")}
+                    disabled={!source[2]}
+                  />
                 </div>
-                <input
-                  type="checkbox"
-                  id="sourceYunus"
-                  value="Website"
-                  onChange={() => {
-                    setSource((prevSource) => [
-                      false,
-                      false,
-                      !prevSource[2],
-                      false,
-                    ]);
-                  }}
-                  checked={source[2]}
-                />
-                <label htmlFor="sourceYunus">Yunus Centre Website</label>
-                <input
-                  id="sourceYunusInput"
-                  type="text"
-                  {...register("sourceYunus")}
-                  disabled={!source[2]}
-                />
               </div>
               {/* option 4 */}
               <div className={optionContainer}>
@@ -1065,32 +1041,24 @@ const ExposureVisitForm = () => {
                     type="checkbox"
                     id="sourceOther"
                     value="Others"
-                    onChange={() => setSource([0, 0, 0, !source[3]])}
+                    onChange={() => {
+                      setSource((prevSource) => [
+                        false,
+                        false,
+                        false,
+                        !prevSource[3],
+                      ]);
+                    }}
                     checked={source[3]}
                   />
                   <label htmlFor="sourceOther">Others (Specify)</label>
+                  <input
+                    id="sourceOtherInput"
+                    type="text"
+                    {...register("sourceOthers")}
+                    disabled={!source[3]}
+                  />
                 </div>
-                <input
-                  type="checkbox"
-                  id="sourceOther"
-                  value="Others"
-                  onChange={() => {
-                    setSource((prevSource) => [
-                      false,
-                      false,
-                      false,
-                      !prevSource[3],
-                    ]);
-                  }}
-                  checked={source[3]}
-                />
-                <label htmlFor="sourceOther">Others (Specify)</label>
-                <input
-                  id="sourceOtherInput"
-                  type="text"
-                  {...register("sourceOthers")}
-                  disabled={!source[3]}
-                />
               </div>
             </div>
           </div>

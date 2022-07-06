@@ -854,6 +854,11 @@
           }
 
           .container {
+            input,
+            label {
+              margin-right: 1rem;
+              cursor: pointer;
+            }
             @include response(phone) {
               display: flex;
               gap: 2rem;
