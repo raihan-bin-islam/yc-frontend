@@ -21,16 +21,16 @@ import BreadCrumb from "../BreadCrumb/BreadCrumb";
 const MediaLibraryPage = ({ title, newsData, recentNews }) => {
   const [startOffset, setStartOffset] = useState(0); // start offset (should start from 0)
   const [endOffset, setEndOffset] = useState(15); // end offset (number of objects we want to show)
-  const [pageNumber, setPageNumber] = useState(1); // Current page number
+  const [currentPage, setCurrentPage] = useState(1); // Current page number
 
   const chunkSize = 5; // Size of each chunk of array
   const contentsPerPage = 15;
 
   const handlePageClick = (e) => {
-    const currentPage = e.selected; // selected page index (Starts from 0)
-    setStartOffset(contentsPerPage * currentPage); //start index
-    setEndOffset(contentsPerPage * currentPage + contentsPerPage); //end index
-    setPageNumber(currentPage + 1);
+    const pageNumber = e.selected; // selected page index (Starts from 0)
+    setStartOffset(contentsPerPage * pageNumber); //start index
+    setEndOffset(contentsPerPage * pageNumber + contentsPerPage); //end index
+    setCurrentPage(pageNumber + 1);
   };
 
   return (
@@ -74,7 +74,7 @@ const MediaLibraryPage = ({ title, newsData, recentNews }) => {
         length={newsData.length}
         contentsPerPage={contentsPerPage}
         onPageChange={handlePageClick}
-        currentPage={pageNumber}
+        currentPage={currentPage}
       />
       {/* Recent News */}
       <section className={`${recentNewsContainer} container-layout pt10 pb10`}>

@@ -35,6 +35,7 @@
           align-items: center;
           transition: 0.3s;
         }
+
         li {
           list-style-type: none;
           display: inline;
@@ -95,49 +96,48 @@
               height: 16.4px;
             }
           }
+          .dropdown {
+            position: absolute;
+            background-color: $white;
+            border: 1px solid $primary;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none;
+            @media screen and (max-width: 900px) {
+              position: relative;
+              min-height: fit-content;
+              margin-top: 15px;
+            }
 
+            a:hover {
+              &:after {
+                display: none !important;
+              }
+            }
+            li {
+              text-align: center;
+              min-width: 15rem;
+              padding: 2rem;
+              display: block;
+              color: $primary;
+              transition: 0.3s ease;
+              &:hover {
+                background-color: $secondaryCyan;
+              }
+              &:not(:last-child) {
+                // border-bottom: 1px solid $primary;
+              }
+
+              a {
+                color: $primary;
+              }
+            }
+          }
           &:hover {
             .dropdown {
               display: block;
-              animation: opacityNew 0.2s;
-            }
-          }
-        }
-        .dropdown {
-          position: absolute;
-          background-color: $white;
-          border: 1px solid $primary;
-          top: 100%;
-          left: 50%;
-          transform: translateX(-50%);
-          display: none;
-          @media screen and (max-width: 900px) {
-            position: relative;
-            min-height: fit-content;
-            margin-top: 15px;
-          }
-
-          a:hover {
-            &:after {
-              display: none !important;
-            }
-          }
-          li {
-            text-align: center;
-            min-width: 15rem;
-            padding: 2rem;
-            display: block;
-            color: $primary;
-            transition: 0.3s ease;
-            &:hover {
-              background-color: $secondaryCyan;
-            }
-            &:not(:last-child) {
-              // border-bottom: 1px solid $primary;
-            }
-
-            a {
-              color: $primary;
+              animation: opacityNew 0.2s forwards;
             }
           }
         }
@@ -264,6 +264,9 @@
 @keyframes opacityNew {
   0% {
     transform: translate(-50%, -10%);
+  }
+  50% {
+    transform: translate(-50%, -5%);
   }
   100% {
     transform: translate(-50%, 0);

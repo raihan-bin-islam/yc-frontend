@@ -15,7 +15,7 @@ import styles from "./slider_card.module.scss";
 // utility function
 import { toggleActive } from "../../Utils/helpers";
 
-const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, activeClass }) => {
+const SliderCard = ({ image, title, type = "events", size = 1, onClick, link, activeClass, newTab }) => {
   const [cardActivation, setCardActivation] = useState(false);
   const cardRef = useRef(null);
   // Destructuring Module Style Object
