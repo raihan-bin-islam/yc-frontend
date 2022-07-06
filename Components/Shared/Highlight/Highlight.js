@@ -32,7 +32,10 @@ const Highlight = ({ id, image, description }) => {
       <a className={highlightContainer}>
         <div className={`${highlightContainer} ${revealFromRight}`}>
           <div className={imgContainer}>
-            <img src={image.includes(undefined) ? altImageSmall.src : image} alt="highlight image" />
+            <img
+              src={image?.includes(undefined) ? altImageSmall.src : image === undefined ? altImageSmall.src : image}
+              alt="highlight image"
+            />
           </div>
           <p className={desc}>{description}</p>
         </div>

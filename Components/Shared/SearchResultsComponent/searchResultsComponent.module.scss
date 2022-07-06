@@ -1,0 +1,29 @@
+@import "../../../styles/utils/base";
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+  margin: 5rem auto;
+  width: 50%;
+  @include response(tab-port) {
+    width: 80%;
+  }
+  @include response(vp-800) {
+    width: 100%;
+  }
+  background-color: #f3f3f3;
+  box-shadow: 0px 0px 15px 0px rgba(99, 98, 98, 0.25);
+  img {
+    width: 10rem;
+    height: 10rem;
+    aspect-ratio: 1;
+    margin: 0 5rem 0 0;
+    // border-radius: 1.5rem;
+    object-fit: cover;
+  }
+  .resultTitle {
+    font-size: 1.8rem;
+    color: $primary;
+  }
+}

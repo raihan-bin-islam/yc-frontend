@@ -8,6 +8,7 @@ import magnifyIcon from "../../../public/icon_magnify.svg";
 import burgerIcon from "../../../public/icon_burger.svg";
 import crossIcon from "../../../public/icon_cross.svg";
 import { useRouter } from "next/router";
+import FormErrorMessage from "../../Forms/FormErrorMessage/FormErrorMessage";
 
 const Navbar = () => {
   // styles
@@ -24,6 +25,7 @@ const Navbar = () => {
     searchInput,
     inputCross,
     menuContainer,
+    searchErrorMessage,
   } = styles;
 
   //state
@@ -60,9 +62,10 @@ const Navbar = () => {
   };
 
   const handleSearch = (e) => {
-    // console.log(e);
-    e.code === "Enter" && router.push(`/search?keyword=${e.target.value}`);
-    console.log(e.target.value);
+    if (e.code === "Enter") {
+      e.target.value.length <= 3 && alert("Please enter more than 3 characters");
+      e.target.value.length > 3 && router.push(`/search?keyword=${e.target.value}`);
+    }
   };
 
   const handleScroll = () => {
@@ -149,7 +152,7 @@ const Navbar = () => {
               </ul> */}
             </li>
             <li className={dropdownParent}>
-              <Link href="">
+              <Link href="#">
                 <a
                   className={
                     router.pathname.includes("/visit-programs") ? `${navActive} ${dropdownParent}` : dropdownParent
@@ -302,10 +305,12 @@ const Navbar = () => {
       {/* search box */}
       {searchOpen && (
         <div className={searchInput} id="searchInput">
-          <input type="text" placeholder="search your query.." onKeyUp={handleSearch} />
-          <span className={inputCross} onClick={HandleSearchClose}>
-            <img src={crossIcon.src} alt="brand-yc" />
-          </span>
+          <div>
+            <input type="text" placeholder="search your query.." onKeyUp={handleSearch} />
+            <span className={inputCross} onClick={HandleSearchClose}>
+              <img src={crossIcon.src} alt="brand-yc" />
+            </span>
+          </div>
         </div>
       )}
     </nav>
