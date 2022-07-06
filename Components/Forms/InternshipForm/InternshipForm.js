@@ -237,12 +237,12 @@ function InternshipForm(props) {
       formdata.append(`education[${index}][major]`, data.major[index]);
       formdata.append(`education[${index}][qualification]`, data.qualification[index]);
     });
-    // ----------------------------Notable Achievement---------------------------------------------------------------
+    // ----------------------------Notable Achievement------------------------------------------------------
     formdata.append("notable_achievement[0][name_of_scholarship]", data.scholarship);
     formdata.append("notable_achievement[0][issueing_organization]", data.organization);
     formdata.append("notable_achievement[0][date_of_issue]", data.issueDate);
 
-    // ----------------------------Extra Curricular Activities---------------------------------------------------------------
+    // ----------------------------Extra Curricular Activities----------------------------------------------
     formdata.append("extra_curricular_activities[0][activity]", data.activity);
     formdata.append("extra_curricular_activities[0][position]", data.position);
     formdata.append("extra_curricular_activities[0][achievement]", data.achievement);
