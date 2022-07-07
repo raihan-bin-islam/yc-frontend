@@ -95,11 +95,11 @@ const Magazine = ({ title, isLoading, data }) => {
             <img src={magazineData.thumb_image} alt="" />
             <h5 className={magazineTitle}>{magazineData.title}</h5>
             <div className={buttonContainer}>
-              <a href={magazineData.handbook}>
+              <a href={magazineData.handbook} target="__blank">
                 <ButtonLight type="button" text="Read" />
               </a>
 
-              <a href={magazineData.handbook} download>
+              <a href={magazineData.handbook} download target="__blank">
                 <ButtonLight type="button" text="Download" />
               </a>
             </div>

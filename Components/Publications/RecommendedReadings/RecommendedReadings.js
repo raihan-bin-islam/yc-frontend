@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Slider from "react-slick/lib/slider";
 import Arrow from "../../Shared/Arrows/Arrow";
 import HeroBanner from "../../Shared/HeroBanner/HeroBanner";
@@ -17,9 +17,6 @@ import {
 
 const RecommendedReadings = ({ isLoading, booksData }) => {
   const [recommendedBook, setRecommendedBook] = useState(booksData[0]);
-  useEffect(() => {
-    console.log(recommendedBook);
-  }, [recommendedBook]);
 
   // Slick Slider Settings
   const sliderSettings = {
