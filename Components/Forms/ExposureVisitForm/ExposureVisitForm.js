@@ -1050,19 +1050,14 @@ const ExposureVisitForm = () => {
             <div className={`${questionOne} ${box}`}>
               <p>
                 How will an exposure visit at the Yunus Centre apply to your
-                professional goals? <span className={requiredField}>*</span>
+                professional goals?
               </p>
             </div>
             <div className={`${ansOne} ${box}`}>
-              <textarea
-                {...register("profGoal", { required: true, maxLength: 250 })}
-              />
+              <textarea {...register("profGoal", { maxLength: 250 })} />
             </div>
             <div className={`${questionTwo} ${box}`}>
-              <p>
-                What does the future of Social Business look like to you?{" "}
-                <span className={requiredField}>*</span>
-              </p>
+              <p>What does the future of Social Business look like to you? </p>
             </div>
             <div className={`${ansTwo} ${box}`}>
               <textarea
@@ -1076,7 +1071,6 @@ const ExposureVisitForm = () => {
               <p>
                 Tick (√) five or less Grameen Organizations you would like to
                 meet during your time here?{" "}
-                <span className={requiredField}>*</span>
               </p>
             </div>
             <div className={`${ansThree} ${box}`}>
@@ -1086,7 +1080,7 @@ const ExposureVisitForm = () => {
                     <input
                       type="checkbox"
                       id={data.id}
-                      {...register("organization", { required: true })}
+                      {...register("organization")}
                       value={data.organization}
                       onChange={(e) =>
                         e.target.checked && setOrgCount((prev) => prev + 1)
@@ -1103,7 +1097,7 @@ const ExposureVisitForm = () => {
             <div className={`${questionFour} ${box}`}>
               <p>
                 Did you participate in any field trip with any Grameen
-                organization before? <span className={requiredField}>*</span>
+                organization before?
               </p>
               <p>
                 If yes, please specify the organization, the date and duration?
@@ -1112,7 +1106,6 @@ const ExposureVisitForm = () => {
             <div className={`${ansFour} ${box}`}>
               <textarea
                 {...register("participateGrameenOrg", {
-                  required: true,
                   maxLength: 250,
                 })}
               />
