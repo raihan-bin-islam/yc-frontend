@@ -13,8 +13,11 @@ import image3 from "../../../public/assets/images/social_business/issues_image-3
 
 // CSS
 import styles from "./SocialBusinessIssuesBody.module.scss";
+import { useRouter } from "next/router";
 
 const SocialBusinessIssuesBody = () => {
+  const router = useRouter();
+
   const {
     issuesBody,
     imgContainer,
@@ -290,7 +293,7 @@ const SocialBusinessIssuesBody = () => {
               <p>h.Government can encourage all NGOs to transform part of their activities as social business.</p>
             </div>
           </div>
-          <div className={btnBox}>
+          <div className={btnBox} onClick={() => router.back()}>
             <Button text="Back" />
           </div>
         </div>
