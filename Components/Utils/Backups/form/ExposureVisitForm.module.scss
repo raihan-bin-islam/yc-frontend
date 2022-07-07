@@ -44,11 +44,6 @@
       grid-template-columns: repeat(5, [col-start] 1fr [col-end]);
       grid-template-rows: repeat(7, [row-start] min-content [row-end]);
 
-      @include response(s-desktop) {
-        grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
-        grid-template-rows: repeat(8, [row-start] min-content [row-end]);
-      }
-
       @include response(phone) {
         grid-template-columns: 1fr;
       }
@@ -63,11 +58,6 @@
         border-top: 2px solid $primary;
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
-
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 4;
-          grid-row: row-start 1 / row-end 1;
-        }
 
         @include response(phone) {
           grid-column: initial;
@@ -85,18 +75,10 @@
 
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 4;
-          grid-row: row-start 2 / row-end 2;
-
-          border-right: 2px solid $primary;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
 
-          border-right: 1px solid $primary;
           border-left: 1px solid $primary;
         }
       }
@@ -106,11 +88,6 @@
         grid-row: row-start 3 / row-end 3;
 
         border-left: 2px solid $primary;
-
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 3 / row-end 3;
-        }
 
         @include response(phone) {
           grid-column: initial;
@@ -126,18 +103,9 @@
         grid-column: col-start 3 / col-end 4;
         grid-row: row-start 3 / row-end 3;
 
-        @include response(s-desktop) {
-          grid-column: col-start 3 / col-end 4;
-          grid-row: row-start 3 / row-end 3;
-
-          border-right: 2px solid $primary;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
-
-          border-right: 1px solid $primary;
         }
       }
       .dobBox {
@@ -146,11 +114,6 @@
         grid-row: row-start 4 / row-end 4;
 
         border-left: 2px solid $primary;
-
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 4 / row-end 4;
-        }
 
         @include response(phone) {
           grid-column: initial;
@@ -166,11 +129,6 @@
         grid-column: col-start 3 / col-end 3;
         grid-row: row-start 4 / row-end 4;
 
-        @include response(s-desktop) {
-          grid-column: col-start 3 / col-end 3;
-          grid-row: row-start 4 / row-end 4;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
@@ -181,18 +139,10 @@
         grid-column: col-start 4 / col-end 4;
         grid-row: row-start 4 / row-end 4;
 
-        @include response(s-desktop) {
-          grid-column: col-start 4 / col-end 4;
-          grid-row: row-start 4 / row-end 4;
-
-          border-right: 2px solid $primary;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
 
-          border-right: 1px solid $primary;
           border-top: none;
           border-bottom: none;
         }
@@ -203,11 +153,6 @@
         grid-row: row-start 5 / row-end 5;
 
         border-left: 2px solid $primary;
-
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 2;
-          grid-row: row-start 5 / row-end 5;
-        }
 
         @include response(phone) {
           grid-column: initial;
@@ -222,11 +167,6 @@
         grid-column: col-start 3 / col-end 3;
         grid-row: row-start 5 / row-end 5;
 
-        @include response(s-desktop) {
-          grid-column: col-start 3 / col-end 3;
-          grid-row: row-start 5 / row-end 5;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
@@ -237,20 +177,12 @@
         grid-column: col-start 4 / col-end 4;
         grid-row: row-start 5 / row-end 5;
 
-        @include response(s-desktop) {
-          grid-column: col-start 4 / col-end 4;
-          grid-row: row-start 5 / row-end 5;
-
-          border-right: 2px solid $primary;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
 
           border-top: none;
           border-bottom: none;
-          border-right: 1px solid $primary;
         }
       }
       .imageFileBox {
@@ -265,19 +197,11 @@
         justify-content: center;
         align-items: center;
 
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 4;
-          grid-row: row-start 6 / row-end 6;
-
-          border-left: 2px solid $primary;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
 
           border-right: 1px solid $primary;
-          border-left: 1px solid $primary;
           border-bottom: none;
         }
 
@@ -332,11 +256,6 @@
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
 
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 4;
-          grid-row: row-start 7 / row-end 7;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
@@ -354,17 +273,11 @@
         border-bottom: 2px solid $primary;
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
-          grid-column: col-start 1 / col-end 1;
-          grid-row: row-start 8 / row-end 8;
-        }
-
         @include response(phone) {
           grid-column: initial;
           grid-row: initial;
 
           border-bottom: 1px solid $primary;
-          border-left: 1px solid $primary;
         }
       }
       .mobilePhoneBox {
@@ -373,11 +286,6 @@
         grid-row: row-start 7 / row-end 7;
 
         border-bottom: 2px solid $primary;
-
-        @include response(s-desktop) {
-          grid-column: col-start 2 / col-end 2;
-          grid-row: row-start 8 / row-end 8;
-        }
 
         @include response(phone) {
           grid-column: initial;
@@ -394,11 +302,6 @@
 
         border-right: 2px solid $primary;
         border-bottom: 2px solid $primary;
-
-        @include response(s-desktop) {
-          grid-column: col-start 3 / col-end 4;
-          grid-row: row-start 8 / row-end 8;
-        }
 
         @include response(phone) {
           grid-column: initial;
@@ -421,102 +324,14 @@
       background-color: $secondaryLightBlue;
       margin-bottom: 2rem;
 
+      @include response(phone) {
+        grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
+        grid-template-rows: repeat(50, [row-start] min-content [row-end]);
+      }
+
       // Education Info Inner Rows
       .educationInfoInner {
-        grid-column: col-start / col-end;
-
-        display: grid;
         grid-template-columns: repeat(7, [col-start] 1fr [col-end]);
-
-        &:nth-child(3) {
-          // background-color: lighten($color: $primary, $amount: 1);
-        }
-
-        @include response(phone) {
-          grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
-          grid-template-rows: repeat(50, [row-start] min-content [row-end]);
-          &:not(:last-child) {
-            margin-bottom: 2rem;
-          }
-        }
-        .educationAdditionalHeading {
-          display: none;
-          grid-column: col-start 1 / col-end 7;
-
-          margin: 2rem auto;
-
-          font-size: 1.8rem;
-          color: $textLight;
-        }
-
-        .institutionField {
-          border-left: 2px solid $primary;
-
-          grid-column: col-start 1 / col-end 2;
-          grid-row-end: span 1;
-
-          @include response(phone) {
-            grid-column: col-start 1 / col-end 2;
-            // grid-row: row-start 3 / row-end 3;
-            grid-row-end: span 1;
-
-            border-left: 1px solid $primary;
-            border-bottom: none;
-          }
-        }
-
-        .periodFromField {
-          grid-column: col-start 3 / col-end 3;
-          grid-row-end: span 1;
-
-          @include response(phone) {
-            grid-column: col-start 1 / col-end 1;
-            // grid-row: row-start 6 / row-end 6;
-            grid-row-end: span 1;
-
-            border-right: none;
-          }
-        }
-
-        .periodToField {
-          grid-column: col-start 4 / col-end 4;
-          grid-row-end: span 1;
-
-          @include response(phone) {
-            grid-column: col-start 2 / col-end 2;
-            // grid-row: row-start 6 / row-end 6;
-            grid-row-end: span 1;
-          }
-        }
-
-        .majorField {
-          grid-column: col-start 5 / col-end 5;
-          grid-row-end: span 1;
-
-          @include response(phone) {
-            grid-column: col-start 1 / col-end 2;
-            // grid-row: row-start 8 / row-end 8;
-            grid-row-end: span 1;
-
-            border-top: none;
-          }
-        }
-
-        .qualificationField {
-          border-right: 2px solid $primary;
-
-          grid-column: col-start 6 / col-end 7;
-          grid-row-end: span 1;
-
-          @include response(phone) {
-            grid-column: col-start 1 / col-end 2;
-            // grid-row: row-start 10 / row-end 10;
-            grid-row-end: span 1;
-
-            border-top: none;
-            border-right: 1px solid $primary;
-          }
-        }
       }
       // .headingContainer,
       .institutionHeading,
@@ -568,7 +383,141 @@
       //     border-bottom: none;
       //   }
       // }
+      .institutionField {
+        border-left: 2px solid $primary;
 
+        grid-column: col-start 1 / col-end 2;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 2;
+          // grid-row: row-start 3 / row-end 3;
+          grid-row-end: span 1;
+
+          border-left: 1px solid $primary;
+          border-bottom: none;
+        }
+      }
+      .periodHeading {
+        grid-column: col-start 3 / col-end 4;
+        // grid-row: row-start 2 / row-end 2;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 2;
+          // grid-row: row-start 4 / row-end 4;
+          grid-row-end: span 1;
+        }
+      }
+      .periodFromHeading {
+        grid-column: col-start 3 / col-end 3;
+        // grid-row: row-start 3 / row-end 3;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 1;
+          // grid-row: row-start 5 / row-end 5;
+          grid-row-end: span 1;
+
+          border-top: none;
+          border-bottom: none;
+          border-right: none;
+        }
+      }
+      .periodFromField {
+        grid-column: col-start 3 / col-end 3;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 1;
+          // grid-row: row-start 6 / row-end 6;
+          grid-row-end: span 1;
+
+          border-bottom: none;
+          border-right: none;
+        }
+      }
+      .periodToHeading {
+        grid-column: col-start 4 / col-end 4;
+        // grid-row: row-start 3 / row-end 3;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 2 / col-end 2;
+          // grid-row: row-start 5 / row-end 5;
+          grid-row-end: span 1;
+
+          border-top: none;
+          border-bottom: none;
+        }
+      }
+      .periodToField {
+        grid-column: col-start 4 / col-end 4;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 2 / col-end 2;
+          // grid-row: row-start 6 / row-end 6;
+          grid-row-end: span 1;
+
+          border-bottom: none;
+        }
+      }
+      .majorHeading {
+        grid-column: col-start 5 / col-end 5;
+        // grid-row: row-start 2 / row-end 3;
+        grid-row-end: span 2;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 2;
+          // grid-row: row-start 7 / row-end 7;
+          grid-row-end: span 1;
+        }
+      }
+      .majorField {
+        grid-column: col-start 5 / col-end 5;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 2;
+          // grid-row: row-start 8 / row-end 8;
+          grid-row-end: span 1;
+
+          border-top: none;
+          border-bottom: none;
+        }
+      }
+      .qualificationHeading {
+        border-right: 2px solid $primary;
+
+        grid-column: col-start 6 / col-end 6;
+        // grid-row: row-start 2 / row-end 3;
+        grid-row-end: span 2;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 2;
+          // grid-row: row-start 9 / row-end 9;
+          grid-row-end: span 1;
+
+          border-right: 1px solid $primary;
+        }
+      }
+      .qualificationField {
+        border-right: 2px solid $primary;
+
+        grid-column: col-start 6 / col-end 6;
+        grid-row-end: span 1;
+
+        @include response(phone) {
+          grid-column: col-start 1 / col-end 2;
+          // grid-row: row-start 10 / row-end 10;
+          grid-row-end: span 1;
+
+          border-top: none;
+          border-bottom: none;
+          border-right: 1px solid $primary;
+        }
+      }
       .addMoreButton {
         border-bottom: 2px solid $primary;
         border-right: 2px solid $primary;
@@ -776,8 +725,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 10 / row-end 10;
-
-          border-inline: 1px solid $primary;
         }
       }
       .ansOne {
@@ -790,8 +737,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 11 / row-end 11;
-
-          border-inline: 1px solid $primary;
         }
       }
       .questionTwo {
@@ -806,8 +751,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 12 / row-end 12;
-
-          border-inline: 1px solid $primary;
         }
       }
       .ansTwo {
@@ -820,8 +763,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 13 / row-end 13;
-
-          border-inline: 1px solid $primary;
         }
       }
       .questionThree {
@@ -836,8 +777,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 14 / row-end 14;
-
-          border-inline: 1px solid $primary;
         }
       }
       .ansThree {
@@ -860,7 +799,6 @@
           grid-template-rows: auto-fit;
 
           padding-inline: 2rem;
-          border-inline: 1px solid $primary;
         }
 
         .checkboxContainer {
@@ -888,8 +826,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 16 / row-end 16;
-
-          border-inline: 1px solid $primary;
         }
       }
       .ansFour {
@@ -902,8 +838,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 17 / row-end 17;
-
-          border-inline: 1px solid $primary;
         }
       }
       .questionFive {
@@ -918,8 +852,6 @@
         @include response(phone) {
           grid-column: col-start / col-end;
           grid-row: row-start 18 / row-end 18;
-
-          border-inline: 1px solid $primary;
         }
       }
       .ansFive {
@@ -944,7 +876,6 @@
           grid-template-rows: auto-fit;
 
           padding-inline: 2rem;
-          border-inline: 1px solid $primary;
         }
         .optionContainer {
           display: flex;
@@ -953,11 +884,9 @@
 
           @include response(phone) {
             flex-direction: column;
-            align-items: flex-start;
           }
 
           .container {
-            display: flex;
             input,
             label {
               margin-right: 1rem;
@@ -965,7 +894,6 @@
             }
             @include response(phone) {
               display: flex;
-              flex-direction: column;
               gap: 2rem;
             }
           }
@@ -983,10 +911,6 @@
       grid-template-columns: [col-full-start col-lg-start] 60% [col-lg-end col-sm-start] 40% [col-sm-end col-full-end];
       grid-template-rows: repeat(11, [row-start] min-content [row-end]);
 
-      @include response(phone) {
-        border: none;
-      }
-
       .headingContainer {
         background-color: $primary;
         color: white;
@@ -997,52 +921,26 @@
       .firstContactName {
         grid-column: col-full-start / col-full-end;
         grid-row: row-start 2 / row-end 2;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .firstContactAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 3 / row-end 3;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .firstContactTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 3 / row-end 3;
-
-        @include response(phone) {
-          border-bottom: none;
-          border-left: none;
-        }
       }
       .firstContactBusinessName {
         grid-column: col-full-start / col-full-end;
         grid-row: row-start 4 / row-end 4;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .firstContactBusinessAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 5 / row-end 5;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .firstContactBusinessTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 5 / row-end 5;
-
-        @include response(phone) {
-          border-bottom: none;
-          border-left: none;
-        }
       }
       .firstContactRelation {
         grid-column: col-full-start / col-full-end;
@@ -1050,10 +948,6 @@
 
         margin-bottom: 2rem;
         border-bottom: 2px solid $primary;
-
-        @include response(phone) {
-          border-bottom: 1px solid $primary;
-        }
       }
       // Second Contact
       .secondContactName {
@@ -1061,53 +955,26 @@
         grid-row: row-start 7 / row-end 7;
 
         border-top: 2px solid $primary;
-
-        @include response(phone) {
-          border-top: 1px solid $primary;
-          border-bottom: none;
-        }
       }
       .secondContactAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 8 / row-end 8;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .secondContactTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 8 / row-end 8;
-
-        @include response(phone) {
-          border-bottom: none;
-          border-left: none;
-        }
       }
       .secondContactBusinessName {
         grid-column: col-full-start / col-full-end;
         grid-row: row-start 9 / row-end 9;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .secondContactBusinessAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 10 / row-end 10;
-
-        @include response(phone) {
-          border-bottom: none;
-        }
       }
       .secondContactBusinessTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 10 / row-end 10;
-
-        @include response(phone) {
-          border-bottom: none;
-          border-left: none;
-        }
       }
       .secondContactRelation {
         grid-column: col-full-start / col-full-end;

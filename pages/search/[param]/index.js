@@ -1,10 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
 
-import useFetch from "../../Components/Hooks/useFetch";
-import SearchResults from "../../Components/SearchResults/SearchResults";
-import HeroBannerSmall from "../../Components/Shared/HeroBannerSmall/HeroBannerSmall";
-import PreLoader from "../../Components/Shared/PreLoader/PreLoader";
+import useFetch from "../../../Components/Hooks/useFetch";
+import HeroBannerSmall from "../../../Components/Shared/HeroBannerSmall/HeroBannerSmall";
+import PreLoader from "../../../Components/Shared/PreLoader/PreLoader";
+import SearchResults from "../../../Components/SearchResults/SearchResults";
 
 const Search = () => {
   const router = useRouter();

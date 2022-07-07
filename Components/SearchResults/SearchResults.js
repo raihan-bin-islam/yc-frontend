@@ -9,7 +9,7 @@ const SearchResults = ({ searchResults }) => {
       {/* Articles */}
       <h4 className={heading}>articles</h4>
       {searchResults?.articles?.map(({ id, title, thumb_image }) => (
-        <SearchResultsComponent key={id} id={id} title={title} image={thumb_image} type="articles" />
+        <SearchResultsComponent key={id} title={title} image={thumb_image} type="articles" />
       ))}
       {searchResults?.articles?.length === 0 && <h2 className={noData}>No Data Found</h2>}
       {/* News */}
@@ -21,7 +21,7 @@ const SearchResults = ({ searchResults }) => {
       {/* Events */}
       <h4 className={heading}>events</h4>
       {searchResults?.events?.map(({ id, title, thumb_image }) => (
-        <SearchResultsComponent key={id} id={id} title={title} image={thumb_image} type="events" />
+        <SearchResultsComponent key={id} title={title} image={thumb_image} type="events" />
       ))}
       {searchResults?.events?.length === 0 && <h2 className={noData}>No Data Found</h2>}
     </section>
