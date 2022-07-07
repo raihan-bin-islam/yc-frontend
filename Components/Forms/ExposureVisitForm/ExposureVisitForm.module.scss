@@ -318,17 +318,109 @@
 
     .educationInfoContainer {
       display: grid;
-      grid-template-columns: repeat(6, [col-start] 1fr [col-end]);
+      grid-template-columns: [col-start] 1fr [col-end];
       grid-template-rows: repeat(50, [row-start] min-content [row-end]);
       grid-auto-flow: dense;
       background-color: $secondaryLightBlue;
       margin-bottom: 2rem;
 
-      @include response(phone) {
-        grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
-        grid-template-rows: repeat(50, [row-start] min-content [row-end]);
-      }
+      // Education Info Inner Rows
+      .educationInfoInner {
+        grid-column: col-start / col-end;
 
+        display: grid;
+        grid-template-columns: repeat(7, [col-start] 1fr [col-end]);
+
+        &:nth-child(3) {
+          // background-color: lighten($color: $primary, $amount: 1);
+        }
+
+        @include response(phone) {
+          grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
+          grid-template-rows: repeat(50, [row-start] min-content [row-end]);
+          &:not(:last-child) {
+            margin-bottom: 2rem;
+          }
+        }
+        .educationAdditionalHeading {
+          display: none;
+          grid-column: col-start 1 / col-end 7;
+
+          margin: 2rem auto;
+
+          font-size: 1.8rem;
+          color: $textLight;
+        }
+
+        .institutionField {
+          border-left: 2px solid $primary;
+
+          grid-column: col-start 1 / col-end 2;
+          grid-row-end: span 1;
+
+          @include response(phone) {
+            grid-column: col-start 1 / col-end 2;
+            // grid-row: row-start 3 / row-end 3;
+            grid-row-end: span 1;
+
+            border-left: 1px solid $primary;
+            border-bottom: none;
+          }
+        }
+
+        .periodFromField {
+          grid-column: col-start 3 / col-end 3;
+          grid-row-end: span 1;
+
+          @include response(phone) {
+            grid-column: col-start 1 / col-end 1;
+            // grid-row: row-start 6 / row-end 6;
+            grid-row-end: span 1;
+
+            border-right: none;
+          }
+        }
+
+        .periodToField {
+          grid-column: col-start 4 / col-end 4;
+          grid-row-end: span 1;
+
+          @include response(phone) {
+            grid-column: col-start 2 / col-end 2;
+            // grid-row: row-start 6 / row-end 6;
+            grid-row-end: span 1;
+          }
+        }
+
+        .majorField {
+          grid-column: col-start 5 / col-end 5;
+          grid-row-end: span 1;
+
+          @include response(phone) {
+            grid-column: col-start 1 / col-end 2;
+            // grid-row: row-start 8 / row-end 8;
+            grid-row-end: span 1;
+
+            border-top: none;
+          }
+        }
+
+        .qualificationField {
+          border-right: 2px solid $primary;
+
+          grid-column: col-start 6 / col-end 7;
+          grid-row-end: span 1;
+
+          @include response(phone) {
+            grid-column: col-start 1 / col-end 2;
+            // grid-row: row-start 10 / row-end 10;
+            grid-row-end: span 1;
+
+            border-top: none;
+            border-right: 1px solid $primary;
+          }
+        }
+      }
       // .headingContainer,
       .institutionHeading,
       .periodHeading,
@@ -349,9 +441,9 @@
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
 
-        grid-column: col-start 1 / col-end 6;
+        grid-column: col-start / col-end;
         // grid-row: row-start 1 / row-end 1;
-        grid-row-end: span 1;
+        // grid-row-end: span 1;
 
         @include response(phone) {
           grid-column: col-start 1 / col-end 2;
@@ -363,157 +455,23 @@
           border-right: 1px solid $primary;
         }
       }
-      .institutionHeading {
-        border-left: 2px solid $primary;
+      // .institutionHeading {
+      //   border-left: 2px solid $primary;
 
-        grid-column: col-start 1 / col-end 2;
-        // grid-row: row-start 2 / row-end 3;
-        grid-row-end: span 2;
+      //   grid-column: col-start 1 / col-end 2;
+      //   // grid-row: row-start 2 / row-end 3;
+      //   grid-row-end: span 2;
 
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 2 / row-end 2;
-          grid-row-end: span 2;
+      //   @include response(phone) {
+      //     grid-column: col-start 1 / col-end 2;
+      //     // grid-row: row-start 2 / row-end 2;
+      //     grid-row-end: span 2;
 
-          border-left: 1px solid $primary;
-          border-bottom: none;
-        }
-      }
-      .institutionField {
-        border-left: 2px solid $primary;
+      //     border-left: 1px solid $primary;
+      //     border-bottom: none;
+      //   }
+      // }
 
-        grid-column: col-start 1 / col-end 2;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 3 / row-end 3;
-          grid-row-end: span 1;
-
-          border-left: 1px solid $primary;
-          border-bottom: none;
-        }
-      }
-      .periodHeading {
-        grid-column: col-start 3 / col-end 4;
-        // grid-row: row-start 2 / row-end 2;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 4 / row-end 4;
-          grid-row-end: span 1;
-        }
-      }
-      .periodFromHeading {
-        grid-column: col-start 3 / col-end 3;
-        // grid-row: row-start 3 / row-end 3;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 1;
-          // grid-row: row-start 5 / row-end 5;
-          grid-row-end: span 1;
-
-          border-top: none;
-          border-bottom: none;
-          border-right: none;
-        }
-      }
-      .periodFromField {
-        grid-column: col-start 3 / col-end 3;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 1;
-          // grid-row: row-start 6 / row-end 6;
-          grid-row-end: span 1;
-
-          border-bottom: none;
-          border-right: none;
-        }
-      }
-      .periodToHeading {
-        grid-column: col-start 4 / col-end 4;
-        // grid-row: row-start 3 / row-end 3;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 2 / col-end 2;
-          // grid-row: row-start 5 / row-end 5;
-          grid-row-end: span 1;
-
-          border-top: none;
-          border-bottom: none;
-        }
-      }
-      .periodToField {
-        grid-column: col-start 4 / col-end 4;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 2 / col-end 2;
-          // grid-row: row-start 6 / row-end 6;
-          grid-row-end: span 1;
-
-          border-bottom: none;
-        }
-      }
-      .majorHeading {
-        grid-column: col-start 5 / col-end 5;
-        // grid-row: row-start 2 / row-end 3;
-        grid-row-end: span 2;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 7 / row-end 7;
-          grid-row-end: span 1;
-        }
-      }
-      .majorField {
-        grid-column: col-start 5 / col-end 5;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 8 / row-end 8;
-          grid-row-end: span 1;
-
-          border-top: none;
-          border-bottom: none;
-        }
-      }
-      .qualificationHeading {
-        border-right: 2px solid $primary;
-
-        grid-column: col-start 6 / col-end 6;
-        // grid-row: row-start 2 / row-end 3;
-        grid-row-end: span 2;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 9 / row-end 9;
-          grid-row-end: span 1;
-
-          border-right: 1px solid $primary;
-        }
-      }
-      .qualificationField {
-        border-right: 2px solid $primary;
-
-        grid-column: col-start 6 / col-end 6;
-        grid-row-end: span 1;
-
-        @include response(phone) {
-          grid-column: col-start 1 / col-end 2;
-          // grid-row: row-start 10 / row-end 10;
-          grid-row-end: span 1;
-
-          border-top: none;
-          border-bottom: none;
-          border-right: 1px solid $primary;
-        }
-      }
       .addMoreButton {
         border-bottom: 2px solid $primary;
         border-right: 2px solid $primary;
@@ -801,6 +759,10 @@
           display: flex;
           align-items: center;
           gap: 2rem;
+        }
+        .errorMessages {
+          margin: 2.5rem 0;
+          grid-column-end: span 2;
         }
       }
       .questionFour {

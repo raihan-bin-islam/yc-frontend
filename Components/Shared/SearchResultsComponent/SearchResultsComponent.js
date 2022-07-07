@@ -5,9 +5,9 @@ import altImageSmall from "../../../public/assets/images/media/news-and-highligh
 import Link from "next/link";
 
 const SearchResultsComponent = ({ id, image, title, type }) => {
-  const url = type === "news" ? "/media/news/" : type === "events" ? "/social-business/events" : "";
+  const url = type === "news" ? "/media/news/" : type === "events" ? "/social-business/events" : "/";
   return (
-    <Link href={url + id}>
+    <Link href={`${url}${id ? id : ""}`}>
       <a>
         <div className={container}>
           <img

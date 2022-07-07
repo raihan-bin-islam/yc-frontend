@@ -39,19 +39,17 @@ const ExposureVisitForm = () => {
     mobilePhoneBox,
     emailBox,
     box,
+
     educationInfoContainer,
-    institutionHeading,
+    educationInfoInner,
+    educationAdditionalHeading,
     institutionField,
-    periodHeading,
-    periodFromHeading,
     periodFromField,
-    periodToHeading,
     periodToField,
-    majorHeading,
     majorField,
-    qualificationHeading,
     qualificationField,
     addMoreButton,
+
     buttonContainer,
     buttonComponent,
     removeButtonComponent,
@@ -97,6 +95,7 @@ const ExposureVisitForm = () => {
     imageFileBtn,
     imageContainer,
     container,
+    errorMessages,
   } = styles;
 
   // State Variables
@@ -105,7 +104,23 @@ const ExposureVisitForm = () => {
 
   // state variable for program-source to control checkbox input
   const [source, setSource] = useState([false, false, false, false]);
+  const [orgFlag, setOrgFlag] = useState([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+
   const [orgCount, setOrgCount] = useState(0);
+  const [orgError, setOrgError] = useState(false);
 
   // To Clear inputs when source of learning is either changed or deselected
   useEffect(() => {
@@ -114,6 +129,10 @@ const ExposureVisitForm = () => {
     clearTextInput("sourceYunusInput");
     clearTextInput("sourceOtherInput");
   }, [source]);
+  // To Clear inputs when source of learning is either changed or deselected
+  useEffect(() => {
+    orgFlag.filter((value) => value === true).length < 5 && setOrgError(false);
+  }, [orgFlag]);
 
   //   useForm API
   const {
@@ -170,6 +189,30 @@ const ExposureVisitForm = () => {
       secondContactRelation: "",
     },
   });
+
+  // Count the number of selected Items in a list of checkbox
+  const countNumberOfSelectedItems = (e, count, index) => {
+    // if the number of selected items is less than the count we let the user select any of the items from the checkbox
+    if (orgFlag.filter((value) => value === true).length < count) {
+      setOrgFlag((prev) => {
+        let newFlags = [...prev];
+        const flag = !prev[index];
+        newFlags[index] = flag;
+        return newFlags;
+      });
+    }
+    // If the number of selected items reaches the maximum limit then we let the user only deselect the selected items from the checkbox and then they can again select another option from the list
+    else {
+      // if the user tries to check an option after s/he has reached the limit we set the error to true
+      e.target.checked && setOrgError(true);
+      setOrgFlag((prev) => {
+        let newFlags = [...prev];
+        let flag = false;
+        prev[index] === true && (newFlags[index] = flag);
+        return newFlags;
+      });
+    }
+  };
 
   // Load Uploaded Image on the form
   const loadImage = (e) => {
@@ -431,292 +474,261 @@ const ExposureVisitForm = () => {
               <p>Education (in chronological order)</p>
             </div>
             {/* Institution Name */}
-            <div className={`${institutionHeading} ${box}`}>
-              <p>
-                School, College, University, Etc. Attended / Attending <span className={requiredField}>*</span>
-              </p>
-            </div>
-
-            <div id="education-status-field" className={`${institutionField} ${box}`}>
-              <input type="text" {...register("institutionName[0]", { required: true })} />
-              {errors.institutionName && errors.institutionName[0]?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )}
-            </div>
-            {eduCount >= 1 && (
+            <div className={educationInfoInner}>
               <div id="education-status-field" className={`${institutionField} ${box}`}>
-                <input type="text" {...register("institutionName[1]", { required: true })} />
-                {errors.institutionName && errors.institutionName[1]?.type === "required" && (
+                <label>
+                  School, College, University, Etc. <span className={requiredField}>*</span>
+                </label>
+                <input type="text" {...register("institutionName[0]", { required: true })} />
+                {errors.institutionName && errors.institutionName[0]?.type === "required" && (
                   <FormErrorMessage msg="Field can not be empty" />
                 )}
               </div>
-            )}
-            {eduCount >= 2 && (
-              <div id="education-status-field" className={`${institutionField} ${box}`}>
-                <input type="text" {...register("institutionName[2]", { required: true })} />
-                {errors.institutionName && errors.institutionName[2]?.type === "required" && (
-                  <FormErrorMessage msg="Field can not be empty" />
-                )}
-              </div>
-            )}
-            {eduCount >= 3 && (
-              <div id="education-status-field" className={`${institutionField} ${box}`}>
-                <input type="text" {...register("institutionName[3]", { required: true })} />
-                {errors.institutionName && errors.institutionName[3]?.type === "required" && (
-                  <FormErrorMessage msg="Field can not be empty" />
-                )}
-              </div>
-            )}
 
-            {/* Period */}
-            <div className={`${periodHeading} ${box}`}>
-              <p>Period</p>
-            </div>
-            <div className={`${periodFromHeading} ${box}`}>
-              <p>
-                From (month/year) <span className={requiredField}>*</span>
-              </p>
-            </div>
-            <div id="education-status-field" className={`${periodFromField} ${box}`}>
-              <input type="date" {...register("institutionFrom[0]", { required: true })} />
-              {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
-                <FormErrorMessage msg="Date is required" />
-              )}
-            </div>
-            {eduCount >= 1 && (
-              <div id="education-status-field" className={`${periodFromField} ${box}`}>
-                <input type="date" {...register("institutionFrom[1]", { required: true })} />
-                {errors.institutionFrom && errors.institutionFrom[1]?.type === "required" && (
-                  <FormErrorMessage msg="Date is required" />
-                )}
-              </div>
-            )}
-            {eduCount >= 2 && (
-              <div id="education-status-field" className={`${periodFromField} ${box}`}>
-                <input type="date" {...register("institutionFrom[2]", { required: true })} />
-                {errors.institutionFrom && errors.institutionFrom[2]?.type === "required" && (
-                  <FormErrorMessage msg="Date is required" />
-                )}
-              </div>
-            )}
-            {eduCount >= 3 && (
-              <div id="education-status-field" className={`${periodFromField} ${box}`}>
-                <input type="date" {...register("institutionFrom[3]", { required: true })} />
-                {errors.institutionFrom && errors.institutionFrom[3]?.type === "required" && (
-                  <FormErrorMessage msg="Date is required" />
-                )}
-              </div>
-            )}
-            <div className={`${periodToHeading} ${box}`}>
-              <p>
-                To (month/year) <span className={requiredField}>*</span>
-              </p>
-            </div>
-            <div id="education-status-field" className={`${periodToField} ${box}`}>
-              <input type="date" {...register("institutionTo[0]", { required: true })} />
-              {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
-                <FormErrorMessage msg="Date is required" />
-              )}
-            </div>
+              {/* Period */}
 
-            {eduCount >= 1 && (
-              <div id="education-status-field" className={`${periodToField} ${box}`}>
-                <input type="date" {...register("institutionTo[1]", { required: true })} />
-                {errors.institutionTo && errors.institutionTo[1]?.type === "required" && (
+              <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                <label>
+                  From (month/year) <span className={requiredField}>*</span>
+                </label>
+                <input type="date" {...register("institutionFrom[0]", { required: true })} />
+                {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
                   <FormErrorMessage msg="Date is required" />
                 )}
               </div>
-            )}
-            {eduCount >= 2 && (
+
               <div id="education-status-field" className={`${periodToField} ${box}`}>
-                <input type="date" {...register("institutionTo[2]", { required: true })} />
-                {errors.institutionTo && errors.institutionTo[2]?.type === "required" && (
+                <label>
+                  To (month/year) <span className={requiredField}>*</span>
+                </label>
+                <input type="date" {...register("institutionTo[0]", { required: true })} />
+                {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
                   <FormErrorMessage msg="Date is required" />
                 )}
               </div>
-            )}
-            {eduCount >= 3 && (
-              <div id="education-status-field" className={`${periodToField} ${box}`}>
-                <input type="date" {...register("institutionTo[3]", { required: true })} />
-                {errors.institutionTo && errors.institutionTo[3]?.type === "required" && (
-                  <FormErrorMessage msg="Date is required" />
-                )}
-              </div>
-            )}
-            {/* Major */}
-            <div className={`${majorHeading} ${box}`}>
-              <p>
-                Major <span className={requiredField}>*</span>
-              </p>
-            </div>
-            <div id="education-status-field" className={`${majorField} ${box}`}>
-              <select {...register("major[0]", { required: true })}>
-                <option value="CSE">CSE</option>
-                <option value="EEE">EEE</option>
-                <option value="BBA">BBA</option>
-              </select>
-              {errors.major && errors.major[0]?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )}
-            </div>
-            {eduCount >= 1 && (
+
+              {/* Major */}
+
               <div id="education-status-field" className={`${majorField} ${box}`}>
-                <select {...register("major[1]", { required: true })}>
+                <label>
+                  Major <span className={requiredField}>*</span>
+                </label>
+                <select {...register("major[0]", { required: true })}>
                   <option value="CSE">CSE</option>
                   <option value="EEE">EEE</option>
                   <option value="BBA">BBA</option>
                 </select>
-                {errors.major && errors.major[1]?.type === "required" && (
+                {errors.major && errors.major[0]?.type === "required" && (
                   <FormErrorMessage msg="Field can not be empty" />
                 )}
               </div>
-            )}
-            {eduCount >= 2 && (
-              <div id="education-status-field" className={`${majorField} ${box}`}>
-                <select {...register("major[2]", { required: true })}>
-                  <option value="CSE">CSE</option>
-                  <option value="EEE">EEE</option>
-                  <option value="BBA">BBA</option>
-                </select>
-                {errors.major && errors.major[2]?.type === "required" && (
-                  <FormErrorMessage msg="Field can not be empty" />
+              {/* Score Obtained */}
+              <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                <label>
+                  Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
+                </label>
+                <input type="text" {...register("qualification[0]", { required: true })} />
+                {errors.qualification && errors.qualification[0]?.type === "required" && (
+                  <FormErrorMessage msg="Cannot be empty" />
                 )}
               </div>
-            )}
-            {eduCount >= 3 && (
-              <div id="education-status-field" className={`${majorField} ${box}`}>
-                <select {...register("major[3]", { required: true })}>
-                  <option value="CSE">CSE</option>
-                  <option value="EEE">EEE</option>
-                  <option value="BBA">BBA</option>
-                </select>
-                {errors.major && errors.major[3]?.type === "required" && (
-                  <FormErrorMessage msg="Field can not be empty" />
-                )}
-              </div>
-            )}
-            {/* Score Obtained */}
-            <div className={`${qualificationHeading} ${box}`}>
-              <p>
-                Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
-              </p>
             </div>
-            <div id="education-status-field" className={`${qualificationField} ${box}`}>
-              <input type="text" {...register("qualification[0]", { required: true })} />
-              {errors.qualification && errors.qualification[0]?.type === "required" && (
-                <FormErrorMessage msg="Cannot be empty" />
-              )}
-            </div>
+
+            {/* -----------------2nd educational status--------------------- */}
             {eduCount >= 1 && (
-              <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                <input type="text" {...register("qualification[1]", { required: true })} />
-                {errors.qualification && errors.qualification[1]?.type === "required" && (
-                  <FormErrorMessage msg="Cannot be empty" />
-                )}
+              <div className={educationInfoInner}>
+                <h2 className={educationAdditionalHeading}>2nd</h2>
+                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                  <label>
+                    School, College, University, Etc. <span className={requiredField}>*</span>
+                  </label>
+                  <input type="text" {...register("institutionName[0]", { required: true })} />
+                  {errors.institutionName && errors.institutionName[0]?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
+                </div>
+
+                {/* Period */}
+
+                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                  <label>
+                    From (month/year) <span className={requiredField}>*</span>
+                  </label>
+                  <input type="date" {...register("institutionFrom[0]", { required: true })} />
+                  {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
+                    <FormErrorMessage msg="Date is required" />
+                  )}
+                </div>
+
+                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                  <label>
+                    To (month/year) <span className={requiredField}>*</span>
+                  </label>
+                  <input type="date" {...register("institutionTo[0]", { required: true })} />
+                  {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
+                    <FormErrorMessage msg="Date is required" />
+                  )}
+                </div>
+
+                {/* Major */}
+
+                <div id="education-status-field" className={`${majorField} ${box}`}>
+                  <label>
+                    Major <span className={requiredField}>*</span>
+                  </label>
+                  <select {...register("major[0]", { required: true })}>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BBA">BBA</option>
+                  </select>
+                  {errors.major && errors.major[0]?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
+                </div>
+                {/* Score Obtained */}
+
+                <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                  <label>
+                    Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
+                  </label>
+                  <input type="text" {...register("qualification[0]", { required: true })} />
+                  {errors.qualification && errors.qualification[0]?.type === "required" && (
+                    <FormErrorMessage msg="Cannot be empty" />
+                  )}
+                </div>
               </div>
             )}
+            {/* -----------------3rd educational status--------------------- */}
+
             {eduCount >= 2 && (
-              <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                <input type="text" {...register("qualification[2]", { required: true })} />
-                {errors.qualification && errors.qualification[2]?.type === "required" && (
-                  <FormErrorMessage msg="Cannot be empty" />
-                )}
+              <div className={educationInfoInner}>
+                <h2 className={educationAdditionalHeading}>3rd</h2>
+                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                  <label>
+                    School, College, University, Etc. <span className={requiredField}>*</span>
+                  </label>
+                  <input type="text" {...register("institutionName[0]", { required: true })} />
+                  {errors.institutionName && errors.institutionName[0]?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
+                </div>
+
+                {/* Period */}
+
+                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                  <label>
+                    From (month/year) <span className={requiredField}>*</span>
+                  </label>
+                  <input type="date" {...register("institutionFrom[0]", { required: true })} />
+                  {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
+                    <FormErrorMessage msg="Date is required" />
+                  )}
+                </div>
+
+                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                  <label>
+                    To (month/year) <span className={requiredField}>*</span>
+                  </label>
+                  <input type="date" {...register("institutionTo[0]", { required: true })} />
+                  {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
+                    <FormErrorMessage msg="Date is required" />
+                  )}
+                </div>
+
+                {/* Major */}
+
+                <div id="education-status-field" className={`${majorField} ${box}`}>
+                  <label>
+                    Major <span className={requiredField}>*</span>
+                  </label>
+                  <select {...register("major[0]", { required: true })}>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BBA">BBA</option>
+                  </select>
+                  {errors.major && errors.major[0]?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
+                </div>
+                {/* Score Obtained */}
+
+                <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                  <label>
+                    Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
+                  </label>
+                  <input type="text" {...register("qualification[0]", { required: true })} />
+                  {errors.qualification && errors.qualification[0]?.type === "required" && (
+                    <FormErrorMessage msg="Cannot be empty" />
+                  )}
+                </div>
               </div>
             )}
+            {/* -----------------4th educational status--------------------- */}
             {eduCount >= 3 && (
-              <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                <input type="text" {...register("qualification[3]", { required: true })} />
-                {errors.qualification && errors.qualification[3]?.type === "required" && (
-                  <FormErrorMessage msg="Cannot be empty" />
-                )}
+              <div className={educationInfoInner}>
+                <h2 className={educationAdditionalHeading}>4th</h2>
+                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                  <label>
+                    School, College, University, Etc. <span className={requiredField}>*</span>
+                  </label>
+                  <input type="text" {...register("institutionName[0]", { required: true })} />
+                  {errors.institutionName && errors.institutionName[0]?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
+                </div>
+
+                {/* Period */}
+
+                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                  <label>
+                    From (month/year) <span className={requiredField}>*</span>
+                  </label>
+                  <input type="date" {...register("institutionFrom[0]", { required: true })} />
+                  {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
+                    <FormErrorMessage msg="Date is required" />
+                  )}
+                </div>
+
+                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                  <label>
+                    To (month/year) <span className={requiredField}>*</span>
+                  </label>
+                  <input type="date" {...register("institutionTo[0]", { required: true })} />
+                  {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
+                    <FormErrorMessage msg="Date is required" />
+                  )}
+                </div>
+
+                {/* Major */}
+
+                <div id="education-status-field" className={`${majorField} ${box}`}>
+                  <label>
+                    Major <span className={requiredField}>*</span>
+                  </label>
+                  <select {...register("major[0]", { required: true })}>
+                    <option value="CSE">CSE</option>
+                    <option value="EEE">EEE</option>
+                    <option value="BBA">BBA</option>
+                  </select>
+                  {errors.major && errors.major[0]?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
+                </div>
+                {/* Score Obtained */}
+
+                <div id="education-status-field" className={`${qualificationField} ${box}`}>
+                  <label>
+                    Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
+                  </label>
+                  <input type="text" {...register("qualification[0]", { required: true })} />
+                  {errors.qualification && errors.qualification[0]?.type === "required" && (
+                    <FormErrorMessage msg="Cannot be empty" />
+                  )}
+                </div>
               </div>
             )}
 
-            {/* {eduCount >= 1 && (
-              <>
-                <div id="education-status-field" className={`${institutionField} ${box}`}>
-                  <input type="text" {...register(`institutionName[1]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${periodFromField} ${box}`}>
-                  <input type="date" {...register(`institutionFrom[1]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${periodToField} ${box}`}>
-                  <input type="date" {...register(`institutionTo[1]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${majorField} ${box}`}>
-                  <select {...register(`major[1]`)}>
-                    <option value="CSE">CSE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="BBA">BBA</option>
-                  </select>
-                </div>
-
-                <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                  <input type="text" {...register(`qualification[1]`, { required: true })} />
-                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
-                </div>
-              </>
-            )}
-            {eduCount >= 2 && (
-              <>
-                <div id="education-status-field" className={`${institutionField} ${box}`}>
-                  <input type="text" {...register(`institutionName[2]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${periodFromField} ${box}`}>
-                  <input type="date" {...register(`institutionFrom[2]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${periodToField} ${box}`}>
-                  <input type="date" {...register(`institutionTo[2]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${majorField} ${box}`}>
-                  <select {...register(`major[2]`)}>
-                    <option value="CSE">CSE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="BBA">BBA</option>
-                  </select>
-                </div>
-
-                <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                  <input type="text" {...register(`qualification[2]`, { required: true })} />
-                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
-                </div>
-              </>
-            )}
-            {eduCount >= 3 && (
-              <>
-                <div id="education-status-field" className={`${institutionField} ${box}`}>
-                  <input type="text" {...register(`institutionName[3]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${periodFromField} ${box}`}>
-                  <input type="date" {...register(`institutionFrom[3]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${periodToField} ${box}`}>
-                  <input type="date" {...register(`institutionTo[3]`)} />
-                </div>
-
-                <div id="education-status-field" className={`${majorField} ${box}`}>
-                  <select {...register(`major[3]`)}>
-                    <option value="CSE">CSE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="BBA">BBA</option>
-                  </select>
-                </div>
-
-                <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                  <input type="text" {...register(`qualification[3]`, { required: true })} />
-                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
-                </div>
-              </>
-            )} */}
-
+            {/* Add more button */}
             <div className={`${addMoreButton} ${box}`}>
               <div className={buttonContainer}>
                 <div
@@ -816,7 +828,7 @@ const ExposureVisitForm = () => {
               </p>
             </div>
             <div className={`${ansThree} ${box}`}>
-              {orgData.map((data) => {
+              {orgData.map((data, index) => {
                 return (
                   <div key={data.id} className={checkboxContainer}>
                     <input
@@ -824,13 +836,24 @@ const ExposureVisitForm = () => {
                       id={data.id}
                       {...register("organization", { required: true })}
                       value={data.organization}
-                      onChange={(e) => e.target.checked && setOrgCount((prev) => prev + 1)}
+                      checked={orgFlag[index]}
+                      onClick={(e) => {
+                        countNumberOfSelectedItems(e, 5, index);
+                      }}
                     />
                     <label htmlFor={data.id}>{data.organization}</label>
                   </div>
                 );
               })}
-              {errors.organization?.type === "required" && <FormErrorMessage msg="Organization is required" />}
+
+              {(errors.organization || orgError) && (
+                <div className={errorMessages}>
+                  {errors.organization?.type === "required" && <FormErrorMessage msg="Organization is required" />}
+                  {orgError && (
+                    <FormErrorMessage msg="You can select a maximum of 5 options, please deselect one or multiple options to select the other ones" />
+                  )}
+                </div>
+              )}
             </div>
             <div className={`${questionFour} ${box}`}>
               <p>

@@ -64,7 +64,7 @@ const Navbar = () => {
   const handleSearch = (e) => {
     if (e.code === "Enter") {
       e.target.value.length <= 3 && alert("Please enter more than 3 characters");
-      e.target.value.length > 3 && router.push(`/search?keyword=${e.target.value}`);
+      e.target.value.length > 3 && router.push(`/search/param?keyword=${e.target.value}`);
     }
   };
 
