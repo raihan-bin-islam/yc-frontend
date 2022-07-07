@@ -221,6 +221,17 @@
       margin: 2rem 0;
     }
   }
+  .dropdownParent {
+    z-index: 2;
+    .dropdown {
+      z-index: 1;
+      a:hover {
+        &:after {
+          display: none !important;
+        }
+      }
+    }
+  }
 }
 
 .navScroll {
@@ -253,7 +264,9 @@
         }
 
         .dropdownParent {
+          z-index: 2;
           .dropdown {
+            z-index: 1;
             a:hover {
               &:after {
                 display: none !important;
