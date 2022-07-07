@@ -484,12 +484,6 @@ const ExposureVisitForm = () => {
                   <FormErrorMessage msg="Field can not be empty" />
                 )}
               </div>
-              <div id="education-status-field" className={`${institutionField} ${box}`}>
-                <input type="text" {...register("institutionName[1]", { required: true })} />
-                {errors.institutionName && errors.institutionName[1]?.type === "required" && (
-                  <FormErrorMessage msg="Field can not be empty" />
-                )}
-              </div>
 
               {/* Period */}
 
