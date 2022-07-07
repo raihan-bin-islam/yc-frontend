@@ -876,9 +876,11 @@
 
           @include response(phone) {
             flex-direction: column;
+            align-items: flex-start;
           }
 
           .container {
+            display: flex;
             input,
             label {
               margin-right: 1rem;
@@ -886,6 +888,7 @@
             }
             @include response(phone) {
               display: flex;
+              flex-direction: column;
               gap: 2rem;
             }
           }
