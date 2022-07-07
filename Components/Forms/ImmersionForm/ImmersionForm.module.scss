@@ -56,7 +56,7 @@
 
       @include response(s-desktop) {
         grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
-        grid-template-rows: repeat(8, [row-start] min-content [row-end]);
+        grid-template-rows: repeat(7, [row-start] min-content [row-end]);
       }
 
       @include response(phone) {
