@@ -191,7 +191,9 @@ function ImmersionForm(props) {
   // Load Uploaded Image on the form
   const loadImage = (e) => {
     let image = document.getElementById("output");
-    e.target.files[0] ? (image.src = URL.createObjectURL(e.target.files[0])) : (image.src = "");
+    e.target.files[0]
+      ? (image.src = URL.createObjectURL(e.target.files[0]))
+      : (image.src = "");
   };
 
   const onSubmit = async (data, e) => {
@@ -218,17 +220,32 @@ function ImmersionForm(props) {
     formdata.append("email", data.email);
     // -----------------------------Education--------------------------------------------------------------
     data.institutionName.forEach((element, index) => {
-      formdata.append(`education[${index}][institution]`, data.institutionName[index]);
-      formdata.append(`education[${index}][period_from]`, data.institutionFrom[index]);
-      formdata.append(`education[${index}][period_to]`, data.institutionTo[index]);
+      formdata.append(
+        `education[${index}][institution]`,
+        data.institutionName[index]
+      );
+      formdata.append(
+        `education[${index}][period_from]`,
+        data.institutionFrom[index]
+      );
+      formdata.append(
+        `education[${index}][period_to]`,
+        data.institutionTo[index]
+      );
       formdata.append(`education[${index}][major]`, data.major[index]);
-      formdata.append(`education[${index}][qualification]`, data.qualification[index]);
+      formdata.append(
+        `education[${index}][qualification]`,
+        data.qualification[index]
+      );
     });
     // ----------------------------Employment---------------------------------------------------------------
     formdata.append("current_employment[0][organization]", data.orgName);
     formdata.append("current_employment[0][designation]", data.designation);
     formdata.append("current_employment[0][since]", data.since);
-    formdata.append("current_employment[0][responsibilities]", data.responsibility);
+    formdata.append(
+      "current_employment[0][responsibilities]",
+      data.responsibility
+    );
     //-------------------------Reason To Apply--------------------------------------------------------------
     formdata.append("reason_to_apply", data.purposeForIntern);
     formdata.append("interesting_features_sb", data.featureSocialBusiness);
@@ -254,20 +271,50 @@ function ImmersionForm(props) {
     formdata.append("references[1][email]", data.secondReferenceEmail);
     // -------------------------Emergency Contacts----------------------------------------------------------
     formdata.append("emmergency_contacts[0][name]", data.firstContactName);
-    formdata.append("emmergency_contacts[0][address]", data.firstContactAddress);
+    formdata.append(
+      "emmergency_contacts[0][address]",
+      data.firstContactAddress
+    );
     formdata.append("emmergency_contacts[0][telephone]", data.firstContactTel);
-    formdata.append("emmergency_contacts[0][business_name]", data.firstContactBusinessName);
-    formdata.append("emmergency_contacts[0][business_address]", data.firstContactBusinessAddress);
-    formdata.append("emmergency_contacts[0][business_telephone]", data.firstContactBusinessTel);
-    formdata.append("emmergency_contacts[0][relation_to_applicant]", data.firstContactRelation);
+    formdata.append(
+      "emmergency_contacts[0][business_name]",
+      data.firstContactBusinessName
+    );
+    formdata.append(
+      "emmergency_contacts[0][business_address]",
+      data.firstContactBusinessAddress
+    );
+    formdata.append(
+      "emmergency_contacts[0][business_telephone]",
+      data.firstContactBusinessTel
+    );
+    formdata.append(
+      "emmergency_contacts[0][relation_to_applicant]",
+      data.firstContactRelation
+    );
 
     formdata.append("emmergency_contacts[1][name]", data.secondContactName);
-    formdata.append("emmergency_contacts[1][address]", data.secondContactAddress);
+    formdata.append(
+      "emmergency_contacts[1][address]",
+      data.secondContactAddress
+    );
     formdata.append("emmergency_contacts[1][telephone]", data.secondContactTel);
-    formdata.append("emmergency_contacts[1][business_name]", data.secondContactBusinessName);
-    formdata.append("emmergency_contacts[1][business_address]", data.secondContactBusinessAddress);
-    formdata.append("emmergency_contacts[1][business_telephone]", data.secondContactBusinessTel);
-    formdata.append("emmergency_contacts[1][relation_to_applicant]", data.secondContactRelation);
+    formdata.append(
+      "emmergency_contacts[1][business_name]",
+      data.secondContactBusinessName
+    );
+    formdata.append(
+      "emmergency_contacts[1][business_address]",
+      data.secondContactBusinessAddress
+    );
+    formdata.append(
+      "emmergency_contacts[1][business_telephone]",
+      data.secondContactBusinessTel
+    );
+    formdata.append(
+      "emmergency_contacts[1][relation_to_applicant]",
+      data.secondContactRelation
+    );
 
     await fetch(`${baseUrl}/immersion-program-application`, {
       method: "POST",
@@ -304,7 +351,9 @@ function ImmersionForm(props) {
                   pattern: /^[A-Za-z]+$/i,
                 })}
               />
-              {errors.familyName?.type === "required" && <FormErrorMessage msg="Family Name Required" />}
+              {errors.familyName?.type === "required" && (
+                <FormErrorMessage msg="Family Name Required" />
+              )}
             </div>
             {/* First Name */}
             <div className={`${firstNameBox} ${box}`}>
@@ -319,7 +368,9 @@ function ImmersionForm(props) {
                   pattern: /^[A-Za-z]+$/i,
                 })}
               />
-              {errors.firstName?.type === "required" && <FormErrorMessage msg="First Name Required" />}
+              {errors.firstName?.type === "required" && (
+                <FormErrorMessage msg="First Name Required" />
+              )}
             </div>
             {/* Date of birth */}
             <div className={`${dobBox} ${box}`}>
@@ -334,25 +385,43 @@ function ImmersionForm(props) {
                   validate: (v) => isFutureDate(v),
                 })}
               />
-              {errors.dob?.type === "required" && <FormErrorMessage msg="Date of birth is required" />}
-              {errors.dob?.type === "validate" && <FormErrorMessage msg="Date of birth cannot be a future date" />}
+              {errors.dob?.type === "required" && (
+                <FormErrorMessage msg="Date of birth is required" />
+              )}
+              {errors.dob?.type === "validate" && (
+                <FormErrorMessage msg="Date of birth cannot be a future date" />
+              )}
             </div>
             {/* Expected duration */}
             <div className={`${durationBox} ${box}`}>
               <label htmlFor="duration" className={requiredField}>
                 Expected Duration
               </label>
-              <input id="duration" type="number" {...register("duration", { required: true, min: 0 })} />
-              {errors.duration?.type === "required" && <FormErrorMessage msg="Expected duration cannot be empty" />}
-              {errors.duration?.type === "min" && <FormErrorMessage msg="Expected duration cannot be negative" />}
+              <input
+                id="duration"
+                type="number"
+                {...register("duration", { required: true, min: 0 })}
+              />
+              {errors.duration?.type === "required" && (
+                <FormErrorMessage msg="Expected duration cannot be empty" />
+              )}
+              {errors.duration?.type === "min" && (
+                <FormErrorMessage msg="Expected duration cannot be negative" />
+              )}
             </div>
             {/* Start date */}
             <div className={`${startDateBox} ${box}`}>
               <label htmlFor="startDate" className={requiredField}>
                 Start Date
               </label>
-              <input id="startDate" type="date" {...register("startDate", { required: true })} />
-              {errors.startDate?.type === "required" && <FormErrorMessage msg="Start Date is required" />}
+              <input
+                id="startDate"
+                type="date"
+                {...register("startDate", { required: true })}
+              />
+              {errors.startDate?.type === "required" && (
+                <FormErrorMessage msg="Start Date is required" />
+              )}
             </div>
             {/*  Nationality */}
             <div className={`${nationalityBox} ${box}`}>
@@ -367,8 +436,12 @@ function ImmersionForm(props) {
                   pattern: /^[A-Za-z]+$/i,
                 })}
               />
-              {errors.nationality?.type === "required" && <FormErrorMessage msg="Nationality Required" />}
-              {errors.nationality?.type === "pattern" && <FormErrorMessage msg="Only use A-Z a-z" />}
+              {errors.nationality?.type === "required" && (
+                <FormErrorMessage msg="Nationality Required" />
+              )}
+              {errors.nationality?.type === "pattern" && (
+                <FormErrorMessage msg="Only use A-Z a-z" />
+              )}
             </div>
             {/* Gender */}
             <div className={`${genderBox} ${box}`}>
@@ -380,12 +453,18 @@ function ImmersionForm(props) {
                 <option value="male">Male</option>
                 <option value="other">Other</option>
               </select>
-              {errors.gender?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+              {errors.gender?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
             </div>
             {/* Passport number */}
             <div className={`${passportNumberBox} ${box}`}>
               <label htmlFor="passportNumber">Passport Number</label>
-              <input id="passportNumber" type="text" {...register("passportNumber")} />
+              <input
+                id="passportNumber"
+                type="text"
+                {...register("passportNumber")}
+              />
               {/* {errors.passportNumber?.type === "pattern" && <FormErrorMessage msg="Invalid passport number" />} */}
             </div>
             {/* Recent Photo */}
@@ -403,15 +482,23 @@ function ImmersionForm(props) {
                 {...register("imageFile", { required: true })}
                 onChange={(e) => loadImage(e)}
               />
-              {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
+              {errors.imageFile?.type === "required" && (
+                <FormErrorMessage msg="Please Upload an Image" />
+              )}
             </div>
             {/* Mailing Address */}
             <div className={`${mailingAddBox} ${box}`}>
               <label htmlFor="mailingAdd" className={requiredField}>
                 Mailing Address
               </label>
-              <input id="mailingAdd" type="text" {...register("mailingAdd", { required: true })} />
-              {errors.mailingAdd?.type === "required" && <FormErrorMessage msg="Mailing Address can not be empty" />}
+              <input
+                id="mailingAdd"
+                type="text"
+                {...register("mailingAdd", { required: true })}
+              />
+              {errors.mailingAdd?.type === "required" && (
+                <FormErrorMessage msg="Mailing Address can not be empty" />
+              )}
             </div>
             {/* Telephone */}
             <div className={`${residenceBox} ${box}`}>
@@ -427,7 +514,9 @@ function ImmersionForm(props) {
                   }
                 )}
               />
-              {errors.telephoneNo?.type === "pattern" && <FormErrorMessage msg="invalid number" />}
+              {errors.telephoneNo?.type === "pattern" && (
+                <FormErrorMessage msg="invalid number" />
+              )}
             </div>
             {/* Mobile Phone */}
             <div className={`${mobilePhoneBox} ${box}`}>
@@ -439,7 +528,9 @@ function ImmersionForm(props) {
                   pattern: /^[0-9]+$/i,
                 })}
               />
-              {errors.mobilePhone?.type === "pattern" && <FormErrorMessage msg="Please enter a valid mobile number" />}
+              {errors.mobilePhone?.type === "pattern" && (
+                <FormErrorMessage msg="Please enter a valid mobile number" />
+              )}
             </div>
             {/* Email Address */}
             <div className={`${emailBox} ${box}`}>
@@ -455,8 +546,12 @@ function ImmersionForm(props) {
                     /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/i,
                 })}
               />
-              {errors.email?.type === "required" && <FormErrorMessage msg="Email can not be empty" />}
-              {errors.email?.type === "pattern" && <FormErrorMessage msg="Please Provide a valid email address" />}
+              {errors.email?.type === "required" && (
+                <FormErrorMessage msg="Email can not be empty" />
+              )}
+              {errors.email?.type === "pattern" && (
+                <FormErrorMessage msg="Please Provide a valid email address" />
+              )}
             </div>
           </div>
 
@@ -468,12 +563,22 @@ function ImmersionForm(props) {
             </div>
             {/* Institution Name */}
             <div className={`${institutionHeading} ${box}`}>
-              <p className={requiredField}>School, College, University, Etc. Attended / Attending</p>
+              <p className={requiredField}>
+                School, College, University, Etc. Attended / Attending
+              </p>
             </div>
 
-            <div id="education-status-field" className={`${institutionField} ${box}`}>
-              <input type="text" {...register("institutionName[0]", { required: true })} />
-              {errors.institutionName?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+            <div
+              id="education-status-field"
+              className={`${institutionField} ${box}`}
+            >
+              <input
+                type="text"
+                {...register("institutionName[0]", { required: true })}
+              />
+              {errors.institutionName?.type === "required" && (
+                <FormErrorMessage msg="Field can not be empty" />
+              )}
             </div>
             {/* Period */}
             <div className={`${periodHeading} ${box}`}>
@@ -482,16 +587,32 @@ function ImmersionForm(props) {
             <div className={`${periodFromHeading} ${box}`}>
               <p className={requiredField}>From (month/year)</p>
             </div>
-            <div id="education-status-field" className={`${periodFromField} ${box}`}>
-              <input type="date" {...register("institutionFrom[0]", { required: true })} />
-              {errors.institutionFrom?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+            <div
+              id="education-status-field"
+              className={`${periodFromField} ${box}`}
+            >
+              <input
+                type="date"
+                {...register("institutionFrom[0]", { required: true })}
+              />
+              {errors.institutionFrom?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${periodToHeading} ${box}`}>
               <p className={requiredField}>To (month/year)</p>
             </div>
-            <div id="education-status-field" className={`${periodToField} ${box}`}>
-              <input type="date" {...register("institutionTo[0]", { required: true })} />
-              {errors.institutionTo?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+            <div
+              id="education-status-field"
+              className={`${periodToField} ${box}`}
+            >
+              <input
+                type="date"
+                {...register("institutionTo[0]", { required: true })}
+              />
+              {errors.institutionTo?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             {/* Major */}
             <div className={`${majorHeading} ${box}`}>
@@ -506,28 +627,50 @@ function ImmersionForm(props) {
             </div>
             {/* Score Obtained */}
             <div className={`${qualificationHeading} ${box}`}>
-              <p className={requiredField}>Qualification Obtained/ to be obtained</p>
+              <p className={requiredField}>
+                Qualification Obtained/ to be obtained
+              </p>
             </div>
-            <div id="education-status-field" className={`${qualificationField} ${box}`}>
-              <input type="text" {...register("qualification[0]", { required: true })} />
-              {errors.qualification?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+            <div
+              id="education-status-field"
+              className={`${qualificationField} ${box}`}
+            >
+              <input
+                type="text"
+                {...register("qualification[0]", { required: true })}
+              />
+              {errors.qualification?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
 
             {eduCount >= 1 && (
               <>
-                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${institutionField} ${box}`}
+                >
                   <input type="text" {...register(`institutionName[1]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${periodFromField} ${box}`}
+                >
                   <input type="date" {...register(`institutionFrom[1]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${periodToField} ${box}`}
+                >
                   <input type="date" {...register(`institutionTo[1]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${majorField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${majorField} ${box}`}
+                >
                   <select {...register(`major[1]`)}>
                     <option value="CSE">CSE</option>
                     <option value="EEE">EEE</option>
@@ -535,27 +678,47 @@ function ImmersionForm(props) {
                   </select>
                 </div>
 
-                <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                  <input type="text" {...register(`qualification[1]`, { required: true })} />
-                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+                <div
+                  id="education-status-field"
+                  className={`${qualificationField} ${box}`}
+                >
+                  <input
+                    type="text"
+                    {...register(`qualification[1]`, { required: true })}
+                  />
+                  {errors.qualification?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
                 </div>
               </>
             )}
             {eduCount >= 2 && (
               <>
-                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${institutionField} ${box}`}
+                >
                   <input type="text" {...register(`institutionName[2]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${periodFromField} ${box}`}
+                >
                   <input type="date" {...register(`institutionFrom[2]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${periodToField} ${box}`}
+                >
                   <input type="date" {...register(`institutionTo[2]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${majorField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${majorField} ${box}`}
+                >
                   <select {...register(`major[2]`)}>
                     <option value="CSE">CSE</option>
                     <option value="EEE">EEE</option>
@@ -563,27 +726,47 @@ function ImmersionForm(props) {
                   </select>
                 </div>
 
-                <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                  <input type="text" {...register(`qualification[2]`, { required: true })} />
-                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+                <div
+                  id="education-status-field"
+                  className={`${qualificationField} ${box}`}
+                >
+                  <input
+                    type="text"
+                    {...register(`qualification[2]`, { required: true })}
+                  />
+                  {errors.qualification?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
                 </div>
               </>
             )}
             {eduCount >= 3 && (
               <>
-                <div id="education-status-field" className={`${institutionField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${institutionField} ${box}`}
+                >
                   <input type="text" {...register(`institutionName[3]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${periodFromField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${periodFromField} ${box}`}
+                >
                   <input type="date" {...register(`institutionFrom[3]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${periodToField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${periodToField} ${box}`}
+                >
                   <input type="date" {...register(`institutionTo[3]`)} />
                 </div>
 
-                <div id="education-status-field" className={`${majorField} ${box}`}>
+                <div
+                  id="education-status-field"
+                  className={`${majorField} ${box}`}
+                >
                   <select {...register(`major[3]`)}>
                     <option value="CSE">CSE</option>
                     <option value="EEE">EEE</option>
@@ -591,9 +774,17 @@ function ImmersionForm(props) {
                   </select>
                 </div>
 
-                <div id="education-status-field" className={`${qualificationField} ${box}`}>
-                  <input type="text" {...register(`qualification[3]`, { required: true })} />
-                  {errors.qualification?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
+                <div
+                  id="education-status-field"
+                  className={`${qualificationField} ${box}`}
+                >
+                  <input
+                    type="text"
+                    {...register(`qualification[3]`, { required: true })}
+                  />
+                  {errors.qualification?.type === "required" && (
+                    <FormErrorMessage msg="Field can not be empty" />
+                  )}
                 </div>
               </>
             )}
@@ -603,22 +794,34 @@ function ImmersionForm(props) {
                 <div
                   className={buttonComponent}
                   onClick={() => {
-                    setEduCount((prev) => (prev < maxEduCount ? prev + 1 : maxEduCount));
+                    setEduCount((prev) =>
+                      prev < maxEduCount ? prev + 1 : maxEduCount
+                    );
                   }}
                 >
                   <ButtonLight type="button" text="Add More" />
                 </div>
                 <button
                   onClick={() =>
-                    setEduCount((prev) => (prev >= maxEduCount ? maxEduCount - 2 : prev === 0 ? 0 : prev - 1))
+                    setEduCount((prev) =>
+                      prev >= maxEduCount
+                        ? maxEduCount - 2
+                        : prev === 0
+                        ? 0
+                        : prev - 1
+                    )
                   }
                   type="button"
-                  className={`${removeButtonComponent} ${eduCount < 1 && removeButtonDisabled}`}
+                  className={`${removeButtonComponent} ${
+                    eduCount < 1 && removeButtonDisabled
+                  }`}
                 >
                   Remove
                 </button>
               </div>
-              {eduCount >= maxEduCount && <FormErrorMessage msg="Cannot Add more than 4" />}
+              {eduCount >= maxEduCount && (
+                <FormErrorMessage msg="Cannot Add more than 4" />
+              )}
             </div>
           </div>
 
@@ -663,7 +866,10 @@ function ImmersionForm(props) {
               <textarea {...register("purposeForIntern", { maxLength: 250 })} />
             </div>
             <div className={`${questionTwo} ${box}`}>
-              <p>Is there any particular feature/s in social business which you find interesting?</p>
+              <p>
+                Is there any particular feature/s in social business which you
+                find interesting?
+              </p>
             </div>
             <div className={`${ansTwo} ${box}`}>
               <textarea
@@ -673,8 +879,13 @@ function ImmersionForm(props) {
               />
             </div>
             <div className={`${questionThree} ${box}`}>
-              <p>Did you participate in any field trip withanyGrameen organization before?</p>
-              <p>If yes, please specifythe organization, the date and duration?</p>
+              <p>
+                Did you participate in any field trip withanyGrameen
+                organization before?
+              </p>
+              <p>
+                If yes, please specifythe organization, the date and duration?
+              </p>
             </div>
             <div className={`${ansThree} ${box}`}>
               <textarea
@@ -684,7 +895,10 @@ function ImmersionForm(props) {
               />
             </div>
             <div className={`${questionFour} ${box}`}>
-              <p>Where did you learn about the program (Please tick √ as appropriate)</p>
+              <p>
+                Where did you learn about the program (Please tick √ as
+                appropriate)
+              </p>
             </div>
             <div id="program-source" className={`${ansFour} ${box}`}>
               {/* option 1 */}
@@ -695,12 +909,24 @@ function ImmersionForm(props) {
                       type="checkbox"
                       id="sourceCampus"
                       value="Campus"
-                      onChange={() => setSource((prevSource) => [!prevSource[0], false, false, false])}
+                      onChange={() =>
+                        setSource((prevSource) => [
+                          !prevSource[0],
+                          false,
+                          false,
+                          false,
+                        ])
+                      }
                       checked={source[0]}
                     />
                     <label htmlFor="sourceCampus">Campus (Specify)</label>
                   </div>
-                  <input id="sourceCampusInput" type="text" {...register("sourceCampus")} disabled={!source[0]} />
+                  <input
+                    id="sourceCampusInput"
+                    type="text"
+                    {...register("sourceCampus")}
+                    disabled={!source[0]}
+                  />
                 </div>
               </div>
               {/* option 2 */}
@@ -711,12 +937,24 @@ function ImmersionForm(props) {
                       type="checkbox"
                       id="sourceRef"
                       value="Reference"
-                      onChange={() => setSource((prevSource) => [false, !prevSource[1], false, false])}
+                      onChange={() =>
+                        setSource((prevSource) => [
+                          false,
+                          !prevSource[1],
+                          false,
+                          false,
+                        ])
+                      }
                       checked={source[1]}
                     />
                     <label htmlFor="sourceRef">Referred by (Specify)</label>
                   </div>
-                  <input id="sourceRefInput" type="text" {...register("sourceRef")} disabled={!source[1]} />
+                  <input
+                    id="sourceRefInput"
+                    type="text"
+                    {...register("sourceRef")}
+                    disabled={!source[1]}
+                  />
                 </div>
               </div>
               {/* option 3 */}
@@ -728,13 +966,23 @@ function ImmersionForm(props) {
                       id="sourceYunus"
                       value="Website"
                       onChange={() => {
-                        setSource((prevSource) => [false, false, !prevSource[2], false]);
+                        setSource((prevSource) => [
+                          false,
+                          false,
+                          !prevSource[2],
+                          false,
+                        ]);
                       }}
                       checked={source[2]}
                     />
                     <label htmlFor="sourceYunus">Yunus Centre Website</label>
                   </div>
-                  <input id="sourceYunusInput" type="text" {...register("sourceYunus")} disabled={!source[2]} />
+                  <input
+                    id="sourceYunusInput"
+                    type="text"
+                    {...register("sourceYunus")}
+                    disabled={!source[2]}
+                  />
                 </div>
               </div>
               {/* option 4 */}
@@ -746,13 +994,23 @@ function ImmersionForm(props) {
                       id="sourceOther"
                       value="Others"
                       onChange={() => {
-                        setSource((prevSource) => [false, false, false, !prevSource[3]]);
+                        setSource((prevSource) => [
+                          false,
+                          false,
+                          false,
+                          !prevSource[3],
+                        ]);
                       }}
                       checked={source[3]}
                     />
                     <label htmlFor="sourceOther">Others (Specify)</label>
                   </div>
-                  <input id="sourceOtherInput" type="text" {...register("sourceOthers")} disabled={!source[3]} />
+                  <input
+                    id="sourceOtherInput"
+                    type="text"
+                    {...register("sourceOthers")}
+                    disabled={!source[3]}
+                  />
                 </div>
               </div>
             </div>
@@ -769,22 +1027,40 @@ function ImmersionForm(props) {
               <label htmlFor="firstReferenceName" className={requiredField}>
                 Name of <b>First</b> Reference
               </label>
-              <input id="firstReferenceName" type="text" {...register("firstReferenceName", { required: true })} />
-              {errors.firstReferenceName?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+              <input
+                id="firstReferenceName"
+                type="text"
+                {...register("firstReferenceName", { required: true })}
+              />
+              {errors.firstReferenceName?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstReferencePosition} ${box}`}>
               <label htmlFor="firstReferencePosition" className={requiredField}>
                 Position
               </label>
-              {errors.firstReferencePosition?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
-              <input id="firstReferencePosition" type="text" {...register("firstReferencePosition")} />
+              {errors.firstReferencePosition?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              <input
+                id="firstReferencePosition"
+                type="text"
+                {...register("firstReferencePosition")}
+              />
             </div>
             <div className={`${firstReferenceOrg} ${box}`}>
               <label htmlFor="firstReferenceOrg" className={requiredField}>
                 Name of Organization
               </label>
-              <input id="firstReferenceOrg" type="text" {...register("firstReferenceOrg", { required: true })} />
-              {errors.firstReferenceOrg?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+              <input
+                id="firstReferenceOrg"
+                type="text"
+                {...register("firstReferenceOrg", { required: true })}
+              />
+              {errors.firstReferenceOrg?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstReferenceAddress} ${box}`}>
               <label htmlFor="firstReferenceAddress" className={requiredField}>
@@ -795,7 +1071,9 @@ function ImmersionForm(props) {
                 type="text"
                 {...register("firstReferenceAddress", { required: true })}
               />
-              {errors.firstReferenceAddress?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+              {errors.firstReferenceAddress?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstReferenceTel} ${box}`}>
               <label htmlFor="firstReferenceTel" className={requiredField}>
@@ -809,8 +1087,12 @@ function ImmersionForm(props) {
                   pattern: /^[0-9]+$/i,
                 })}
               />
-              {errors.firstReferenceTel?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
-              {errors.firstReferenceTel?.type === "pattern" && <FormErrorMessage msg="Invalid number" />}
+              {errors.firstReferenceTel?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              {errors.firstReferenceTel?.type === "pattern" && (
+                <FormErrorMessage msg="Invalid number" />
+              )}
             </div>
             <div className={`${firstReferenceEmail} ${box}`}>
               <label htmlFor="firstReferenceEmail" className={requiredField}>
@@ -825,8 +1107,12 @@ function ImmersionForm(props) {
                     /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/i,
                 })}
               />
-              {errors.firstReferenceEmail?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
-              {errors.firstReferenceEmail?.type === "pattern" && <FormErrorMessage msg="Invalid email" />}
+              {errors.firstReferenceEmail?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              {errors.firstReferenceEmail?.type === "pattern" && (
+                <FormErrorMessage msg="Invalid email" />
+              )}
             </div>
 
             {/* Second Reference */}
@@ -834,23 +1120,45 @@ function ImmersionForm(props) {
               <label htmlFor="secondReferenceName">
                 Name of <b>second</b> Reference
               </label>
-              <input id="secondReferenceName" type="text" {...register("secondReferenceName")} />
+              <input
+                id="secondReferenceName"
+                type="text"
+                {...register("secondReferenceName")}
+              />
             </div>
             <div className={`${secondReferencePosition} ${box}`}>
               <label htmlFor="secondReferencePosition">Position</label>
-              <input id="secondReferencePosition" type="text" {...register("secondReferencePosition")} />
+              <input
+                id="secondReferencePosition"
+                type="text"
+                {...register("secondReferencePosition")}
+              />
             </div>
             <div className={`${secondReferenceOrg} ${box}`}>
               <label htmlFor="secondReferenceOrg">Name of Organization</label>
-              <input id="secondReferenceOrg" type="text" {...register("secondReferenceOrg")} />
+              <input
+                id="secondReferenceOrg"
+                type="text"
+                {...register("secondReferenceOrg")}
+              />
             </div>
             <div className={`${secondReferenceAddress} ${box}`}>
-              <label htmlFor="secondReferenceAddress">Correspondence Address</label>
-              <input id="secondReferenceAddress" type="text" {...register("secondReferenceAddress")} />
+              <label htmlFor="secondReferenceAddress">
+                Correspondence Address
+              </label>
+              <input
+                id="secondReferenceAddress"
+                type="text"
+                {...register("secondReferenceAddress")}
+              />
             </div>
             <div className={`${secondReferenceTel} ${box}`}>
               <label htmlFor="secondReferenceTel">Telephone No.</label>
-              <input id="secondReferenceTel" type="text" {...register("secondReferenceTel")} />
+              <input
+                id="secondReferenceTel"
+                type="text"
+                {...register("secondReferenceTel")}
+              />
             </div>
             <div className={`${secondReferenceEmail} ${box}`}>
               <label htmlFor="secondReferenceEmail">E-mail Address</label>
@@ -862,7 +1170,9 @@ function ImmersionForm(props) {
                     /^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/i,
                 })}
               />
-              {errors.secondReferenceEmail?.type === "pattern" && <FormErrorMessage msg="Invalid email" />}
+              {errors.secondReferenceEmail?.type === "pattern" && (
+                <FormErrorMessage msg="Invalid email" />
+              )}
             </div>
           </div>
 
@@ -877,15 +1187,27 @@ function ImmersionForm(props) {
               <label htmlFor="firstContactName" className={requiredField}>
                 Name of <b>First</b> Contact
               </label>
-              <input id="firstContactName" type="text" {...register("firstContactName", { required: true })} />
-              {errors.firstContactName?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+              <input
+                id="firstContactName"
+                type="text"
+                {...register("firstContactName", { required: true })}
+              />
+              {errors.firstContactName?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstContactAddress} ${box}`}>
               <label htmlFor="firstContactAddress" className={requiredField}>
                 Address
               </label>
-              <input id="firstContactAddress" type="text" {...register("firstContactAddress", { required: true })} />
-              {errors.firstContactAddress?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+              <input
+                id="firstContactAddress"
+                type="text"
+                {...register("firstContactAddress", { required: true })}
+              />
+              {errors.firstContactAddress?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
             <div className={`${firstContactTel} ${box}`}>
               <label htmlFor="firstContactTel" className={requiredField}>
@@ -899,27 +1221,51 @@ function ImmersionForm(props) {
                   pattern: /^[0-9]+$/i,
                 })}
               />
-              {errors.firstContactTel?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
-              {errors.firstContactTel?.type === "pattern" && <FormErrorMessage msg="invalid number" />}
+              {errors.firstContactTel?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
+              {errors.firstContactTel?.type === "pattern" && (
+                <FormErrorMessage msg="invalid number" />
+              )}
             </div>
             <div className={`${firstContactBusinessName} ${box}`}>
               <label htmlFor="firstContactBusinessName">Business Name</label>
-              <input id="firstContactBusinessName" type="text" {...register("firstContactBusinessName")} />
+              <input
+                id="firstContactBusinessName"
+                type="text"
+                {...register("firstContactBusinessName")}
+              />
             </div>
             <div className={`${firstContactBusinessAddress} ${box}`}>
-              <label htmlFor="firstContactBusinessAddress">Business Address</label>
-              <input id="firstContactBusinessAddress" type="text" {...register("firstContactBusinessAddress")} />
+              <label htmlFor="firstContactBusinessAddress">
+                Business Address
+              </label>
+              <input
+                id="firstContactBusinessAddress"
+                type="text"
+                {...register("firstContactBusinessAddress")}
+              />
             </div>
             <div className={`${firstContactBusinessTel} ${box}`}>
               <label htmlFor="firstContactBusinessTel">Telephone</label>
-              <input id="firstContactBusinessTel" type="tel" {...register("firstContactBusinessTel")} />
+              <input
+                id="firstContactBusinessTel"
+                type="tel"
+                {...register("firstContactBusinessTel")}
+              />
             </div>
             <div className={`${firstContactRelation} ${box}`}>
               <label htmlFor="firstContactRelation" className={requiredField}>
                 Relation to Applicant
               </label>
-              <input id="firstContactRelation" type="text" {...register("firstContactRelation", { required: true })} />
-              {errors.firstContactRelation?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
+              <input
+                id="firstContactRelation"
+                type="text"
+                {...register("firstContactRelation", { required: true })}
+              />
+              {errors.firstContactRelation?.type === "required" && (
+                <FormErrorMessage msg="Field cannot be empty" />
+              )}
             </div>
 
             {/* Second Contact */}
@@ -927,31 +1273,63 @@ function ImmersionForm(props) {
               <label htmlFor="secondContactName">
                 Name of <b>second</b> Contact
               </label>
-              <input id="secondContactName" type="text" {...register("secondContactName")} />
+              <input
+                id="secondContactName"
+                type="text"
+                {...register("secondContactName")}
+              />
             </div>
             <div className={`${secondContactAddress} ${box}`}>
               <label htmlFor="secondContactAddress">Address</label>
-              <input id="secondContactAddress" type="text" {...register("secondContactAddress")} />
+              <input
+                id="secondContactAddress"
+                type="text"
+                {...register("secondContactAddress")}
+              />
             </div>
             <div className={`${secondContactTel} ${box}`}>
               <label htmlFor="secondContactTel">Telephone</label>
-              <input id="secondContactTel" type="tel" {...register("secondContactTel")} />
+              <input
+                id="secondContactTel"
+                type="tel"
+                {...register("secondContactTel")}
+              />
             </div>
             <div className={`${secondContactBusinessName} ${box}`}>
               <label htmlFor="secondContactBusinessName">Business Name</label>
-              <input id="secondContactBusinessName" type="text" {...register("secondContactBusinessName")} />
+              <input
+                id="secondContactBusinessName"
+                type="text"
+                {...register("secondContactBusinessName")}
+              />
             </div>
             <div className={`${secondContactBusinessAddress} ${box}`}>
-              <label htmlFor="secondContactBusinessAddress">Business Address</label>
-              <input id="secondContactBusinessAddress" type="text" {...register("secondContactBusinessAddress")} />
+              <label htmlFor="secondContactBusinessAddress">
+                Business Address
+              </label>
+              <input
+                id="secondContactBusinessAddress"
+                type="text"
+                {...register("secondContactBusinessAddress")}
+              />
             </div>
             <div className={`${secondContactBusinessTel} ${box}`}>
               <label htmlFor="secondContactBusinessTel">Telephone</label>
-              <input id="secondContactBusinessTel" type="tel" {...register("secondContactBusinessTel")} />
+              <input
+                id="secondContactBusinessTel"
+                type="tel"
+                {...register("secondContactBusinessTel")}
+              />
             </div>
             <div className={`${secondContactRelation} ${box}`}>
-              <label htmlFor="secondContactRelation">Relation to Applicant</label>
-              <input id="secondContactRelation" type="text" {...register("secondContactRelation")} />
+              <label htmlFor="secondContactRelation">
+                Relation to Applicant
+              </label>
+              <input
+                id="secondContactRelation"
+                type="text"
+                {...register("secondContactRelation")}
+              />
             </div>
           </div>
           <div className={btnContainer}>
