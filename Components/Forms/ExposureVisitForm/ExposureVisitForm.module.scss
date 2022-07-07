@@ -1021,6 +1021,10 @@
       grid-template-columns: [col-full-start col-lg-start] 60% [col-lg-end col-sm-start] 40% [col-sm-end col-full-end];
       grid-template-rows: repeat(11, [row-start] min-content [row-end]);
 
+      @include response(phone) {
+        border: none;
+      }
+
       .headingContainer {
         background-color: $primary;
         color: white;
@@ -1031,26 +1035,52 @@
       .firstContactName {
         grid-column: col-full-start / col-full-end;
         grid-row: row-start 2 / row-end 2;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .firstContactAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 3 / row-end 3;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .firstContactTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 3 / row-end 3;
+
+        @include response(phone) {
+          border-bottom: none;
+          border-left: none;
+        }
       }
       .firstContactBusinessName {
         grid-column: col-full-start / col-full-end;
         grid-row: row-start 4 / row-end 4;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .firstContactBusinessAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 5 / row-end 5;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .firstContactBusinessTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 5 / row-end 5;
+
+        @include response(phone) {
+          border-bottom: none;
+          border-left: none;
+        }
       }
       .firstContactRelation {
         grid-column: col-full-start / col-full-end;
@@ -1058,6 +1088,10 @@
 
         margin-bottom: 2rem;
         border-bottom: 2px solid $primary;
+
+        @include response(phone) {
+          border-bottom: 1px solid $primary;
+        }
       }
       // Second Contact
       .secondContactName {
@@ -1065,26 +1099,53 @@
         grid-row: row-start 7 / row-end 7;
 
         border-top: 2px solid $primary;
+
+        @include response(phone) {
+          border-top: 1px solid $primary;
+          border-bottom: none;
+        }
       }
       .secondContactAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 8 / row-end 8;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .secondContactTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 8 / row-end 8;
+
+        @include response(phone) {
+          border-bottom: none;
+          border-left: none;
+        }
       }
       .secondContactBusinessName {
         grid-column: col-full-start / col-full-end;
         grid-row: row-start 9 / row-end 9;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .secondContactBusinessAddress {
         grid-column: col-lg-start / col-lg-end;
         grid-row: row-start 10 / row-end 10;
+
+        @include response(phone) {
+          border-bottom: none;
+        }
       }
       .secondContactBusinessTel {
         grid-column: col-sm-start / col-sm-end;
         grid-row: row-start 10 / row-end 10;
+
+        @include response(phone) {
+          border-bottom: none;
+          border-left: none;
+        }
       }
       .secondContactRelation {
         grid-column: col-full-start / col-full-end;
