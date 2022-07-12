@@ -2,13 +2,21 @@
 import React from "react";
 import WhatWeDoCard from "../../Shared/WhatWeDoCard/WhatWeDoCard";
 import styles from "./homewhatwedo.module.scss";
-import whatWeDoData from "../../../staticPageData/whatWeDo.json";
+import PreLoader from "../../Shared/PreLoader/PreLoader";
+// import whatWeDoData from "../../../staticPageData/whatWeDo.json";
 import weDoBackSvg from "../../../public/assets/images/landing_page/we_do_back.svg";
 import Slider from "react-slick/lib/slider";
 
-const HomeWhatWeDo = () => {
+const HomeWhatWeDo = ({ isLoading, whatWeDoData }) => {
   // Module Style Object Destructuring
-  const { heading, heroWhatWeDoContainer, whatWeDoMain, whatWeDoBody, backgroundPath, whatWeDoBodyMobile } = styles;
+  const {
+    heading,
+    heroWhatWeDoContainer,
+    whatWeDoMain,
+    whatWeDoBody,
+    backgroundPath,
+    whatWeDoBodyMobile,
+  } = styles;
 
   // Slick Slider Config
   const sliderSettings = {
@@ -32,15 +40,37 @@ const HomeWhatWeDo = () => {
         <h2 className={heading}>what we do</h2>
 
         <div className={whatWeDoBody}>
-          {whatWeDoData.map((data, index) => (
-            <WhatWeDoCard key={index} title={data.title} desc={data.paragraph} photo={data.image} link={data.link} />
-          ))}
+          {!isLoading ? (
+            whatWeDoData &&
+            whatWeDoData.map(({ id, title, short_desc, thumb_image, link }) => (
+              <WhatWeDoCard
+                key={id}
+                title={title}
+                desc={short_desc}
+                photo={thumb_image}
+                link={link}
+              />
+            ))
+          ) : (
+            <PreLoader />
+          )}
         </div>
         <div className={whatWeDoBodyMobile}>
           <Slider {...sliderSettings}>
-            {whatWeDoData.map((data, index) => (
-              <WhatWeDoCard key={index} title={data.title} desc={data.paragraph} photo={data.image} link={data.link} />
-            ))}
+            {!isLoading ? (
+              whatWeDoData &&
+              whatWeDoData.map((data) => (
+                <WhatWeDoCard
+                  key={data.id}
+                  title={data.title}
+                  desc={data.short_desc}
+                  photo={data.thumb_image}
+                  link={data.link}
+                />
+              ))
+            ) : (
+              <PreLoader />
+            )}
           </Slider>
         </div>
       </div>

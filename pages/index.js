@@ -10,25 +10,44 @@ import useFetch from "../Components/Hooks/useFetch";
 import PreLoader from "../Components/Shared/PreLoader/PreLoader";
 
 export default function Home() {
+  const [whatWeDoIsLoading, whatWeDoData] = useFetch("/what-we-do");
   const [eventIsLoading, latestEvents] = useFetch("/events");
   const [newsIsLoading, newsData] = useFetch("/news");
   const [articlesIsPending, articlesData] = useFetch("/articles");
   const [videoIsLoading, videoData] = useFetch("/yunus-speech");
 
-  const homePageVideos = videoData && videoData.filter(({ is_home_page }) => is_home_page);
+  const homePageVideos =
+    videoData && videoData.filter(({ is_home_page }) => is_home_page);
 
   return (
     <div>
       <HomeHeader />
-      <HomeWhatWeDo />
-      {latestEvents.length > 0 ? (
-        <HomeLatestEvents isLoading={eventIsLoading} latestEvents={latestEvents} />
+      {whatWeDoData.length > 0 ? (
+        <HomeWhatWeDo
+          isLoading={whatWeDoIsLoading}
+          whatWeDoData={whatWeDoData}
+        />
       ) : (
         <PreLoader />
       )}
-      {newsData.length > 0 ? <HomeNews isLoading={newsIsLoading} newsData={newsData} /> : <PreLoader />}
+      {latestEvents.length > 0 ? (
+        <HomeLatestEvents
+          isLoading={eventIsLoading}
+          latestEvents={latestEvents}
+        />
+      ) : (
+        <PreLoader />
+      )}
+      {newsData.length > 0 ? (
+        <HomeNews isLoading={newsIsLoading} newsData={newsData} />
+      ) : (
+        <PreLoader />
+      )}
       {articlesData.length > 0 ? (
-        <HomeArticles isLoading={articlesIsPending} articlesData={articlesData} />
+        <HomeArticles
+          isLoading={articlesIsPending}
+          articlesData={articlesData}
+        />
       ) : (
         <PreLoader />
       )}
