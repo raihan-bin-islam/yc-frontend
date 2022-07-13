@@ -19,3 +19,9 @@
     color: $white;
   }
 }
+
+.btnDisabled {
+  border-color: $textLight;
+  color: $textLight;
+  pointer-events: none;
+}

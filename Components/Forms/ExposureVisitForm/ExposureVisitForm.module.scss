@@ -17,7 +17,7 @@
       border: 1px solid $primary;
 
       label {
-        width: max-content;
+        // width: max-content;
       }
 
       input {
@@ -31,6 +31,7 @@
 
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       gap: 1rem;
     }
 
@@ -286,6 +287,7 @@
           img {
             padding: 1rem 0 0 0;
             width: 15rem;
+            aspect-ratio: 1;
             object-fit: contain;
           }
         }
@@ -418,7 +420,6 @@
       grid-template-columns: [col-start] 1fr [col-end];
       grid-template-rows: repeat(50, [row-start] min-content [row-end]);
       grid-auto-flow: dense;
-      background-color: $secondaryLightBlue;
       margin-bottom: 2rem;
 
       // Education Info Inner Rows
@@ -428,9 +429,7 @@
         display: grid;
         grid-template-columns: repeat(7, [col-start] 1fr [col-end]);
 
-        &:nth-child(3) {
-          // background-color: lighten($color: $primary, $amount: 1);
-        }
+        background-color: $secondaryLightBlue;
 
         @include response(phone) {
           grid-template-columns: repeat(2, [col-start] 1fr [col-end]);
@@ -576,6 +575,8 @@
 
         grid-column: col-start 1 / col-end 6;
         grid-row: end;
+
+        background-color: $secondaryLightBlue;
 
         @include response(phone) {
           border-bottom: 1px solid $primary;

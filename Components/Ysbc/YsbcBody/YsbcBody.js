@@ -15,7 +15,7 @@ import useFetch from "../../Hooks/useFetch";
 // Data
 import cardData from "../../../staticPageData/ysbc/ysbcData.json";
 
-// LAYOUR
+// LAYOUT
 import OvalBase from "../../Shared/CommonSvg/OvalBase";
 import LeftLayout from "../../Shared/CommonSvg/LeftLayout";
 import Layout from "../../Shared/CommonSvg/Layout";
