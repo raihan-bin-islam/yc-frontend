@@ -400,6 +400,7 @@ const ExposureVisitForm = () => {
                 id="imageFile"
                 className={imageFileBtn}
                 type="file"
+                accept="image/*"
                 {...register("imageFile", { required: true })}
                 onChange={(e) => loadImage(e)}
               />
@@ -489,7 +490,7 @@ const ExposureVisitForm = () => {
 
               <div id="education-status-field" className={`${periodFromField} ${box}`}>
                 <label>
-                  From (month/year) <span className={requiredField}>*</span>
+                  From <span className={requiredField}>*</span>
                 </label>
                 <input type="date" {...register("institutionFrom[0]", { required: true })} />
                 {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
@@ -499,7 +500,7 @@ const ExposureVisitForm = () => {
 
               <div id="education-status-field" className={`${periodToField} ${box}`}>
                 <label>
-                  To (month/year) <span className={requiredField}>*</span>
+                  To <span className={requiredField}>*</span>
                 </label>
                 <input type="date" {...register("institutionTo[0]", { required: true })} />
                 {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
@@ -552,7 +553,7 @@ const ExposureVisitForm = () => {
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
-                    From (month/year) <span className={requiredField}>*</span>
+                    From <span className={requiredField}>*</span>
                   </label>
                   <input type="date" {...register("institutionFrom[0]", { required: true })} />
                   {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
@@ -562,7 +563,7 @@ const ExposureVisitForm = () => {
 
                 <div id="education-status-field" className={`${periodToField} ${box}`}>
                   <label>
-                    To (month/year) <span className={requiredField}>*</span>
+                    To <span className={requiredField}>*</span>
                   </label>
                   <input type="date" {...register("institutionTo[0]", { required: true })} />
                   {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
@@ -617,7 +618,7 @@ const ExposureVisitForm = () => {
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
-                    From (month/year) <span className={requiredField}>*</span>
+                    From <span className={requiredField}>*</span>
                   </label>
                   <input type="date" {...register("institutionFrom[0]", { required: true })} />
                   {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
@@ -627,7 +628,7 @@ const ExposureVisitForm = () => {
 
                 <div id="education-status-field" className={`${periodToField} ${box}`}>
                   <label>
-                    To (month/year) <span className={requiredField}>*</span>
+                    To <span className={requiredField}>*</span>
                   </label>
                   <input type="date" {...register("institutionTo[0]", { required: true })} />
                   {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
@@ -681,7 +682,7 @@ const ExposureVisitForm = () => {
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
-                    From (month/year) <span className={requiredField}>*</span>
+                    From <span className={requiredField}>*</span>
                   </label>
                   <input type="date" {...register("institutionFrom[0]", { required: true })} />
                   {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
@@ -691,7 +692,7 @@ const ExposureVisitForm = () => {
 
                 <div id="education-status-field" className={`${periodToField} ${box}`}>
                   <label>
-                    To (month/year) <span className={requiredField}>*</span>
+                    To <span className={requiredField}>*</span>
                   </label>
                   <input type="date" {...register("institutionTo[0]", { required: true })} />
                   {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (

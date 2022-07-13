@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // COMPONENTS
 import PhotoCard from "../PhotoCard/PhotoCard";
@@ -12,15 +12,23 @@ import styles from "./PhotoPopup.module.scss";
 const PhotoPopup = ({ show, onHide, image, title }) => {
   const { popup, popupClose, btnClose, box } = styles;
   const imageRef = useRef();
+  const [hide, setHide] = useState(!show);
+
+  useEffect(() => {
+    if (show) {
+      setHide(false);
+    }
+  }, [show]);
 
   const hidePopup = () => {
+    setHide(!hide);
     show = false;
-    imageRef.current.classList.remove(popup);
-    imageRef.current.classList.add(popupClose);
+    // imageRef.current.classList.remove(popup);
+    // imageRef.current.classList.add(popupClose);
   };
 
   return (
-    <div className={show ? `${popup}` : `${popupClose}`} ref={imageRef}>
+    <div className={`${show && popup} ${hide === true && popupClose}`} ref={imageRef}>
       <div className={box}>
         <PhotoCard image={image} title={title} />
         <button

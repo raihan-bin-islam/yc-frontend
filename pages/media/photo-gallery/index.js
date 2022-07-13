@@ -10,7 +10,7 @@ const MediaPhotoGallery = () => {
   return (
     <div>
       <MediaPhotoGalleryHeader />
-      <MediaPhotoGalleryBody />
+      <MediaPhotoGalleryBody galleryData={photoGallery} />
     </div>
   );
 };

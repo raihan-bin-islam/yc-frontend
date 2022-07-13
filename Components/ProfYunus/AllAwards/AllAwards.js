@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useFetch from "../../Hooks/useFetch";
 import AwardsCard from "../../Shared/AwardsCard/AwardsCard";
 import ButtonLight from "../../Shared/Button/Button";
@@ -7,6 +7,11 @@ import { awardsSection, awardsContainer, buttonComponent } from "./allAwards.mod
 
 const AllAwards = ({ awardsData }) => {
   const [endOffset, setEndOffset] = useState(8);
+  const [disable, setDisable] = useState(false);
+
+  useEffect(() => {
+    endOffset >= awardsData?.length ? setDisable(true) : setDisable(false);
+  }, [awardsData, endOffset]);
 
   return (
     <section className={awardsSection}>
@@ -16,7 +21,7 @@ const AllAwards = ({ awardsData }) => {
         })}
       </div>
       <div className={buttonComponent} onClick={() => setEndOffset((prev) => prev + 8)}>
-        <ButtonLight text="Load More" />
+        <ButtonLight text="Load More" disabled={disable} />
       </div>
     </section>
   );

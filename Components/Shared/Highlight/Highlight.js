@@ -14,11 +14,11 @@ const Highlight = ({ id, image, description }) => {
   const router = useRouter();
   const getRoute = () => {
     let route = "";
-    router.pathname.includes("news")
-      ? (route = "/media/news/")
+    router.pathname.includes("rejoinders")
+      ? (route = "/media/rejoinders/")
       : router.pathname.includes("press-release")
       ? (route = "/media/press-release/")
-      : (route = "/media/rejoinders/");
+      : (route = "/media/news/");
 
     return route;
   };
