@@ -16,9 +16,6 @@ const WhatWeDoCard = ({
 }) => {
   const { container, imageDiv, image, heading, paragraph, disable } = styles;
 
-  console.log(photo);
-  const loader = "";
-
   // const { revealFromLeft } = useScrollReveal("home_what-we-do");
 
   return (
