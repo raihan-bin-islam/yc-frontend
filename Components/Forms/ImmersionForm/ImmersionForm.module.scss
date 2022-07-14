@@ -653,7 +653,7 @@
         .removeButtonDisabled {
           pointer-events: none;
           color: $textLight;
-          border-color: $textLight;
+          border-color: lighten($color: $textLight, $amount: 15);
         }
       }
     }

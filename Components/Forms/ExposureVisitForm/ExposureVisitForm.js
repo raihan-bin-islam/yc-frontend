@@ -11,7 +11,7 @@ import orgData from "./data/checkboxOrgData.json";
 
 // CSS
 import styles from "./ExposureVisitForm.module.scss";
-import { isFutureDate } from "../utilityFunctions/customFormValidations";
+import { isFutureDate, fileTooLarge } from "../utilityFunctions/customFormValidations";
 import { clearTextInput } from "../utilityFunctions/formDataChecks";
 
 const ExposureVisitForm = () => {
@@ -226,6 +226,8 @@ const ExposureVisitForm = () => {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
+
+    console.log(data);
     // Base url of api
     const baseUrl = process.env.baseUrl;
 
@@ -393,6 +395,7 @@ const ExposureVisitForm = () => {
                   Recent Photo <span className={requiredField}>*</span>
                 </p>
                 <p>(Within 3 months)</p>
+                <p>(Max: 100KB)</p>
                 {/* to show uploaded image */}
                 <img id="output" alt="" />
               </div>
@@ -401,10 +404,11 @@ const ExposureVisitForm = () => {
                 className={imageFileBtn}
                 type="file"
                 accept="image/*"
-                {...register("imageFile", { required: true })}
+                {...register("imageFile", { required: true, validate: (file) => fileTooLarge(file) })}
                 onChange={(e) => loadImage(e)}
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
+              {errors.imageFile?.type === "validate" && <FormErrorMessage msg="File Too Large" />}
             </div>
             {/* Mailing Address */}
             <div className={`${mailingAddBox} ${box}`}>
@@ -812,7 +816,6 @@ const ExposureVisitForm = () => {
             <div className={`${ansTwo} ${box}`}>
               <textarea
                 {...register("futureSocialBusiness", {
-                  required: true,
                   maxLength: 250,
                 })}
               />
