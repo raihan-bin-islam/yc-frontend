@@ -16,43 +16,29 @@ export default function Home() {
   const [articlesIsPending, articlesData] = useFetch("/articles");
   const [videoIsLoading, videoData] = useFetch("/yunus-speech");
 
-  const homePageVideos =
-    videoData && videoData.filter(({ is_home_page }) => is_home_page);
+  const homePageVideos = videoData && videoData.filter(({ is_home_page }) => is_home_page);
 
   return (
     <div>
       <HomeHeader />
-      {whatWeDoData.length > 0 ? (
-        <HomeWhatWeDo
-          isLoading={whatWeDoIsLoading}
-          whatWeDoData={whatWeDoData}
-        />
+      {whatWeDoData?.length > 0 ? (
+        <HomeWhatWeDo isLoading={whatWeDoIsLoading} whatWeDoData={whatWeDoData} />
       ) : (
         <PreLoader />
       )}
-      {latestEvents.length > 0 ? (
-        <HomeLatestEvents
-          isLoading={eventIsLoading}
-          latestEvents={latestEvents}
-        />
+      {latestEvents?.length > 0 ? (
+        <HomeLatestEvents isLoading={eventIsLoading} latestEvents={latestEvents} />
       ) : (
         <PreLoader />
       )}
-      {newsData.length > 0 ? (
-        <HomeNews isLoading={newsIsLoading} newsData={newsData} />
-      ) : (
-        <PreLoader />
-      )}
-      {articlesData.length > 0 ? (
-        <HomeArticles
-          isLoading={articlesIsPending}
-          articlesData={articlesData}
-        />
+      {newsData?.length > 0 ? <HomeNews isLoading={newsIsLoading} newsData={newsData} /> : <PreLoader />}
+      {articlesData?.length > 0 ? (
+        <HomeArticles isLoading={articlesIsPending} articlesData={articlesData} />
       ) : (
         <PreLoader />
       )}
       {!videoIsLoading ? <HomeInitiatives /> : <PreLoader />}
-      {homePageVideos.length > 0 ? (
+      {homePageVideos?.length > 0 ? (
         <HomeVideoSlide isLoading={videoIsLoading} videoData={homePageVideos} />
       ) : (
         <PreLoader />
