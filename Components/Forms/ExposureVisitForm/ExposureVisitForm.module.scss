@@ -45,12 +45,12 @@
       grid-template-columns: repeat(5, [col-start] 1fr [col-end]);
       grid-template-rows: repeat(7, [row-start] min-content [row-end]);
 
-      @include response(s-desktop) {
+      @include response(desktop) {
         grid-template-columns: repeat(4, [col-start] 1fr [col-end]);
         grid-template-rows: repeat(8, [row-start] min-content [row-end]);
       }
 
-      @include response(phone) {
+      @include response(vp-800) {
         grid-template-columns: 1fr;
       }
 
@@ -65,12 +65,12 @@
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 4;
           grid-row: row-start 1 / row-end 1;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -86,14 +86,14 @@
 
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 4;
           grid-row: row-start 2 / row-end 2;
 
           border-right: 2px solid $primary;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -108,12 +108,12 @@
 
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 2;
           grid-row: row-start 3 / row-end 3;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -127,14 +127,14 @@
         grid-column: col-start 3 / col-end 4;
         grid-row: row-start 3 / row-end 3;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 3 / col-end 4;
           grid-row: row-start 3 / row-end 3;
 
           border-right: 2px solid $primary;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -148,12 +148,12 @@
 
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 2;
           grid-row: row-start 4 / row-end 4;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -167,12 +167,12 @@
         grid-column: col-start 3 / col-end 3;
         grid-row: row-start 4 / row-end 4;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 3 / col-end 3;
           grid-row: row-start 4 / row-end 4;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
         }
@@ -182,14 +182,14 @@
         grid-column: col-start 4 / col-end 4;
         grid-row: row-start 4 / row-end 4;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 4 / col-end 4;
           grid-row: row-start 4 / row-end 4;
 
           border-right: 2px solid $primary;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -205,12 +205,12 @@
 
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 2;
           grid-row: row-start 5 / row-end 5;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -223,12 +223,12 @@
         grid-column: col-start 3 / col-end 3;
         grid-row: row-start 5 / row-end 5;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 3 / col-end 3;
           grid-row: row-start 5 / row-end 5;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
         }
@@ -238,14 +238,14 @@
         grid-column: col-start 4 / col-end 4;
         grid-row: row-start 5 / row-end 5;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 4 / col-end 4;
           grid-row: row-start 5 / row-end 5;
 
           border-right: 2px solid $primary;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -266,14 +266,14 @@
         justify-content: center;
         align-items: center;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 4;
           grid-row: row-start 6 / row-end 6;
 
           border-left: 2px solid $primary;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -334,12 +334,12 @@
         border-left: 2px solid $primary;
         border-right: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 4;
           grid-row: row-start 7 / row-end 7;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -356,12 +356,12 @@
         border-bottom: 2px solid $primary;
         border-left: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 1 / col-end 1;
           grid-row: row-start 8 / row-end 8;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -376,12 +376,12 @@
 
         border-bottom: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 2 / col-end 2;
           grid-row: row-start 8 / row-end 8;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
@@ -397,12 +397,12 @@
         border-right: 2px solid $primary;
         border-bottom: 2px solid $primary;
 
-        @include response(s-desktop) {
+        @include response(desktop) {
           grid-column: col-start 3 / col-end 4;
           grid-row: row-start 8 / row-end 8;
         }
 
-        @include response(phone) {
+        @include response(vp-800) {
           grid-column: initial;
           grid-row: initial;
 
