@@ -49,14 +49,14 @@ const useScrollReveal = (uniqueId = "", offset = 100) => {
 
   // dynamic import
   useEffect(() => {
-    async function animate() {
+    const animate = async () => {
       const sr = (await import("scrollreveal")).default;
       sr().reveal(`.${revealFromTop}`, top);
       sr().reveal(`.${revealFromRight}`, right);
       sr().reveal(`.${revealFromBottom}`, bottom);
       sr().reveal(`.${revealFromLeft}`, left);
       sr().reveal(`.${scaleUp}`, scaleUpProps);
-    }
+    };
     animate();
   }, []);
 
