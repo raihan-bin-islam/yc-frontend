@@ -4,7 +4,6 @@ import Image from "next/dist/client/image";
 import RightArrowLink from "../CommonSvg/RightArrowLink";
 
 import Link from "next/link";
-import useScrollReveal from "../../Hooks/useScrollReveal";
 
 const WhatWeDoCard = ({ title, desc, photo, link, hoverDisable, externalLink }) => {
   const { container, imageDiv, image, heading, paragraph, disable } = styles;
