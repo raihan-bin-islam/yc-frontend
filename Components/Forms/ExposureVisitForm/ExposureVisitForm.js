@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import useFetch from "../../Hooks/useFetch";
 
 // COMPONENTS
 import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
@@ -9,7 +10,7 @@ import ButtonLight from "../../Shared/Button/Button";
 
 // Data
 import orgData from "./data/checkboxOrgData.json";
-
+import defaultValues from "./data/defaultValues.json";
 // CSS
 import styles from "./ExposureVisitForm.module.scss";
 import { isFutureDate, fileTooLarge, supportedFileTypes } from "../utilityFunctions/customFormValidations";
@@ -99,6 +100,11 @@ const ExposureVisitForm = () => {
     errorMessages,
   } = styles;
 
+  // Data from api
+  const [isLoading, majorList] = useFetch("/major-subjects");
+  const [draftData, setDraftData] = useState({});
+  const [fetched, setFetched] = useState(false);
+
   //------------------------------------- State Variables ***Start*** ------------------------------------------------------
   const maxEduCount = 4;
   const [eduCount, setEduCount] = useState(0);
@@ -148,63 +154,40 @@ const ExposureVisitForm = () => {
   }, [eduCount]);
 
   //------------------------------------  Input field changes on Render ***End***----------------------------------------
-
+  if (draftData) {
+  }
   //   useForm API
   const {
     register,
     unregister,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      purpose: "",
-      familyName: "",
-      firstName: "",
-      dob: "",
-      duration: "",
-      startDate: "",
-      nationality: "",
-      gender: "",
-      passportNumber: "",
-      imageFile: "",
-      mailingAdd: "",
-      telephoneNo: "",
-      residence: "",
-      mobilePhone: "",
-      email: "",
-      institutionName: [],
-      institutionFrom: [],
-      institutionTo: [],
-      major: [],
-      qualification: [],
-      orgName: "",
-      designation: "",
-      since: "",
-      responsibility: "",
-      profGoal: "",
-      futureSocialBusiness: "",
-      organization: [],
-      participateGrameenOrg: "",
-      sourceCampus: "",
-      sourceRef: "",
-      sourceYunus: "",
-      sourceOthers: "",
-      firstContactName: "",
-      firstContactAddress: "",
-      firstContactTel: "",
-      firstContactBusinessName: "",
-      firstContactBusinessAddress: "",
-      firstContactBusinessTel: "",
-      firstContactRelation: "",
-      secondContactName: "",
-      secondContactAddress: "",
-      secondContactTel: "",
-      secondContactBusinessName: "",
-      secondContactBusinessAddress: "",
-      secondContactBusinessTel: "",
-      secondContactRelation: "",
-    },
+    defaultValues: defaultValues,
   });
+
+  // --------------------- For Save As Draft ***Start*** --------------------------------------------------------
+  const fetchData = async () => {
+    await fetch(`/formDummyData/exposure-visit-draft.json`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // in case the api does not provide all the input field values that were empty we bind it with the default values using the spread operator
+        // So that values that are not available form the api is initialized with an empty string or array or whatever the type of that input field is
+        reset({ ...defaultValues, ...data });
+        loadImage(data.imageFile, true);
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  // ---------------------------- Save As Draft ***End*** -------------------------------------------------------
 
   // ------------------------ Custom Functions ***Start*** ------------------------------------------------------
   // Unregister input fields on unmount
@@ -244,10 +227,15 @@ const ExposureVisitForm = () => {
   };
 
   // Load Uploaded Image on the form
-  const loadImage = (e) => {
+  const loadImage = (file, link = false) => {
     let image = document.getElementById("output");
-    e.target.files[0]
-      ? (image.src = URL.createObjectURL(e.target.files[0]))
+    if (link) {
+      image.src = file;
+      return;
+    }
+
+    file
+      ? (image.src = URL.createObjectURL(file))
       : (image.src = "/assets/images/visit_programs/yc_programs/image_upload_dummy_image.png");
   };
   // ------------------------ Custom Functions ***End*** ------------------------------------------------------
@@ -260,7 +248,7 @@ const ExposureVisitForm = () => {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
-
+    console.log(majorList);
     console.log(data);
     // Base url of api
     const baseUrl = process.env.baseUrl;
@@ -442,7 +430,7 @@ const ExposureVisitForm = () => {
                   required: !draftButton,
                   validate: { fileSize: (file) => fileTooLarge(file), fileTypes: (file) => supportedFileTypes(file) },
                 })}
-                onChange={(e) => loadImage(e)}
+                onChange={(e) => loadImage(e.target.files[0])}
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
               {errors.imageFile?.type === "fileSize" && <FormErrorMessage msg="File Too Large" />}
@@ -559,9 +547,11 @@ const ExposureVisitForm = () => {
                   Major <span className={requiredField}>*</span>
                 </label>
                 <select {...register("major[0]", { required: !draftButton })}>
-                  <option value="CSE">CSE</option>
-                  <option value="EEE">EEE</option>
-                  <option value="BBA">BBA</option>
+                  {majorList?.map(({ id, title }) => (
+                    <React.Fragment key={id}>
+                      <option value={id}>{title}</option>
+                    </React.Fragment>
+                  ))}
                 </select>
                 {errors.major && errors.major[0]?.type === "required" && (
                   <FormErrorMessage msg="Field can not be empty" />
@@ -622,9 +612,11 @@ const ExposureVisitForm = () => {
                     Major <span className={requiredField}>*</span>
                   </label>
                   <select {...register("major[1]", { required: !draftButton })}>
-                    <option value="CSE">CSE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="BBA">BBA</option>
+                    {majorList?.map(({ id, title }) => (
+                      <React.Fragment key={id}>
+                        <option value={id}>{title}</option>
+                      </React.Fragment>
+                    ))}
                   </select>
                   {errors.major && errors.major[1]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
@@ -687,9 +679,11 @@ const ExposureVisitForm = () => {
                     Major <span className={requiredField}>*</span>
                   </label>
                   <select {...register("major[2]", { required: !draftButton })}>
-                    <option value="CSE">CSE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="BBA">BBA</option>
+                    {majorList?.map(({ id, title }) => (
+                      <React.Fragment key={id}>
+                        <option value={id}>{title}</option>
+                      </React.Fragment>
+                    ))}
                   </select>
                   {errors.major && errors.major[2]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
@@ -751,9 +745,11 @@ const ExposureVisitForm = () => {
                     Major <span className={requiredField}>*</span>
                   </label>
                   <select {...register("major[3]", { required: !draftButton })}>
-                    <option value="CSE">CSE</option>
-                    <option value="EEE">EEE</option>
-                    <option value="BBA">BBA</option>
+                    {majorList?.map(({ id, title }) => (
+                      <React.Fragment key={id}>
+                        <option value={id}>{title}</option>
+                      </React.Fragment>
+                    ))}
                   </select>
                   {errors.major && errors.major[3]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />

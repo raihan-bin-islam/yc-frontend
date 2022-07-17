@@ -12,7 +12,9 @@
   .internshipFormHeader {
   }
   .internshipFormBody {
+    opacity: 0;
     padding-block: 5rem;
+    animation: fade-in 1.5s ease 0.5s forwards;
 
     .box {
       padding: 2rem;
@@ -1382,6 +1384,16 @@
 
       display: flex;
       justify-content: center;
+      gap: 5rem;
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
