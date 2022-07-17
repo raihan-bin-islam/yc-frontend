@@ -9,9 +9,9 @@ const nextConfig = {
   },
   optimizeFonts: false,
   trailingSlash: true / false,
+
   images: {
-    loader: "imgix",
-    path: "https://yunus-centre.netlify.app/",
+    domains: ["ycadmin.yyventures.org"],
   },
 
   async redirects() {

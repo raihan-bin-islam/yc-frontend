@@ -11,7 +11,7 @@ import orgData from "./data/checkboxOrgData.json";
 
 // CSS
 import styles from "./ExposureVisitForm.module.scss";
-import { isFutureDate } from "../utilityFunctions/customFormValidations";
+import { isFutureDate, fileTooLarge, supportedFileTypes } from "../utilityFunctions/customFormValidations";
 import { clearTextInput } from "../utilityFunctions/formDataChecks";
 
 const ExposureVisitForm = () => {
@@ -217,15 +217,20 @@ const ExposureVisitForm = () => {
   // Load Uploaded Image on the form
   const loadImage = (e) => {
     let image = document.getElementById("output");
-    e.target.files[0] ? (image.src = URL.createObjectURL(e.target.files[0])) : (image.src = "");
+    e.target.files[0]
+      ? (image.src = URL.createObjectURL(e.target.files[0]))
+      : (image.src = "/assets/images/visit_programs/yc_programs/image_upload_dummy_image.png");
   };
 
   const onError = (errors, e) => {
     e.preventDefault();
+    console.log(errors);
   };
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
+
+    console.log(data);
     // Base url of api
     const baseUrl = process.env.baseUrl;
 
@@ -393,18 +398,26 @@ const ExposureVisitForm = () => {
                   Recent Photo <span className={requiredField}>*</span>
                 </p>
                 <p>(Within 3 months)</p>
+                <p>(Max: 100KB)</p>
                 {/* to show uploaded image */}
-                <img id="output" alt="" />
+                <img src="/assets/images/visit_programs/yc_programs/image_upload_dummy_image.png" id="output" alt="" />
               </div>
               <input
                 id="imageFile"
                 className={imageFileBtn}
                 type="file"
                 accept="image/*"
-                {...register("imageFile", { required: true })}
+                {...register("imageFile", {
+                  required: true,
+                  validate: { fileSize: (file) => fileTooLarge(file), fileTypes: (file) => supportedFileTypes(file) },
+                })}
                 onChange={(e) => loadImage(e)}
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
+              {errors.imageFile?.type === "fileSize" && <FormErrorMessage msg="File Too Large" />}
+              {errors.imageFile?.type === "fileTypes" && (
+                <FormErrorMessage msg="Please Upload An Image File ( jpeg/png )" />
+              )}
             </div>
             {/* Mailing Address */}
             <div className={`${mailingAddBox} ${box}`}>
@@ -543,8 +556,8 @@ const ExposureVisitForm = () => {
                   <label>
                     School, College, University, Etc. <span className={requiredField}>*</span>
                   </label>
-                  <input type="text" {...register("institutionName[0]", { required: true })} />
-                  {errors.institutionName && errors.institutionName[0]?.type === "required" && (
+                  <input type="text" {...register("institutionName[1]", { required: true })} />
+                  {errors.institutionName && errors.institutionName[1]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
@@ -555,8 +568,8 @@ const ExposureVisitForm = () => {
                   <label>
                     From <span className={requiredField}>*</span>
                   </label>
-                  <input type="date" {...register("institutionFrom[0]", { required: true })} />
-                  {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
+                  <input type="date" {...register("institutionFrom[1]", { required: true })} />
+                  {errors.institutionFrom && errors.institutionFrom[1]?.type === "required" && (
                     <FormErrorMessage msg="Date is required" />
                   )}
                 </div>
@@ -565,8 +578,8 @@ const ExposureVisitForm = () => {
                   <label>
                     To <span className={requiredField}>*</span>
                   </label>
-                  <input type="date" {...register("institutionTo[0]", { required: true })} />
-                  {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
+                  <input type="date" {...register("institutionTo[1]", { required: true })} />
+                  {errors.institutionTo && errors.institutionTo[1]?.type === "required" && (
                     <FormErrorMessage msg="Date is required" />
                   )}
                 </div>
@@ -577,12 +590,12 @@ const ExposureVisitForm = () => {
                   <label>
                     Major <span className={requiredField}>*</span>
                   </label>
-                  <select {...register("major[0]", { required: true })}>
+                  <select {...register("major[1]", { required: true })}>
                     <option value="CSE">CSE</option>
                     <option value="EEE">EEE</option>
                     <option value="BBA">BBA</option>
                   </select>
-                  {errors.major && errors.major[0]?.type === "required" && (
+                  {errors.major && errors.major[1]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
@@ -592,8 +605,8 @@ const ExposureVisitForm = () => {
                   <label>
                     Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
                   </label>
-                  <input type="text" {...register("qualification[0]", { required: true })} />
-                  {errors.qualification && errors.qualification[0]?.type === "required" && (
+                  <input type="text" {...register("qualification[1]", { required: true })} />
+                  {errors.qualification && errors.qualification[1]?.type === "required" && (
                     <FormErrorMessage msg="Cannot be empty" />
                   )}
                 </div>
@@ -608,8 +621,8 @@ const ExposureVisitForm = () => {
                   <label>
                     School, College, University, Etc. <span className={requiredField}>*</span>
                   </label>
-                  <input type="text" {...register("institutionName[0]", { required: true })} />
-                  {errors.institutionName && errors.institutionName[0]?.type === "required" && (
+                  <input type="text" {...register("institutionName[2]", { required: true })} />
+                  {errors.institutionName && errors.institutionName[2]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
@@ -620,8 +633,8 @@ const ExposureVisitForm = () => {
                   <label>
                     From <span className={requiredField}>*</span>
                   </label>
-                  <input type="date" {...register("institutionFrom[0]", { required: true })} />
-                  {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
+                  <input type="date" {...register("institutionFrom[2]", { required: true })} />
+                  {errors.institutionFrom && errors.institutionFrom[2]?.type === "required" && (
                     <FormErrorMessage msg="Date is required" />
                   )}
                 </div>
@@ -630,8 +643,8 @@ const ExposureVisitForm = () => {
                   <label>
                     To <span className={requiredField}>*</span>
                   </label>
-                  <input type="date" {...register("institutionTo[0]", { required: true })} />
-                  {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
+                  <input type="date" {...register("institutionTo[2]", { required: true })} />
+                  {errors.institutionTo && errors.institutionTo[2]?.type === "required" && (
                     <FormErrorMessage msg="Date is required" />
                   )}
                 </div>
@@ -642,12 +655,12 @@ const ExposureVisitForm = () => {
                   <label>
                     Major <span className={requiredField}>*</span>
                   </label>
-                  <select {...register("major[0]", { required: true })}>
+                  <select {...register("major[2]", { required: true })}>
                     <option value="CSE">CSE</option>
                     <option value="EEE">EEE</option>
                     <option value="BBA">BBA</option>
                   </select>
-                  {errors.major && errors.major[0]?.type === "required" && (
+                  {errors.major && errors.major[2]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
@@ -657,8 +670,8 @@ const ExposureVisitForm = () => {
                   <label>
                     Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
                   </label>
-                  <input type="text" {...register("qualification[0]", { required: true })} />
-                  {errors.qualification && errors.qualification[0]?.type === "required" && (
+                  <input type="text" {...register("qualification[2]", { required: true })} />
+                  {errors.qualification && errors.qualification[2]?.type === "required" && (
                     <FormErrorMessage msg="Cannot be empty" />
                   )}
                 </div>
@@ -672,8 +685,8 @@ const ExposureVisitForm = () => {
                   <label>
                     School, College, University, Etc. <span className={requiredField}>*</span>
                   </label>
-                  <input type="text" {...register("institutionName[0]", { required: true })} />
-                  {errors.institutionName && errors.institutionName[0]?.type === "required" && (
+                  <input type="text" {...register("institutionName[3]", { required: true })} />
+                  {errors.institutionName && errors.institutionName[3]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
@@ -684,8 +697,8 @@ const ExposureVisitForm = () => {
                   <label>
                     From <span className={requiredField}>*</span>
                   </label>
-                  <input type="date" {...register("institutionFrom[0]", { required: true })} />
-                  {errors.institutionFrom && errors.institutionFrom[0]?.type === "required" && (
+                  <input type="date" {...register("institutionFrom[3]", { required: true })} />
+                  {errors.institutionFrom && errors.institutionFrom[3]?.type === "required" && (
                     <FormErrorMessage msg="Date is required" />
                   )}
                 </div>
@@ -694,8 +707,8 @@ const ExposureVisitForm = () => {
                   <label>
                     To <span className={requiredField}>*</span>
                   </label>
-                  <input type="date" {...register("institutionTo[0]", { required: true })} />
-                  {errors.institutionTo && errors.institutionTo[0]?.type === "required" && (
+                  <input type="date" {...register("institutionTo[3]", { required: true })} />
+                  {errors.institutionTo && errors.institutionTo[3]?.type === "required" && (
                     <FormErrorMessage msg="Date is required" />
                   )}
                 </div>
@@ -706,12 +719,12 @@ const ExposureVisitForm = () => {
                   <label>
                     Major <span className={requiredField}>*</span>
                   </label>
-                  <select {...register("major[0]", { required: true })}>
+                  <select {...register("major[3]", { required: true })}>
                     <option value="CSE">CSE</option>
                     <option value="EEE">EEE</option>
                     <option value="BBA">BBA</option>
                   </select>
-                  {errors.major && errors.major[0]?.type === "required" && (
+                  {errors.major && errors.major[3]?.type === "required" && (
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
@@ -721,8 +734,8 @@ const ExposureVisitForm = () => {
                   <label>
                     Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
                   </label>
-                  <input type="text" {...register("qualification[0]", { required: true })} />
-                  {errors.qualification && errors.qualification[0]?.type === "required" && (
+                  <input type="text" {...register("qualification[3]", { required: true })} />
+                  {errors.qualification && errors.qualification[3]?.type === "required" && (
                     <FormErrorMessage msg="Cannot be empty" />
                   )}
                 </div>
@@ -812,7 +825,6 @@ const ExposureVisitForm = () => {
             <div className={`${ansTwo} ${box}`}>
               <textarea
                 {...register("futureSocialBusiness", {
-                  required: true,
                   maxLength: 250,
                 })}
               />
