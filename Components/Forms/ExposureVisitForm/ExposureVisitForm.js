@@ -248,8 +248,6 @@ const ExposureVisitForm = () => {
 
   const onSubmit = async (data, e) => {
     e.preventDefault();
-    console.log(majorList);
-    console.log(data);
     // Base url of api
     const baseUrl = process.env.baseUrl;
 
@@ -309,6 +307,8 @@ const ExposureVisitForm = () => {
       .then((res) => res.status)
       .then((status) => console.log(status))
       .catch((err) => err);
+
+    reset();
   };
 
   return (

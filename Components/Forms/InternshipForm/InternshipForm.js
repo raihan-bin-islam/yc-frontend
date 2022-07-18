@@ -8,7 +8,7 @@ import FormErrorMessage from "../FormErrorMessage/FormErrorMessage";
 import ButtonLight from "../../Shared/Button/Button";
 
 // FORM VALIDATION
-import { isFutureDate } from "../utilityFunctions/customFormValidations";
+import { fileTooLarge, isFutureDate, supportedFileTypes } from "../utilityFunctions/customFormValidations";
 
 // DATA
 import fieldData from "./data/checkboxInterestData.json";
@@ -197,7 +197,6 @@ function InternshipForm(props) {
     e.preventDefault();
     // Base url of api
     const baseUrl = process.env.baseUrl;
-    console.log(data);
 
     let formdata = new FormData();
 
@@ -446,7 +445,10 @@ function InternshipForm(props) {
                 id="imageFile"
                 className={imageFileBtn}
                 type="file"
-                {...register("imageFile", { required: !draftButton })}
+                {...register("imageFile", {
+                  required: !draftButton,
+                  validate: { fileSize: (file) => fileTooLarge(file), fileTypes: (file) => supportedFileTypes(file) },
+                })}
                 onChange={(e) => loadImage(e)}
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
