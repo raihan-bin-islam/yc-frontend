@@ -1126,40 +1126,55 @@
         grid-column: col-start / col-end;
         grid-row: row-start 2 / row-end 2;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .firstReferencePosition {
         grid-column: col-start / col-end;
         grid-row: row-start 3 / row-end 3;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .firstReferenceOrg {
         grid-column: col-start / col-end;
         grid-row: row-start 4 / row-end 4;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .firstReferenceAddress {
         grid-column: col-start / col-end;
         grid-row: row-start 5 / row-end 5;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .firstReferenceTel {
         grid-column: col-start / col-end;
         grid-row: row-start 6 / row-end 6;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .firstReferenceEmail {
@@ -1168,9 +1183,11 @@
 
         margin-bottom: 2rem;
         border-bottom: 2px solid $primary;
+        border-inline: 2px solid $primary;
 
         @include response(phone) {
           border-bottom: 1px solid $primary;
+          border-inline: 1px solid $primary;
         }
       }
 
@@ -1180,9 +1197,11 @@
         grid-row: row-start 8 / row-end 8;
 
         border-top: 2px solid $primary;
+        border-inline: 2px solid $primary;
 
         @include response(phone) {
           border-top: 1px solid $primary;
+          border-inline: 1px solid $primary;
           border-bottom: none;
         }
       }
@@ -1190,40 +1209,55 @@
         grid-column: col-start / col-end;
         grid-row: row-start 9 / row-end 9;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .secondReferenceOrg {
         grid-column: col-start / col-end;
         grid-row: row-start 10 / row-end 10;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .secondReferenceAddress {
         grid-column: col-start / col-end;
         grid-row: row-start 11 / row-end 11;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .secondReferenceTel {
         grid-column: col-start / col-end;
         grid-row: row-start 12 / row-end 12;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
       .secondReferenceEmail {
         grid-column: col-start / col-end;
         grid-row: row-start 13 / row-end 13;
 
+        border-inline: 2px solid $primary;
+
         @include response(phone) {
           border-bottom: none;
+          border-inline: 1px solid $primary;
         }
       }
     }
