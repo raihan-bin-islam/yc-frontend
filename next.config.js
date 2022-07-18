@@ -8,7 +8,7 @@ const nextConfig = {
     youtubeApiKey: "AIzaSyB-erGj8FOrDWqnTP1j4pVY6qP21aVwNf0",
   },
   optimizeFonts: false,
-  trailingSlash: true / false,
+  // trailingSlash: true / false,
 
   images: {
     domains: ["ycadmin.yyventures.org"],

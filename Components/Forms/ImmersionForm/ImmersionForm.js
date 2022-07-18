@@ -142,7 +142,7 @@ function ImmersionForm(props) {
     unregister,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     defaultValues: defaultValues,
   });
@@ -1137,7 +1137,12 @@ function ImmersionForm(props) {
             </div>
             <div className={`${secondContactRelation} ${box}`}>
               <label htmlFor="secondContactRelation">Relation to Applicant</label>
-              <input id="secondContactRelation" type="text" {...register("secondContactRelation")} />
+              <input
+                id="secondContactRelation"
+                type="text"
+                {...register("secondContactRelation")}
+                disabled={isSubmitting}
+              />
             </div>
           </div>
           <div className={btnContainer}>
