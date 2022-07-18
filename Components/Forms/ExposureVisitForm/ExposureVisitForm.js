@@ -318,13 +318,15 @@ const ExposureVisitForm = () => {
       </div>
       <div className={`${exposureFormBody} container-layout`}>
         <form onSubmit={handleSubmit(onSubmit, onError)} encType="multipart/form-data">
-          {/* PERSONAL INFORMATION */}
+          {/*------------------------------- PERSONAL INFORMATION -----------------------------*/}
 
           <div className={personalInfoContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>Apply at-least 1 months before start date; Facilitation Fee $50 for a week</p>
             </div>
-            {/* Purpose Of Visit */}
+            {/*------------------------------------------------*/}
+            {/*--------------- Purpose Of Visit ---------------*/}
+            {/*------------------------------------------------*/}
             <div className={`${purposeBox} ${box}`}>
               <label htmlFor="purpose">
                 Purpose of Visit <span className={requiredField}>*</span>
@@ -333,7 +335,9 @@ const ExposureVisitForm = () => {
               {errors.purpose?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
               {errors.purpose?.type === "max" && <FormErrorMessage msg="Must be shorter than 5 characters" />}
             </div>
-            {/* Family Name */}
+            {/*------------------------------------------*/}
+            {/*-------------- Family Name ---------------*/}
+            {/*------------------------------------------*/}
             <div className={`${familyNameBox} ${box}`}>
               <label htmlFor="familyName">
                 Family Name <span className={requiredField}>*</span>
@@ -341,7 +345,9 @@ const ExposureVisitForm = () => {
               <input id="familyName" type="text" {...register("familyName", { required: !draftButton })} />
               {errors.familyName?.type === "required" && <FormErrorMessage msg="Family Name Required" />}
             </div>
-            {/* First Name */}
+            {/*-----------------------------------------*/}
+            {/*--------------- First Name --------------*/}
+            {/*-----------------------------------------*/}
             <div className={`${firstNameBox} ${box}`}>
               <label htmlFor="firstName">
                 First Name <span className={requiredField}>*</span>
@@ -349,7 +355,9 @@ const ExposureVisitForm = () => {
               <input id="firstName" type="text" {...register("firstName", { required: !draftButton })} />
               {errors.firstName?.type === "required" && <FormErrorMessage msg="First Name Required" />}
             </div>
-            {/* Date of birth */}
+            {/*-------------------------------------------*/}
+            {/*-------------- Date of birth --------------*/}
+            {/*-------------------------------------------*/}
             <div className={`${dobBox} ${box}`}>
               <label htmlFor="dob">
                 Date of Birth <span className={requiredField}>*</span>
@@ -365,7 +373,9 @@ const ExposureVisitForm = () => {
               {errors.dob?.type === "required" && <FormErrorMessage msg="Date of birth is required" />}
               {errors.dob?.type === "validate" && <FormErrorMessage msg="Date of birth cannot be a future date" />}
             </div>
-            {/* Expected duration */}
+            {/*---------------------------------------------*/}
+            {/*----------- Expected duration ---------------*/}
+            {/*---------------------------------------------*/}
             <div className={`${durationBox} ${box}`}>
               <label htmlFor="duration">
                 Expected Duration <span className={requiredField}>*</span>
@@ -374,7 +384,9 @@ const ExposureVisitForm = () => {
               {errors.duration?.type === "required" && <FormErrorMessage msg="Expected duration cannot be empty" />}
               {errors.duration?.type === "min" && <FormErrorMessage msg="Expected duration cannot be negative" />}
             </div>
-            {/* Start date */}
+            {/*--------------------------------------------*/}
+            {/*---------------- Start date ----------------*/}
+            {/*--------------------------------------------*/}
             <div className={`${startDateBox} ${box}`}>
               <label htmlFor="startDate">
                 Start Date <span className={requiredField}>*</span>
@@ -382,7 +394,9 @@ const ExposureVisitForm = () => {
               <input id="startDate" type="date" {...register("startDate", { required: !draftButton })} />
               {errors.startDate?.type === "required" && <FormErrorMessage msg="Start Date is required" />}
             </div>
-            {/*  Nationality */}
+            {/*-------------------------------------------*/}
+            {/*--------------- Nationality ---------------*/}
+            {/*-------------------------------------------*/}
             <div className={`${nationalityBox} ${box}`}>
               <label htmlFor="nationality">
                 Nationality <span className={requiredField}>*</span>
@@ -390,7 +404,9 @@ const ExposureVisitForm = () => {
               <input id="nationality" type="text" {...register("nationality", { required: !draftButton })} />
               {errors.nationality?.type === "required" && <FormErrorMessage msg="Nationality Required" />}
             </div>
-            {/* Gender */}
+            {/*------------------------------------------*/}
+            {/*---------------- Gender ------------------*/}
+            {/*------------------------------------------*/}
             <div className={`${genderBox} ${box}`}>
               <label htmlFor="gender">
                 Gender <span className={requiredField}>*</span>
@@ -402,7 +418,9 @@ const ExposureVisitForm = () => {
               </select>
               {errors.gender?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
             </div>
-            {/* Passport number */}
+            {/*----------------------------------------*/}
+            {/*------------- Passport number ----------*/}
+            {/*----------------------------------------*/}
             <div className={`${passportNumberBox} ${box}`}>
               <label htmlFor="passportNumber">
                 Passport Number <span className={requiredField}>*</span>
@@ -410,7 +428,9 @@ const ExposureVisitForm = () => {
               <input id="passportNumber" type="text" {...register("passportNumber", { required: !draftButton })} />
               {errors.passportNumber?.type === "required" && <FormErrorMessage msg="Passport No. Required" />}
             </div>
-            {/* Recent Photo */}
+            {/*--------------------------------------*/}
+            {/*------------- Recent Photo -----------*/}
+            {/*--------------------------------------*/}
             <div className={`${imageFileBox} ${box}`}>
               <div className={imageContainer}>
                 <p>
@@ -438,7 +458,9 @@ const ExposureVisitForm = () => {
                 <FormErrorMessage msg="Please Upload An Image File ( jpeg/png )" />
               )}
             </div>
-            {/* Mailing Address */}
+            {/*-------------------------------------------*/}
+            {/*------------- Mailing Address -------------*/}
+            {/*-------------------------------------------*/}
             <div className={`${mailingAddBox} ${box}`}>
               <label htmlFor="mailingAdd">
                 Mailing Address <span className={requiredField}>*</span>
@@ -446,7 +468,9 @@ const ExposureVisitForm = () => {
               <input id="mailingAdd" type="text" {...register("mailingAdd", { required: !draftButton })} />
               {errors.mailingAdd?.type === "required" && <FormErrorMessage msg="Mailing Address can not be empty" />}
             </div>
-            {/* Telephone */}
+            {/*------------------------------------------*/}
+            {/*--------------- Telephone ----------------*/}
+            {/*------------------------------------------*/}
             <div className={`${residenceBox} ${box}`}>
               <label htmlFor="residence">
                 Telephone (Residence) <span className={requiredField}>*</span>
@@ -466,7 +490,9 @@ const ExposureVisitForm = () => {
               {errors.telephoneNo?.type === "pattern" && <FormErrorMessage msg="invalid number" />}
               {errors.telephoneNo?.type === "required" && <FormErrorMessage msg="Telephone no. is required" />}
             </div>
-            {/* Mobile Phone */}
+            {/*------------------------------------------*/}
+            {/*--------------- Mobile Phone -------------*/}
+            {/*------------------------------------------*/}
             <div className={`${mobilePhoneBox} ${box}`}>
               <label htmlFor="mobilePhone">
                 Mobile Phone <span className={requiredField}>*</span>
@@ -482,7 +508,9 @@ const ExposureVisitForm = () => {
               {errors.mobilePhone?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
               {errors.mobilePhone?.type === "pattern" && <FormErrorMessage msg="Please enter a valid mobile number" />}
             </div>
-            {/* Email Address */}
+            {/*-----------------------------------------*/}
+            {/*--------------- Email Address -----------*/}
+            {/*-----------------------------------------*/}
             <div className={`${emailBox} ${box}`}>
               <label htmlFor="email">
                 Email Address <span className={requiredField}>*</span>
@@ -500,13 +528,17 @@ const ExposureVisitForm = () => {
             </div>
           </div>
 
-          {/* EDUCATION STATUS */}
+          {/*--------------------------------------------------*/}
+          {/*---------------- EDUCATION STATUS ----------------*/}
+          {/*--------------------------------------------------*/}
 
           <div id="education-status" className={educationInfoContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>Education (in chronological order)</p>
             </div>
-            {/* Institution Name */}
+            {/*---------------------------------------------*/}
+            {/*-------------- Institution Name -------------*/}
+            {/*---------------------------------------------*/}
             <div className={educationInfoInner}>
               <div id="education-status-field" className={`${institutionField} ${box}`}>
                 <label>
@@ -518,7 +550,9 @@ const ExposureVisitForm = () => {
                 )}
               </div>
 
-              {/* Period */}
+              {/*------------------------------------------*/}
+              {/*---------------- Period ------------------*/}
+              {/*------------------------------------------*/}
 
               <div id="education-status-field" className={`${periodFromField} ${box}`}>
                 <label>
@@ -540,7 +574,9 @@ const ExposureVisitForm = () => {
                 )}
               </div>
 
-              {/* Major */}
+              {/*--------------------------------------------*/}
+              {/*------------------- Major ------------------*/}
+              {/*--------------------------------------------*/}
 
               <div id="education-status-field" className={`${majorField} ${box}`}>
                 <label>
@@ -557,7 +593,9 @@ const ExposureVisitForm = () => {
                   <FormErrorMessage msg="Field can not be empty" />
                 )}
               </div>
-              {/* Score Obtained */}
+              {/*-------------------------------------------*/}
+              {/*-------------- Score Obtained -------------*/}
+              {/*-------------------------------------------*/}
               <div id="education-status-field" className={`${qualificationField} ${box}`}>
                 <label>
                   Qualification Obtained/ to be obtained <span className={requiredField}>*</span>
@@ -572,7 +610,9 @@ const ExposureVisitForm = () => {
             {/* -----------------2nd educational status--------------------- */}
             {eduCount >= 1 && (
               <div className={educationInfoInner}>
-                <h2 className={educationAdditionalHeading}>2nd</h2>
+                {/*---------------------------------------------*/}
+                {/*-------------- Institution Name -------------*/}
+                {/*---------------------------------------------*/}
                 <div id="education-status-field" className={`${institutionField} ${box}`}>
                   <label>
                     School, College, University, Etc. <span className={requiredField}>*</span>
@@ -583,7 +623,9 @@ const ExposureVisitForm = () => {
                   )}
                 </div>
 
-                {/* Period */}
+                {/*------------------------------------------*/}
+                {/*---------------- Period ------------------*/}
+                {/*------------------------------------------*/}
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
@@ -605,7 +647,9 @@ const ExposureVisitForm = () => {
                   )}
                 </div>
 
-                {/* Major */}
+                {/*--------------------------------------------*/}
+                {/*------------------- Major ------------------*/}
+                {/*--------------------------------------------*/}
 
                 <div id="education-status-field" className={`${majorField} ${box}`}>
                   <label>
@@ -622,7 +666,9 @@ const ExposureVisitForm = () => {
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
-                {/* Score Obtained */}
+                {/*-------------------------------------------*/}
+                {/*-------------- Score Obtained -------------*/}
+                {/*-------------------------------------------*/}
 
                 <div id="education-status-field" className={`${qualificationField} ${box}`}>
                   <label>
@@ -639,7 +685,9 @@ const ExposureVisitForm = () => {
 
             {eduCount >= 2 && (
               <div className={educationInfoInner}>
-                <h2 className={educationAdditionalHeading}>3rd</h2>
+                {/*---------------------------------------------*/}
+                {/*-------------- Institution Name -------------*/}
+                {/*---------------------------------------------*/}
                 <div id="education-status-field" className={`${institutionField} ${box}`}>
                   <label>
                     School, College, University, Etc. <span className={requiredField}>*</span>
@@ -650,7 +698,9 @@ const ExposureVisitForm = () => {
                   )}
                 </div>
 
-                {/* Period */}
+                {/*------------------------------------------*/}
+                {/*---------------- Period ------------------*/}
+                {/*------------------------------------------*/}
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
@@ -672,7 +722,9 @@ const ExposureVisitForm = () => {
                   )}
                 </div>
 
-                {/* Major */}
+                {/*--------------------------------------------*/}
+                {/*------------------- Major ------------------*/}
+                {/*--------------------------------------------*/}
 
                 <div id="education-status-field" className={`${majorField} ${box}`}>
                   <label>
@@ -689,7 +741,9 @@ const ExposureVisitForm = () => {
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
-                {/* Score Obtained */}
+                {/*-------------------------------------------*/}
+                {/*-------------- Score Obtained -------------*/}
+                {/*-------------------------------------------*/}
 
                 <div id="education-status-field" className={`${qualificationField} ${box}`}>
                   <label>
@@ -705,7 +759,9 @@ const ExposureVisitForm = () => {
             {/* -----------------4th educational status--------------------- */}
             {eduCount >= 3 && (
               <div className={educationInfoInner}>
-                <h2 className={educationAdditionalHeading}>4th</h2>
+                {/*---------------------------------------------*/}
+                {/*-------------- Institution Name -------------*/}
+                {/*---------------------------------------------*/}
                 <div id="education-status-field" className={`${institutionField} ${box}`}>
                   <label>
                     School, College, University, Etc. <span className={requiredField}>*</span>
@@ -716,7 +772,9 @@ const ExposureVisitForm = () => {
                   )}
                 </div>
 
-                {/* Period */}
+                {/*------------------------------------------*/}
+                {/*---------------- Period ------------------*/}
+                {/*------------------------------------------*/}
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
@@ -738,7 +796,9 @@ const ExposureVisitForm = () => {
                   )}
                 </div>
 
-                {/* Major */}
+                {/*--------------------------------------------*/}
+                {/*------------------- Major ------------------*/}
+                {/*--------------------------------------------*/}
 
                 <div id="education-status-field" className={`${majorField} ${box}`}>
                   <label>
@@ -755,7 +815,9 @@ const ExposureVisitForm = () => {
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
-                {/* Score Obtained */}
+                {/*-------------------------------------------*/}
+                {/*-------------- Score Obtained -------------*/}
+                {/*-------------------------------------------*/}
 
                 <div id="education-status-field" className={`${qualificationField} ${box}`}>
                   <label>
@@ -794,7 +856,9 @@ const ExposureVisitForm = () => {
             </div>
           </div>
 
-          {/* CURRENT EMPLOYMENT STATUS */}
+          {/*-----------------------------------------------------------*/}
+          {/*--------------- CURRENT EMPLOYMENT STATUS -----------------*/}
+          {/*-----------------------------------------------------------*/}
 
           <div className={employmentStatusContainer}>
             <div className={`${headingContainer} ${box}`}>
@@ -805,18 +869,12 @@ const ExposureVisitForm = () => {
             </div>
             <div className={`${orgField} ${box}`}>
               <input type="text" {...register("orgName")} />
-              {/* {errors.orgName?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
             <div className={`${desigHeader} ${box}`}>
               <p>Designation</p>
             </div>
             <div className={`${desigField} ${box}`}>
               <input type="text" {...register("designation")} />
-              {/* {errors.designation?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
             <div className={`${sinceHeader} ${box}`}>
               <p>Since</p>
@@ -827,25 +885,25 @@ const ExposureVisitForm = () => {
                 <option value="2021">2021</option>
                 <option value="2020">2020</option>
               </select>
-              {/* {errors.since?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
             <div className={`${responHeader} ${box}`}>
               <p>Responsibilities</p>
             </div>
             <div className={`${responField} ${box}`}>
               <input type="text" {...register("responsibility")} />
-              {/* {errors.responsibility?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
+            {/* ---------------------------------------------------- */}
+            {/* ---------------- Professional Goals ---------------- */}
+            {/* ---------------------------------------------------- */}
             <div className={`${questionOne} ${box}`}>
               <p>How will an exposure visit at the Yunus Centre apply to your professional goals?</p>
             </div>
             <div className={`${ansOne} ${box}`}>
               <textarea {...register("profGoal", { maxLength: 250 })} />
             </div>
+            {/* ---------------------------------------------------- */}
+            {/* ------------- Future Of Social Business ------------ */}
+            {/* ---------------------------------------------------- */}
             <div className={`${questionTwo} ${box}`}>
               <p>What does the future of Social Business look like to you? </p>
             </div>
@@ -856,6 +914,9 @@ const ExposureVisitForm = () => {
                 })}
               />
             </div>
+            {/* ---------------------------------------------------- */}
+            {/* --------------- Grameen Organizations -------------- */}
+            {/* ---------------------------------------------------- */}
             <div className={`${questionThree} ${box}`}>
               <p>Tick (√) five or less Grameen Organizations you would like to meet during your time here? </p>
             </div>
@@ -887,6 +948,9 @@ const ExposureVisitForm = () => {
                 </div>
               )}
             </div>
+            {/* ---------------------------------------------------- */}
+            {/* --------------------- Field Trips ------------------ */}
+            {/* ---------------------------------------------------- */}
             <div className={`${questionFour} ${box}`}>
               <p>Did you participate in any field trip with any Grameen organization before?</p>
               <p>If yes, please specify the organization, the date and duration?</p>
@@ -898,6 +962,9 @@ const ExposureVisitForm = () => {
                 })}
               />
             </div>
+            {/* ---------------------------------------------------- */}
+            {/* ----------------- About The Program ---------------- */}
+            {/* ---------------------------------------------------- */}
             <div className={`${questionFive} ${box}`}>
               <p>Where did you learn about the program (Please tick √ as appropriate)</p>
             </div>
@@ -973,13 +1040,17 @@ const ExposureVisitForm = () => {
             </div>
           </div>
 
-          {/* EMERGENCY CONTACTS */}
+          {/*-----------------------------------------------------------*/}
+          {/*------------------ EMERGENCY CONTACTS ---------------------*/}
+          {/*-----------------------------------------------------------*/}
 
           <div className={emergencyContactContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>Emergency Contacts</p>
             </div>
-            {/* First Contact */}
+            {/*---------------------------------------------------*/}
+            {/*------------------ First Contact ------------------*/}
+            {/*---------------------------------------------------*/}
             <div className={`${firstContactName} ${box}`}>
               <label htmlFor="firstContactName">
                 Name of <b>First</b> Contact
@@ -1011,7 +1082,9 @@ const ExposureVisitForm = () => {
               <input id="firstContactRelation" type="text" {...register("firstContactRelation")} />
             </div>
 
-            {/* Second Contact */}
+            {/*----------------------------------------------------*/}
+            {/*------------------ Second Contact ------------------*/}
+            {/*----------------------------------------------------*/}
             <div className={`${secondContactName} ${box}`}>
               <label htmlFor="secondContactName">
                 Name of <b>second</b> Contact

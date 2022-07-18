@@ -12,7 +12,7 @@ import { isFutureDate } from "../utilityFunctions/customFormValidations";
 
 // DATA
 import fieldData from "./data/checkboxInterestData.json";
-
+import defaultValues from "./data/defaultValues.json";
 // CSS
 import styles from "./InternshipForm.module.scss";
 import { clearTextInput } from "../utilityFunctions/formDataChecks";
@@ -154,70 +154,7 @@ function InternshipForm(props) {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      interestField: "",
-      familyName: "",
-      firstName: "",
-      dob: "",
-      duration: "",
-      startDate: "",
-      nationality: "",
-      gender: "",
-      passportNumber: "",
-      imageFile: "",
-      mailingAdd: "",
-      telephoneNo: "",
-      residence: "",
-      mobilePhone: "",
-      email: "",
-      institutionName: [],
-      institutionFrom: [],
-      institutionTo: [],
-      major: [],
-      qualification: [],
-      scholarship: "",
-      organization: "",
-      issueDate: "",
-      activity: [],
-      position: [],
-      achievement: [],
-      activityPeriodFrom: [],
-      activityPeriodTo: [],
-      whyAndExpectation: "",
-      interestIn: "",
-      additionalSkill: "",
-      fieldTrip: "",
-      sourceCampus: "",
-      sourceRef: "",
-      sourceYunus: "",
-      sourceOthers: "",
-      firstReferenceName: "",
-      firstReferencePosition: "",
-      firstReferenceOrg: "",
-      firstReferenceAddress: "",
-      firstReferenceTel: "",
-      firstReferenceEmail: "",
-      secondReferenceName: "",
-      secondReferencePosition: "",
-      secondReferenceOrg: "",
-      secondReferenceAddress: "",
-      secondReferenceTel: "",
-      secondReferenceEmail: "",
-      firstContactName: "",
-      firstContactAddress: "",
-      firstContactTel: "",
-      firstContactBusinessName: "",
-      firstContactBusinessAddress: "",
-      firstContactBusinessTel: "",
-      firstContactRelation: "",
-      secondContactName: "",
-      secondContactAddress: "",
-      secondContactTel: "",
-      secondContactBusinessName: "",
-      secondContactBusinessAddress: "",
-      secondContactBusinessTel: "",
-      secondContactRelation: "",
-    },
+    defaultValues: defaultValues,
   });
 
   // ------------------------ Custom Functions ***Start*** ------------------------------------------------------
@@ -339,13 +276,13 @@ function InternshipForm(props) {
     formdata.append("emmergency_contacts[1][business_telephone]", data.secondContactBusinessTel);
     formdata.append("emmergency_contacts[1][relation_to_applicant]", data.secondContactRelation);
 
-    // await fetch(`${baseUrl}/internship-program-application`, {
-    //   method: "POST",
-    //   body: formdata,
-    // })
-    //   .then((res) => res.status)
-    //   .then((status) => console.log(status))
-    //   .catch((err) => err);
+    await fetch(`${baseUrl}/internship-program-application`, {
+      method: "POST",
+      body: formdata,
+    })
+      .then((res) => res.status)
+      .then((status) => console.log(status))
+      .catch((err) => err);
   };
 
   return (
@@ -355,13 +292,15 @@ function InternshipForm(props) {
       </div>
       <div className={`${internshipFormBody} container-layout`}>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-          {/* PERSONAL INFORMATION */}
+          {/*======================= PERSONAL INFORMATION ========================*/}
           <div className={personalInfoContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>(Apply at-least 2 months before start date)</p>
             </div>
 
-            {/* Field of interest */}
+            {/*-----------------------------------------------------*/}
+            {/*---------------- Field of interest ------------------*/}
+            {/*-----------------------------------------------------*/}
             <div className={`${interestBox} ${box}`}>
               <p className={requiredField}>Ineterest field</p>
               <div className={container}>
@@ -380,7 +319,9 @@ function InternshipForm(props) {
                 })}
               </div>
             </div>
-            {/* Family Name */}
+            {/*---------------------------------------------------*/}
+            {/*----------------- Family Name ---------------------*/}
+            {/*---------------------------------------------------*/}
             <div className={`${familyNameBox} ${box}`}>
               <label htmlFor="familyName" className={requiredField}>
                 Family Name
@@ -395,7 +336,9 @@ function InternshipForm(props) {
               />
               {errors.familyName?.type === "required" && <FormErrorMessage msg="Family Name Required" />}
             </div>
-            {/* First Name */}
+            {/*--------------------------------------------------------*/}
+            {/*---------------------- First Name ----------------------*/}
+            {/*--------------------------------------------------------*/}
             <div className={`${firstNameBox} ${box}`}>
               <label htmlFor="firstName" className={requiredField}>
                 First Name
@@ -410,7 +353,9 @@ function InternshipForm(props) {
               />
               {errors.firstName?.type === "required" && <FormErrorMessage msg="First Name Required" />}
             </div>
-            {/* Date of birth */}
+            {/*-----------------------------------------------------------*/}
+            {/*---------------------- Date of birth ----------------------*/}
+            {/*-----------------------------------------------------------*/}
             <div className={`${dobBox} ${box}`}>
               <label htmlFor="dob" className={requiredField}>
                 Date of Birth
@@ -426,7 +371,9 @@ function InternshipForm(props) {
               {errors.dob?.type === "required" && <FormErrorMessage msg="Date of birth is required" />}
               {errors.dob?.type === "validate" && <FormErrorMessage msg="Date of birth cannot be a future date" />}
             </div>
-            {/* Expected duration */}
+            {/*---------------------------------------------------------------*/}
+            {/*---------------------- Expected duration ----------------------*/}
+            {/*---------------------------------------------------------------*/}
             <div className={`${durationBox} ${box}`}>
               <label htmlFor="duration" className={requiredField}>
                 Expected Duration
@@ -435,7 +382,9 @@ function InternshipForm(props) {
               {errors.duration?.type === "required" && <FormErrorMessage msg="Expected duration cannot be empty" />}
               {errors.duration?.type === "min" && <FormErrorMessage msg="Expected duration cannot be negative" />}
             </div>
-            {/* Start date */}
+            {/*--------------------------------------------------------*/}
+            {/*---------------------- Start date ----------------------*/}
+            {/*--------------------------------------------------------*/}
             <div className={`${startDateBox} ${box}`}>
               <label htmlFor="startDate" className={requiredField}>
                 Start Date
@@ -443,7 +392,9 @@ function InternshipForm(props) {
               <input id="startDate" type="date" {...register("startDate", { required: !draftButton })} />
               {errors.startDate?.type === "required" && <FormErrorMessage msg="Start Date is required" />}
             </div>
-            {/*  Nationality */}
+            {/*----------------------------------------------------------*/}
+            {/*----------------------  Nationality ----------------------*/}
+            {/*----------------------------------------------------------*/}
             <div className={`${nationalityBox} ${box}`}>
               <label htmlFor="nationality" className={requiredField}>
                 Nationality
@@ -459,7 +410,9 @@ function InternshipForm(props) {
               {errors.nationality?.type === "required" && <FormErrorMessage msg="Nationality Required" />}
               {errors.nationality?.type === "pattern" && <FormErrorMessage msg="Only use A-Z a-z" />}
             </div>
-            {/* Gender */}
+            {/*----------------------------------------------------*/}
+            {/*---------------------- Gender ----------------------*/}
+            {/*----------------------------------------------------*/}
             <div className={`${genderBox} ${box}`}>
               <label htmlFor="gender" className={requiredField}>
                 Gender
@@ -471,13 +424,17 @@ function InternshipForm(props) {
               </select>
               {errors.gender?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
             </div>
-            {/* Passport number */}
+            {/*-------------------------------------------------------------*/}
+            {/*---------------------- Passport number ----------------------*/}
+            {/*-------------------------------------------------------------*/}
             <div className={`${passportNumberBox} ${box}`}>
               <label htmlFor="passportNumber">Passport Number</label>
               <input id="passportNumber" type="text" {...register("passportNumber", { pattern: /^[A-Z][0-9]{8}$/i })} />
               {errors.passportNumber?.type === "pattern" && <FormErrorMessage msg="Invalid passport number" />}
             </div>
-            {/* Recent Photo */}
+            {/*----------------------------------------------------------*/}
+            {/*---------------------- Recent Photo ----------------------*/}
+            {/*----------------------------------------------------------*/}
             <div className={`${imageFileBox} ${box}`}>
               <div className={imageContainer}>
                 <p className={requiredField}>Recent Photo</p>
@@ -494,7 +451,9 @@ function InternshipForm(props) {
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
             </div>
-            {/* Mailing Address */}
+            {/*----------------------------------------------------*/}
+            {/*----------------- Mailing Address ------------------*/}
+            {/*----------------------------------------------------*/}
             <div className={`${mailingAddBox} ${box}`}>
               <label htmlFor="mailingAdd" className={requiredField}>
                 Mailing Address
@@ -502,7 +461,9 @@ function InternshipForm(props) {
               <input id="mailingAdd" type="text" {...register("mailingAdd", { required: !draftButton })} />
               {errors.mailingAdd?.type === "required" && <FormErrorMessage msg="Mailing Address can not be empty" />}
             </div>
-            {/* Telephone */}
+            {/*----------------------------------------------*/}
+            {/*----------------- Telephone ------------------*/}
+            {/*----------------------------------------------*/}
             <div className={`${residenceBox} ${box}`}>
               <label htmlFor="residence">Telephone (Residence)</label>
               <input
@@ -518,7 +479,9 @@ function InternshipForm(props) {
               />
               {errors.telephoneNo?.type === "pattern" && <FormErrorMessage msg="invalid number" />}
             </div>
-            {/* Mobile Phone */}
+            {/*-------------------------------------------------*/}
+            {/*----------------- Mobile Phone ------------------*/}
+            {/*-------------------------------------------------*/}
             <div className={`${mobilePhoneBox} ${box}`}>
               <label htmlFor="mobilePhone">Mobile Phone</label>
               <input
@@ -530,7 +493,9 @@ function InternshipForm(props) {
               />
               {errors.mobilePhone?.type === "pattern" && <FormErrorMessage msg="Please enter a valid mobile number" />}
             </div>
-            {/* Email Address */}
+            {/*--------------------------------------------------*/}
+            {/*----------------- Email Address ------------------*/}
+            {/*--------------------------------------------------*/}
             <div className={`${emailBox} ${box}`}>
               <label htmlFor="email" className={requiredField}>
                 Email Address
@@ -549,13 +514,17 @@ function InternshipForm(props) {
             </div>
           </div>
 
-          {/* EDUCATION STATUS */}
+          {/*-----------------------------------------------------*/}
+          {/*----------------- EDUCATION STATUS ------------------*/}
+          {/*-----------------------------------------------------*/}
 
           <div id="education-status" className={educationInfoContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>Education (in chronological order)</p>
             </div>
-            {/* Institution Name */}
+            {/*-----------------------------------------------------*/}
+            {/*----------------- Institution Name ------------------*/}
+            {/*-----------------------------------------------------*/}
             <div className={educationInfoInner}>
               <div id="education-status-field" className={`${institutionField} ${box}`}>
                 <label>
@@ -567,7 +536,9 @@ function InternshipForm(props) {
                 )}
               </div>
 
-              {/* Period */}
+              {/*-------------------------------------------*/}
+              {/*----------------- Period ------------------*/}
+              {/*-------------------------------------------*/}
 
               <div id="education-status-field" className={`${periodFromField} ${box}`}>
                 <label>
@@ -589,7 +560,9 @@ function InternshipForm(props) {
                 )}
               </div>
 
-              {/* Major */}
+              {/*------------------------------------------*/}
+              {/*----------------- Major ------------------*/}
+              {/*------------------------------------------*/}
 
               <div id="education-status-field" className={`${majorField} ${box}`}>
                 <label>
@@ -604,7 +577,9 @@ function InternshipForm(props) {
                   <FormErrorMessage msg="Field can not be empty" />
                 )}
               </div>
-              {/* Score Obtained */}
+              {/*---------------------------------------------------*/}
+              {/*----------------- Score Obtained ------------------*/}
+              {/*---------------------------------------------------*/}
               <div id="education-status-field" className={`${qualificationField} ${box}`}>
                 <label>
                   Qualification Obtained/ to be obtained <span className={requiredField}></span>
@@ -630,7 +605,9 @@ function InternshipForm(props) {
                   )}
                 </div>
 
-                {/* Period */}
+                {/*----------------------------------------*/}
+                {/*----------------- Period ---------------*/}
+                {/*----------------------------------------*/}
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
@@ -652,7 +629,9 @@ function InternshipForm(props) {
                   )}
                 </div>
 
-                {/* Major */}
+                {/*---------------------------------------*/}
+                {/*----------------- Major ---------------*/}
+                {/*---------------------------------------*/}
 
                 <div id="education-status-field" className={`${majorField} ${box}`}>
                   <label>
@@ -667,7 +646,9 @@ function InternshipForm(props) {
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
-                {/* Score Obtained */}
+                {/*------------------------------------------------*/}
+                {/*----------------- Score Obtained ---------------*/}
+                {/*------------------------------------------------*/}
 
                 <div id="education-status-field" className={`${qualificationField} ${box}`}>
                   <label>
@@ -695,7 +676,9 @@ function InternshipForm(props) {
                   )}
                 </div>
 
-                {/* Period */}
+                {/*-------------------------------------------*/}
+                {/*------------------ Period -----------------*/}
+                {/*-------------------------------------------*/}
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
@@ -717,7 +700,9 @@ function InternshipForm(props) {
                   )}
                 </div>
 
-                {/* Major */}
+                {/*------------------------------------------*/}
+                {/*------------------ Major -----------------*/}
+                {/*------------------------------------------*/}
 
                 <div id="education-status-field" className={`${majorField} ${box}`}>
                   <label>
@@ -732,7 +717,9 @@ function InternshipForm(props) {
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
-                {/* Score Obtained */}
+                {/*---------------------------------------------------*/}
+                {/*------------------ Score Obtained -----------------*/}
+                {/*---------------------------------------------------*/}
 
                 <div id="education-status-field" className={`${qualificationField} ${box}`}>
                   <label>
@@ -759,7 +746,9 @@ function InternshipForm(props) {
                   )}
                 </div>
 
-                {/* Period */}
+                {/*--------------------------------------------*/}
+                {/*------------------- Period -----------------*/}
+                {/*--------------------------------------------*/}
 
                 <div id="education-status-field" className={`${periodFromField} ${box}`}>
                   <label>
@@ -781,7 +770,9 @@ function InternshipForm(props) {
                   )}
                 </div>
 
-                {/* Major */}
+                {/*-------------------------------------------*/}
+                {/*------------------- Major -----------------*/}
+                {/*-------------------------------------------*/}
 
                 <div id="education-status-field" className={`${majorField} ${box}`}>
                   <label>
@@ -796,7 +787,9 @@ function InternshipForm(props) {
                     <FormErrorMessage msg="Field can not be empty" />
                   )}
                 </div>
-                {/* Score Obtained */}
+                {/*----------------------------------------------------*/}
+                {/*------------------- Score Obtained -----------------*/}
+                {/*----------------------------------------------------*/}
 
                 <div id="education-status-field" className={`${qualificationField} ${box}`}>
                   <label>
@@ -835,7 +828,9 @@ function InternshipForm(props) {
             </div>
           </div>
 
-          {/* NOTABLE ACHIEVEMENT */}
+          {/*---------------------------------------------------------*/}
+          {/*------------------ NOTABLE ACHIEVEMENT ------------------*/}
+          {/*---------------------------------------------------------*/}
           <div className={notableContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>Notable Achievement</p>
@@ -845,27 +840,18 @@ function InternshipForm(props) {
             </div>
             <div className={`${scholarshipField} ${box}`}>
               <input id="scholarship" type="text" {...register("scholarship")} />
-              {/* {errors.scholarship?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
             <div className={`${organizationHeading} ${box}`}>
               <p>Issuing Organization</p>
             </div>
             <div className={`${organizationField} ${box}`}>
               <input id="organization" type="text" {...register("organization")} />
-              {/* {errors.organization?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
             <div className={`${issueDateHeading} ${box}`}>
               <p>Date of Issue</p>
             </div>
             <div className={`${issueDateField} ${box}`}>
               <input id="issueDate" type="date" {...register("issueDate")} />
-              {/* {errors.issueDate?.type === "required" && (
-                <FormErrorMessage msg="Field can not be empty" />
-              )} */}
             </div>
           </div>
 
@@ -1225,13 +1211,17 @@ function InternshipForm(props) {
             </div>
           </div>
 
-          {/* REFERENCES */}
+          {/*---------------------------------------------*/}
+          {/*--------------- REFERENCES ------------------*/}
+          {/*---------------------------------------------*/}
 
           <div className={referenceContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>References</p>
             </div>
-            {/* First Reference */}
+            {/*-----------------------------------------------*/}
+            {/*---------------- First Reference --------------*/}
+            {/*-----------------------------------------------*/}
             <div className={`${firstReferenceName} ${box}`}>
               <label htmlFor="firstReferenceName" className={requiredField}>
                 Name of <b>First</b> Reference
@@ -1304,7 +1294,9 @@ function InternshipForm(props) {
               {errors.firstReferenceEmail?.type === "pattern" && <FormErrorMessage msg="Invalid email" />}
             </div>
 
-            {/* Second Reference */}
+            {/*-------------------------------------------------*/}
+            {/*--------------- Second Reference ----------------*/}
+            {/*-------------------------------------------------*/}
             <div className={`${secondReferenceName} ${box}`}>
               <label htmlFor="secondReferenceName">
                 Name of <b>second</b> Reference
@@ -1333,13 +1325,17 @@ function InternshipForm(props) {
             </div>
           </div>
 
-          {/* EMERGENCY CONTACTS */}
+          {/*---------------------------------------------------------*/}
+          {/*---------------- EMERGENCY CONTACTS ---------------------*/}
+          {/*---------------------------------------------------------*/}
 
           <div className={emergencyContactContainer}>
             <div className={`${headingContainer} ${box}`}>
               <p>Emergency Contacts</p>
             </div>
-            {/* First Contact */}
+            {/*-------------------------------------------------*/}
+            {/*---------------- First Contact ------------------*/}
+            {/*-------------------------------------------------*/}
             <div className={`${firstContactName} ${box}`}>
               <label htmlFor="firstContactName" className={requiredField}>
                 Name of <b>First</b> Contact
@@ -1397,7 +1393,9 @@ function InternshipForm(props) {
               {errors.firstContactRelation?.type === "required" && <FormErrorMessage msg="Field cannot be empty" />}
             </div>
 
-            {/* Second Contact */}
+            {/*------------------------------------------------*/}
+            {/*--------------- Second Contact -----------------*/}
+            {/*------------------------------------------------*/}
             <div className={`${secondContactName} ${box}`}>
               <label htmlFor="secondContactName">
                 Name of <b>second</b> Contact
