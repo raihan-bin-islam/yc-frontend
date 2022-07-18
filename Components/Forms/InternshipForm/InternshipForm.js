@@ -152,6 +152,7 @@ function InternshipForm(props) {
     register,
     unregister,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: defaultValues,

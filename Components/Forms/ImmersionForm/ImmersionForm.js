@@ -141,6 +141,7 @@ function ImmersionForm(props) {
     register,
     unregister,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     defaultValues: defaultValues,
@@ -248,7 +249,7 @@ function ImmersionForm(props) {
       body: formdata,
     })
       .then((res) => res.status)
-      .then((status) => console.log(status))
+      .then((status) => status === 200 && reset())
       .catch((err) => err);
   };
 
