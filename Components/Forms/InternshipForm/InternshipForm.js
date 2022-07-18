@@ -561,6 +561,12 @@ function InternshipForm(props) {
               {errors.imageFile?.type === "required" && (
                 <FormErrorMessage msg="Please Upload an Image" />
               )}
+              {errors.imageFile?.type === "fileSize" && (
+                <FormErrorMessage msg="File Too Large" />
+              )}
+              {errors.imageFile?.type === "fileTypes" && (
+                <FormErrorMessage msg="Please Upload An Image File ( jpeg/png )" />
+              )}
             </div>
             {/*----------------------------------------------------*/}
             {/*----------------- Mailing Address ------------------*/}

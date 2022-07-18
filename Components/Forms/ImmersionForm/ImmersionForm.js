@@ -141,7 +141,8 @@ function ImmersionForm(props) {
     register,
     unregister,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     defaultValues: defaultValues,
   });
@@ -248,7 +249,7 @@ function ImmersionForm(props) {
       body: formdata,
     })
       .then((res) => res.status)
-      .then((status) => console.log(status))
+      .then((status) => status === 200 && reset())
       .catch((err) => err);
   };
 
@@ -398,6 +399,10 @@ function ImmersionForm(props) {
                 onChange={(e) => loadImage(e)}
               />
               {errors.imageFile?.type === "required" && <FormErrorMessage msg="Please Upload an Image" />}
+              {errors.imageFile?.type === "fileSize" && <FormErrorMessage msg="File Too Large" />}
+              {errors.imageFile?.type === "fileTypes" && (
+                <FormErrorMessage msg="Please Upload An Image File ( jpeg/png )" />
+              )}
             </div>
             {/*--------------------------------------------------*/}
             {/*----------------- Mailing Address ----------------*/}
@@ -1132,7 +1137,12 @@ function ImmersionForm(props) {
             </div>
             <div className={`${secondContactRelation} ${box}`}>
               <label htmlFor="secondContactRelation">Relation to Applicant</label>
-              <input id="secondContactRelation" type="text" {...register("secondContactRelation")} />
+              <input
+                id="secondContactRelation"
+                type="text"
+                {...register("secondContactRelation")}
+                disabled={isSubmitting}
+              />
             </div>
           </div>
           <div className={btnContainer}>

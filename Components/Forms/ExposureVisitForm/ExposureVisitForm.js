@@ -15,6 +15,7 @@ import defaultValues from "./data/defaultValues.json";
 import styles from "./ExposureVisitForm.module.scss";
 import { isFutureDate, fileTooLarge, supportedFileTypes } from "../utilityFunctions/customFormValidations";
 import { clearTextInput } from "../utilityFunctions/formDataChecks";
+import SuccessMessage from "../SuccessMessage/SuccessMessage";
 
 const ExposureVisitForm = () => {
   // Style ClassName
@@ -162,7 +163,7 @@ const ExposureVisitForm = () => {
     unregister,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     defaultValues: defaultValues,
   });
@@ -184,7 +185,7 @@ const ExposureVisitForm = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   // ---------------------------- Save As Draft ***End*** -------------------------------------------------------
@@ -1126,6 +1127,7 @@ const ExposureVisitForm = () => {
           </div>
         </form>
       </div>
+      {isSubmitSuccessful && <SuccessMessage />}
     </div>
   );
 };

@@ -16,7 +16,7 @@ const ProgramDetails = ({ details, handbook, link }) => {
               <ButtonLight text="Download Handbook" />
             </a>
           )}
-          <Link href={link ? link : "#"}>
+          <Link href={link} passHref>
             <a>
               <ButtonLight text="Apply Now" dark />
             </a>

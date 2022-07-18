@@ -19,7 +19,7 @@ const HeroWithLinks = ({ linksData, bannerImage, capitalize }) => {
             {linksData.map(({ link, linkText }, index) => {
               return (
                 <li key={index}>
-                  <Link href={link}>
+                  <Link href={link} passHref>
                     <a className={capitalize ? capitalLinkText : ""}>{linkText}</a>
                   </Link>
                 </li>
