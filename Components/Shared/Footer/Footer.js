@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import styles from "./Footer.module.scss";
 import ycLogo from "../../../public/yunus_center.png";
@@ -17,11 +17,35 @@ const Footer = () => {
     footerBodyLeft,
     footerBodyCenter,
     footerBodyRight,
+    textField,
+    checkBoxInput,
+    submitButton,
+    animateMount,
+    animateDismount,
+    cancelButton,
     footerBottom,
     mailHeading,
     socialMedia,
     footerCrafted,
   } = styles;
+
+  // State variable to show or hide the form fields
+  const [showForm, setShowForm] = useState(false);
+  const [email, setEmail] = useState("");
+  const [terms, setTerms] = useState(false);
+
+  // handle form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // const email = e.target[0].value;
+    // const terms = e.target[3].value;
+    // If the user accepts the terms and conditions only then post the data
+    if (terms) {
+      console.log(email);
+      const formData = new FormData();
+      formData.append("email", email);
+    }
+  };
 
   return (
     <footer className={footerSection}>
@@ -71,8 +95,59 @@ const Footer = () => {
                 <p>Sign up to get insights from the </p>
                 <p>Global Hub for Social Business</p>
               </div>
+
+              {/* Subscribe Form */}
               <div className="mt4">
-                <button>Subscribe</button>
+                {/* Input Field */}
+                <form action="POST" onSubmit={handleSubmit}>
+                  {showForm && (
+                    <input
+                      className={textField}
+                      type="text"
+                      name="subscriber"
+                      placeholder="Please Enter Your Email"
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  )}
+
+                  {/* Subscribe Button */}
+                  {!showForm && (
+                    <button
+                      className={`${submitButton} ${showForm ? animateMount : animateDismount}`}
+                      type="button"
+                      onClick={() => {
+                        setShowForm(true);
+                      }}
+                    >
+                      Subscribe
+                    </button>
+                  )}
+                  {/* Sign up button */}
+                  {showForm && (
+                    <button className={`${submitButton} ${showForm ? animateMount : animateDismount}`} type="submit">
+                      Sign Up
+                    </button>
+                  )}
+                  {/* Cancel Button */}
+                  {showForm && (
+                    <>
+                      <button className={cancelButton} onClick={() => setShowForm(false)}>
+                        cancel
+                      </button>
+                      {/* Checkbox Input */}
+                      <div className={checkBoxInput}>
+                        <input
+                          id="terms"
+                          type="checkbox"
+                          name="terms"
+                          checked={terms}
+                          onChange={() => setTerms(!terms)}
+                        />
+                        <label htmlFor="terms">I have read and accept terms & conditions</label>
+                      </div>
+                    </>
+                  )}
+                </form>
               </div>
             </div>
           </div>

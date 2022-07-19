@@ -254,6 +254,7 @@ const ExposureVisitForm = () => {
 
     let formdata = new FormData();
 
+    // --------------------Personal Information----------------------------------------------
     formdata.append("purpose_of_visit", data.purpose);
     formdata.append("family_name", data.familyName);
     formdata.append("first_name", data.firstName);
@@ -268,6 +269,8 @@ const ExposureVisitForm = () => {
     formdata.append("telephone_mobile", data.mobilePhone);
     formdata.append("telephone_residence", data.telephoneNo);
     formdata.append("email", data.email);
+
+    // -------------------------Education-----------------------------------------------------
     data.institutionName.forEach((element, index) => {
       formdata.append(`education[${index}][institution]`, data.institutionName[index]);
       formdata.append(`education[${index}][period_from]`, data.institutionFrom[index]);
@@ -275,17 +278,25 @@ const ExposureVisitForm = () => {
       formdata.append(`education[${index}][major]`, data.major[index]);
       formdata.append(`education[${index}][qualification]`, data.qualification[index]);
     });
+
+    // ----------------------------Employment Status-------------------------------------------
     formdata.append("current_employment[0][organization]", data.orgName);
     formdata.append("current_employment[0][designation]", data.designation);
     formdata.append("current_employment[0][since]", data.since);
     formdata.append("current_employment[0][responsibilities]", data.responsibility);
+
+    // -------------------------Goals,Future,Org to meet---------------------------------------
     formdata.append("visit_prof_goal", data.profGoal);
     formdata.append("future_of_sb", data.futureSocialBusiness);
     formdata.append("grameen_org_to_meet", data.organization);
+
+    // -------------------------Source Of Learning---------------------------------------------
     formdata.append("source_of_learning[0][campus]", data.sourceCampus);
     formdata.append("source_of_learning[0][reference]", data.sourceRef);
     formdata.append("source_of_learning[0][yc_website]", data.sourceYunus);
     formdata.append("source_of_learning[0][others]", data.sourceOthers);
+
+    // -------------------------Emergency Contacts---------------------------------------------
     formdata.append("emmergency_contacts[0][name]", data.firstContactName);
     formdata.append("emmergency_contacts[0][address]", data.firstContactAddress);
     formdata.append("emmergency_contacts[0][telephone]", data.firstContactTel);
@@ -301,15 +312,16 @@ const ExposureVisitForm = () => {
     formdata.append("emmergency_contacts[1][business_telephone]", data.secondContactBusinessTel);
     formdata.append("emmergency_contacts[1][relation_to_applicant]", data.secondContactRelation);
 
+    // Choose between 'save as draft' or 'submit'
+    formdata.append("is_submitted", !draftButton);
+
     await fetch(`${baseUrl}/exposure-visit-application`, {
       method: "POST",
       body: formdata,
     })
       .then((res) => res.status)
-      .then((status) => console.log(status))
+      .then((status) => status === 200 && reset())
       .catch((err) => err);
-
-    reset();
   };
 
   return (
@@ -520,7 +532,7 @@ const ExposureVisitForm = () => {
                 id="email"
                 type="text"
                 {...register("email", {
-                  required: !draftButton,
+                  required: true,
                   pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/i,
                 })}
               />
@@ -1119,10 +1131,10 @@ const ExposureVisitForm = () => {
           </div>
           <div className={btnContainer}>
             <div onClick={() => setDraftButton(false)}>
-              <ButtonLight text="Submit" type="submit" dark />
+              <ButtonLight text="Submit" type="submit" dark disabled={isSubmitting} />
             </div>
             <div onClick={() => setDraftButton(true)}>
-              <ButtonLight text="Save As Draft" type="submit" dark />
+              <ButtonLight text="Save As Draft" type="submit" dark disabled={isSubmitting} />
             </div>
           </div>
         </form>
