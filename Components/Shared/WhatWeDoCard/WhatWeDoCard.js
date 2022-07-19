@@ -8,6 +8,11 @@ import Link from "next/link";
 const WhatWeDoCard = ({ title, desc, photo, link, hoverDisable, externalLink }) => {
   const { container, imageDiv, image, heading, paragraph, disable } = styles;
 
+  // for next image we need to split the link and remove the base url since next image loader automatically adds it to the relative path
+  if (photo.includes("http://ycadmin.yyventures.org")) {
+    photo = photo.replace("http", "https");
+  }
+
   return (
     <Link href={link} passHref={true}>
       <a target={externalLink && "__blank"}>
