@@ -7,6 +7,7 @@ import useFetch from "../../Hooks/useFetch";
 import HeroBannerSmall from "../../Shared/HeroBannerSmall/HeroBannerSmall";
 import FormErrorMessage from "../FormErrorMessage/FormErrorMessage";
 import ButtonLight from "../../Shared/Button/Button";
+import SuccessMessage from "../SuccessMessage/SuccessMessage";
 
 // FORM VALIDATION
 import {
@@ -163,7 +164,7 @@ function InternshipForm(props) {
     unregister,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     defaultValues: defaultValues,
   });
@@ -2104,14 +2105,25 @@ function InternshipForm(props) {
           </div>
           <div className={btnContainer}>
             <div onClick={() => draftButton === true && setDraftButton(false)}>
-              <ButtonLight text="Submit" type="submit" dark />
+              <ButtonLight
+                text="Submit"
+                type="submit"
+                dark
+                disabled={isSubmitting}
+              />
             </div>
             <div onClick={() => draftButton === false && setDraftButton(true)}>
-              <ButtonLight text="Save As Draft" type="submit" dark />
+              <ButtonLight
+                text="Save As Draft"
+                type="submit"
+                dark
+                disabled={isSubmitting}
+              />
             </div>
           </div>
         </form>
       </div>
+      {isSubmitSuccessful && <SuccessMessage />}
     </div>
   );
 }
