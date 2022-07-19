@@ -21,6 +21,7 @@
 }
 
 .btnDisabled {
+  background-color: transparent;
   border-color: lighten($color: $textLight, $amount: 20);
   color: $textLight;
   pointer-events: none;
