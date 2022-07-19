@@ -1,6 +1,6 @@
 import React from "react";
 
-import ExposureVisitForm from "../../../Components/Forms/ExposureVisitForm/ExposureVisitForm";
+import ExposureVisitForm from "../../../../Components/Forms/ExposureVisitForm/ExposureVisitForm";
 
 import { useRouter } from "next/router";
 

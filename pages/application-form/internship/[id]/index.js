@@ -1,6 +1,6 @@
 import React from "react";
 
-import InternshipForm from "../../../Components/Forms/InternshipForm/InternshipForm";
+import InternshipForm from "../../../../Components/Forms/InternshipForm/InternshipForm";
 
 import { useRouter } from "next/router";
 
