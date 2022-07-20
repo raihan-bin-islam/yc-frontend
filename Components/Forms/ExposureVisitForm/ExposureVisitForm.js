@@ -16,6 +16,7 @@ import styles from "./ExposureVisitForm.module.scss";
 import { isFutureDate, fileTooLarge, supportedFileTypes } from "../utilityFunctions/customFormValidations";
 import { clearTextInput } from "../utilityFunctions/formDataChecks";
 import SuccessMessage from "../SuccessMessage/SuccessMessage";
+import useDraftData from "../../Hooks/useDraftData";
 
 const ExposureVisitForm = () => {
   // Style ClassName
@@ -103,8 +104,6 @@ const ExposureVisitForm = () => {
 
   // Data from api
   const [isLoading, majorList] = useFetch("/major-subjects");
-  const [draftData, setDraftData] = useState({});
-  const [fetched, setFetched] = useState(false);
 
   //------------------------------------- State Variables ***Start*** ------------------------------------------------------
   const maxEduCount = 4;
@@ -155,8 +154,7 @@ const ExposureVisitForm = () => {
   }, [eduCount]);
 
   //------------------------------------  Input field changes on Render ***End***----------------------------------------
-  if (draftData) {
-  }
+
   //   useForm API
   const {
     register,
@@ -169,25 +167,7 @@ const ExposureVisitForm = () => {
   });
 
   // --------------------- For Save As Draft ***Start*** --------------------------------------------------------
-  const fetchData = async () => {
-    await fetch(`/formDummyData/exposure-visit-draft.json`, {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // in case the api does not provide all the input field values that were empty we bind it with the default values using the spread operator
-        // So that values that are not available form the api is initialized with an empty string or array or whatever the type of that input field is
-        reset({ ...defaultValues, ...data });
-        loadImage(data.imageFile, true);
-        console.log(data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    // fetchData();
-  }, []);
-
+  const [draftData] = useDraftData();
   // ---------------------------- Save As Draft ***End*** -------------------------------------------------------
 
   // ------------------------ Custom Functions ***Start*** ------------------------------------------------------
@@ -251,6 +231,7 @@ const ExposureVisitForm = () => {
     e.preventDefault();
     // Base url of api
     const baseUrl = process.env.baseUrl;
+    console.log(data);
 
     let formdata = new FormData();
 
@@ -315,13 +296,13 @@ const ExposureVisitForm = () => {
     // Choose between 'save as draft' or 'submit'
     formdata.append("is_submitted", !draftButton);
 
-    await fetch(`${baseUrl}/exposure-visit-application`, {
-      method: "POST",
-      body: formdata,
-    })
-      .then((res) => res.status)
-      .then((status) => status === 200 && reset())
-      .catch((err) => err);
+    // await fetch(`${baseUrl}/exposure-visit-application`, {
+    //   method: "POST",
+    //   body: formdata,
+    // })
+    //   .then((res) => res.status)
+    //   .then((status) => status === 200 && reset())
+    //   .catch((err) => err);
   };
 
   return (
@@ -485,9 +466,7 @@ const ExposureVisitForm = () => {
             {/*--------------- Telephone ----------------*/}
             {/*------------------------------------------*/}
             <div className={`${residenceBox} ${box}`}>
-              <label htmlFor="residence">
-                Telephone (Residence) <span className={requiredField}>*</span>
-              </label>
+              <label htmlFor="residence">Telephone (Residence)</label>
               <input
                 id="telephoneNo"
                 type="tel"
