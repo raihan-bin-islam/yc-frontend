@@ -314,13 +314,13 @@ const ExposureVisitForm = ({ draftData }) => {
       }
     }
 
-    // await fetch(`${baseUrl}/exposure-visit-application`, {
-    //   method: "POST",
-    //   body: formdata,
-    // })
-    //   .then((res) => res.status)
-    //   .then((status) => status === 200)
-    //   .catch((err) => err);
+    await fetch(`${baseUrl}/exposure-visit-application`, {
+      method: "POST",
+      body: formdata,
+    })
+      .then((res) => res.status)
+      .then((status) => status === 200)
+      .catch((err) => err);
   };
 
   return (
