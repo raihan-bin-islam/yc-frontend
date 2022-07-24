@@ -13,12 +13,13 @@ import orgData from "./data/checkboxOrgData.json";
 import defaultValues from "./data/defaultValues.json";
 // CSS
 import styles from "./ExposureVisitForm.module.scss";
+
+// Custom Functions
 import { isFutureDate, fileTooLarge, supportedFileTypes } from "../utilityFunctions/customFormValidations";
 import { clearTextInput } from "../utilityFunctions/formDataChecks";
 import SuccessMessage from "../SuccessMessage/SuccessMessage";
-import useDraftData from "../../Hooks/useDraftData";
 
-const ExposureVisitForm = () => {
+const ExposureVisitForm = ({ draftData }) => {
   // Style ClassName
   const {
     exposureForm,
@@ -166,9 +167,15 @@ const ExposureVisitForm = () => {
     defaultValues: defaultValues,
   });
 
-  // --------------------- For Save As Draft ***Start*** --------------------------------------------------------
-  const [draftData] = useDraftData();
-  // ---------------------------- Save As Draft ***End*** -------------------------------------------------------
+  // --------------------- Initializing Form with Draft Data ***Start*** --------------------------------------------------------
+  useEffect(() => {
+    if (draftData?.id) {
+      setEduCount(draftData?.institutionName?.length - 1);
+      loadImage(draftData?.imageFile, true);
+      reset(draftData);
+    }
+  }, [draftData]);
+  // ---------------------------- Initializing Form with Draft Data ***End*** -------------------------------------------------------
 
   // ------------------------ Custom Functions ***Start*** ------------------------------------------------------
   // Unregister input fields on unmount
@@ -211,7 +218,8 @@ const ExposureVisitForm = () => {
   const loadImage = (file, link = false) => {
     let image = document.getElementById("output");
     if (link) {
-      image.src = file;
+      const baseUrlForImage = "https://ycadmin.yyventures.org/uploads/exposure_visit/";
+      image.src = baseUrlForImage + file;
       return;
     }
 
@@ -231,6 +239,7 @@ const ExposureVisitForm = () => {
     e.preventDefault();
     // Base url of api
     const baseUrl = process.env.baseUrl;
+
     console.log(data);
 
     let formdata = new FormData();
@@ -296,12 +305,21 @@ const ExposureVisitForm = () => {
     // Choose between 'save as draft' or 'submit'
     formdata.append("is_submitted", !draftButton);
 
+    if (draftData) {
+      if (draftButton) {
+        formdata.append("app_id", draftData?.app_id);
+        formdata.append("id", draftData?.id);
+      } else {
+        formdata.append("id", draftData?.id);
+      }
+    }
+
     // await fetch(`${baseUrl}/exposure-visit-application`, {
     //   method: "POST",
     //   body: formdata,
     // })
     //   .then((res) => res.status)
-    //   .then((status) => status === 200 && reset())
+    //   .then((status) => status === 200)
     //   .catch((err) => err);
   };
 
@@ -325,7 +343,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="purpose">
                 Purpose of Visit <span className={requiredField}>*</span>
               </label>
-              <input id="purpose" type="text" {...register("purpose", { required: !draftButton, max: 5 })} />
+              <input id="purpose" type="text" {...register("purpose", { required: true, max: 5 })} />
               {errors.purpose?.type === "required" && <FormErrorMessage msg="Field can not be empty" />}
               {errors.purpose?.type === "max" && <FormErrorMessage msg="Must be shorter than 5 characters" />}
             </div>
@@ -336,7 +354,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="familyName">
                 Family Name <span className={requiredField}>*</span>
               </label>
-              <input id="familyName" type="text" {...register("familyName", { required: !draftButton })} />
+              <input id="familyName" type="text" {...register("familyName", { required: true })} />
               {errors.familyName?.type === "required" && <FormErrorMessage msg="Family Name Required" />}
             </div>
             {/*-----------------------------------------*/}
@@ -346,7 +364,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="firstName">
                 First Name <span className={requiredField}>*</span>
               </label>
-              <input id="firstName" type="text" {...register("firstName", { required: !draftButton })} />
+              <input id="firstName" type="text" {...register("firstName", { required: true })} />
               {errors.firstName?.type === "required" && <FormErrorMessage msg="First Name Required" />}
             </div>
             {/*-------------------------------------------*/}
@@ -360,7 +378,7 @@ const ExposureVisitForm = () => {
                 id="dob"
                 type="date"
                 {...register("dob", {
-                  required: !draftButton,
+                  required: true,
                   validate: (v) => isFutureDate(v),
                 })}
               />
@@ -374,7 +392,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="duration">
                 Expected Duration <span className={requiredField}>*</span>
               </label>
-              <input id="duration" type="number" {...register("duration", { required: !draftButton, min: 0 })} />
+              <input id="duration" type="number" {...register("duration", { required: true, min: 0 })} />
               {errors.duration?.type === "required" && <FormErrorMessage msg="Expected duration cannot be empty" />}
               {errors.duration?.type === "min" && <FormErrorMessage msg="Expected duration cannot be negative" />}
             </div>
@@ -385,7 +403,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="startDate">
                 Start Date <span className={requiredField}>*</span>
               </label>
-              <input id="startDate" type="date" {...register("startDate", { required: !draftButton })} />
+              <input id="startDate" type="date" {...register("startDate", { required: true })} />
               {errors.startDate?.type === "required" && <FormErrorMessage msg="Start Date is required" />}
             </div>
             {/*-------------------------------------------*/}
@@ -395,7 +413,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="nationality">
                 Nationality <span className={requiredField}>*</span>
               </label>
-              <input id="nationality" type="text" {...register("nationality", { required: !draftButton })} />
+              <input id="nationality" type="text" {...register("nationality", { required: true })} />
               {errors.nationality?.type === "required" && <FormErrorMessage msg="Nationality Required" />}
             </div>
             {/*------------------------------------------*/}
@@ -405,7 +423,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="gender">
                 Gender <span className={requiredField}>*</span>
               </label>
-              <select {...register("gender", { required: !draftButton })}>
+              <select {...register("gender", { required: true })}>
                 <option value="female">Female</option>
                 <option value="male">Male</option>
                 <option value="other">Other</option>
@@ -419,7 +437,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="passportNumber">
                 Passport Number <span className={requiredField}>*</span>
               </label>
-              <input id="passportNumber" type="text" {...register("passportNumber", { required: !draftButton })} />
+              <input id="passportNumber" type="text" {...register("passportNumber", { required: true })} />
               {errors.passportNumber?.type === "required" && <FormErrorMessage msg="Passport No. Required" />}
             </div>
             {/*--------------------------------------*/}
@@ -441,7 +459,7 @@ const ExposureVisitForm = () => {
                 type="file"
                 accept="image/*"
                 {...register("imageFile", {
-                  required: !draftButton,
+                  required: true,
                   validate: { fileSize: (file) => fileTooLarge(file), fileTypes: (file) => supportedFileTypes(file) },
                 })}
                 onChange={(e) => loadImage(e.target.files[0])}
@@ -459,7 +477,7 @@ const ExposureVisitForm = () => {
               <label htmlFor="mailingAdd">
                 Mailing Address <span className={requiredField}>*</span>
               </label>
-              <input id="mailingAdd" type="text" {...register("mailingAdd", { required: !draftButton })} />
+              <input id="mailingAdd" type="text" {...register("mailingAdd", { required: true })} />
               {errors.mailingAdd?.type === "required" && <FormErrorMessage msg="Mailing Address can not be empty" />}
             </div>
             {/*------------------------------------------*/}
@@ -474,7 +492,7 @@ const ExposureVisitForm = () => {
                   "telephoneNo",
 
                   {
-                    required: !draftButton,
+                    required: true,
                     pattern: /^[0-9]+$/i,
                   }
                 )}
@@ -493,7 +511,7 @@ const ExposureVisitForm = () => {
                 id="mobilePhone"
                 type="text"
                 {...register("mobilePhone", {
-                  required: !draftButton,
+                  required: true,
                   pattern: /^[0-9]{3,14}$/i,
                 })}
               />

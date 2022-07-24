@@ -8,7 +8,9 @@ const Internship = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  return <InternshipForm />;
+  const [draftData] = useDraftData(`/internship-program-application?app_id=${id}`, "internship-program");
+
+  return <InternshipForm draftData={draftData} />;
 };
 
 export default Internship;

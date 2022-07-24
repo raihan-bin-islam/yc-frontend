@@ -8,7 +8,9 @@ const ImmersionProgram = () => {
   const router = useRouter();
   const id = router.query;
 
-  return <ImmersionForm />;
+  const [draftData] = useDraftData(`/immersion-program-application?app_id=${id}`, "immersion-program");
+
+  return <ImmersionForm draftData={draftData} />;
 };
 
 export default ImmersionProgram;
